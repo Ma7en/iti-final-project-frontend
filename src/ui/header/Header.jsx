@@ -42,7 +42,10 @@ function Header() {
     return (
         <>
             <header className="header" data-header>
-                <div className="overlay" data-overlay></div>
+                <div
+                    className={`overlay ${navbar !== false ? "active" : ""}`}
+                    data-overlay
+                ></div>
 
                 <div className="header-top">
                     <div className="container">
@@ -67,6 +70,7 @@ function Header() {
                                 </a>
                             </li>
                         </ul>
+
                         <div className="wrapper">
                             <ul className="header-top-social-list">
                                 <li>
@@ -115,19 +119,29 @@ function Header() {
                             <img src={`${logo}`} alt="Homeverse logo" />
                         </a>
 
-                        <nav className="navbar" data-navbar>
+                        <nav
+                            className={`navbar ${
+                                navbar !== false ? "active" : ""
+                            }`}
+                            data-navbar
+                        >
                             <div className="navbar-top">
                                 <a href="#" className="logo">
                                     <img src={`${logo}`} alt="Homeverse logo" />
                                 </a>
+
                                 <button
                                     className="nav-close-btn"
                                     data-nav-close-btn
                                     aria-label="Close Menu"
+                                    onClick={() => {
+                                        setNavbar(!navbar);
+                                    }}
                                 >
                                     <ion-icon name="close-outline" />
                                 </button>
                             </div>
+
                             <div className="navbar-bottom">
                                 <ul className="navbar-list">
                                     <li>
@@ -215,6 +229,9 @@ function Header() {
                                 className="header-bottom-actions-btn"
                                 data-nav-open-btn
                                 aria-label="Open Menu"
+                                onClick={() => {
+                                    setNavbar(!navbar);
+                                }}
                             >
                                 <ion-icon name="menu-outline" />
                                 <span>Menu</span>

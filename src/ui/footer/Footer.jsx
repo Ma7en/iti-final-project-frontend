@@ -1,6 +1,9 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 
+// assets
+import logoLight from "../../assets/images/logo/logo-light.png";
+
 function Footer() {
     return (
         <>
@@ -10,7 +13,7 @@ function Footer() {
                         <div className="footer-brand">
                             <a href="#" className="logo">
                                 <img
-                                    src="./assets/images/logo-light.png"
+                                    src={`${logoLight}`}
                                     alt="Homeverse logo"
                                 />
                             </a>
