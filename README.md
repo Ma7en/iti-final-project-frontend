@@ -61,7 +61,7 @@ git push -u origin main
 `Step 3` : Clone.
 
 ```
-git clone git remote add origin git@github.com:Ma7en/iti-final-project-frontend.git
+git clone git@github.com:Ma7en/iti-final-project-frontend.git
 ```
 
 `Step 4` : Pull.
