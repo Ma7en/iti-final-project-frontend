@@ -1,42 +1,41 @@
-
 .login-container {
-  background: white;
-  padding: 30px;
-  border-radius: 8px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  width: 600px;
-  height: 400px;
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    width: 600px;
+    height: 400px;
 
-  margin: auto;
-  margin-top: 20px;
+    margin: auto;
+    margin-top: 20px;
 }
 
 .loginheader {
-  margin-bottom: 20px;
-  color: #333;
+    margin-bottom: 20px;
+    color: #333;
 }
 
 label {
-  display: block;
-  margin-bottom: 5px;
-  font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
 }
 
 input[type="email"],
 input[type="password"] {
-  width: 100%;
-  padding: 12px;
-  margin-bottom: 15px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  transition: border-color 0.3s;
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: border-color 0.3s;
 }
 
 input[type="email"]:focus,
 input[type="password"]:focus {
-  border-color: #007bff;
-  outline: none;
+    border-color: #007bff;
+    outline: none;
 }
-.btnReset{
-  margin-top: 5px;
+.btnReset {
+    margin-top: 5px;
 }

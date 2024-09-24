@@ -1,41 +1,39 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import './login.css';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import "./Login.css";
 
 const Login = () => {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [error, setError] = useState('');
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [error, setError] = useState("");
     const navigate = useNavigate();
 
     const handleLogin = (e) => {
         e.preventDefault();
-        setError('');
+        setError("");
 
         if (!email || !password) {
-            setError('Please fill in all fields');
+            setError("Please fill in all fields");
             return;
         }
 
-  
-        if (email === 'user@example.com' && password === 'password') {
-            console.log('Logged in:', { email });
-           
+        if (email === "user@example.com" && password === "password") {
+            console.log("Logged in:", { email });
         } else {
-            setError('Invalid email or password');
+            setError("Invalid email or password");
         }
     };
 
     const handleSignupRedirect = () => {
-        navigate('/signup');
+        navigate("/signup");
     };
 
     const handleResetPasswordRedirect = () => {
-        navigate('/reset-password');
+        navigate("/resetpassword");
     };
 
     return (
-        <div className="container mt-5 loginContainer" >
+        <div className="container mt-5 loginContainer">
             <div className="card shadow-sm">
                 <div className="card-body">
                     <h2 className="text-center loginheader">Login</h2>
@@ -61,13 +59,26 @@ const Login = () => {
                                 required
                             />
                         </div>
-                        <button type="submit" className="btn btn-primary w-100">Login</button>
+                        <button type="submit" className="btn btn-primary w-100">
+                            Login
+                        </button>
                     </form>
                     <p className="mt-3 text-center ">
-                        Don't have an account? <button className="btn btn-link " onClick={handleSignupRedirect}>Sign up</button>
+                        Don't have an account?{" "}
+                        <button
+                            className="btn btn-link "
+                            onClick={handleSignupRedirect}
+                        >
+                            Sign up
+                        </button>
                     </p>
                     <p className="text-center ">
-                        <button className="btn btn-link  btnReset " onClick={handleResetPasswordRedirect}>Forgot Password?</button>
+                        <button
+                            className="btn btn-link  btnReset "
+                            onClick={handleResetPasswordRedirect}
+                        >
+                            Forgot Password?
+                        </button>
                     </p>
                 </div>
             </div>
