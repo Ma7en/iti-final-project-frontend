@@ -1,5 +1,4 @@
-// import
-// import logo from "./logo.svg";
+
 import "./App.css";
 import "./style.css";
 import { useState } from "react";
@@ -22,6 +21,7 @@ function App() {
             <themeContext.Provider value={{ darkMode, setDarkMode }}>
                 <languageContext.Provider value={{ language, setLanguage }}>
                     <Router />
+                
                 </languageContext.Provider>
             </themeContext.Provider>
         </>
