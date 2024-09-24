@@ -163,6 +163,10 @@ npm install @reduxjs/toolkit react-redux
 ```
 
 ```
+npm i styled-components
+```
+
+```
 npm install gh-pages --save-dev
 ```
 

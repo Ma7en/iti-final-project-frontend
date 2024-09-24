@@ -77,6 +77,7 @@ function Header() {
                                     <a
                                         href="#"
                                         className="header-top-social-link"
+                                        target="_blank"
                                     >
                                         <ion-icon name="logo-facebook" />
                                     </a>
@@ -85,6 +86,7 @@ function Header() {
                                     <a
                                         href="#"
                                         className="header-top-social-link"
+                                        target="_blank"
                                     >
                                         <ion-icon name="logo-twitter" />
                                     </a>
@@ -93,6 +95,7 @@ function Header() {
                                     <a
                                         href="#"
                                         className="header-top-social-link"
+                                        target="_blank"
                                     >
                                         <ion-icon name="logo-instagram" />
                                     </a>
@@ -101,6 +104,7 @@ function Header() {
                                     <a
                                         href="#"
                                         className="header-top-social-link"
+                                        target="_blank"
                                     >
                                         <ion-icon name="logo-pinterest" />
                                     </a>
@@ -215,8 +219,10 @@ function Header() {
                                 className="header-bottom-actions-btn"
                                 aria-label="Profile"
                             >
-                                <ion-icon name="person-outline" />
-                                <span>Profile</span>
+                                <NavLink to="/login">
+                                    <ion-icon name="person-outline" />
+                                    <span>Profile</span>
+                                </NavLink>
                             </button>
                             <button
                                 className="header-bottom-actions-btn"
