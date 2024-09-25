@@ -21,7 +21,10 @@ import Login from "../ui/login/Login";
 import Logout from "../ui/logout/Logout";
 import Signup from "../ui/signup/Signup";
 import ResetPassword from "../ui/resetpassword/ResetPassword";
+
+// user components
 import AppUser from "../pages/user/AppUser";
+import AppUserLayout from "../pages/user/AppUserLayout";
 
 function Router() {
     return (
@@ -52,13 +55,33 @@ function Router() {
 
                         {/* ProtectedRoute */}
                         <Route
-                            path="/user"
+                            // path="/user"
                             element={
                                 <ProtectedRoute>
-                                    <AppUser />
+                                    <AppUserLayout />
                                 </ProtectedRoute>
                             }
-                        />
+                        >
+                            <Route
+                                index
+                                element={
+                                    <Navigate
+                                        replace
+                                        to={`${App_User}/profile`}
+                                    />
+                                }
+                            />
+                            {/* <Route exact path="/user" component={Router} /> */}
+                            <Route path={`${App_User}`} element={<AppUser />} />
+                            <Route
+                                path={`${App_User}/profile`}
+                                element={<AppUser />}
+                            />
+                            <Route
+                                path={`/userprofile`}
+                                element={<AppUser />}
+                            />
+                        </Route>
 
                         <Route path="/" element={<HomepageLayout />}>
                             {/* home page */}

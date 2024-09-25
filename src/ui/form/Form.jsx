@@ -1,4 +1,3 @@
-// import
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Form.css";
@@ -7,41 +6,52 @@ import "./Form.css";
 import api from "../../utils/api";
 import { ACCESS_TOKEN, REFRESH_TOKEN } from "../../utils/constants";
 
-// ui components
-import LoadingIndicator from "../loader/LoadingIndicator";
-
 function Form({ route, method }) {
     const [username, setUsername] = useState("");
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    // const [profileImage, setProfileImage] = useState(null);
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
 
-    const name = method === "login" ? "Login" : "Signup";
+    const title = method === "login" ? "Login" : "Register";
 
     const handleSubmit = async (e) => {
         setLoading(true);
         e.preventDefault();
 
         try {
-            const res = await api.post(route, {
-                username,
-                firstName,
-                lastName,
-                email,
-                password,
-            });
-            if (method === "login") {
+            let res;
+            if (method === "register") {
+                const formData = new FormData();
+                formData.append("username", username);
+                formData.append("first_name", firstName);
+                formData.append("last_name", lastName);
+                formData.append("email", email);
+                formData.append("password", password);
+                // if (profileImage) {
+                //     formData.append("profile_image", profileImage);
+                // }
+
+                res = await api.post(route, formData, {
+                    headers: {
+                        "Content-Type": "multipart/form-data",
+                    },
+                });
+                navigate("/login");
+            } else {
+                res = await api.post(route, {
+                    username,
+                    password,
+                });
                 localStorage.setItem(ACCESS_TOKEN, res.data.access);
                 localStorage.setItem(REFRESH_TOKEN, res.data.refresh);
                 navigate("/user");
-            } else {
-                navigate("/login");
             }
         } catch (error) {
-            alert(error);
+            alert("Error: " + error.message);
         } finally {
             setLoading(false);
         }
@@ -49,8 +59,12 @@ function Form({ route, method }) {
 
     return (
         <>
-            <form onSubmit={handleSubmit} className="form-container">
-                <h1>{name}</h1>
+            <form
+                onSubmit={handleSubmit}
+                className="form-container"
+                encType="multipart/form-data"
+            >
+                <h1>{title}</h1>
                 <input
                     className="form-input"
                     type="text"
@@ -58,27 +72,37 @@ function Form({ route, method }) {
                     onChange={(e) => setUsername(e.target.value)}
                     placeholder="Username"
                 />
-                <input
-                    className="form-input"
-                    type="text"
-                    value={firstName}
-                    onChange={(e) => setFirstName(e.target.value)}
-                    placeholder="First Name"
-                />
-                <input
-                    className="form-input"
-                    type="text"
-                    value={lastName}
-                    onChange={(e) => setLastName(e.target.value)}
-                    placeholder="Last Name"
-                />
-                <input
-                    className="form-input"
-                    type="text"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder="Email"
-                />
+                {/*  */}
+                {method === "register" && (
+                    <>
+                        <input
+                            className="form-input"
+                            type="text"
+                            value={firstName}
+                            onChange={(e) => setFirstName(e.target.value)}
+                            placeholder="First Name"
+                        />
+                        <input
+                            className="form-input"
+                            type="text"
+                            value={lastName}
+                            onChange={(e) => setLastName(e.target.value)}
+                            placeholder="Last Name"
+                        />
+                        <input
+                            className="form-input"
+                            type="email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            placeholder="Email"
+                        />
+                        {/* <input
+                            className="form-input"
+                            type="file"
+                            onChange={(e) => setProfileImage(e.target.files[0])}
+                        /> */}
+                    </>
+                )}
                 <input
                     className="form-input"
                     type="password"
@@ -87,9 +111,9 @@ function Form({ route, method }) {
                     placeholder="Password"
                 />
 
-                {loading && <LoadingIndicator />}
+                {loading && <div>Loading...</div>}
                 <button className="form-button" type="submit">
-                    {name}
+                    {title}
                 </button>
             </form>
         </>
