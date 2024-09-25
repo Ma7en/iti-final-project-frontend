@@ -18,7 +18,7 @@ function Hero() {
                         </h2>
                         <p className="hero-text">
                             Lorem ipsum dolor sit amet, consectetur adipisicing
-                            elit, sed do eiusmod tempor incididunt ut labore.
+                            elit, sed do eiusmod tempor
                         </p>
                         <button className="btn">Make An Enquiry</button>
                     </div>
