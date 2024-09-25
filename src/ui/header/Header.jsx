@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import { useContext, useEffect, useState } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 // bootstrap
@@ -119,9 +119,9 @@ function Header() {
 
                 <div className="header-bottom">
                     <div className="container">
-                        <a href="#" className="logo">
+                        <Link to={`/`} className="logo">
                             <img src={`${logo}`} alt="Homeverse logo" />
-                        </a>
+                        </Link>
 
                         <nav
                             className={`navbar ${
@@ -130,9 +130,9 @@ function Header() {
                             data-navbar
                         >
                             <div className="navbar-top">
-                                <a href="#" className="logo">
+                                <Link to={`/`} className="logo">
                                     <img src={`${logo}`} alt="Homeverse logo" />
-                                </a>
+                                </Link>
 
                                 <button
                                     className="nav-close-btn"
@@ -149,13 +149,13 @@ function Header() {
                             <div className="navbar-bottom">
                                 <ul className="navbar-list">
                                     <li>
-                                        <a
-                                            href="#home"
+                                        <Link
+                                            to={`/`}
                                             className="navbar-link"
                                             data-nav-link
                                         >
                                             Home
-                                        </a>
+                                        </Link>
                                     </li>
                                     <li>
                                         <a

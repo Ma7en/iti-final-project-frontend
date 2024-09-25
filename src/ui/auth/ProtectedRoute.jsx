@@ -1,56 +1,60 @@
-// import
-/* eslint-disable no-unused-vars */
-/* eslint-disable react/prop-types */
-import styled from "styled-components";
-import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+/* eslint-disable react-hooks/exhaustive-deps */
+import { useState, useEffect } from "react";
+import { Navigate } from "react-router-dom";
 
-// ui component
-import Loader from "../loader/Loader";
+import { jwtDecode } from "jwt-decode";
 
-// styled component
-const FullPage = styled.div`
-    height: 100vh;
-    background-color: var(--color-grey-50);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-`;
+// utils
+import api from "../../utils/api";
+import { ACCESS_TOKEN, REFRESH_TOKEN } from "../../utils/constants";
 
-function ProtectedRouteUser({ children }) {
-    const navigate = useNavigate();
+function ProtectedRoute({ children }) {
+    const [isAuthorized, setIsAuthorized] = useState(null);
 
-    // 1) authenticated user
-    // const { isLoading, isAuthenticated } = useUser();
-    const { isLoading, isAuthenticated } = [""];
+    useEffect(() => {
+        auth().catch(() => setIsAuthorized(false));
+    }, []);
 
-    // 2) is thre is no authenticated user, redirect to the /login
-    useEffect(
-        function () {
-            if (!isAuthenticated && !isLoading) {
-                // navigate("/login");
-                navigate("/home");
+    const refreshToken = async () => {
+        const refreshToken = localStorage.getItem(REFRESH_TOKEN);
+        try {
+            const res = await api.post("/api/token/refresh/", {
+                refresh: refreshToken,
+            });
+            if (res.status === 200) {
+                localStorage.setItem(ACCESS_TOKEN, res.data.access);
+                setIsAuthorized(true);
+            } else {
+                setIsAuthorized(false);
             }
-            // else if (isAuthenticated) {
-            //     // Redirect to the specified URL if authenticated
-            //     navigate("/app/account");
-            // }
-        },
-        [isAuthenticated, isLoading, navigate]
-    );
+        } catch (error) {
+            console.log(error);
+            setIsAuthorized(false);
+        }
+    };
 
-    // 3) while loading , show a spinner
-    if (isLoading)
-        return (
-            <>
-                <FullPage>
-                    <Loader />;
-                </FullPage>
-            </>
-        );
+    const auth = async () => {
+        const token = localStorage.getItem(ACCESS_TOKEN);
+        if (!token) {
+            setIsAuthorized(false);
+            return;
+        }
+        const decoded = jwtDecode(token);
+        const tokenExpiration = decoded.exp;
+        const now = Date.now() / 1000;
 
-    // 4) if there is a user, render the app
-    if (isAuthenticated) return children;
+        if (tokenExpiration < now) {
+            await refreshToken();
+        } else {
+            setIsAuthorized(true);
+        }
+    };
+
+    if (isAuthorized === null) {
+        return <div>Loading...</div>;
+    }
+
+    return isAuthorized ? children : <Navigate to="/login" />;
 }
 
-export default ProtectedRouteUser;
+export default ProtectedRoute;

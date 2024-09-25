@@ -21,8 +21,15 @@ function NotFound() {
                 id="NotFound"
             >
                 <div
-                    className="container d-flex justify-content-center align-items-center flex-column gap-3"
-                    style={{ minHeight: "100vh" }}
+                    className="container"
+                    style={{
+                        minHeight: "100vh",
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        gap: "30px",
+                    }}
                 >
                     <div className="fs-1 fw-bold">
                         <h2>Error 404 NotFound</h2>

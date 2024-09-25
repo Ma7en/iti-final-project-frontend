@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
+import { Link } from "react-router-dom";
 
 // assets
 import logoLight from "../../assets/images/logo/logo-light.png";
@@ -11,12 +12,12 @@ function Footer() {
                 <div className="footer-top">
                     <div className="container">
                         <div className="footer-brand">
-                            <a href="#" className="logo">
+                            <Link to={`/`} className="logo">
                                 <img
                                     src={`${logoLight}`}
                                     alt="Homeverse logo"
                                 />
-                            </a>
+                            </Link>
                             <p className="section-text">
                                 Lorem Ipsum is simply dummy text of the and
                                 typesetting industry. Lorem Ipsum is dummy text
@@ -126,9 +127,9 @@ function Footer() {
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#" className="footer-link">
-                                        Login
-                                    </a>
+                                    <Link to={`/login`} className="footer-link">
+                                        login
+                                    </Link>
                                 </li>
                                 <li>
                                     <a href="#" className="footer-link">
@@ -153,9 +154,9 @@ function Footer() {
                                     </p>
                                 </li>
                                 <li>
-                                    <a href="#" className="footer-link">
+                                    <Link to={`/login`} className="footer-link">
                                         Login
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li>
                                     <a href="#" className="footer-link">

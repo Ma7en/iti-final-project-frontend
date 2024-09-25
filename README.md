@@ -167,6 +167,10 @@ npm i styled-components
 ```
 
 ```
+npm install jwt-decode
+```
+
+```
 npm install gh-pages --save-dev
 ```
 
