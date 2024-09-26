@@ -20,45 +20,43 @@ function About() {
                     <div className="about-content">
                         <p className="section-subtitle">About Us</p>
                         <h2 className="h2 section-title">
-                        Welcome to Apartment Finishing
-
+                            Welcome to Apartment Finishing
                         </h2>
                         <p className="about-text">
-                       
-At Apartment finishing, we’re dedicated to providing inspiration and resources for apartment finishing and interior design.
- Our goal is to help you transform your living space into a stylish and functional home that reflects your unique personality.
+                            At Apartment finishing, we’re dedicated to providing
+                            inspiration and resources for apartment finishing
+                            and interior design. Our goal is to help you
+                            transform your living space into a stylish and
+                            functional home that reflects your unique
+                            personality.
                         </p>
                         <ul className="about-list">
                             <li className="about-item">
                                 <div className="about-item-icon">
                                     <ion-icon name="home-outline" />
-                                  
                                 </div>
-                                <p className="about-item-text">
-                                Inspiration
-                                </p>
+                                <p className="about-item-text">Inspiration</p>
                             </li>
                             <li className="about-item">
                                 <div className="about-item-icon">
                                     <ion-icon name="leaf-outline" />
                                 </div>
                                 <p className="about-item-text">
-                                Guides & Tips                                </p>
+                                    Guides & Tips{" "}
+                                </p>
                             </li>
                             <li className="about-item">
                                 <div className="about-item-icon">
                                     <ion-icon name="wine-outline" />
                                 </div>
-                                <p className="about-item-text">
-                                Trends
-                                </p>
+                                <p className="about-item-text">Trends</p>
                             </li>
                             <li className="about-item">
                                 <div className="about-item-icon">
                                     <ion-icon name="shield-checkmark-outline" />
                                 </div>
                                 <p className="about-item-text">
-                                Expert Insights
+                                    Expert Insights
                                 </p>
                             </li>
                         </ul>
