@@ -20,7 +20,7 @@ import ProtectedRoute from "../ui/auth/ProtectedRoute";
 import Login from "../ui/login/Login";
 import Logout from "../ui/logout/Logout";
 import Signup from "../ui/signup/Signup";
-import Profile from "../ui/profile/Profile"
+import Profile from "../ui/profile/Profile";
 
 import ResetPassword from "../ui/resetpassword/ResetPassword";
 
@@ -87,7 +87,7 @@ function Router() {
                                 element={<AppUser />}
                             />
 
-                            {/* create project */}
+                            {/* project */}
                             <Route
                                 path={`${App_User}/createproject`}
                                 element={<CreateProject />}
@@ -106,6 +106,8 @@ function Router() {
                             />
 
                             {/* -- */}
+                            {/* about */}
+                            {/* contact */}
 
                             {/* Verify user */}
                             <Route path="/login" element={<Login />} />

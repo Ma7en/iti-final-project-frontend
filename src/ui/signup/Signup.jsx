@@ -51,22 +51,13 @@ function Signup() {
         } finally {
             setLoading(false);
         }
-<<<<<<< HEAD
-=======
+    };
 
-        if (password !== confirmPassword) {
-            setError('Passwords do not match');
-            return;
-        }
-
-        // Assuming username is derived from email or an additional input
-        const username = email.split('@')[0]; // use part of email as username
-        const user = { username, email };
-
-        console.log('Signed up:', user);
- 
-        navigate('/profile', { state: { user } });
->>>>>>> 2677884 (profile page added)
+    const handleLoginRedirect = () => {
+        navigate("/login");
+    };
+    const handleResetPasswordRedirect = () => {
+        navigate("/resetpassword");
     };
 
     // =1
@@ -161,12 +152,34 @@ function Signup() {
 
                     <form onSubmit={handleSignup}>
                         <div className="mb-3">
-                            <label className="form-label">Email:</label>
+                            <label className="form-label">Username:</label>
                             <input
-                                type=""
+                                type="text"
                                 className="form-control"
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)}
+                                value={username}
+                                onChange={(e) => setUsername(e.target.value)}
+                                required
+                            />
+                        </div>
+
+                        <div className="mb-3">
+                            <label className="form-label">First Name:</label>
+                            <input
+                                type="text"
+                                className="form-control"
+                                value={firstName}
+                                onChange={(e) => setFirstName(e.target.value)}
+                                required
+                            />
+                        </div>
+
+                        <div className="mb-3">
+                            <label className="form-label">Last Name:</label>
+                            <input
+                                type="text"
+                                className="form-control"
+                                value={lastName}
+                                onChange={(e) => setLastName(e.target.value)}
                                 required
                             />
                         </div>
@@ -197,6 +210,28 @@ function Signup() {
                             Sign Up
                         </button>
                     </form>
+
+                    <div className="other">
+                        <p className="mt-3 text-center ">
+                            Do you have an account?
+                        </p>
+
+                        <div>
+                            <button
+                                className="btn btn-link "
+                                onClick={handleLoginRedirect}
+                            >
+                                Login
+                            </button>
+
+                            <button
+                                className="btn btn-link "
+                                onClick={handleResetPasswordRedirect}
+                            >
+                                Forgot Password?
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </>
