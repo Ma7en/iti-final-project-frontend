@@ -48,17 +48,11 @@ function Signup() {
             });
             navigate("/login");
         } catch (error) {
-            alert("Registration failed: " + error.message);
+            // alert("Registration failed: " + error.message);
+            setError("Please enter the data correctly");
         } finally {
             setLoading(false);
         }
-    };
-
-    const handleLoginRedirect = () => {
-        navigate("/login");
-    };
-    const handleResetPasswordRedirect = () => {
-        navigate("/resetpassword");
     };
 
     return (
@@ -74,7 +68,10 @@ function Signup() {
                                 type="text"
                                 className="form-control"
                                 value={username}
-                                onChange={(e) => setUsername(e.target.value)}
+                                onChange={(e) => {
+                                    setUsername(e.target.value);
+                                    setError(false);
+                                }}
                                 required
                             />
                         </div>
@@ -85,7 +82,10 @@ function Signup() {
                                 type="text"
                                 className="form-control"
                                 value={firstName}
-                                onChange={(e) => setFirstName(e.target.value)}
+                                onChange={(e) => {
+                                    setFirstName(e.target.value);
+                                    setError(false);
+                                }}
                                 required
                             />
                         </div>
@@ -96,7 +96,10 @@ function Signup() {
                                 type="text"
                                 className="form-control"
                                 value={lastName}
-                                onChange={(e) => setLastName(e.target.value)}
+                                onChange={(e) => {
+                                    setLastName(e.target.value);
+                                    setError(false);
+                                }}
                                 required
                             />
                         </div>
@@ -107,7 +110,10 @@ function Signup() {
                                 type="email"
                                 className="form-control"
                                 value={email}
-                                onChange={(e) => setEmail(e.target.value)}
+                                onChange={(e) => {
+                                    setEmail(e.target.value);
+                                    setError(false);
+                                }}
                                 required
                             />
                         </div>
@@ -118,7 +124,10 @@ function Signup() {
                                 type="password"
                                 className="form-control"
                                 value={password}
-                                onChange={(e) => setPassword(e.target.value)}
+                                onChange={(e) => {
+                                    setPassword(e.target.value);
+                                    setError(false);
+                                }}
                                 required
                             />
                         </div>
@@ -143,14 +152,18 @@ function Signup() {
                         <div>
                             <button
                                 className="btn btn-link "
-                                onClick={handleLoginRedirect}
+                                onClick={() => {
+                                    navigate(`/login`);
+                                }}
                             >
                                 Login
                             </button>
 
                             <button
                                 className="btn btn-link "
-                                onClick={handleResetPasswordRedirect}
+                                onClick={() => {
+                                    navigate("/resetpassword");
+                                }}
                             >
                                 Forgot Password?
                             </button>

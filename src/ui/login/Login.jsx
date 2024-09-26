@@ -35,17 +35,10 @@ function Login() {
             navigate("/user/profile");
         } catch (error) {
             // alert("Error: " + error.message);
-            setError("Username Or password Error");
+            setError("Please enter the data correctly");
         } finally {
             setLoading(false);
         }
-    };
-
-    const handleSignupRedirect = () => {
-        navigate("/signup");
-    };
-    const handleResetPasswordRedirect = () => {
-        navigate("/resetpassword");
     };
 
     return (
@@ -112,14 +105,18 @@ function Login() {
                                 <div>
                                     <button
                                         className="btn btn-link "
-                                        onClick={handleSignupRedirect}
+                                        onClick={() => {
+                                            navigate("/signup");
+                                        }}
                                     >
                                         Sign up
                                     </button>
 
                                     <button
                                         className="btn btn-link "
-                                        onClick={handleResetPasswordRedirect}
+                                        onClick={() => {
+                                            navigate("/resetpassword");
+                                        }}
                                     >
                                         Forgot Password?
                                     </button>

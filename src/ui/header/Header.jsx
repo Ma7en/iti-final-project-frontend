@@ -122,7 +122,7 @@ function Header() {
 
                 <div className="header-bottom">
                     <div className="container">
-                        <Link to={`/`} className="logo">
+                        <Link to={`/`} className="logo" title="homeverse">
                             <img src={`${logo}`} alt="Homeverse logo" />
                         </Link>
 
@@ -133,7 +133,11 @@ function Header() {
                             data-navbar
                         >
                             <div className="navbar-top">
-                                <Link to={`/`} className="logo">
+                                <Link
+                                    to={`/`}
+                                    className="logo"
+                                    title="homeverse"
+                                >
                                     <img src={`${logo}`} alt="Homeverse logo" />
                                 </Link>
 
@@ -144,6 +148,7 @@ function Header() {
                                     onClick={() => {
                                         setNavbar(!navbar);
                                     }}
+                                    title="Close Menu"
                                 >
                                     <ion-icon name="close-outline" />
                                 </button>
@@ -156,6 +161,7 @@ function Header() {
                                             to={`/`}
                                             className="navbar-link"
                                             data-nav-link
+                                            title="homeverse"
                                         >
                                             Home
                                         </Link>
@@ -213,36 +219,68 @@ function Header() {
                             <button
                                 className="header-bottom-actions-btn"
                                 aria-label="Search"
+                                title="Search"
                             >
                                 <ion-icon name="search-outline" />
                                 <span>Search</span>
                             </button>
+
+                            {access && (
+                                <button
+                                    className="header-bottom-actions-btn"
+                                    aria-label="Logout"
+                                    title="Logout"
+                                >
+                                    <a
+                                        onClick={() => {
+                                            navigate(`/logout`);
+                                        }}
+                                        // to={`${App_User}/${App_User}/profile`}
+                                    >
+                                        <ion-icon name="log-out-outline" />
+                                        <span>Logout</span>
+                                    </a>
+                                </button>
+                            )}
 
                             <button
                                 className="header-bottom-actions-btn"
                                 aria-label="Profile"
                             >
                                 {access ? (
-                                    <NavLink
-                                        to={`${App_User}/${App_User}/profile`}
+                                    <a
+                                        title="Profile"
+                                        onClick={() => {
+                                            navigate(`${App_User}/profile`);
+                                        }}
+                                        // to={`${App_User}/${App_User}/profile`}
                                     >
                                         <ion-icon name="person-outline" />
                                         <span>Profile</span>
-                                    </NavLink>
+                                    </a>
                                 ) : (
-                                    <NavLink to="/login">
+                                    <a
+                                        title="login"
+                                        onClick={() => {
+                                            navigate(`/login`);
+                                        }}
+                                        // to="/login"
+                                    >
                                         <ion-icon name="person-outline" />
                                         <span>Login</span>
-                                    </NavLink>
+                                    </a>
                                 )}
                             </button>
+
                             <button
                                 className="header-bottom-actions-btn"
                                 aria-label="Cart"
+                                title="Cart"
                             >
                                 <ion-icon name="cart-outline" />
                                 <span>Cart</span>
                             </button>
+
                             <button
                                 className="header-bottom-actions-btn"
                                 data-nav-open-btn
@@ -250,6 +288,7 @@ function Header() {
                                 onClick={() => {
                                     setNavbar(!navbar);
                                 }}
+                                title="Menu"
                             >
                                 <ion-icon name="menu-outline" />
                                 <span>Menu</span>

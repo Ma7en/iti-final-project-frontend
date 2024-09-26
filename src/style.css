@@ -98,6 +98,10 @@ ion-icon {
     display: block;
 }
 
+img {
+    user-select: none;
+}
+
 button {
     border: none;
     background: none;
@@ -291,6 +295,7 @@ a {
 .header {
     position: relative;
     z-index: 2;
+    user-select: none;
 }
 
 .header-top {
@@ -1201,6 +1206,7 @@ a {
 .footer-bottom {
     background: var(--raisin-black-2);
     padding-block: 25px;
+    user-select: none;
 }
 
 .copyright {

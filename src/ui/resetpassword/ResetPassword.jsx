@@ -34,13 +34,6 @@ const ResetPassword = () => {
         // }
     };
 
-    const handleLoginRedirect = () => {
-        navigate("/login");
-    };
-    const handleSignupRedirect = () => {
-        navigate("/signup");
-    };
-
     return (
         <>
             <div className="resetpassword">
@@ -85,14 +78,18 @@ const ResetPassword = () => {
                         <div>
                             <button
                                 className="btn btn-link "
-                                onClick={handleLoginRedirect}
+                                onClick={() => {
+                                    navigate("/login");
+                                }}
                             >
                                 Login
                             </button>
 
                             <button
                                 className="btn btn-link "
-                                onClick={handleSignupRedirect}
+                                onClick={() => {
+                                    navigate("/signup");
+                                }}
                             >
                                 Sign Up
                             </button>

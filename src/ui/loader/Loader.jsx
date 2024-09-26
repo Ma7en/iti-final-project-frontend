@@ -21,12 +21,14 @@ function Loader() {
                     height: "100%",
                     // background: { darkMode ? "text-bg-dark" : ""},
                     zIndex: "10000",
+                    backgroundColor: "#fff",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
                 }}
-                className={`d-flex align-items-center justify-content-center ${
-                    darkMode ? "text-bg-dark" : "text-bg-light"
-                }`}
+                className={`${darkMode ? "text-bg-dark" : "text-bg-light"}`}
             >
-                <div className="d-flex gap-3">
+                <div className="">
                     <div className="spinner-border" role="status">
                         <span className="visually-hidden"></span>
                     </div>

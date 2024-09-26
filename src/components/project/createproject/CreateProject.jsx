@@ -1,13 +1,20 @@
 // import
 import React, { useEffect, useState } from "react";
 
+//
+import "./CreateProject.css";
+
 // utils
 import api from "../../../utils/api";
 
 // project components
 import DetailProject from "../detailproject/DetailProject";
+import { useNavigate } from "react-router-dom";
+import { App_User } from "../../../utils/constants";
 
 function CreateProject() {
+    const navigate = useNavigate();
+
     const [projects, setProjects] = useState([]);
 
     const [title, setTitle] = useState("");
@@ -93,73 +100,101 @@ function CreateProject() {
 
     return (
         <>
-            <div>
-                <div>
-                    <h2>Notes</h2>
-                    {projects.map((project, index) => (
-                        <DetailProject
-                            project={project}
-                            onDelete={deleteProject}
-                            key={index}
-                        />
-                    ))}
+            <div className="createproject">
+                <div className="container">
+                    <div className="section-title">
+                        <h1 className="h2">Create project</h1>
+                    </div>
+
+                    <div>
+                        {projects.map((project, index) => (
+                            <DetailProject
+                                project={project}
+                                onDelete={deleteProject}
+                                key={index}
+                            />
+                        ))}
+                    </div>
+
+                    <form onSubmit={createProject}>
+                        <div>
+                            <label htmlFor="title">Title:</label>
+                            <input
+                                type="text"
+                                id="title"
+                                name="title"
+                                required
+                                onChange={(e) => setTitle(e.target.value)}
+                                value={title}
+                            />
+                        </div>
+
+                        <div>
+                            <label htmlFor="details">details:</label>
+                            <textarea
+                                id="details"
+                                name="details"
+                                required
+                                value={details}
+                                onChange={(e) => setDetails(e.target.value)}
+                            ></textarea>
+                            <br />
+                        </div>
+
+                        <div>
+                            <label htmlFor="amount">amount:</label>
+                            <input
+                                type="number"
+                                id="amount"
+                                name="amount"
+                                required
+                                value={amount}
+                                onChange={(e) => setAmount(e.target.value)}
+                            />
+                        </div>
+
+                        <div>
+                            <label htmlFor="image">Image:</label>
+                            <input
+                                type="file"
+                                id="image"
+                                name="image"
+                                accept="image/*"
+                                onChange={(e) => setImage(e.target.files[0])}
+                            />
+                        </div>
+
+                        <button
+                            disabled
+                            type="submit"
+                            className="btn btn-primary w-100"
+                        >
+                            Submit
+                        </button>
+                    </form>
+
+                    <div className="other">
+                        <div>
+                            <button
+                                className="btn btn-link "
+                                onClick={() => {
+                                    navigate(`/${App_User}/profile`);
+                                }}
+                            >
+                                Profile
+                            </button>
+
+                            <button
+                                className="btn btn-link "
+                                onClick={() => {
+                                    navigate(`/`);
+                                }}
+                            >
+                                Home
+                            </button>
+                        </div>
+                    </div>
                 </div>
-
-                <h2>Create a Note</h2>
-                <form onSubmit={createProject}>
-                    <div>
-                        <label htmlFor="title">Title:</label>
-                        <br />
-                        <input
-                            type="text"
-                            id="title"
-                            name="title"
-                            required
-                            onChange={(e) => setTitle(e.target.value)}
-                            value={title}
-                        />
-                    </div>
-
-                    <div>
-                        <label htmlFor="details">details:</label>
-                        <br />
-                        <textarea
-                            id="details"
-                            name="details"
-                            required
-                            value={details}
-                            onChange={(e) => setDetails(e.target.value)}
-                        ></textarea>
-                        <br />
-                    </div>
-
-                    <div>
-                        <label htmlFor="amount">amount:</label>
-                        <br />
-                        <input
-                            type="number"
-                            id="amount"
-                            name="amount"
-                            required
-                            value={amount}
-                            onChange={(e) => setAmount(e.target.value)}
-                        />
-                    </div>
-
-                    <div>
-                        <label htmlFor="image">Image:</label>
-                        <br />
-                        <input
-                            type="file"
-                            id="image"
-                            name="image"
-                            accept="image/*"
-                            onChange={(e) => setImage(e.target.files[0])}
-                        />
-                    </div>
-
-                    <input type="submit" value="Submit"></input>
-                </form>
             </div>
         </>
     );
