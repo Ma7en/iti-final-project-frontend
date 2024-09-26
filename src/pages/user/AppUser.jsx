@@ -3,6 +3,9 @@ import { useNavigate } from "react-router-dom";
 
 // utils
 import api from "../../utils/api";
+import { App_User } from "../../utils/constants";
+
+// bootstrap components
 import { Button } from "react-bootstrap";
 
 function AppUser() {
@@ -41,6 +44,18 @@ function AppUser() {
                 <p>Last Name: {user.last_name}</p>
             </div>
             <div>div user</div>
+
+            <div>
+                <Button
+                    className="bg-warning fs-3 text-capitalize px-5 py-3"
+                    variant="warning"
+                    onClick={() => {
+                        navigate(`/${App_User}/${App_User}/createproject`);
+                    }}
+                >
+                    create project
+                </Button>
+            </div>
 
             <div>
                 <Button

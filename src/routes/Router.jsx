@@ -28,6 +28,9 @@ import ResetPassword from "../ui/resetpassword/ResetPassword";
 import AppUser from "../pages/user/AppUser";
 import AppUserLayout from "../pages/user/AppUserLayout";
 
+// project components
+import CreateProject from "../components/project/createproject/CreateProject";
+
 function Router() {
     return (
         <>
@@ -57,7 +60,7 @@ function Router() {
 
                         {/* ProtectedRoute */}
                         <Route
-                            // path="/user"
+                            path="/user"
                             element={
                                 <ProtectedRoute>
                                     <AppUserLayout />
@@ -73,7 +76,7 @@ function Router() {
                                     />
                                 }
                             />
-                            {/* <Route exact path="/user" component={Router} /> */}
+                            <Route exact path="/user" component={Router} />
                             <Route path={`${App_User}`} element={<AppUser />} />
                             <Route
                                 path={`${App_User}/profile`}
@@ -82,6 +85,12 @@ function Router() {
                             <Route
                                 path={`/userprofile`}
                                 element={<AppUser />}
+                            />
+
+                            {/* create project */}
+                            <Route
+                                path={`${App_User}/createproject`}
+                                element={<CreateProject />}
                             />
                         </Route>
 
@@ -95,6 +104,8 @@ function Router() {
                                 path="/homeverseapp"
                                 element={<HomePage />}
                             />
+
+                            {/* -- */}
 
                             {/* Verify user */}
                             <Route path="/login" element={<Login />} />

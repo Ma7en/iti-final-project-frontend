@@ -2,6 +2,9 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+//
+import "./Signup.css";
+
 // utils
 import api from "../../utils/api";
 
@@ -19,9 +22,10 @@ function Signup() {
     const [password, setPassword] = useState("");
     // const [profileImage, setProfileImage] = useState(null);
     const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(false);
     const navigate = useNavigate();
 
-    const handleRegister = async (e) => {
+    const handleSignup = async (e) => {
         setLoading(true);
         e.preventDefault();
 
@@ -65,61 +69,64 @@ function Signup() {
 >>>>>>> 2677884 (profile page added)
     };
 
-    return (
-        <>
-            <form
-                onSubmit={handleRegister}
-                className="form-container"
-                encType="multipart/form-data"
-            >
-                <h1>Register</h1>
-                <input
-                    className="form-input"
-                    type="text"
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
-                    placeholder="Username"
-                />
-                <input
-                    className="form-input"
-                    type="text"
-                    value={firstName}
-                    onChange={(e) => setFirstName(e.target.value)}
-                    placeholder="First Name"
-                />
-                <input
-                    className="form-input"
-                    type="text"
-                    value={lastName}
-                    onChange={(e) => setLastName(e.target.value)}
-                    placeholder="Last Name"
-                />
-                <input
-                    className="form-input"
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder="Email"
-                />
-                {/* <input
-                    className="form-input"
-                    type="file"
-                    onChange={(e) => setProfileImage(e.target.files[0])}
-                /> */}
-                <input
-                    className="form-input"
-                    type="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    placeholder="Password"
-                />
-                {loading && <div>Loading...</div>}
-                <button className="form-button" type="submit">
-                    Register
-                </button>
-            </form>
-        </>
-    );
+    // =1
+    // =================================================================
+
+    // return (
+    //     <>
+    //         <form
+    //             onSubmit={handleRegister}
+    //             className="form-container"
+    //             encType="multipart/form-data"
+    //         >
+    //             <h1>Register</h1>
+    //             <input
+    //                 className="form-input"
+    //                 type="text"
+    //                 value={username}
+    //                 onChange={(e) => setUsername(e.target.value)}
+    //                 placeholder="Username"
+    //             />
+    //             <input
+    //                 className="form-input"
+    //                 type="text"
+    //                 value={firstName}
+    //                 onChange={(e) => setFirstName(e.target.value)}
+    //                 placeholder="First Name"
+    //             />
+    //             <input
+    //                 className="form-input"
+    //                 type="text"
+    //                 value={lastName}
+    //                 onChange={(e) => setLastName(e.target.value)}
+    //                 placeholder="Last Name"
+    //             />
+    //             <input
+    //                 className="form-input"
+    //                 type="email"
+    //                 value={email}
+    //                 onChange={(e) => setEmail(e.target.value)}
+    //                 placeholder="Email"
+    //             />
+    //             {/* <input
+    //                 className="form-input"
+    //                 type="file"
+    //                 onChange={(e) => setProfileImage(e.target.files[0])}
+    //             /> */}
+    //             <input
+    //                 className="form-input"
+    //                 type="password"
+    //                 value={password}
+    //                 onChange={(e) => setPassword(e.target.value)}
+    //                 placeholder="Password"
+    //             />
+    //             {loading && <div>Loading...</div>}
+    //             <button className="form-button" type="submit">
+    //                 Register
+    //             </button>
+    //         </form>
+    //     </>
+    // );
 
     // =1
     // =================================================================
@@ -142,51 +149,58 @@ function Signup() {
     //     navigate("/");
     // };
 
-    // return (
-    //     <>
-    //         <div className="container mt-5">
-    //             <h2 className="text-center">Sign Up</h2>
-    //             {error && <div className="alert alert-danger">{error}</div>}
-    //             <form onSubmit={handleSignup}>
-    //                 <div className="mb-3">
-    //                     <label className="form-label">Email:</label>
-    //                     <input
-    //                         type="email"
-    //                         className="form-control"
-    //                         value={email}
-    //                         onChange={(e) => setEmail(e.target.value)}
-    //                         required
-    //                     />
-    //                 </div>
-    //                 <div className="mb-3">
-    //                     <label className="form-label">Password:</label>
-    //                     <input
-    //                         type="password"
-    //                         className="form-control"
-    //                         value={password}
-    //                         onChange={(e) => setPassword(e.target.value)}
-    //                         required
-    //                     />
-    //                 </div>
-    //                 <div className="mb-3">
-    //                     <label className="form-label">Confirm Password:</label>
-    //                     <input
-    //                         type="password"
-    //                         className="form-control"
-    //                         value={confirmPassword}
-    //                         onChange={(e) => setConfirmPassword(e.target.value)}
-    //                         required
-    //                     />
-    //                 </div>
-    //                 <button type="submit" className="btn btn-primary w-100">
-    //                     Sign Up
-    //                 </button>
-    //             </form>
-    //         </div>
-    //     </>
-    // );
+    // =1
+    // =================================================================
 
-    // return <Form route="/api/user/register/" method="register" />;
+    return (
+        <>
+            <div className="signup">
+                <div className="container">
+                    <h2 className="title">Sign Up</h2>
+                    {error && <div className="alert alert-danger">{error}</div>}
+
+                    <form onSubmit={handleSignup}>
+                        <div className="mb-3">
+                            <label className="form-label">Email:</label>
+                            <input
+                                type=""
+                                className="form-control"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                                required
+                            />
+                        </div>
+
+                        <div className="mb-3">
+                            <label className="form-label">Email:</label>
+                            <input
+                                type="email"
+                                className="form-control"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                                required
+                            />
+                        </div>
+
+                        <div className="mb-3">
+                            <label className="form-label">Password:</label>
+                            <input
+                                type="password"
+                                className="form-control"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                                required
+                            />
+                        </div>
+
+                        <button type="submit" className="btn btn-primary w-100">
+                            Sign Up
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </>
+    );
 }
 
 export default Signup;
