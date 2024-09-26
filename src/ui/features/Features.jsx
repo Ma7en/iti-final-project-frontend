@@ -13,7 +13,7 @@ function Features() {
                                 <div className="card-icon">
                                     <ion-icon name="car-sport-outline" />
                                 </div>
-                                <h3 className="card-title">Parking Space</h3>
+                                <h3 className="card-title"> Apartments </h3>
                                 <div className="card-btn">
                                     <ion-icon name="arrow-forward-outline" />
                                 </div>
@@ -24,7 +24,7 @@ function Features() {
                                 <div className="card-icon">
                                     <ion-icon name="water-outline" />
                                 </div>
-                                <h3 className="card-title">Swimming Pool</h3>
+                                <h3 className="card-title">Clinics</h3>
                                 <div className="card-btn">
                                     <ion-icon name="arrow-forward-outline" />
                                 </div>
@@ -35,7 +35,7 @@ function Features() {
                                 <div className="card-icon">
                                     <ion-icon name="shield-checkmark-outline" />
                                 </div>
-                                <h3 className="card-title">Private Security</h3>
+                                <h3 className="card-title">Pharmacies</h3>
                                 <div className="card-btn">
                                     <ion-icon name="arrow-forward-outline" />
                                 </div>
@@ -46,7 +46,7 @@ function Features() {
                                 <div className="card-icon">
                                     <ion-icon name="fitness-outline" />
                                 </div>
-                                <h3 className="card-title">Medical Center</h3>
+                                <h3 className="card-title">Offices</h3>
                                 <div className="card-btn">
                                     <ion-icon name="arrow-forward-outline" />
                                 </div>
@@ -57,7 +57,7 @@ function Features() {
                                 <div className="card-icon">
                                     <ion-icon name="library-outline" />
                                 </div>
-                                <h3 className="card-title">Library Area</h3>
+                                <h3 className="card-title">Hospitals</h3>
                                 <div className="card-btn">
                                     <ion-icon name="arrow-forward-outline" />
                                 </div>
@@ -68,7 +68,7 @@ function Features() {
                                 <div className="card-icon">
                                     <ion-icon name="bed-outline" />
                                 </div>
-                                <h3 className="card-title">King Size Beds</h3>
+                                <h3 className="card-title">Companies</h3>
                                 <div className="card-btn">
                                     <ion-icon name="arrow-forward-outline" />
                                 </div>
@@ -79,7 +79,7 @@ function Features() {
                                 <div className="card-icon">
                                     <ion-icon name="home-outline" />
                                 </div>
-                                <h3 className="card-title">Smart Homes</h3>
+                                <h3 className="card-title">Stores</h3>
                                 <div className="card-btn">
                                     <ion-icon name="arrow-forward-outline" />
                                 </div>
@@ -90,7 +90,7 @@ function Features() {
                                 <div className="card-icon">
                                     <ion-icon name="football-outline" />
                                 </div>
-                                <h3 className="card-title">Kid’s Playland</h3>
+                                <h3 className="card-title">Resturants</h3>
                                 <div className="card-btn">
                                     <ion-icon name="arrow-forward-outline" />
                                 </div>

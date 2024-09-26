@@ -204,7 +204,7 @@ function Header() {
                                     </li>
                                     <li>
                                         <a
-                                            href="#contact"
+                                            href="/contact"
                                             className="navbar-link"
                                             data-nav-link
                                         >

@@ -14,13 +14,12 @@ function Hero() {
                             <span>Real Estate Agency</span>
                         </p>
                         <h2 className="h1 hero-title">
-                            Find Your Dream House By Us
+                        Transform Your Space into a Dream Home
                         </h2>
                         <p className="hero-text">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing
-                            elit, sed do eiusmod tempor
+                        From Concept to Completion—We Bring Your Ideas to Life
                         </p>
-                        <button className="btn">Make An Enquiry</button>
+                        <a href="/contact" className="btn"> Contact</a>
                     </div>
                     <figure className="hero-banner">
                         <img

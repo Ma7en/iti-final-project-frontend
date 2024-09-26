@@ -23,15 +23,14 @@ function Service() {
                                     />
                                 </div>
                                 <h3 className="h3 card-title">
-                                    <a href="#">Buy a home</a>
+                                    <a href="#">Traditional Finishing</a>
                                 </h3>
                                 <p className="card-text">
-                                    over 1 million+ homes for sale available on
-                                    the website, we can match you with a house
-                                    you will want to call home.
+                                Traditional finishing brings warmth and timeless elegance, featuring classic designs,
+                                 rich colors, and detailed craftsmanship that create an inviting atmosphere.
                                 </p>
-                                <a href="#" className="card-link">
-                                    <span>Find A Home</span>
+                                <a href="/contact" className="card-link">
+                                    <span>Contact</span>
                                     <ion-icon name="arrow-forward-outline" />
                                 </a>
                             </div>
@@ -45,15 +44,14 @@ function Service() {
                                     />
                                 </div>
                                 <h3 className="h3 card-title">
-                                    <a href="#">Rent a home</a>
+                                    <a href="#"> Super Finishing</a>
                                 </h3>
                                 <p className="card-text">
-                                    over 1 million+ homes for sale available on
-                                    the website, we can match you with a house
-                                    you will want to call home.
+                                Super finishing emphasizes modern aesthetics with sleek designs, high-quality materials, 
+                                and functional spaces that promote a seamless flow in your home.
                                 </p>
-                                <a href="#" className="card-link">
-                                    <span>Find A Home</span>
+                                <a href="/contact" className="card-link">
+                                    <span>Contact</span>
                                     <ion-icon name="arrow-forward-outline" />
                                 </a>
                             </div>
@@ -67,15 +65,14 @@ function Service() {
                                     />
                                 </div>
                                 <h3 className="h3 card-title">
-                                    <a href="#">Sell a home</a>
+                                    <a href="#">Superlux Finishing</a>
                                 </h3>
                                 <p className="card-text">
-                                    over 1 million+ homes for sale available on
-                                    the website, we can match you with a house
-                                    you will want to call home.
+                                Superlux finishing offers unparalleled luxury with high-end materials, bespoke designs, 
+                                and smart home integration, creating a sophisticated and exclusive living experience.
                                 </p>
-                                <a href="#" className="card-link">
-                                    <span>Find A Home</span>
+                                <a href="/contact" className="card-link">
+                                    <span>Contact</span>
                                     <ion-icon name="arrow-forward-outline" />
                                 </a>
                             </div>

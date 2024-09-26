@@ -21,6 +21,7 @@ import Login from "../ui/login/Login";
 import Logout from "../ui/logout/Logout";
 import Signup from "../ui/signup/Signup";
 import Profile from "../ui/profile/Profile";
+import Contact from "../ui/contact/Contact"
 
 import ResetPassword from "../ui/resetpassword/ResetPassword";
 
@@ -104,7 +105,7 @@ function Router() {
                                 path="/homeverseapp"
                                 element={<HomePage />}
                             />
-
+                             <Route path="/contact" element={<Contact/>}/>
                             {/* -- */}
                             {/* about */}
                             {/* contact */}

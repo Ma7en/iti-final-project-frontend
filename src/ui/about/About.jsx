@@ -20,20 +20,22 @@ function About() {
                     <div className="about-content">
                         <p className="section-subtitle">About Us</p>
                         <h2 className="h2 section-title">
-                            The Leading Real Estate Rental Marketplace.
+                        Welcome to Apartment Finishing
+
                         </h2>
                         <p className="about-text">
-                            Over 39,000 people work for us in more than 70
-                            countries all over the This breadth of global
-                            coverage, combined with specialist services
+                       
+At Apartment finishing, we’re dedicated to providing inspiration and resources for apartment finishing and interior design.
+ Our goal is to help you transform your living space into a stylish and functional home that reflects your unique personality.
                         </p>
                         <ul className="about-list">
                             <li className="about-item">
                                 <div className="about-item-icon">
                                     <ion-icon name="home-outline" />
+                                  
                                 </div>
                                 <p className="about-item-text">
-                                    Smart Home Design
+                                Inspiration
                                 </p>
                             </li>
                             <li className="about-item">
@@ -41,15 +43,14 @@ function About() {
                                     <ion-icon name="leaf-outline" />
                                 </div>
                                 <p className="about-item-text">
-                                    Beautiful Scene Around
-                                </p>
+                                Guides & Tips                                </p>
                             </li>
                             <li className="about-item">
                                 <div className="about-item-icon">
                                     <ion-icon name="wine-outline" />
                                 </div>
                                 <p className="about-item-text">
-                                    Exceptional Lifestyle
+                                Trends
                                 </p>
                             </li>
                             <li className="about-item">
@@ -57,16 +58,16 @@ function About() {
                                     <ion-icon name="shield-checkmark-outline" />
                                 </div>
                                 <p className="about-item-text">
-                                    Complete 24/7 Security
+                                Expert Insights
                                 </p>
                             </li>
                         </ul>
-                        <p className="callout">
+                        {/* <p className="callout">
                             "Enimad minim veniam quis nostrud exercitation
                             llamco laboris. Lorem ipsum dolor sit amet"
-                        </p>
-                        <a href="#service" className="btn">
-                            Our Services
+                        </p> */}
+                        <a href="/contact" className="btn">
+                            Contact
                         </a>
                     </div>
                 </div>
