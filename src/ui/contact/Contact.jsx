@@ -1,7 +1,8 @@
 
 import React, { useState } from 'react';
 import './Contact.css';
-
+import Hero from '../hero/Hero';
+import Footer from '../footer/Footer';
 const Contact = () => {
     const [formData, setFormData] = useState({
         name: '',
@@ -26,7 +27,10 @@ const Contact = () => {
     };
 
     return (
-        <div className="contact-container">
+      <>
+       <Hero/>
+       <div className="contact-container">
+             
             <h1>Contact Us</h1>
             <form onSubmit={handleSubmit}>
                 <div className="form-group">
@@ -61,9 +65,12 @@ const Contact = () => {
                         required 
                     />
                 </div>
-                <button type="submit">Send Message</button>
+                <button className='btn' type="submit">Send Message</button>
             </form>
         </div>
+        <Footer/>
+      </>
+        
     );
 };
 
