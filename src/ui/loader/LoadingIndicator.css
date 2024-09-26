@@ -1,7 +1,10 @@
-.loader-container {
+.loading-container {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
+    margin-block: 10px;
+    margin-bottom: 15px;
 }
 
 .loader {

@@ -25,6 +25,7 @@ import languageContext from "../../contexts/languageContext";
 
 // assets
 import logo from "../../assets/images/logo/logo.png";
+import { App_User } from "../../utils/constants";
 
 function Header() {
     const { darkMode, setDarkMode } = useContext(themeContext);
@@ -32,6 +33,8 @@ function Header() {
 
     const [navbar, setNavbar] = useState(false);
     const navigate = useNavigate();
+
+    const access = localStorage.getItem("access");
 
     useEffect(() => {
         window.addEventListener("scroll", () => {
@@ -219,10 +222,19 @@ function Header() {
                                 className="header-bottom-actions-btn"
                                 aria-label="Profile"
                             >
-                                <NavLink to="/login">
-                                    <ion-icon name="person-outline" />
-                                    <span>Profile</span>
-                                </NavLink>
+                                {access ? (
+                                    <NavLink
+                                        to={`${App_User}/${App_User}/profile`}
+                                    >
+                                        <ion-icon name="person-outline" />
+                                        <span>Profile</span>
+                                    </NavLink>
+                                ) : (
+                                    <NavLink to="/login">
+                                        <ion-icon name="person-outline" />
+                                        <span>Login</span>
+                                    </NavLink>
+                                )}
                             </button>
                             <button
                                 className="header-bottom-actions-btn"

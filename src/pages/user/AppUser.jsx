@@ -32,7 +32,7 @@ function AppUser() {
     }, []);
 
     if (!user) return <p>Loading...</p>;
-    console.log(`user`, user);
+    // console.log(`user`, user);
 
     return (
         <>

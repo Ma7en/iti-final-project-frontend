@@ -9,7 +9,7 @@ import "./Signup.css";
 import api from "../../utils/api";
 
 // ui component
-// import Form from "../form/Form";
+import LoadingIndicator from "../loader/LoadingIndicator";
 
 function Signup() {
     localStorage.clear();
@@ -27,6 +27,7 @@ function Signup() {
 
     const handleSignup = async (e) => {
         setLoading(true);
+        setError(false);
         e.preventDefault();
 
         const formData = new FormData();
@@ -60,95 +61,11 @@ function Signup() {
         navigate("/resetpassword");
     };
 
-    // =1
-    // =================================================================
-
-    // return (
-    //     <>
-    //         <form
-    //             onSubmit={handleRegister}
-    //             className="form-container"
-    //             encType="multipart/form-data"
-    //         >
-    //             <h1>Register</h1>
-    //             <input
-    //                 className="form-input"
-    //                 type="text"
-    //                 value={username}
-    //                 onChange={(e) => setUsername(e.target.value)}
-    //                 placeholder="Username"
-    //             />
-    //             <input
-    //                 className="form-input"
-    //                 type="text"
-    //                 value={firstName}
-    //                 onChange={(e) => setFirstName(e.target.value)}
-    //                 placeholder="First Name"
-    //             />
-    //             <input
-    //                 className="form-input"
-    //                 type="text"
-    //                 value={lastName}
-    //                 onChange={(e) => setLastName(e.target.value)}
-    //                 placeholder="Last Name"
-    //             />
-    //             <input
-    //                 className="form-input"
-    //                 type="email"
-    //                 value={email}
-    //                 onChange={(e) => setEmail(e.target.value)}
-    //                 placeholder="Email"
-    //             />
-    //             {/* <input
-    //                 className="form-input"
-    //                 type="file"
-    //                 onChange={(e) => setProfileImage(e.target.files[0])}
-    //             /> */}
-    //             <input
-    //                 className="form-input"
-    //                 type="password"
-    //                 value={password}
-    //                 onChange={(e) => setPassword(e.target.value)}
-    //                 placeholder="Password"
-    //             />
-    //             {loading && <div>Loading...</div>}
-    //             <button className="form-button" type="submit">
-    //                 Register
-    //             </button>
-    //         </form>
-    //     </>
-    // );
-
-    // =1
-    // =================================================================
-
-    // const handleSignup = (e) => {
-    //     e.preventDefault();
-    //     setError("");
-
-    //     if (!email || !password || !confirmPassword) {
-    //         setError("Please fill in all fields");
-    //         return;
-    //     }
-
-    //     if (password !== confirmPassword) {
-    //         setError("Passwords do not match");
-    //         return;
-    //     }
-
-    //     console.log("Signed up:", { email, password });
-    //     navigate("/");
-    // };
-
-    // =1
-    // =================================================================
-
     return (
         <>
             <div className="signup">
                 <div className="container">
                     <h2 className="title">Sign Up</h2>
-                    {error && <div className="alert alert-danger">{error}</div>}
 
                     <form onSubmit={handleSignup}>
                         <div className="mb-3">
@@ -205,6 +122,13 @@ function Signup() {
                                 required
                             />
                         </div>
+
+                        {loading && <LoadingIndicator />}
+                        {error && (
+                            <div className="Error alert alert-danger">
+                                {error}
+                            </div>
+                        )}
 
                         <button type="submit" className="btn btn-primary w-100">
                             Sign Up

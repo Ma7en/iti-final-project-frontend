@@ -4,10 +4,12 @@ import { useNavigate } from "react-router-dom";
 
 //
 import "./ResetPassword.css";
+import LoadingIndicator from "../loader/LoadingIndicator";
 
 const ResetPassword = () => {
     const [email, setEmail] = useState("");
     const [message, setMessage] = useState("");
+    const [loading, setLoading] = useState("");
     const [error, setError] = useState("");
     const navigate = useNavigate();
 
@@ -35,8 +37,8 @@ const ResetPassword = () => {
     const handleLoginRedirect = () => {
         navigate("/login");
     };
-    const handleResetPasswordRedirect = () => {
-        navigate("/resetpassword");
+    const handleSignupRedirect = () => {
+        navigate("/signup");
     };
 
     return (
@@ -56,11 +58,21 @@ const ResetPassword = () => {
                                 type="email"
                                 className="form-control"
                                 value={email}
-                                onChange={(e) => setEmail(e.target.value)}
+                                onChange={(e) => {
+                                    setEmail(e.target.value);
+                                    setError(Error);
+                                }}
                                 required
                             />
                         </div>
-                        <button type="submit" className="btn btn-primary w-100">
+
+                        {loading && <LoadingIndicator />}
+
+                        <button
+                            type="submit"
+                            disabled
+                            className="btn btn-primary w-100"
+                        >
                             Send Reset Link
                         </button>
                     </form>
@@ -80,9 +92,9 @@ const ResetPassword = () => {
 
                             <button
                                 className="btn btn-link "
-                                onClick={handleResetPasswordRedirect}
+                                onClick={handleSignupRedirect}
                             >
-                                Forgot Password?
+                                Sign Up
                             </button>
                         </div>
                     </div>

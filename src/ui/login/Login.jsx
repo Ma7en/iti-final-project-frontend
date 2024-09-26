@@ -2,12 +2,15 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+//
+import "./Login.css";
+
 // utils
 import api from "../../utils/api";
 import { ACCESS_TOKEN, REFRESH_TOKEN } from "../../utils/constants";
 
-//
-import "./Login.css";
+// ui components
+import LoadingIndicator from "../loader/LoadingIndicator";
 
 function Login() {
     // = 2
@@ -19,6 +22,7 @@ function Login() {
 
     const handleLoginSubmit = async (e) => {
         setLoading(true);
+        setError(false);
         e.preventDefault();
 
         try {
@@ -30,7 +34,8 @@ function Login() {
             localStorage.setItem(REFRESH_TOKEN, res.data.refresh);
             navigate("/user/profile");
         } catch (error) {
-            alert("Error: " + error.message);
+            // alert("Error: " + error.message);
+            setError("Username Or password Error");
         } finally {
             setLoading(false);
         }
@@ -50,11 +55,6 @@ function Login() {
                     <div className="card">
                         <div className="card-body">
                             <h2 className="title">Login</h2>
-                            {error && (
-                                <div className="alert alert-danger">
-                                    {error}
-                                </div>
-                            )}
 
                             <form onSubmit={handleLoginSubmit}>
                                 <div className="mb-3">
@@ -65,9 +65,10 @@ function Login() {
                                         type="text"
                                         className="form-control"
                                         value={username}
-                                        onChange={(e) =>
-                                            setUsername(e.target.value)
-                                        }
+                                        onChange={(e) => {
+                                            setUsername(e.target.value);
+                                            setError(false);
+                                        }}
                                         required
                                     />
                                 </div>
@@ -80,12 +81,20 @@ function Login() {
                                         type="password"
                                         className="form-control"
                                         value={password}
-                                        onChange={(e) =>
-                                            setPassword(e.target.value)
-                                        }
+                                        onChange={(e) => {
+                                            setPassword(e.target.value);
+                                            setError(false);
+                                        }}
                                         required
                                     />
                                 </div>
+
+                                {loading && <LoadingIndicator />}
+                                {error && (
+                                    <div className="Error alert alert-danger">
+                                        {error}
+                                    </div>
+                                )}
 
                                 <button
                                     type="submit"
