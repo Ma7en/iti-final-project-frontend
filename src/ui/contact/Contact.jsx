@@ -29,9 +29,10 @@ const Contact = () => {
     return (
       <>
        <Hero/>
+       <h1>Contact Us</h1>
        <div className="contact-container">
              
-            <h1>Contact Us</h1>
+           
             <form onSubmit={handleSubmit}>
                 <div className="form-group">
                     <label htmlFor="name">Name</label>
