@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 // import
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+=======
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import './Login.css';
+>>>>>>> 2677884 (profile page added)
 
 // utils
 import api from "../../utils/api";
@@ -34,6 +40,29 @@ function Login() {
         } finally {
             setLoading(false);
         }
+<<<<<<< HEAD
+=======
+
+  
+        if (email === 'shroukeltokhy2000@gmail.com' && password === '2000') {
+            console.log('Logged in:', { email });
+           
+        } else {
+            setError('Invalid email or password');
+        }
+    };
+
+    const handleSignupRedirect = () => {
+        navigate('/signup');
+    };
+     
+    // const handleHomeRedirect = () => {
+    //     navigate('/');
+    // };
+
+    const handleResetPasswordRedirect = () => {
+        navigate('/resetpassword');
+>>>>>>> 2677884 (profile page added)
     };
 
     return (

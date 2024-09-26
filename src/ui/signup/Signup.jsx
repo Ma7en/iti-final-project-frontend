@@ -47,6 +47,22 @@ function Signup() {
         } finally {
             setLoading(false);
         }
+<<<<<<< HEAD
+=======
+
+        if (password !== confirmPassword) {
+            setError('Passwords do not match');
+            return;
+        }
+
+        // Assuming username is derived from email or an additional input
+        const username = email.split('@')[0]; // use part of email as username
+        const user = { username, email };
+
+        console.log('Signed up:', user);
+ 
+        navigate('/profile', { state: { user } });
+>>>>>>> 2677884 (profile page added)
     };
 
     return (

@@ -20,6 +20,8 @@ import ProtectedRoute from "../ui/auth/ProtectedRoute";
 import Login from "../ui/login/Login";
 import Logout from "../ui/logout/Logout";
 import Signup from "../ui/signup/Signup";
+import Profile from "../ui/profile/Profile"
+
 import ResetPassword from "../ui/resetpassword/ResetPassword";
 
 // user components
@@ -98,6 +100,8 @@ function Router() {
                             <Route path="/login" element={<Login />} />
                             <Route path="/logout" element={<Logout />} />
                             <Route path="/signup" element={<Signup />} />
+                            <Route path="/profile" element={<Profile />} />
+
                             <Route
                                 path="/resetpassword"
                                 element={<ResetPassword />}
