@@ -7,7 +7,8 @@ import "./Contact.css";
 import Footer from "../footer/Footer";
 const Contact = () => {
     const [name, setName] = useState("");
-    const [password, setPassword] = useState("");
+    const [email, setEmail] = useState("");
+    const [message, setMessage] = useState("");
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -18,8 +19,11 @@ const Contact = () => {
     return (
         <>
             <div className="contact">
-                <div className="contact-container">
-                    <h1>Contact Us</h1>
+                <div className="container">
+                    <div className="section-title">
+                        <h1 className="h2">Cantact</h1>
+                    </div>
+
                     <form onSubmit={handleSubmit}>
                         <div className="form-group">
                             <label htmlFor="name">Name</label>
@@ -27,8 +31,10 @@ const Contact = () => {
                                 type="text"
                                 id="name"
                                 name="name"
-                                // value={formData.name}
-                                // onChange={handleChange}
+                                value={name}
+                                onChange={(e) => {
+                                    setName(e.target.value);
+                                }}
                                 required
                             />
                         </div>
@@ -39,8 +45,10 @@ const Contact = () => {
                                 type="email"
                                 id="email"
                                 name="email"
-                                // value={formData.email}
-                                // onChange={handleChange}
+                                value={email}
+                                onChange={(e) => {
+                                    setEmail(e.target.value);
+                                }}
                                 required
                             />
                         </div>
@@ -50,8 +58,10 @@ const Contact = () => {
                             <textarea
                                 id="message"
                                 name="message"
-                                // value={formData.message}
-                                // onChange={handleChange}
+                                value={message}
+                                onChange={(e) => {
+                                    setMessage(e.target.value);
+                                }}
                                 required
                             />
                         </div>
