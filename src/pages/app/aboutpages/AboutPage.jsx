@@ -7,10 +7,12 @@ import "./AboutPage.css";
 import Testimonials from "../../../ui/testimonials/Testimonials";
 import Cta from "../../../ui/cta/Cta";
 import Footer from "../../../ui/footer/Footer";
+import ScrollToTopPages from "../../../ui/scrolltotoppages/ScrollToTopPages";
 
 function AboutPage() {
     return (
         <>
+            <ScrollToTopPages />
             <section className="service" id="service">
                 <div className="container">
                     <p className="section-subtitle">About US</p>
@@ -104,9 +106,7 @@ function AboutPage() {
                     </ul>
                 </div>
             </section>
-
             <Testimonials />
-
             <Cta />
             <Footer />
         </>

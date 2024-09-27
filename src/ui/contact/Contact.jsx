@@ -5,7 +5,9 @@ import "./Contact.css";
 
 // ui component
 import Footer from "../footer/Footer";
-const Contact = () => {
+import ScrollToTopPages from "../scrolltotoppages/ScrollToTopPages";
+
+function Contact() {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [message, setMessage] = useState("");
@@ -18,6 +20,7 @@ const Contact = () => {
 
     return (
         <>
+            <ScrollToTopPages />
             <div className="contact">
                 <div className="container">
                     <div className="section-title">
@@ -79,6 +82,6 @@ const Contact = () => {
             <Footer />
         </>
     );
-};
+}
 
 export default Contact;

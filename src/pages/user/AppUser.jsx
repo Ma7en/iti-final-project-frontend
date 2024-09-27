@@ -13,6 +13,7 @@ import { Button } from "react-bootstrap";
 
 // ui components
 import Loader from "../../ui/loader/Loader";
+import ScrollToTopPages from "../../ui/scrolltotoppages/ScrollToTopPages";
 
 // assets
 import ProfileImage from "../../assets/images/author/avatar.png";
@@ -46,6 +47,7 @@ function AppUser() {
 
     return (
         <>
+            <ScrollToTopPages />
             <div className="userprofile">
                 <div className="container">
                     <div className="section-title">
