@@ -2,6 +2,7 @@
 import { useContext, useEffect, useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { Link as LinkScroll } from "react-scroll";
 
 // bootstrap
 import { Nav, Navbar } from "react-bootstrap";
@@ -167,49 +168,53 @@ function Header() {
                                         </Link>
                                     </li>
                                     <li>
-                                        <a
-                                            href="#about"
+                                        <Link
+                                            to={`/about`}
                                             className="navbar-link"
                                             data-nav-link
+                                            title="About"
                                         >
                                             About
-                                        </a>
+                                        </Link>
                                     </li>
                                     <li>
-                                        <a
-                                            href="#service"
+                                        <LinkScroll
+                                            to="service"
+                                            spy={true}
+                                            smooth={true}
+                                            offset={0}
+                                            duration={500}
+                                            // href="#service"
                                             className="navbar-link"
                                             data-nav-link
+                                            title="Service"
                                         >
                                             Service
-                                        </a>
+                                        </LinkScroll>
                                     </li>
                                     <li>
-                                        <a
-                                            href="#property"
+                                        <LinkScroll
+                                            to="property"
+                                            spy={true}
+                                            smooth={true}
+                                            offset={0}
+                                            duration={500}
+                                            // href="#property"
                                             className="navbar-link"
                                             data-nav-link
+                                            title="Property"
                                         >
                                             Property
-                                        </a>
+                                        </LinkScroll>
                                     </li>
                                     <li>
-                                        <a
-                                            href="#blog"
-                                            className="navbar-link"
-                                            data-nav-link
-                                        >
-                                            Blog
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a
-                                            href="/contact"
+                                        <Link
+                                            to={`/contact`}
                                             className="navbar-link"
                                             data-nav-link
                                         >
                                             Contact
-                                        </a>
+                                        </Link>
                                     </li>
                                 </ul>
                             </div>
@@ -235,7 +240,6 @@ function Header() {
                                         onClick={() => {
                                             navigate(`/logout`);
                                         }}
-                                        // to={`${App_User}/${App_User}/profile`}
                                     >
                                         <ion-icon name="log-out-outline" />
                                         <span>Logout</span>
@@ -253,18 +257,16 @@ function Header() {
                                         onClick={() => {
                                             navigate(`${App_User}/profile`);
                                         }}
-                                        // to={`${App_User}/${App_User}/profile`}
                                     >
                                         <ion-icon name="person-outline" />
                                         <span>Profile</span>
                                     </a>
                                 ) : (
                                     <a
-                                        title="login"
+                                        title="Login"
                                         onClick={() => {
                                             navigate(`/login`);
                                         }}
-                                        // to="/login"
                                     >
                                         <ion-icon name="person-outline" />
                                         <span>Login</span>

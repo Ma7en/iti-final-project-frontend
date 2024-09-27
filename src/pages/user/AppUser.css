@@ -19,6 +19,10 @@
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
+.userprofile .content .details {
+    margin-bottom: 20px;
+}
+
 .userprofile .content .image img {
     border-top-left-radius: 20px;
     border-bottom-right-radius: 20px;

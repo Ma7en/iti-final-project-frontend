@@ -8,14 +8,18 @@ function Cta() {
                     <div className="cta-card">
                         <div className="card-content">
                             <h2 className="h2 card-title">
-                                Looking for a dream home?
+                                Ready to Transform Your Space?
                             </h2>
+
                             <p className="card-text">
-                                We can help you realize your dream of a new home
+                                Contact us today to discuss your project and
+                                schedule a consultation. We can't wait to help
+                                you create your dream space!
                             </p>
                         </div>
+
                         <button className="btn cta-btn">
-                            <span>Explore Properties</span>
+                            <span>Explore Finishes</span>
                             <ion-icon name="arrow-forward-outline" />
                         </button>
                     </div>

@@ -13,6 +13,7 @@ import Loader from "../ui/loader/Loader";
 import NotFound from "../pages/app/NotFound/NotFound";
 import HomepageLayout from "../components/layouts/Homepagelayout";
 import HomePage from "../pages/app/home/HomePage";
+
 // import ProtectedRouteUser from "../ui/auth/ProtectedRoute-";
 
 // ui components
@@ -20,10 +21,10 @@ import ProtectedRoute from "../ui/auth/ProtectedRoute";
 import Login from "../ui/login/Login";
 import Logout from "../ui/logout/Logout";
 import Signup from "../ui/signup/Signup";
-import Profile from "../ui/profile/Profile";
-import Contact from "../ui/contact/Contact"
-import About from "../pages/app/aboutPage/AboutPage";
 import ResetPassword from "../ui/resetpassword/ResetPassword";
+
+import Profile from "../ui/profile/Profile";
+import Contact from "../ui/contact/Contact";
 
 // user components
 import AppUser from "../pages/user/AppUser";
@@ -31,6 +32,7 @@ import AppUserLayout from "../pages/user/AppUserLayout";
 
 // project components
 import CreateProject from "../components/project/createproject/CreateProject";
+import AboutPage from "../pages/app/aboutpages/AboutPage";
 
 function Router() {
     return (
@@ -105,12 +107,10 @@ function Router() {
                                 path="/homeverseapp"
                                 element={<HomePage />}
                             />
-                             <Route path="/contact" element={<Contact/>}/>
-                             <Route path="/about" element={<About/>}/>
 
-                            {/* -- */}
-                            {/* about */}
-                            {/* contact */}
+                            {/* content */}
+                            <Route path="/contact" element={<Contact />} />
+                            <Route path="/about" element={<AboutPage />} />
 
                             {/* Verify user */}
                             <Route path="/login" element={<Login />} />

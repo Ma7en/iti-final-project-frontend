@@ -11,9 +11,11 @@ import { App_User } from "../../utils/constants";
 // bootstrap components
 import { Button } from "react-bootstrap";
 
+// ui components
+import Loader from "../../ui/loader/Loader";
+
 // assets
 import ProfileImage from "../../assets/images/author/avatar.png";
-import Loader from "../../ui/loader/Loader";
 
 function AppUser() {
     const navigate = useNavigate();
@@ -39,7 +41,6 @@ function AppUser() {
     }, []);
 
     if (!user) return <Loader />;
-    // if (!user) return <p>Loading...</p>;
     // console.log(`user`, user);
     const { username, email, first_name, last_name } = user;
 
@@ -53,10 +54,21 @@ function AppUser() {
 
                     <div className="content">
                         <div className="info">
-                            <p className="h3">Username: {username}</p>
-                            <p className="h3">Email: {email}</p>
-                            <p className="h3">First Name: {first_name}</p>
-                            <p className="h3">Last Name: {last_name}</p>
+                            <div className="details">
+                                <p className="h3">First Name: {first_name}</p>
+                                <p className="h3">Last Name: {last_name}</p>
+                                <p className="h3">Username: {username}</p>
+                                <p className="h3">Email: {email}</p>
+                            </div>
+
+                            <Button
+                                className="btn "
+                                onClick={() => {
+                                    navigate(`/logout`);
+                                }}
+                            >
+                                Logout
+                            </Button>
                         </div>
 
                         <div className="image">
@@ -66,7 +78,7 @@ function AppUser() {
 
                     <div className="mt-5">
                         <Button
-                            className="btn bg-warning fs-3 text-capitalize px-5 py-3"
+                            className="btn "
                             onClick={() => {
                                 navigate(
                                     `/${App_User}/${App_User}/createproject`

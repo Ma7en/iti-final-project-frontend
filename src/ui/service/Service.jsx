@@ -18,7 +18,7 @@ function Service() {
                             <div className="service-card">
                                 <div className="card-icon">
                                     <img
-                                        src={`${service1}`}
+                                        src={`${service3}`}
                                         alt="Service icon"
                                     />
                                 </div>
@@ -26,8 +26,34 @@ function Service() {
                                     <a href="#">Traditional Finishing</a>
                                 </h3>
                                 <p className="card-text">
-                                Traditional finishing brings warmth and timeless elegance, featuring classic designs,
-                                 rich colors, and detailed craftsmanship that create an inviting atmosphere.
+                                    Traditional finishing brings warmth and
+                                    timeless elegance, featuring classic
+                                    designs, rich colors, and detailed
+                                    craftsmanship that create an inviting
+                                    atmosphere.
+                                </p>
+                                <a href="/contact" className="card-link">
+                                    <span>Contact</span>
+                                    <ion-icon name="arrow-forward-outline" />
+                                </a>
+                            </div>
+                        </li>
+                        <li>
+                            <div className="service-card">
+                                <div className="card-icon">
+                                    <img
+                                        src={`${service1}`}
+                                        alt="Service icon"
+                                    />
+                                </div>
+                                <h3 className="h3 card-title">
+                                    <a href="#"> Super Finishing</a>
+                                </h3>
+                                <p className="card-text">
+                                    Super finishing emphasizes modern aesthetics
+                                    with sleek designs, high-quality materials,
+                                    and functional spaces that promote a
+                                    seamless flow in your home.
                                 </p>
                                 <a href="/contact" className="card-link">
                                     <span>Contact</span>
@@ -44,32 +70,14 @@ function Service() {
                                     />
                                 </div>
                                 <h3 className="h3 card-title">
-                                    <a href="#"> Super Finishing</a>
-                                </h3>
-                                <p className="card-text">
-                                Super finishing emphasizes modern aesthetics with sleek designs, high-quality materials, 
-                                and functional spaces that promote a seamless flow in your home.
-                                </p>
-                                <a href="/contact" className="card-link">
-                                    <span>Contact</span>
-                                    <ion-icon name="arrow-forward-outline" />
-                                </a>
-                            </div>
-                        </li>
-                        <li>
-                            <div className="service-card">
-                                <div className="card-icon">
-                                    <img
-                                        src={`${service3}`}
-                                        alt="Service icon"
-                                    />
-                                </div>
-                                <h3 className="h3 card-title">
                                     <a href="#">Superlux Finishing</a>
                                 </h3>
                                 <p className="card-text">
-                                Superlux finishing offers unparalleled luxury with high-end materials, bespoke designs, 
-                                and smart home integration, creating a sophisticated and exclusive living experience.
+                                    Superlux finishing offers unparalleled
+                                    luxury with high-end materials, bespoke
+                                    designs, and smart home integration,
+                                    creating a sophisticated and exclusive
+                                    living experience.
                                 </p>
                                 <a href="/contact" className="card-link">
                                     <span>Contact</span>

@@ -19,7 +19,7 @@ function CreateProject() {
 
     const [title, setTitle] = useState("");
     const [details, setDetails] = useState("");
-    const [amount, setAmount] = useState("");
+    const [meter, setMeter] = useState("");
     const [image, setImage] = useState("");
 
     //
@@ -70,7 +70,7 @@ function CreateProject() {
         let formData = new FormData();
         formData.append("title", title);
         formData.append("details", details);
-        formData.append("amount", amount);
+        formData.append("meter", meter);
         if (image) {
             formData.append("image", image);
         }
@@ -142,14 +142,14 @@ function CreateProject() {
                         </div>
 
                         <div>
-                            <label htmlFor="amount">amount:</label>
+                            <label htmlFor="amount">meter:</label>
                             <input
                                 type="number"
-                                id="amount"
-                                name="amount"
+                                id="meter"
+                                name="meter"
                                 required
-                                value={amount}
-                                onChange={(e) => setAmount(e.target.value)}
+                                value={meter}
+                                onChange={(e) => setMeter(e.target.value)}
                             />
                         </div>
 

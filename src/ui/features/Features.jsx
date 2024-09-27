@@ -1,4 +1,7 @@
+// import
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 
 function Features() {
     return (
@@ -9,29 +12,29 @@ function Features() {
                     <h2 className="h2 section-title">Building Aminities</h2>
                     <ul className="features-list">
                         <li>
-                            <a href="#" className="features-card">
+                            <Link to={`/about`} className="features-card">
                                 <div className="card-icon">
-                                    <ion-icon name="car-sport-outline" />
+                                    <ion-icon name="home-outline" />
                                 </div>
                                 <h3 className="card-title"> Apartments </h3>
                                 <div className="card-btn">
                                     <ion-icon name="arrow-forward-outline" />
                                 </div>
-                            </a>
+                            </Link>
                         </li>
                         <li>
-                            <a href="#" className="features-card">
+                            <Link to={`/about`} className="features-card">
                                 <div className="card-icon">
-                                    <ion-icon name="water-outline" />
+                                    <ion-icon name="fitness-outline" />
                                 </div>
                                 <h3 className="card-title">Clinics</h3>
                                 <div className="card-btn">
                                     <ion-icon name="arrow-forward-outline" />
                                 </div>
-                            </a>
+                            </Link>
                         </li>
                         <li>
-                            <a href="#" className="features-card">
+                            <Link to={`/about`} className="features-card">
                                 <div className="card-icon">
                                     <ion-icon name="shield-checkmark-outline" />
                                 </div>
@@ -39,62 +42,74 @@ function Features() {
                                 <div className="card-btn">
                                     <ion-icon name="arrow-forward-outline" />
                                 </div>
-                            </a>
+                            </Link>
                         </li>
                         <li>
-                            <a href="#" className="features-card">
+                            <Link to={`/about`} className="features-card">
                                 <div className="card-icon">
-                                    <ion-icon name="fitness-outline" />
+                                    <ion-icon name="briefcase-outline" />
                                 </div>
                                 <h3 className="card-title">Offices</h3>
                                 <div className="card-btn">
                                     <ion-icon name="arrow-forward-outline" />
                                 </div>
-                            </a>
+                            </Link>
                         </li>
                         <li>
-                            <a href="#" className="features-card">
+                            <Link to={`/about`} className="features-card">
                                 <div className="card-icon">
-                                    <ion-icon name="library-outline" />
+                                    <ion-icon name="medkit-outline" />
                                 </div>
                                 <h3 className="card-title">Hospitals</h3>
                                 <div className="card-btn">
                                     <ion-icon name="arrow-forward-outline" />
                                 </div>
-                            </a>
+                            </Link>
                         </li>
                         <li>
-                            <a href="#" className="features-card">
+                            <Link to={`/about`} className="features-card">
                                 <div className="card-icon">
-                                    <ion-icon name="bed-outline" />
+                                    <ion-icon name="construct-outline" />
                                 </div>
                                 <h3 className="card-title">Companies</h3>
                                 <div className="card-btn">
                                     <ion-icon name="arrow-forward-outline" />
                                 </div>
-                            </a>
+                            </Link>
                         </li>
                         <li>
-                            <a href="#" className="features-card">
+                            <Link to={`/about`} className="features-card">
                                 <div className="card-icon">
-                                    <ion-icon name="home-outline" />
+                                    <ion-icon name="storefront-outline" />
                                 </div>
                                 <h3 className="card-title">Stores</h3>
                                 <div className="card-btn">
                                     <ion-icon name="arrow-forward-outline" />
                                 </div>
-                            </a>
+                            </Link>
                         </li>
                         <li>
-                            <a href="#" className="features-card">
+                            <Link to={`/about`} className="features-card">
                                 <div className="card-icon">
-                                    <ion-icon name="football-outline" />
+                                    <ion-icon name="restaurant-outline" />
                                 </div>
                                 <h3 className="card-title">Resturants</h3>
                                 <div className="card-btn">
                                     <ion-icon name="arrow-forward-outline" />
                                 </div>
-                            </a>
+                            </Link>
+                        </li>
+
+                        <li>
+                            <Link to={`/about`} className="features-card">
+                                <div className="card-icon">
+                                    <ion-icon name="cafe-outline" />
+                                </div>
+                                <h3 className="card-title">Cafe</h3>
+                                <div className="card-btn">
+                                    <ion-icon name="arrow-forward-outline" />
+                                </div>
+                            </Link>
                         </li>
                     </ul>
                 </div>

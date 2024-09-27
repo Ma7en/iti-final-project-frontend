@@ -80,9 +80,9 @@ function Footer() {
                                     <p className="footer-list-title">Company</p>
                                 </li>
                                 <li>
-                                    <a href="#" className="footer-link">
+                                    <Link to={`/about`} className="footer-link">
                                         About
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li>
                                     <a href="#" className="footer-link">
@@ -105,9 +105,12 @@ function Footer() {
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#" className="footer-link">
+                                    <Link
+                                        to={`/contact`}
+                                        className="footer-link"
+                                    >
                                         Contact us
-                                    </a>
+                                    </Link>
                                 </li>
                             </ul>
                             <ul className="footer-list">
@@ -132,9 +135,12 @@ function Footer() {
                                     </Link>
                                 </li>
                                 <li>
-                                    <a href="#" className="footer-link">
+                                    <Link
+                                        to={`/user/profile`}
+                                        className="footer-link"
+                                    >
                                         My account
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li>
                                     <a href="#" className="footer-link">
@@ -159,9 +165,12 @@ function Footer() {
                                     </Link>
                                 </li>
                                 <li>
-                                    <a href="#" className="footer-link">
+                                    <Link
+                                        to={`/user/profile`}
+                                        className="footer-link"
+                                    >
                                         My account
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li>
                                     <a href="#" className="footer-link">
@@ -179,14 +188,18 @@ function Footer() {
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#" className="footer-link">
+                                    <Link
+                                        to={`/contact`}
+                                        className="footer-link"
+                                    >
                                         Contact us
-                                    </a>
+                                    </Link>
                                 </li>
                             </ul>
                         </div>
                     </div>
                 </div>
+
                 <div className="footer-bottom">
                     <div className="container">
                         <p className="copyright">

@@ -167,6 +167,10 @@ npm i styled-components
 ```
 
 ```
+npm i react-scroll
+```
+
+```
 npm install jwt-decode
 ```
 
