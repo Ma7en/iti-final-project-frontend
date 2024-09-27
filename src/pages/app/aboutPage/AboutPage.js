@@ -1,0 +1,121 @@
+import React from 'react';
+import './About.css'; 
+import Footer from '../../../ui/footer/Footer';
+import Service from '../../../ui/service/Service';
+
+
+const AboutPage = () => {
+    return (
+        <>
+
+<section className="service" id="service">
+                <div className="container">
+                    <p className="section-subtitle">About US</p>
+                    <h2 className="h2 section-title">Our Main Focus</h2>
+                    <ul className="service-list">
+                        <li>
+                            <div className="service-card">
+                                <div className="card-icon">
+                              
+                                </div>
+                                <h3 className="h3 card-title">
+                                    <a href="#">Inspiration</a>
+                                </h3>
+                                <p className="card-text">
+                                Discover a wealth of ideas to revitalize your apartment. Whether you’re looking for bold colors, 
+                    minimalist aesthetics, or cozy accents, our curated collections showcase designs that inspire creativity 
+                    and self-expression. Explore different styles and find what resonates with you!
+                                </p>
+                                <a href="/contact" className="card-link">
+                                    <span>Contact</span>
+                                    <ion-icon name="arrow-forward-outline" />
+                                </a>
+                            </div>
+                        </li>
+                        <li>
+                            <div className="service-card">
+                             
+                                <h3 className="h3 card-title">
+                                    <a href="#"> Guide & Tips</a>
+                                </h3>
+                                <p className="card-text">
+                                Our comprehensive guides and practical tips provide you with the knowledge needed to tackle any 
+                    apartment finishing project. From selecting the right materials to DIY techniques, we empower 
+                    you to make informed decisions and achieve stunning results. Whether you're a beginner or an 
+                    experienced DIYer
+                                </p>
+                                <a href="/contact" className="card-link">
+                                    <span>Contact</span>
+                                    <ion-icon name="arrow-forward-outline" />
+                                </a>
+                            </div>
+                        </li>
+                        <li>
+                            <div className="service-card">
+                              
+                                <h3 className="h3 card-title">
+                                    <a href="#">Trends</a>
+                                </h3>
+                                <p className="card-text">
+                                Stay updated with the latest trends in apartment design and finishing. Our insights into emerging styles, 
+                    color palettes, and materials ensure that your home remains contemporary and chic. Discover what’s 
+                    popular right now and how you can incorporate these trends into your space for a fresh and modern look.
+                                </p>
+                                <a href="/contact" className="card-link">
+                                    <span>Contact</span>
+                                    <ion-icon name="arrow-forward-outline" />
+                                </a>
+                            </div>
+                        </li>
+                    
+                        <li>
+                            <div className="service-card">
+                              
+                                <h3 className="h3 card-title">
+                                    <a href="#">Expert Insights</a>
+                                </h3>
+                                <p className="card-text">
+                                Benefit from expert insights shared by seasoned interior designers and industry professionals. 
+                    Our articles and interviews provide a deeper understanding of the design process and offer 
+                    tips on how to elevate your space. Learn from the best and gain the confidence to create your 
+                    ideal living environment.
+                                </p>
+                                <a href="/contact" className="card-link">
+                                    <span>Contact</span>
+                                    <ion-icon name="arrow-forward-outline" />
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+       
+
+            <section className="testimonials">
+                < h2 className=' h2 section-title'>What Our Clients Say</h2>
+                <div className="testimonial-list">
+                    <blockquote>
+                        "FinishLine Creations transformed my home! Their attention to detail and dedication to quality made the process enjoyable and stress-free."
+                    </blockquote>
+                    <blockquote>
+                        "I couldn't be happier with the results! The team was professional, timely, and the finished work exceeded my expectations."
+                    </blockquote>
+                    <blockquote>
+                        "Their creative ideas helped me realize my dream space. Highly recommend FinishLine Creations for any renovation project!"
+                    </blockquote>
+                </div>
+            </section>
+
+            <section className="call-to-action">
+                <h2>Ready to Transform Your Space?</h2>
+                <p>Contact us today to discuss your project and schedule a consultation. We can't wait to help you create your dream space!</p>
+               <button className="btn"><a href='/contact' >Contact Us</a></button> 
+            </section>
+     
+        <Footer/>
+        </>
+       
+    );
+};
+
+export default AboutPage;

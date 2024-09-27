@@ -26,9 +26,9 @@ function Property() {
                                             className="w-100"
                                         />
                                     </a>
-                                    <div className="card-badge green">
+                                    {/* <div className="card-badge green">
                                         For Rent
-                                    </div>
+                                    </div> */}
                                     <div className="banner-actions">
                                         <button className="banner-actions-btn">
                                             <ion-icon name="location" />
@@ -118,9 +118,9 @@ function Property() {
                                             className="w-100"
                                         />
                                     </a>
-                                    <div className="card-badge orange">
+                                    {/* <div className="card-badge orange">
                                         For Sales
-                                    </div>
+                                    </div> */}
                                     <div className="banner-actions">
                                         <button className="banner-actions-btn">
                                             <ion-icon name="location" />
@@ -210,9 +210,9 @@ function Property() {
                                             className="w-100"
                                         />
                                     </a>
-                                    <div className="card-badge green">
+                                    {/* <div className="card-badge green">
                                         For Rent
-                                    </div>
+                                    </div> */}
                                     <div className="banner-actions">
                                         <button className="banner-actions-btn">
                                             <ion-icon name="location" />

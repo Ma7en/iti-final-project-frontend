@@ -64,8 +64,8 @@ function About() {
                             "Enimad minim veniam quis nostrud exercitation
                             llamco laboris. Lorem ipsum dolor sit amet"
                         </p> */}
-                        <a href="/contact" className="btn">
-                            Contact
+                        <a href="/about" className="btn">
+                            More Details
                         </a>
                     </div>
                 </div>

@@ -22,7 +22,7 @@ import Logout from "../ui/logout/Logout";
 import Signup from "../ui/signup/Signup";
 import Profile from "../ui/profile/Profile";
 import Contact from "../ui/contact/Contact"
-// import About from "../pages/app/about/About";
+import About from "../pages/app/aboutPage/AboutPage";
 import ResetPassword from "../ui/resetpassword/ResetPassword";
 
 // user components
@@ -106,7 +106,7 @@ function Router() {
                                 element={<HomePage />}
                             />
                              <Route path="/contact" element={<Contact/>}/>
-                             {/* <Route path="/about" element={<About/>}/> */}
+                             <Route path="/about" element={<About/>}/>
 
                             {/* -- */}
                             {/* about */}
