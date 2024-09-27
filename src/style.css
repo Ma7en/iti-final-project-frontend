@@ -258,7 +258,7 @@ a {
 
 .has-scrollbar {
     display: flex;
-    align-items: flex-start;
+    align-items: stretch;
     gap: 15px;
     overflow-x: auto;
     margin-inline: -15px;
@@ -269,6 +269,7 @@ a {
 }
 
 .has-scrollbar > li {
+    /* height: 100%; */
     min-width: 100%;
     scroll-snap-align: start;
 }
@@ -712,6 +713,7 @@ a {
 .property-card {
     border: 1px solid var(--alice-blue);
     box-shadow: var(--shadow-2);
+    height: 100%;
 }
 
 .property-card .card-banner {
