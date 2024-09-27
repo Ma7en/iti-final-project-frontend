@@ -24,7 +24,11 @@ const Contact = () => {
                         <h1 className="h2">Cantact</h1>
                     </div>
 
-                    <form onSubmit={handleSubmit}>
+                    <form
+                        action="https://formspree.io/f/mdknqegy"
+                        method="POST"
+                        // onSubmit={handleSubmit}
+                    >
                         <div className="form-group">
                             <label htmlFor="name">Name</label>
                             <input
