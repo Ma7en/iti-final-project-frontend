@@ -11,13 +11,13 @@ function Hero() {
                     <div className="hero-content">
                         <p className="hero-subtitle">
                             <ion-icon name="home" />
-                            <span>Real Estate Agency</span>
+                            <span></span>
                         </p>
                         <h2 className="h1 hero-title">
-                        
+                        Finishing Touch
                         </h2>
                         <p className="hero-text">
-                        From Concept to Completion—We Bring Your Ideas to Life
+                        "Connecting you to the best finishing companies for all your needs."
                         </p>
                         <a href="/contact" className="btn"> Contact</a>
                     </div>

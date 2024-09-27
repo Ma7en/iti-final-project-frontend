@@ -47,9 +47,9 @@ function Property() {
                                     </div>
                                 </figure>
                                 <div className="card-content">
-                                    <div className="card-price">
+                                    {/* <div className="card-price">
                                         <strong>$34,900</strong>/Month
-                                    </div>
+                                    </div> */}
                                     <h3 className="h3 card-title">
                                         <a href="#">New Apartment Nice View</a>
                                     </h3>
@@ -139,9 +139,9 @@ function Property() {
                                     </div>
                                 </figure>
                                 <div className="card-content">
-                                    <div className="card-price">
+                                    {/* <div className="card-price">
                                         <strong>$34,900</strong>/Month
-                                    </div>
+                                    </div> */}
                                     <h3 className="h3 card-title">
                                         <a href="#">Modern Apartments</a>
                                     </h3>
@@ -231,9 +231,9 @@ function Property() {
                                     </div>
                                 </figure>
                                 <div className="card-content">
-                                    <div className="card-price">
+                                    {/* <div className="card-price">
                                         <strong>$34,900</strong>/Month
-                                    </div>
+                                    </div> */}
                                     <h3 className="h3 card-title">
                                         <a href="#">Comfortable Apartment</a>
                                     </h3>
@@ -323,9 +323,9 @@ function Property() {
                                     </div>
                                 </figure>
                                 <div className="card-content">
-                                    <div className="card-price">
+                                    {/* <div className="card-price">
                                         <strong>$34,900</strong>/Month
-                                    </div>
+                                    </div> */}
                                     <h3 className="h3 card-title">
                                         <a href="#">
                                             Luxury villa in Rego Park
