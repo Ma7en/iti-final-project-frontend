@@ -171,6 +171,10 @@ npm i react-scroll
 ```
 
 ```
+npm install react-simple-chatbot --save
+```
+
+```
 npm install jwt-decode
 ```
 
