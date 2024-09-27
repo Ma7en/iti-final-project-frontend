@@ -52,12 +52,10 @@ function Property() {
                                         <strong>$34,900</strong>/Month
                                     </div> */}
                                     <h3 className="h3 card-title">
-                                        <a href="#">New Apartment Nice View</a>
+                                        <a href="#">Modern Villa Facade Finishing</a>
                                     </h3>
                                     <p className="card-text">
-                                        Beautiful Huge 1 Family House In Heart
-                                        Of Westbury. Newly Renovated With New
-                                        Wood
+                                    This project involves finishing the facade of a modern villa with a contemporary design. A blend of natural stone and reflective glass is used to provide an elegant and attractive look. The facade includes large windows with wide openings to offer a stunning panoramic view, along with the installation of LED light fixtures artistically distributed across the exterior walls to enhance the night-time aesthetics. The design features straight lines and simple geometric shapes that emphasize the mode
                                     </p>
                                     <ul className="card-list">
                                         <li className="card-item">
@@ -66,12 +64,12 @@ function Property() {
                                             <span>Bedrooms</span>
                                         </li>
                                         <li className="card-item">
-                                            <strong>2</strong>
+                                            <strong>30</strong>
                                             <ion-icon name="man-outline" />
                                             <span>Bathrooms</span>
                                         </li>
                                         <li className="card-item">
-                                            <strong>3450</strong>
+                                            <strong>350</strong>
                                             <ion-icon name="square-outline" />
                                             <span>Square Ft</span>
                                         </li>
@@ -144,12 +142,10 @@ function Property() {
                                         <strong>$34,900</strong>/Month
                                     </div> */}
                                     <h3 className="h3 card-title">
-                                        <a href="#">Modern Apartments</a>
+                                        <a href="#">Modern Villa Facade Finishing</a>
                                     </h3>
                                     <p className="card-text">
-                                        Beautiful Huge 1 Family House In Heart
-                                        Of Westbury. Newly Renovated With New
-                                        Wood
+                                    This project involves finishing the facade of a modern villa with a contemporary design. A blend of natural stone and reflective glass is used to provide an elegant and attractive look. The facade includes large windows with wide openings to offer a stunning panoramic view, along with the installation of LED light fixtures artistically distributed across the exterior walls to enhance the night-time aesthetics. The design features straight lines and simple geometric shapes that emphasize the mode
                                     </p>
                                     <ul className="card-list">
                                         <li className="card-item">
@@ -158,12 +154,12 @@ function Property() {
                                             <span>Bedrooms</span>
                                         </li>
                                         <li className="card-item">
-                                            <strong>2</strong>
+                                            <strong>30</strong>
                                             <ion-icon name="man-outline" />
                                             <span>Bathrooms</span>
                                         </li>
                                         <li className="card-item">
-                                            <strong>3450</strong>
+                                            <strong>300</strong>
                                             <ion-icon name="square-outline" />
                                             <span>Square Ft</span>
                                         </li>
@@ -236,12 +232,10 @@ function Property() {
                                         <strong>$34,900</strong>/Month
                                     </div> */}
                                     <h3 className="h3 card-title">
-                                        <a href="#">Comfortable Apartment</a>
+                                        <a href="#">Entrance and Exit Finishing for a Luxury Villa</a>
                                     </h3>
                                     <p className="card-text">
-                                        Beautiful Huge 1 Family House In Heart
-                                        Of Westbury. Newly Renovated With New
-                                        Wood
+                                    This project involves finishing the entrances and exits of a luxury villa using high-end construction materials and unique designs. The main entrance is covered with premium Italian marble and equipped with hidden LED lighting to highlight the design details at night. The main doors are made of solid wood with wrought iron decorations. The rear exit features an electronic gate that opens to the backyard, and the design includes a paved path connecting the entrance and exit using slip-resistant s
                                     </p>
                                     <ul className="card-list">
                                         <li className="card-item">
@@ -250,12 +244,12 @@ function Property() {
                                             <span>Bedrooms</span>
                                         </li>
                                         <li className="card-item">
-                                            <strong>2</strong>
+                                            <strong>10</strong>
                                             <ion-icon name="man-outline" />
                                             <span>Bathrooms</span>
                                         </li>
                                         <li className="card-item">
-                                            <strong>3450</strong>
+                                            <strong>100</strong>
                                             <ion-icon name="square-outline" />
                                             <span>Square Ft</span>
                                         </li>
@@ -329,13 +323,11 @@ function Property() {
                                     </div> */}
                                     <h3 className="h3 card-title">
                                         <a href="#">
-                                            Luxury villa in Rego Park
+                                        Ceramic Floor Finishing for Kitchen and Bathrooms
                                         </a>
                                     </h3>
                                     <p className="card-text">
-                                        Beautiful Huge 1 Family House In Heart
-                                        Of Westbury. Newly Renovated With New
-                                        Wood
+                                    This project involves the installation of ceramic flooring in the kitchen and bathrooms using high-quality water-resistant and slip-resistant ceramic tiles. Light-colored tiles are chosen to complement the modern kitchen décor and luxury bathrooms. The tiles are installed consistently to ensure continuity of design across all spaces, with precise grout lines to prevent future cracks. The project also includes the installation of marble thresholds at room entrances to prevent water leakage.
                                     </p>
                                     <ul className="card-list">
                                         <li className="card-item">
@@ -344,12 +336,12 @@ function Property() {
                                             <span>Bedrooms</span>
                                         </li>
                                         <li className="card-item">
-                                            <strong>2</strong>
+                                            <strong>20</strong>
                                             <ion-icon name="man-outline" />
                                             <span>Bathrooms</span>
                                         </li>
                                         <li className="card-item">
-                                            <strong>3450</strong>
+                                            <strong>250</strong>
                                             <ion-icon name="square-outline" />
                                             <span>Square Ft</span>
                                         </li>
