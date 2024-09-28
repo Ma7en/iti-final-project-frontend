@@ -30,7 +30,8 @@ import ResetPassword from "../ui/resetpassword/ResetPassword";
 import AppUser from "../pages/user/AppUser";
 import AppUserLayout from "../pages/user/AppUserLayout";
 import EditProfile from "../pages/user/edit/EditProfile";
-
+import CreateCat from "../components/categories/createCategories/CreateCat";
+import EditCat from "../components/categories/editCategories/EditCat";
 // project components
 // import CreateProject from "../components/project/createproject/CreateProject";
 import AboutPage from "../pages/app/aboutpages/AboutPage";
@@ -81,6 +82,10 @@ function Router() {
                                     />
                                 }
                             />
+
+                         
+                            
+
                             <Route exact path="/user" component={Router} />
                             <Route path={`${App_User}`} element={<AppUser />} />
                             <Route
@@ -120,6 +125,10 @@ function Router() {
                                 path="/homeverseapp"
                                 element={<HomePage />}
                             />
+
+                            <Route path="/createcat" element={<CreateCat />} />
+                            <Route path="/editCat" element={<EditCat />} />
+
 
                             {/* content */}
                             <Route path="/contact" element={<Contact />} />
