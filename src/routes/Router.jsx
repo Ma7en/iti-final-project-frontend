@@ -123,17 +123,14 @@ function Router() {
                             {/* content */}
                             <Route path="/contact" element={<Contact />} />
                             <Route path="/about" element={<AboutPage />} />
-<<<<<<< HEAD
-                            <Route path="/finishing" element={<FinishingDetails />} />
-                            <Route path="/writeDetails" element={<WriteDetails />} />
-
-
-=======
                             <Route
                                 path="/finishing"
                                 element={<FinishingDetails />}
                             />
->>>>>>> cdc122f (edit profile)
+                            <Route
+                                path="/writeDetails"
+                                element={<WriteDetails />}
+                            />
 
                             {/* Verify user */}
                             <Route path="/login" element={<Login />} />
