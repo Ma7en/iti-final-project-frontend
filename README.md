@@ -179,6 +179,26 @@ npm install jwt-decode
 ```
 
 ```
+npm install zustand
+```
+
+```
+npm install simple-zustand-devtools
+```
+
+```
+npm install js-cookie
+```
+
+```
+npm install sweetalert2
+```
+
+```
+npm install jwt-decode
+```
+
+```
 npm install gh-pages --save-dev
 ```
 

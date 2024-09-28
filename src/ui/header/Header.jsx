@@ -24,9 +24,14 @@ import {} from "@fortawesome/react-fontawesome";
 import themeContext from "../../contexts/themeContext";
 import languageContext from "../../contexts/languageContext";
 
+// store
+import { useAuthStore } from "../../store/auth";
+
+// utils
+import { App_User } from "../../utils/constants";
+
 // assets
 import logo from "../../assets/images/logo/logo.png";
-import { App_User } from "../../utils/constants";
 
 function Header() {
     const { darkMode, setDarkMode } = useContext(themeContext);
@@ -35,7 +40,12 @@ function Header() {
     const [navbar, setNavbar] = useState(false);
     const navigate = useNavigate();
 
-    const access = localStorage.getItem("access");
+    // const access = localStorage.getItem("access");
+    // authentication
+    const [isLoggedIn, user] = useAuthStore((state) => [
+        state.isLoggedIn,
+        state.user,
+    ]);
 
     useEffect(() => {
         window.addEventListener("scroll", () => {
@@ -230,7 +240,7 @@ function Header() {
                                 <span>Search</span>
                             </button>
 
-                            {access && (
+                            {isLoggedIn() && (
                                 <button
                                     className="header-bottom-actions-btn"
                                     aria-label="Logout"
@@ -251,7 +261,7 @@ function Header() {
                                 className="header-bottom-actions-btn"
                                 aria-label="Profile"
                             >
-                                {access ? (
+                                {isLoggedIn() ? (
                                     <a
                                         title="Profile"
                                         onClick={() => {
