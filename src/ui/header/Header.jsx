@@ -188,8 +188,8 @@ function Header() {
                                         </Link>
                                     </li>
                                     <li>
-                                        <LinkScroll
-                                            to="service"
+                                        <Link
+                                            to="/servicePage"
                                             spy={true}
                                             smooth={true}
                                             offset={0}
@@ -200,11 +200,11 @@ function Header() {
                                             title="Service"
                                         >
                                             Service
-                                        </LinkScroll>
+                                        </Link>
                                     </li>
                                     <li>
-                                        <LinkScroll
-                                            to="property"
+                                        <Link
+                                            to="/finishing"
                                             spy={true}
                                             smooth={true}
                                             offset={0}
@@ -215,7 +215,7 @@ function Header() {
                                             title="Property"
                                         >
                                         Our Works
-                                        </LinkScroll>
+                                        </Link>
                                     </li>
                                     <li>
                                         <Link

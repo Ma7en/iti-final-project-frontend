@@ -15,6 +15,7 @@ import HomepageLayout from "../components/layouts/Homepagelayout";
 import HomePage from "../pages/app/home/HomePage";
 import FinishingDetails from "../pages/finishingPage/FinishingDetails";
 import WriteDetails from "../pages/writeDetails/WriteDetails";
+import ServicePage from "../pages/servicePage/ServicePage";
 
 // import ProtectedRouteUser from "../ui/auth/ProtectedRoute-";
 
@@ -126,6 +127,10 @@ function Router() {
                             <Route
                                 path="/finishing"
                                 element={<FinishingDetails />}
+                            />
+                                <Route
+                                path="/servicePage"
+                                element={<ServicePage />}
                             />
                             <Route
                                 path="/writeDetails"
