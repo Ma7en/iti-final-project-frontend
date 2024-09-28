@@ -22,7 +22,7 @@ function Property() {
         <>
             <section className="property" id="property">
                 <div className="container">
-                    <p className="section-subtitle">Properties</p>
+                    <p className="section-subtitle">Our Works</p>
                     <h2 className="h2 section-title">Featured Listings</h2>
 
                     <ul className="property-list has-scrollbar">
@@ -99,6 +99,7 @@ function Property() {
                                             <span>Square Ft</span>
                                         </li>
                                     </ul>
+                                    <button><a href="/finishing" className="btn">Details</a></button>
                                 </div>
                                 <div className="card-footer">
                                     <div className="card-author">
@@ -206,6 +207,7 @@ function Property() {
                                             <span>Square Ft</span>
                                         </li>
                                     </ul>
+                                    <button><a href="/finishing" className="btn">Details</a></button>
                                 </div>
                                 <div className="card-footer">
                                     <div className="card-author">
@@ -313,6 +315,7 @@ function Property() {
                                             <span>Square Ft</span>
                                         </li>
                                     </ul>
+                                    <button><a href="/finishing" className="btn">Details</a></button>
                                 </div>
                                 <div className="card-footer">
                                     <div className="card-author">
@@ -419,6 +422,8 @@ function Property() {
                                             <span>Square Ft</span>
                                         </li>
                                     </ul>
+                               <button>     <a href="/finishing" className="btn">Details</a></button>
+
                                 </div>
                                 <div className="card-footer">
                                     <div className="card-author">
@@ -453,6 +458,7 @@ function Property() {
                             </div>
                         </li>
                     </ul>
+     
                 </div>
             </section>
         </>

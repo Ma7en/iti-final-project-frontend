@@ -13,6 +13,7 @@ import Loader from "../ui/loader/Loader";
 import NotFound from "../pages/app/NotFound/NotFound";
 import HomepageLayout from "../components/layouts/Homepagelayout";
 import HomePage from "../pages/app/home/HomePage";
+import FinishingDetails from "../pages/finishingPage/FinishingDetails";
 
 // import ProtectedRouteUser from "../ui/auth/ProtectedRoute-";
 
@@ -111,6 +112,8 @@ function Router() {
                             {/* content */}
                             <Route path="/contact" element={<Contact />} />
                             <Route path="/about" element={<AboutPage />} />
+                            <Route path="/finishing" element={<FinishingDetails />} />
+
 
                             {/* Verify user */}
                             <Route path="/login" element={<Login />} />

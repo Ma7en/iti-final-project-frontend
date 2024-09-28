@@ -204,7 +204,7 @@ function Header() {
                                             data-nav-link
                                             title="Property"
                                         >
-                                            Property
+                                        Our Works
                                         </LinkScroll>
                                     </li>
                                     <li>
