@@ -14,6 +14,7 @@ import { register } from "../../utils/auth";
 
 // ui component
 import LoadingIndicator from "../loader/LoadingIndicator";
+import ScrollToTopPages from "../scrolltotoppages/ScrollToTopPages";
 
 function Signup() {
     // localStorage.clear();
@@ -99,7 +100,7 @@ function Signup() {
             alert(JSON.stringify(error));
             resetForm();
         } else {
-            navigate("/login");
+            navigate(`/login`);
         }
 
         // Reset isLoading to false when the operation is complete
@@ -108,6 +109,7 @@ function Signup() {
 
     return (
         <>
+            <ScrollToTopPages />
             <div className="signup">
                 <div className="container">
                     <h2 className="title">Sign Up</h2>

@@ -106,7 +106,7 @@ function EditProfile() {
             Toast("error", "An Error Occured", "");
         }
     };
-    console.log("1", profileData);
+    // console.log("1", profileData);
     if (!profileData) return <Loader />;
 
     return (

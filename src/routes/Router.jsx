@@ -13,11 +13,18 @@ import Loader from "../ui/loader/Loader";
 import NotFound from "../pages/app/NotFound/NotFound";
 import HomepageLayout from "../components/layouts/Homepagelayout";
 import HomePage from "../pages/app/home/HomePage";
+<<<<<<< HEAD
 import FinishingDetails from "../pages/finishingPage/FinishingDetails";
 import WriteDetails from "../pages/writeDetails/WriteDetails";
 import ServicePage from "../pages/servicePage/ServicePage";
+=======
+>>>>>>> 6cdbfc7 (edit admin)
 
-// import ProtectedRouteUser from "../ui/auth/ProtectedRoute-";
+// ui admin company
+import ProtectedRouteCompany from "../ui/auth/ProtectedRouteCompany";
+import AppCompanyLayout from "../pages/company/AppCompanyLayout";
+import LoginAdmin from "../ui/loginadmin/LoginAdmin";
+import AppCompany from "../pages/company/AppCompany";
 
 // ui components
 import ProtectedRoute from "../ui/auth/ProtectedRoute";
@@ -36,6 +43,10 @@ import EditCat from "../components/categories/editCategories/EditCat";
 // import CreateProject from "../components/project/createproject/CreateProject";
 import AboutPage from "../pages/app/aboutpages/AboutPage";
 import Contact from "../ui/contact/Contact";
+
+// ui project components
+import FinishingDetails from "../pages/finishingPage/FinishingDetails";
+import WriteDetails from "../pages/writeDetails/WriteDetails";
 
 function Router() {
     return (
@@ -64,7 +75,46 @@ function Router() {
                             />
                         </Route> */}
 
-                        {/* ProtectedRoute */}
+                        {/* company */}
+                        <Route
+                            path="/company"
+                            element={
+                                <ProtectedRouteCompany>
+                                    <AppCompanyLayout />
+                                </ProtectedRouteCompany>
+                            }
+                        >
+                            <Route
+                                index
+                                element={
+                                    <Navigate
+                                        replace
+                                        to={`${App_Company}/profile`}
+                                    />
+                                }
+                            />
+                            <Route exact path="/company" component={Router} />
+                            <Route
+                                path={`${App_Company}`}
+                                element={<AppCompany />}
+                            />
+                            <Route
+                                path={`/${App_Company}/profile`}
+                                element={<AppCompany />}
+                            />
+                            <Route
+                                path={`/companyprofile`}
+                                element={<AppCompany />}
+                            />
+
+                            {/* project */}
+                            {/* <Route
+                                path={`${App_User}/createproject`}
+                                element={<CreateProject />}
+                            /> */}
+                        </Route>
+
+                        {/* user */}
                         <Route
                             path="/user"
                             element={
@@ -106,12 +156,6 @@ function Router() {
                                 path={`/${App_User}/profileedit`}
                                 element={<EditProfile />}
                             />
-
-                            {/* project */}
-                            {/* <Route
-                                path={`${App_User}/createproject`}
-                                element={<CreateProject />}
-                            /> */}
                         </Route>
 
                         <Route path="/" element={<HomepageLayout />}>
@@ -146,11 +190,13 @@ function Router() {
                                 element={<WriteDetails />}
                             />
 
+                            {/* Verify admin */}
+                            <Route path="/admin" element={<LoginAdmin />} />
+
                             {/* Verify user */}
                             <Route path="/login" element={<Login />} />
                             <Route path="/logout" element={<Logout />} />
                             <Route path="/signup" element={<Signup />} />
-
                             <Route
                                 path="/resetpassword"
                                 element={<ResetPassword />}

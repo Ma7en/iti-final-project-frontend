@@ -1,56 +1,33 @@
-// import
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 //
-import "./Login.css";
+import "./LoginAdmin.css";
 
 // store
 import { useAuthStore } from "../../store/auth";
 
 // utils
 import api from "../../utils/api";
-import { ACCESS_TOKEN, App_User, REFRESH_TOKEN } from "../../utils/constants";
+import {
+    ACCESS_TOKEN,
+    App_Company,
+    REFRESH_TOKEN,
+} from "../../utils/constants";
 import { login } from "../../utils/auth";
 
 // ui components
 import LoadingIndicator from "../loader/LoadingIndicator";
 import ScrollToTopPages from "../scrolltotoppages/ScrollToTopPages";
 
-function Login() {
-    // = 2
-    // const [username, setUsername] = useState("");
-    // const [password, setPassword] = useState("");
-    // const [loading, setLoading] = useState(false);
-    // const [error, setError] = useState(false);
-    // const navigate = useNavigate();
-
-    // const handleLoginSubmit = async (e) => {
-    //     setLoading(true);
-    //     setError(false);
-    //     e.preventDefault();
-
-    //     try {
-    //         const res = await api.post("/api/token/", {
-    //             username,
-    //             password,
-    //         });
-    //         localStorage.setItem(ACCESS_TOKEN, res.data.access);
-    //         localStorage.setItem(REFRESH_TOKEN, res.data.refresh);
-    //         navigate("/user/profile");
-    //     } catch (error) {
-    //         // alert("Error: " + error.message);
-    //         setError("Please enter the data correctly");
-    //     } finally {
-    //         setLoading(false);
-    //     }
-    // };
+function LoginAdmin() {
+    const navigate = useNavigate();
 
     // =================================================================
     const [bioData, setBioData] = useState({ email: "", password: "" });
     const [isLoading, setIsLoading] = useState(false);
     const isLoggedIn = useAuthStore((state) => state.isLoggedIn);
-    const navigate = useNavigate();
 
     const handleBioDataChange = (event) => {
         setBioData({
@@ -75,12 +52,57 @@ function Login() {
             alert(JSON.stringify(error));
             resetForm();
         } else {
-            navigate(`/${App_User}/profile`);
+            navigate(`/${App_Company}/profile`);
         }
 
         // Reset isLoading to false when the operation is complete
         setIsLoading(false);
     };
+
+    // =================================================================
+    // const [username, setUsername] = useState("");
+    // const [password, setPassword] = useState("");
+    // const [error, setError] = useState("");
+
+    // const handleSubmit = async (e) => {
+    //     e.preventDefault();
+
+    //     try {
+    //         // إرسال طلب تسجيل الدخول إلى Django API
+    //         const response = await axios.post(
+    //             "http://localhost:8000/api/v1/user/token/ ",
+    //             {
+    //                 username: username,
+    //                 password: password,
+    //             }
+    //         );
+
+    //         // الحصول على التوكن وحفظه في localStorage
+    //         const token = response.data.access;
+    //         localStorage.setItem("token", token);
+
+    //         // التحقق مما إذا كان المستخدم هو superuser
+    //         const userResponse = await axios.get(
+    //             "http://localhost:8000/api/admin",
+    //             {
+    //                 headers: {
+    //                     Authorization: `Bearer ${token}`,
+    //                 },
+    //             }
+    //         );
+
+    //         const isSuperuser = userResponse.data.is_superuser;
+    //         if (isSuperuser) {
+    //             // توجيه المستخدم إلى لوحة تحكم Django Admin
+    //             // window.location.href = "/admin";
+    //             navigate(`/${App_Company}/profile`);
+    //         } else {
+    //             setError("You are not a Admin.");
+    //         }
+    //     } catch (error) {
+    //         setError("Login failed. Check your username and password.");
+    //     }
+    // };
 
     return (
         <>
@@ -89,7 +111,7 @@ function Login() {
                 <div className="container">
                     <div className="card">
                         <div className="card-body">
-                            <h2 className="title">Login</h2>
+                            <h2 className="title">Admin Login</h2>
 
                             <form onSubmit={handleLogin}>
                                 <div className="mb-3">
@@ -134,32 +156,6 @@ function Login() {
                                     Login
                                 </button>
                             </form>
-
-                            <div className="other">
-                                <p className="mt-3 text-center ">
-                                    Don't have an account?
-                                </p>
-
-                                <div>
-                                    <button
-                                        className="btn btn-link "
-                                        onClick={() => {
-                                            navigate("/signup");
-                                        }}
-                                    >
-                                        Sign up
-                                    </button>
-
-                                    <button
-                                        className="btn btn-link "
-                                        onClick={() => {
-                                            navigate("/resetpassword");
-                                        }}
-                                    >
-                                        Forgot Password?
-                                    </button>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -168,4 +164,4 @@ function Login() {
     );
 }
 
-export default Login;
+export default LoginAdmin;

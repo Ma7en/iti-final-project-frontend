@@ -214,8 +214,13 @@ function Header() {
                                             data-nav-link
                                             title="Property"
                                         >
+<<<<<<< HEAD
                                         Our Works
                                         </Link>
+=======
+                                            Our Works
+                                        </LinkScroll>
+>>>>>>> 6cdbfc7 (edit admin)
                                     </li>
                                     <li>
                                         <Link
@@ -265,7 +270,7 @@ function Header() {
                                     <a
                                         title="Profile"
                                         onClick={() => {
-                                            navigate(`${App_User}/profile`);
+                                            navigate(`/${App_User}/profile`);
                                         }}
                                     >
                                         <ion-icon name="person-outline" />
