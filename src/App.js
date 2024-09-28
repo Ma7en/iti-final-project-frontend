@@ -10,6 +10,7 @@ import languageContext from "./contexts/languageContext";
 
 // route
 import Router from "./routes/Router";
+import MainWrapper from "./components/layouts/MainWrapper";
 // import ChatBotCom from "./ui/chatbot/ChatBot";
 
 function App() {
@@ -20,7 +21,9 @@ function App() {
         <>
             <themeContext.Provider value={{ darkMode, setDarkMode }}>
                 <languageContext.Provider value={{ language, setLanguage }}>
-                    <Router />
+                    <MainWrapper>
+                        <Router />
+                    </MainWrapper>
                     {/* <ChatBotCom /> */}
                 </languageContext.Provider>
             </themeContext.Provider>

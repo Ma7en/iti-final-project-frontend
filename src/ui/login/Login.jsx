@@ -91,9 +91,7 @@ function Login() {
 
                             <form onSubmit={handleLogin}>
                                 <div className="mb-3">
-                                    <label className="form-label">
-                                        Username:
-                                    </label>
+                                    <label className="form-label">Email:</label>
                                     <input
                                         type="text"
                                         className="form-control"

@@ -25,16 +25,15 @@ import Logout from "../ui/logout/Logout";
 import Signup from "../ui/signup/Signup";
 import ResetPassword from "../ui/resetpassword/ResetPassword";
 
-import Profile from "../ui/profile/Profile";
-import Contact from "../ui/contact/Contact";
-
 // user components
 import AppUser from "../pages/user/AppUser";
 import AppUserLayout from "../pages/user/AppUserLayout";
+import EditProfile from "../pages/user/edit/EditProfile";
 
 // project components
-import CreateProject from "../components/project/createproject/CreateProject";
+// import CreateProject from "../components/project/createproject/CreateProject";
 import AboutPage from "../pages/app/aboutpages/AboutPage";
+import Contact from "../ui/contact/Contact";
 
 function Router() {
     return (
@@ -84,7 +83,7 @@ function Router() {
                             <Route exact path="/user" component={Router} />
                             <Route path={`${App_User}`} element={<AppUser />} />
                             <Route
-                                path={`${App_User}/profile`}
+                                path={`/${App_User}/profile`}
                                 element={<AppUser />}
                             />
                             <Route
@@ -92,11 +91,21 @@ function Router() {
                                 element={<AppUser />}
                             />
 
-                            {/* project */}
+                            {/* edit profile */}
                             <Route
+                                path={`/${App_User}/editprofile`}
+                                element={<EditProfile />}
+                            />
+                            <Route
+                                path={`/${App_User}/profileedit`}
+                                element={<EditProfile />}
+                            />
+
+                            {/* project */}
+                            {/* <Route
                                 path={`${App_User}/createproject`}
                                 element={<CreateProject />}
-                            />
+                            /> */}
                         </Route>
 
                         <Route path="/" element={<HomepageLayout />}>
@@ -105,6 +114,7 @@ function Router() {
                             <Route path="/home" element={<HomePage />} />
                             <Route path="/homeverse" element={<HomePage />} />
                             <Route path="/verse" element={<HomePage />} />
+                            <Route path="/verseapp" element={<HomePage />} />
                             <Route
                                 path="/homeverseapp"
                                 element={<HomePage />}
@@ -113,16 +123,22 @@ function Router() {
                             {/* content */}
                             <Route path="/contact" element={<Contact />} />
                             <Route path="/about" element={<AboutPage />} />
+<<<<<<< HEAD
                             <Route path="/finishing" element={<FinishingDetails />} />
                             <Route path="/writeDetails" element={<WriteDetails />} />
 
 
+=======
+                            <Route
+                                path="/finishing"
+                                element={<FinishingDetails />}
+                            />
+>>>>>>> cdc122f (edit profile)
 
                             {/* Verify user */}
                             <Route path="/login" element={<Login />} />
                             <Route path="/logout" element={<Logout />} />
                             <Route path="/signup" element={<Signup />} />
-                            <Route path="/profile" element={<Profile />} />
 
                             <Route
                                 path="/resetpassword"

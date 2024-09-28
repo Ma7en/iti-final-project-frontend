@@ -1,54 +1,25 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+// authorization
+import useUserData from "../../../plugin/useUserData";
+
 //
-import "./AppUser.css";
+import Toast from "../../../plugin/Toast";
 
 // utils
-import api from "../../utils/api";
-import { App_User } from "../../utils/constants";
-import apiInstance from "../../utils/axios";
+import apiInstance from "../../../utils/axios";
 
-// authorization
-import useUserData from "../../plugin/useUserData";
-import Toast from "../../plugin/Toast";
-
-// bootstrap components
+// ui bootstrap
 import { Button } from "react-bootstrap";
 
 // ui components
-import Loader from "../../ui/loader/Loader";
-import ScrollToTopPages from "../../ui/scrolltotoppages/ScrollToTopPages";
+import Loader from "../../../ui/loader/Loader";
+import ScrollToTopPages from "../../../ui/scrolltotoppages/ScrollToTopPages";
+import { App_User } from "../../../utils/constants";
 
-// assets
-import ProfileImage from "../../assets/images/author/avatar.png";
-
-function AppUser() {
+function EditProfile() {
     const navigate = useNavigate();
-
-    // const [user, setUser] = useState(null);
-
-    // useEffect(() => {
-    //     const fetchUserData = async () => {
-    //         try {
-    //             const token = localStorage.getItem("token");
-    //             const response = await api.get("/api/user/me/", {
-    //                 headers: {
-    //                     Authorization: `Bearer ${token}`,
-    //                 },
-    //             });
-    //             setUser(response.data);
-    //         } catch (error) {
-    //             console.error("Error fetching user data", error);
-    //         }
-    //     };
-
-    //     fetchUserData();
-    // }, []);
-
-    // if (!user) return <Loader />;
-    // // console.log(`user`, user);
-    // const { username, email, first_name, last_name } = user;
 
     // =================================================================
     const [profileData, setProfileData] = useState({
@@ -197,4 +168,4 @@ function AppUser() {
     );
 }
 
-export default AppUser;
+export default EditProfile;

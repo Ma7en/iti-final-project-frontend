@@ -21,6 +21,20 @@
 
 .userprofile .content .details {
     margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.userprofile .content .details span {
+    font-weight: normal;
+    display: inline;
+    margin-left: 10px;
+}
+
+.userprofile .content .buttons {
+    display: flex;
+    justify-content: space-between;
 }
 
 .userprofile .content .image img {

@@ -99,7 +99,7 @@ function Signup() {
             alert(JSON.stringify(error));
             resetForm();
         } else {
-            navigate("/");
+            navigate("/login");
         }
 
         // Reset isLoading to false when the operation is complete

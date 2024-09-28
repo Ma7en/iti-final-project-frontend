@@ -191,6 +191,7 @@ a {
     border: 1px solid var(--orange-soda);
     padding: 10px 20px;
     z-index: 1;
+    user-select: none;
 }
 
 .btn:is(:hover, :focus) {

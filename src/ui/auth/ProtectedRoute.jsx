@@ -1,63 +1,19 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-import { useState, useEffect } from "react";
+// Import the 'Navigate' component from the 'react-router-dom' library.
 import { Navigate } from "react-router-dom";
 
-// import { jwtDecode } from "jwt-decode";
+// Import the 'useAuthStore' function from a custom 'auth' store.
+import { useAuthStore } from "../../store/auth";
 
-import jwtDecode from "jwt-decode";
-// import jwt_decode as jwtDecode from "jwt-decode";
+// Define the 'PrivateRoute' component as a functional component that takes 'children' as a prop.
+const PrivateRoute = ({ children }) => {
+    // Use the 'useAuthStore' hook to check the user's authentication status.
+    // It appears to be using a state management solution like 'zustand' or 'mobx-state-tree'.
+    const loggedIn = useAuthStore((state) => state.isLoggedIn)();
 
-// utils
-import api from "../../utils/api";
-import { ACCESS_TOKEN, REFRESH_TOKEN } from "../../utils/constants";
+    // Conditionally render the children if the user is authenticated.
+    // If the user is not authenticated, redirect them to the login page.
+    return loggedIn ? <>{children}</> : <Navigate to="/login" />;
+};
 
-function ProtectedRoute({ children }) {
-    const [isAuthorized, setIsAuthorized] = useState(null);
-
-    useEffect(() => {
-        auth().catch(() => setIsAuthorized(false));
-    }, []);
-
-    const refreshToken = async () => {
-        const refreshToken = localStorage.getItem(REFRESH_TOKEN);
-        try {
-            const res = await api.post("/api/token/refresh/", {
-                refresh: refreshToken,
-            });
-            if (res.status === 200) {
-                localStorage.setItem(ACCESS_TOKEN, res.data.access);
-                setIsAuthorized(true);
-            } else {
-                setIsAuthorized(false);
-            }
-        } catch (error) {
-            console.log(error);
-            setIsAuthorized(false);
-        }
-    };
-
-    const auth = async () => {
-        const token = localStorage.getItem(ACCESS_TOKEN);
-        if (!token) {
-            setIsAuthorized(false);
-            return;
-        }
-        const decoded = jwtDecode(token);
-        const tokenExpiration = decoded.exp;
-        const now = Date.now() / 1000;
-
-        if (tokenExpiration < now) {
-            await refreshToken();
-        } else {
-            setIsAuthorized(true);
-        }
-    };
-
-    if (isAuthorized === null) {
-        return <div>Loading...</div>;
-    }
-
-    return isAuthorized ? children : <Navigate to="/login" />;
-}
-
-export default ProtectedRoute;
+// Export the 'PrivateRoute' component to make it available for use in other parts of the application.
+export default PrivateRoute;
