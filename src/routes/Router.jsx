@@ -13,12 +13,6 @@ import Loader from "../ui/loader/Loader";
 import NotFound from "../pages/app/NotFound/NotFound";
 import HomepageLayout from "../components/layouts/Homepagelayout";
 import HomePage from "../pages/app/home/HomePage";
-<<<<<<< HEAD
-import FinishingDetails from "../pages/finishingPage/FinishingDetails";
-import WriteDetails from "../pages/writeDetails/WriteDetails";
-import ServicePage from "../pages/servicePage/ServicePage";
-=======
->>>>>>> 6cdbfc7 (edit admin)
 
 // ui admin company
 import ProtectedRouteCompany from "../ui/auth/ProtectedRouteCompany";
@@ -47,6 +41,7 @@ import Contact from "../ui/contact/Contact";
 // ui project components
 import FinishingDetails from "../pages/finishingPage/FinishingDetails";
 import WriteDetails from "../pages/writeDetails/WriteDetails";
+import ServicePage from "../pages/servicePage/ServicePage";
 
 function Router() {
     return (
@@ -103,6 +98,10 @@ function Router() {
                                 element={<AppCompany />}
                             />
                             <Route
+                                path={`/${App_Company}/${App_Company}/profile`}
+                                element={<AppCompany />}
+                            />
+                            <Route
                                 path={`/companyprofile`}
                                 element={<AppCompany />}
                             />
@@ -132,9 +131,6 @@ function Router() {
                                     />
                                 }
                             />
-
-                         
-                            
 
                             <Route exact path="/user" component={Router} />
                             <Route path={`${App_User}`} element={<AppUser />} />
@@ -170,18 +166,18 @@ function Router() {
                                 element={<HomePage />}
                             />
 
-                            <Route path="/createcat" element={<CreateCat />} />
-                            <Route path="/editCat" element={<EditCat />} />
-
-
-                            {/* content */}
+                            {/* pages */}
                             <Route path="/contact" element={<Contact />} />
                             <Route path="/about" element={<AboutPage />} />
+
+                            {/* project */}
+                            <Route path="/createcat" element={<CreateCat />} />
+                            <Route path="/editCat" element={<EditCat />} />
                             <Route
                                 path="/finishing"
                                 element={<FinishingDetails />}
                             />
-                                <Route
+                            <Route
                                 path="/servicePage"
                                 element={<ServicePage />}
                             />

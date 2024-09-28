@@ -22,6 +22,7 @@ import ScrollToTopPages from "../../ui/scrolltotoppages/ScrollToTopPages";
 
 // assets
 import ProfileImage from "../../assets/images/author/avatar.png";
+import { useAuthStore } from "../../store/auth";
 
 function AppUser() {
     const navigate = useNavigate();
@@ -49,6 +50,9 @@ function AppUser() {
     // if (!user) return <Loader />;
     // // console.log(`user`, user);
     // const { username, email, first_name, last_name } = user;
+
+    // const isLoggedIn = useAuthStore((state) => state.isLoggedIn)();
+    // console.log(`eee`, useAuthStore());
 
     // =================================================================
     const [profileData, setProfileData] = useState({

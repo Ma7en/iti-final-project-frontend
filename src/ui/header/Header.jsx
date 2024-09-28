@@ -190,13 +190,8 @@ function Header() {
                                     <li>
                                         <Link
                                             to="/servicePage"
-                                            spy={true}
-                                            smooth={true}
-                                            offset={0}
-                                            duration={500}
                                             // href="#service"
                                             className="navbar-link"
-                                            data-nav-link
                                             title="Service"
                                         >
                                             Service
@@ -205,22 +200,11 @@ function Header() {
                                     <li>
                                         <Link
                                             to="/finishing"
-                                            spy={true}
-                                            smooth={true}
-                                            offset={0}
-                                            duration={500}
-                                            // href="#property"
                                             className="navbar-link"
-                                            data-nav-link
                                             title="Property"
                                         >
-<<<<<<< HEAD
-                                        Our Works
-                                        </Link>
-=======
                                             Our Works
-                                        </LinkScroll>
->>>>>>> 6cdbfc7 (edit admin)
+                                        </Link>
                                     </li>
                                     <li>
                                         <Link
