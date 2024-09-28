@@ -5,7 +5,7 @@ function Toast(icon, title, text) {
         toast: true,
         position: "top",
         showConfirmButton: false,
-        timer: 1500,
+        timer: 5000,
         timerProgressBar: true,
     });
 

@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+//
+import "./EditProfile.css";
+
 // authorization
 import useUserData from "../../../plugin/useUserData";
 
@@ -97,6 +100,7 @@ function EditProfile() {
             );
             Toast("success", "Profile updated successfully", "");
             setLoading(false);
+            navigate(`/${App_User}/profile`);
         } catch (error) {
             console.error("Error updating profile:", error);
             Toast("error", "An Error Occured", "");
@@ -104,63 +108,197 @@ function EditProfile() {
     };
     console.log("1", profileData);
     if (!profileData) return <Loader />;
-    const { full_name, image, id, bio, facebook } = profileData;
-    const backup_bio =
-        "Success is not measured by what you have achieved, but by the obstacles you have overcome.";
 
     return (
         <>
             <ScrollToTopPages />
-            <div className="userprofile">
+            <div className="editprofile">
                 <div className="container">
                     <div className="section-title">
-                        <h1 className="h2">User Profile</h1>
+                        <h1 className="h2">Edit Profile</h1>
                     </div>
 
                     <div className="content">
-                        <div className="info">
-                            <div className="details">
-                                <p className="h3">
-                                    Full Name:
-                                    <span>{full_name}</span>
-                                </p>
+                        <form className="card-body" onSubmit={handleFormSubmit}>
+                            <div className="top">
+                                <div className="image">
+                                    <img
+                                        src={imagePreview || profileData?.image}
+                                        id="img-uploaded"
+                                        className="avatar-xl rounded-circle"
+                                        alt="avatar"
+                                        style={{
+                                            width: "100px",
+                                            height: "100px",
+                                            borderRadius: "50%",
+                                            objectFit: "cover",
+                                        }}
+                                    />
+                                </div>
 
-                                <p className="h3">
-                                    Phone:
-                                    <span>01145645623</span>
-                                </p>
+                                <div className="">
+                                    <h4 className="">Your avatar</h4>
 
-                                <p className="h3">
-                                    Bio:
-                                    <span>{bio || backup_bio}</span>
-                                </p>
-                                {/* <p className="h3">Username: {}</p> */}
+                                    <input
+                                        type="file"
+                                        name="image"
+                                        className="form-control mt-3"
+                                        onChange={handleFileChange}
+                                    />
+
+                                    <p className="error">
+                                        PNG or JPG no bigger than 800px wide and
+                                        tall.
+                                    </p>
+                                </div>
                             </div>
 
+                            <hr className="" />
+
+                            {/* Form */}
+                            <div className="info">
+                                {/* First name */}
+                                <div className="">
+                                    <label
+                                        className="form-label"
+                                        htmlFor="fname"
+                                    >
+                                        Full Name
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        id="fname"
+                                        className="form-control"
+                                        placeholder="First Name"
+                                        required=""
+                                        onChange={handleProfileChange}
+                                        name="full_name"
+                                        value={profileData?.full_name}
+                                    />
+                                </div>
+
+                                {/* About Me */}
+                                <div className="">
+                                    <label
+                                        className="form-label"
+                                        htmlFor="lname"
+                                    >
+                                        About Me
+                                    </label>
+                                    <textarea
+                                        onChange={handleProfileChange}
+                                        name="about"
+                                        id=""
+                                        cols="30"
+                                        // value={profileData?.about}
+                                        rows="5"
+                                        className="form-control"
+                                    ></textarea>
+                                </div>
+
+                                {/* Bio */}
+                                <div className="">
+                                    <label
+                                        className="form-label"
+                                        htmlFor="editCountry"
+                                    >
+                                        Bio
+                                    </label>
+                                    <input
+                                        type="text"
+                                        id="bio"
+                                        className="form-control"
+                                        placeholder="bio"
+                                        required=""
+                                        value={profileData?.bio}
+                                        onChange={handleProfileChange}
+                                        name="bio"
+                                    />
+                                </div>
+
+                                {/* Ggovernorate */}
+                                <div className="">
+                                    <label
+                                        className="form-label"
+                                        htmlFor="editCountry"
+                                    >
+                                        Ggovernorate
+                                    </label>
+                                    <input
+                                        type="text"
+                                        id="country"
+                                        className="form-control"
+                                        placeholder="Governorate"
+                                        required=""
+                                        value={profileData?.country || ""}
+                                        onChange={handleProfileChange}
+                                        name="country"
+                                    />
+                                </div>
+
+                                {/* Facebook */}
+                                <div className="">
+                                    <label
+                                        className="form-label"
+                                        htmlFor="editCountry"
+                                    >
+                                        Facebook
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        id="facebook"
+                                        className="form-control"
+                                        name="facebook"
+                                        placeholder="facebook"
+                                        value={profileData?.facebook}
+                                        onChange={handleProfileChange}
+                                        required=""
+                                    />
+                                </div>
+
+                                {/* Twitter */}
+                                <div className="">
+                                    <label
+                                        className="form-label"
+                                        htmlFor="editCountry"
+                                    >
+                                        Twitter
+                                    </label>
+                                    <input
+                                        type="text"
+                                        id="twitter"
+                                        className="form-control"
+                                        placeholder="twitter"
+                                        required=""
+                                        value={profileData?.twitter}
+                                        onChange={handleProfileChange}
+                                        name="twitter"
+                                    />
+                                </div>
+                            </div>
+
+                            {/* Button */}
                             <div className="buttons">
-                                <Button
-                                    className="btn "
-                                    onClick={() => {
-                                        navigate(`/${App_User}/editprofile`);
-                                    }}
+                                <button
+                                    className="btn btn-primary"
+                                    type="submit"
                                 >
-                                    Edit Profile
-                                </Button>
+                                    Update Profile
+                                </button>
 
-                                <Button
-                                    className="btn "
+                                <button
+                                    className="btn btn-primary"
+                                    type="submit"
                                     onClick={() => {
-                                        navigate(`/logout`);
+                                        navigate(`/${App_User}/profile`);
                                     }}
                                 >
-                                    Logout
-                                </Button>
+                                    Cancal
+                                </button>
                             </div>
-                        </div>
-
-                        <div className="image">
-                            <img src={`${image}`} alt={`${full_name}`} />
-                        </div>
+                        </form>
                     </div>
                 </div>
             </div>

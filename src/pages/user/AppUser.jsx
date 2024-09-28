@@ -131,7 +131,7 @@ function AppUser() {
             Toast("error", "An Error Occured", "");
         }
     };
-    console.log("1", profileData);
+    // console.log("1", profileData);
     if (!profileData) return <Loader />;
     const { full_name, image, id, bio, facebook } = profileData;
     const backup_bio =

@@ -34,7 +34,8 @@
 
 .userprofile .content .buttons {
     display: flex;
-    justify-content: space-between;
+    justify-content: start;
+    gap: 20px;
 }
 
 .userprofile .content .image img {
