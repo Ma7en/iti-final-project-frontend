@@ -83,11 +83,11 @@ function Property() {
                                         emphasize the mode
                                     </p>
                                     <ul className="card-list">
-                                        {/* <li className="card-item">
-                                            <strong>30</strong>
-                                            <ion-icon name="calendar-outline" />
-                                            <span>Bedrooms</span>
-                                        </li> */}
+                                        <li className="card-item">
+                                            <strong>3000</strong>
+                                            <ion-icon name="cash-outline"/>
+                                            <span>money</span>
+                                        </li>
                                         <li className="card-item">
                                             <strong>30</strong>
                                             <ion-icon name="calendar-outline" />
@@ -191,11 +191,11 @@ function Property() {
                                         the modern theme of the apartment.
                                     </p>
                                     <ul className="card-list">
-                                        {/* <li className="card-item">
-                                            <strong>3</strong>
-                                            <ion-icon name="bed-outline" />
-                                            <span>Bedrooms</span>
-                                        </li> */}
+                                        <li className="card-item">
+                                            <strong>9000</strong>
+                                            <ion-icon name="cash-outline"/>
+                                            <span>money</span>
+                                        </li>
                                         <li className="card-item">
                                             <strong>30</strong>
                                             <ion-icon name="calendar-outline" />
@@ -298,11 +298,11 @@ function Property() {
                                         entrance and exit using slip-resistant s
                                     </p>
                                     <ul className="card-list">
-                                        {/* <li className="card-item">
-                                            <strong>3</strong>
-                                            <ion-icon name="bed-outline" />
-                                            <span>Bedrooms</span>
-                                        </li> */}
+                                        <li className="card-item">
+                                            <strong>3000</strong>
+                                            <ion-icon name="cash-outline"/>
+                                            <span>money</span>
+                                        </li>
                                         <li className="card-item">
                                             <strong>10</strong>
                                             <ion-icon name="calendar-outline" />
@@ -406,11 +406,11 @@ function Property() {
                                         room entrances to prevent water leakage.
                                     </p>
                                     <ul className="card-list">
-                                        {/* <li className="card-item">
-                                            <strong>3</strong>
-                                            <ion-icon name="bed-outline" />
-                                            <span>Bedrooms</span>
-                                        </li> */}
+                                        <li className="card-item">
+                                            <strong>1553</strong>
+                                            <ion-icon name="cash-outline"/>
+                                            <span>money</span>
+                                        </li>
                                         <li className="card-item">
                                             <strong>20</strong>
                                             <ion-icon name="calendar-outline" />

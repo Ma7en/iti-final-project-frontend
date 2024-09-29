@@ -842,6 +842,7 @@ a {
 
 .property-card .card-item span {
     margin-top: 5px;
+    text-transform: capitalize;
 }
 
 .card-footer {
