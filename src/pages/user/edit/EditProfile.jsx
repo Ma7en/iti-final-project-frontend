@@ -81,6 +81,7 @@ function EditProfile() {
         const formData = new FormData();
         if (profileData.image && profileData.image !== res.data.image) {
             formData.append("image", profileData.image);
+            console.log(`image`, profileData.image);
         }
         formData.append("full_name", profileData.full_name);
         formData.append("about", profileData.about);
@@ -106,6 +107,7 @@ function EditProfile() {
             Toast("error", "An Error Occured", "");
         }
     };
+
     // console.log("1", profileData);
     if (!profileData) return <Loader />;
 

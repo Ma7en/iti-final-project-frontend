@@ -41,7 +41,7 @@ import Contact from "../ui/contact/Contact";
 // ui project components
 import FinishingDetails from "../pages/finishingPage/FinishingDetails";
 import WriteDetails from "../pages/writeDetails/WriteDetails";
-import ServicePage from "../pages/servicePage/ServicePage";
+import ServicePage from "../pages/app/servicePage/ServicePage";
 
 function Router() {
     return (
@@ -104,6 +104,12 @@ function Router() {
                             <Route
                                 path={`/companyprofile`}
                                 element={<AppCompany />}
+                            />
+
+                            {/* categories */}
+                            <Route
+                                path={`/${App_Company}/createcat`}
+                                element={<CreateCat />}
                             />
 
                             {/* project */}
