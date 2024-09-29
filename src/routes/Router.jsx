@@ -37,11 +37,11 @@ import EditCat from "../components/categories/editCategories/EditCat";
 // import CreateProject from "../components/project/createproject/CreateProject";
 import AboutPage from "../pages/app/aboutpages/AboutPage";
 import Contact from "../ui/contact/Contact";
+import FinishingDetails from "../pages/app/finishingPage/FinishingDetails";
+import ServicePage from "../pages/app/servicePage/ServicePage";
+import WriteDetails from "../pages/app/writeDetails/WriteDetails";
 
 // ui project components
-import FinishingDetails from "../pages/finishingPage/FinishingDetails";
-import WriteDetails from "../pages/writeDetails/WriteDetails";
-import ServicePage from "../pages/app/servicePage/ServicePage";
 
 function Router() {
     return (

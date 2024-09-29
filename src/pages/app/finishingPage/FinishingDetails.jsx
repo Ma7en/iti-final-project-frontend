@@ -3,7 +3,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 // assets
-import property1 from "../../assets/images/property/property-1.jpg";
+import property1 from "../../../assets/images/property/property-1.jpg";
 
 function FinishingDetails() {
     return (

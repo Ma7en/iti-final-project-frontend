@@ -1,6 +1,5 @@
-
 import React from "react";
-import { Link } from "react-router-dom"; 
+import { Link } from "react-router-dom";
 import property1 from "../../assets/images/property/property-1.jpg";
 import company1 from "../../assets/images/company/company1.png";
 import Footer from "../../ui/footer/Footer";
@@ -27,7 +26,9 @@ function FinishingDetails() {
                                     <div className="banner-actions">
                                         <button className="banner-actions-btn">
                                             <ion-icon name="location" />
-                                            <address>Belmont Gardens, Chicago</address>
+                                            <address>
+                                                Belmont Gardens, Chicago
+                                            </address>
                                         </button>
                                         <button className="banner-actions-btn">
                                             <ion-icon name="camera" />
@@ -42,7 +43,9 @@ function FinishingDetails() {
 
                                 <div className="card-content">
                                     <h3 className="h3 card-title">
-                                        <a href="#">Modern Villa Facade Finishing</a>
+                                        <a href="#">
+                                            Modern Villa Facade Finishing
+                                        </a>
                                     </h3>
                                     <p className="card-text">
                                         This project involves finishing the
@@ -60,7 +63,7 @@ function FinishingDetails() {
                                         lines and simple geometric shapes that
                                         emphasize the mode.
                                     </p>
-                                    
+
                                     {/* New paragraph for price per meter */}
                                     <p className="price-per-meter">
                                         Price per meter: <strong>$150</strong>
@@ -92,7 +95,9 @@ function FinishingDetails() {
                                             <p className="author-name">
                                                 <a href="#">William Seklo</a>
                                             </p>
-                                            <p className="author-title">Estate Agents</p>
+                                            <p className="author-title">
+                                                Estate Agents
+                                            </p>
                                         </div>
                                     </div>
                                     <div className="card-footer-actions">
@@ -113,7 +118,9 @@ function FinishingDetails() {
 
                     {/* Button to navigate to Calculator */}
                     <button>
-                        <a href="/writeDetails" className="btn">Write Details</a>
+                        <a href="/writeDetails" className="btn">
+                            Write Details
+                        </a>
                     </button>
                 </div>
             </section>
