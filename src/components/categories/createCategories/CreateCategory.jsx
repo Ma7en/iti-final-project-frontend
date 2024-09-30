@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./CreateCat.css";
+import "./CreateCategory.css";
 
 const CreateCat = () => {
     const [categories, setCategories] = useState([]);

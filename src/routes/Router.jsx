@@ -31,8 +31,8 @@ import ResetPassword from "../ui/resetpassword/ResetPassword";
 import AppUser from "../pages/user/AppUser";
 import AppUserLayout from "../pages/user/AppUserLayout";
 import EditProfile from "../pages/user/edit/EditProfile";
-import CreateCat from "../components/categories/createCategories/CreateCat";
-import EditCat from "../components/categories/editCategories/EditCat";
+import CreateCategory from "../components/categories/createCategories/CreateCategory";
+import EditCategory from "../components/categories/editCategories/EditCategory";
 // project components
 // import CreateProject from "../components/project/createproject/CreateProject";
 import AboutPage from "../pages/app/aboutpages/AboutPage";
@@ -40,6 +40,7 @@ import Contact from "../ui/contact/Contact";
 import FinishingDetails from "../pages/app/finishingPage/FinishingDetails";
 import ServicePage from "../pages/app/servicePage/ServicePage";
 import WriteDetails from "../pages/app/writeDetails/WriteDetails";
+import ServiceDetails from "../pages/app/serviceDetails/ServiceDetails";
 
 // ui project components
 
@@ -108,8 +109,8 @@ function Router() {
 
                             {/* categories */}
                             <Route
-                                path={`/${App_Company}/createcat`}
-                                element={<CreateCat />}
+                                path={`/${App_Company}/createcategory`}
+                                element={<CreateCategory />}
                             />
 
                             {/* project */}
@@ -177,8 +178,8 @@ function Router() {
                             <Route path="/about" element={<AboutPage />} />
 
                             {/* project */}
-                            <Route path="/createcat" element={<CreateCat />} />
-                            <Route path="/editCat" element={<EditCat />} />
+                            <Route path="/createcategory" element={<CreateCategory />} />
+                            <Route path="/editCategory" element={<EditCategory />} />
                             <Route
                                 path="/finishing"
                                 element={<FinishingDetails />}
@@ -190,6 +191,10 @@ function Router() {
                             <Route
                                 path="/writeDetails"
                                 element={<WriteDetails />}
+                            />
+ <Route
+                                path="/servicedetails"
+                                element={<ServiceDetails />}
                             />
 
                             {/* Verify admin */}

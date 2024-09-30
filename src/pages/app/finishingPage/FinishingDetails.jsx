@@ -1,4 +1,4 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
+
 import React from "react";
 import { Link } from "react-router-dom";
 
@@ -101,8 +101,14 @@ function FinishingDetails() {
                             </div>
                         </li>
                     </ul>
+                    <button>
+                        <a href="/writeDetails" className="btn">
+                            Write Details
+                        </a>
+                    </button>
                 </div>
             </section>
+           
         </>
     );
 }
