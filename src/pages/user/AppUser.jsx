@@ -26,35 +26,6 @@ import { useAuthStore } from "../../store/auth";
 
 function AppUser() {
     const navigate = useNavigate();
-
-    // const [user, setUser] = useState(null);
-
-    // useEffect(() => {
-    //     const fetchUserData = async () => {
-    //         try {
-    //             const token = localStorage.getItem("token");
-    //             const response = await api.get("/api/user/me/", {
-    //                 headers: {
-    //                     Authorization: `Bearer ${token}`,
-    //                 },
-    //             });
-    //             setUser(response.data);
-    //         } catch (error) {
-    //             console.error("Error fetching user data", error);
-    //         }
-    //     };
-
-    //     fetchUserData();
-    // }, []);
-
-    // if (!user) return <Loader />;
-    // // console.log(`user`, user);
-    // const { username, email, first_name, last_name } = user;
-
-    // const isLoggedIn = useAuthStore((state) => state.isLoggedIn)();
-    // console.log(`eee`, useAuthStore());
-
-    // =================================================================
     const [profileData, setProfileData] = useState({
         image: null,
         full_name: "",

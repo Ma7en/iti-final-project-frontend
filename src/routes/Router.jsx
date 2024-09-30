@@ -113,7 +113,7 @@ function Router() {
                                 element={<CreateCategory />}
                             />
                             {/* <Route
-                                path={`/${App_Company}/createcategory`}
+                                path={`/${App_Company}/editcategory`}
                                 element={<EditCategory />}
                             /> */}
 

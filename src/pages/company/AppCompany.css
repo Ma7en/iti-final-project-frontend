@@ -67,8 +67,15 @@
     align-items: center;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
     gap: 30px;
 }
+/* 
+@media (max-width: 767px) {
+    .companyprofile .content .actions {
+        fl
+    }
+} */
 
 .companyprofile .categories .actions button {
     width: 100%;

@@ -1,14 +1,25 @@
 import React, { useEffect, useState } from "react";
-import "./CreateCategory.css";
 import { useNavigate } from "react-router-dom";
-import { useAuthStore } from "../../../store/auth";
-import ScrollToTopPages from "../../../ui/scrolltotoppages/ScrollToTopPages";
+
+// import style
+import "./CreateCategory.css";
+
+// plugin
 import useUserData from "../../../plugin/useUserData";
-import apiInstance from "../../../utils/axios";
 import Toast from "../../../plugin/Toast";
-import Swal from "sweetalert2";
+
+// utils
+import apiInstance from "../../../utils/axios";
+import { App_Company } from "../../../utils/constants";
+
+// bootstrap components
+import { Button } from "react-bootstrap";
+
+// ui components
+import ScrollToTopPages from "../../../ui/scrolltotoppages/ScrollToTopPages";
 
 function CreateCategory() {
+    const navigate = useNavigate();
     const [categories, setCategories] = useState([]);
     const [category, setCategory] = useState({
         title: "",
@@ -17,10 +28,8 @@ function CreateCategory() {
     });
     const [isEditing, setIsEditing] = useState(false);
     const [editId, setEditId] = useState(null);
-    const navigate = useNavigate();
     const userId = useUserData()?.user_id;
 
-    // Fetch categories from the API
     const fetchCategories = async () => {
         try {
             const response = await apiInstance.get("category/list/");
@@ -30,49 +39,41 @@ function CreateCategory() {
         }
     };
 
-    useEffect(() => {
-        fetchCategories();
-    }, []);
-
-    // Handle input changes
     const handleInputChange = (e) => {
         const { name, value } = e.target;
-        setCategory({ ...category, [name]: value });
+        if (name === "title") {
+            // Auto-generate slug from title
+            const generatedSlug = value
+                .toLowerCase()
+                .replace(/ /g, "-") // replace spaces with hyphens
+                .replace(/[^\w-]+/g, ""); // remove non-alphanumeric characters
+            setCategory({ ...category, title: value, slug: generatedSlug });
+        } else {
+            setCategory({ ...category, [name]: value });
+        }
     };
 
-    // Handle file changes for category image
     const handleFileChange = (e) => {
         const file = e.target.files[0];
         setCategory({ ...category, image: file });
     };
 
-    // Handle form submission for creating or updating a category
     const handleSubmit = async (e) => {
         e.preventDefault();
         const formData = new FormData();
-
-        if (category.title) formData.append("title", category.title);
-        if (category.image) formData.append("image", category.image);
-        if (category.slug) formData.append("slug", category.slug);
+        formData.append("title", category.title);
+        formData.append("image", category.image);
+        formData.append("slug", category.slug);
 
         try {
-            if (isEditing) {
-                await apiInstance.put(`category/update/${editId}/`, formData, {
-                    headers: {
-                        "Content-Type": "multipart/form-data",
-                    },
-                });
-                Toast("success", "Category updated successfully!");
-            } else {
-                await apiInstance.post("category/create/", formData, {
-                    headers: {
-                        "Content-Type": "multipart/form-data",
-                    },
-                });
-                Toast("success", "Category created successfully!");
-            }
-            fetchCategories();
-            resetForm();
+            await apiInstance.post("category/create/", formData, {
+                headers: {
+                    "Content-Type": "multipart/form-data",
+                },
+            });
+            Toast("success", "Category created successfully!");
+            fetchCategories(); // Refresh categories list after creation
+            navigate(`/${App_Company}/profile`);
         } catch (error) {
             console.error(
                 "Error during category submission:",
@@ -82,92 +83,76 @@ function CreateCategory() {
         }
     };
 
-    // Handle editing of a category
-    const handleEdit = (cat) => {
-        setCategory(cat);
-        setIsEditing(true);
-        setEditId(cat.id);
-    };
-
-    // Handle deletion of a category
-    const handleDelete = async (id) => {
-        const confirm = await Swal.fire({
-            title: "Are you sure?",
-            text: "This will permanently delete the category!",
-            icon: "warning",
-            showCancelButton: true,
-        });
-        if (confirm.isConfirmed) {
-            try {
-                await apiInstance.delete(`category/delete/${id}/`);
-                Toast("success", "Category deleted successfully!");
-                fetchCategories();
-            } catch (error) {
-                Toast("error", "Error while deleting category!");
-            }
-        }
-    };
-
-    // Reset form inputs
-    const resetForm = () => {
-        setCategory({ title: "", image: null, slug: "" });
-        setIsEditing(false);
-        setEditId(null);
-    };
-
     return (
         <>
             <ScrollToTopPages />
-            <div>
-                <h1>Category Manager</h1>
-                <form onSubmit={handleSubmit} encType="multipart/form-data">
-                    <input
-                        type="text"
-                        name="title"
-                        placeholder="Category Title"
-                        value={category.title}
-                        onChange={handleInputChange}
-                        required
-                    />
-                    <input
-                        type="file"
-                        name="image"
-                        onChange={handleFileChange}
-                        accept="image/*"
-                    />
-                    <input
-                        type="text"
-                        name="slug"
-                        placeholder="Slug"
-                        value={category.slug}
-                        onChange={handleInputChange}
-                    />
-                    <button type="submit">
-                        {isEditing ? "Update" : "Create"}
-                    </button>
-                </form>
+            <div className="createcategory">
+                <div className="container">
+                    <div className="section-title">
+                        <h1 className="h2">Create New Category</h1>
+                    </div>
 
-                <h2>Categories List</h2>
-                <ul>
-                    {categories.map((cat) => (
-                        <li key={cat.id}>
-                            {cat.image && (
-                                <img
-                                    src={cat.image}
-                                    alt={cat.title}
-                                    style={{ width: "50px", height: "50px" }}
+                    <div className="content">
+                        <form
+                            onSubmit={handleSubmit}
+                            encType="multipart/form-data"
+                        >
+                            <div className="mb-3">
+                                <label className="form-label">Image:</label>
+                                <input
+                                    type="file"
+                                    className="form-control"
+                                    name="image"
+                                    id="image"
+                                    onChange={handleFileChange}
+                                    accept="image/*"
+                                    required
                                 />
-                            )}
-                            {cat.title}
-                            <button onClick={() => handleEdit(cat)}>
-                                Edit
-                            </button>
-                            <button onClick={() => handleDelete(cat.id)}>
-                                Delete
-                            </button>
-                        </li>
-                    ))}
-                </ul>
+                            </div>
+
+                            <div className="mb-3">
+                                <label className="form-label">title:</label>
+                                <input
+                                    type="text"
+                                    name="title"
+                                    className="form-control"
+                                    id="title"
+                                    value={category.title}
+                                    onChange={handleInputChange}
+                                    required
+                                />
+                            </div>
+
+                            <div className="mb-3">
+                                <label className="form-label">Details:</label>
+                                <textarea
+                                    type="text"
+                                    className="form-control"
+                                    name="slug"
+                                    id="slug"
+                                    onChange={handleInputChange}
+                                    required
+                                ></textarea>
+                            </div>
+
+                            <div className="buttons">
+                                <Button className="btn " type="submit">
+                                    Create Category
+                                </Button>
+
+                                <Button
+                                    className="btn "
+                                    type="submit"
+                                    onClick={() => {
+                                        navigate(`/${App_Company}/profile`);
+                                    }}
+                                >
+                                    concal
+                                </Button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
         </>
     );
