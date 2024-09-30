@@ -127,10 +127,18 @@ function Router() {
 
                             {/* create category */}
                             <Route
+                                path={`/${App_Company}/createcategory`}
+                                element={<CreateCategory />}
+                            />
+                            <Route
+                                path={`/${App_Company}/categorycreate`}
+                                element={<CreateCategory />}
+                            />
+                            <Route
                                 path={`/${App_Company}/category/create`}
                                 element={<CreateCategory />}
                             />
-                            
+
                             {/* update category */}
                             {/* <Route
                                 path={`/${App_Company}/updatecategory`}

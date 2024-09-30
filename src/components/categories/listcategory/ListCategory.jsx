@@ -10,6 +10,9 @@ import { Button } from "react-bootstrap";
 // utils
 import apiInstance from "../../../utils/axios";
 
+// ui components
+import ScrollToTopPages from "../../../ui/scrolltotoppages/ScrollToTopPages";
+
 function ListCategory() {
     const [categories, setCategories] = useState([]);
     const navigate = useNavigate();
@@ -26,12 +29,9 @@ function ListCategory() {
         fetchCategories();
     }, []);
 
-    const handleView = (id) => {
-        navigate(`/categories/details/${id}`);
-    };
-
     return (
         <>
+            <ScrollToTopPages />
             <div className="listcategory">
                 <div className="container">
                     <div className="section-title">
@@ -45,7 +45,9 @@ function ListCategory() {
                                     <div className="info">
                                         <span className="id">{cat.id})</span>
 
-                                        <span className="title">{cat.title}</span>
+                                        <span className="title">
+                                            {cat.title}
+                                        </span>
                                     </div>
 
                                     <div className="buttons">

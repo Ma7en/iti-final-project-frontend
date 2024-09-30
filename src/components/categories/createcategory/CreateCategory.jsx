@@ -23,6 +23,7 @@ function CreateCategory() {
     const [categories, setCategories] = useState([]);
     const [category, setCategory] = useState({
         title: "",
+        details: "",
         image: null,
         slug: "",
     });
@@ -47,7 +48,7 @@ function CreateCategory() {
                 .toLowerCase()
                 .replace(/ /g, "-") // replace spaces with hyphens
                 .replace(/[^\w-]+/g, ""); // remove non-alphanumeric characters
-            setCategory({ ...category, title: value, slug: generatedSlug });
+            setCategory({ ...category, title: value, details: generatedSlug });
         } else {
             setCategory({ ...category, [name]: value });
         }
@@ -62,6 +63,7 @@ function CreateCategory() {
         e.preventDefault();
         const formData = new FormData();
         formData.append("title", category.title);
+        formData.append("details", category.details);
         formData.append("image", category.image);
         formData.append("slug", category.slug);
 
@@ -80,6 +82,7 @@ function CreateCategory() {
                 error.response.data
             );
             Toast("error", "Error while saving category!");
+            Toast("error", "category with this slug already exists.");
         }
     };
 
