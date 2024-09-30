@@ -184,7 +184,7 @@ function AppCompany() {
                             <Button
                                 className="btn "
                                 onClick={() => {
-                                    navigate(`/`);
+                                    navigate(`/${App_Company}/createproject` );
                                 }}
                             >
                                 <span>create project</span>

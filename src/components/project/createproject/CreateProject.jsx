@@ -20,6 +20,8 @@ function CreateProject() {
     const [title, setTitle] = useState("");
     const [details, setDetails] = useState("");
     const [meter, setMeter] = useState("");
+    const [day, setDay] = useState("");
+
     const [image, setImage] = useState("");
 
     //
@@ -152,7 +154,17 @@ function CreateProject() {
                                 onChange={(e) => setMeter(e.target.value)}
                             />
                         </div>
-
+                        <div>
+                            <label htmlFor="amount">Days:</label>
+                            <input
+                                type="number"
+                                id="meter"
+                                name="meter"
+                                required
+                                value={day}
+                                onChange={(e) => setDay(e.target.value)}
+                            />
+                        </div>
                         <div>
                             <label htmlFor="image">Image:</label>
                             <input
@@ -165,9 +177,13 @@ function CreateProject() {
                         </div>
 
                         <button
-                            disabled
+                            // disabled
                             type="submit"
                             className="btn btn-primary w-100"
+                            onClick={() => {
+                                navigate(`/viewproject`);
+                            }}
+                            
                         >
                             Submit
                         </button>
