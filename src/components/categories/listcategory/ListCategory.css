@@ -1,0 +1,53 @@
+/* Style for category list */
+.listcategory .list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.listcategory .item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid var(--raisin-black-1);
+    border-radius: 8px;
+    /* background-color: var(--alice-blue); */
+    transition: var(--transition);
+}
+
+.listcategory .item:hover {
+    background-color: var(--cultured-1);
+}
+
+.listcategory .info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    font-size: 25px;
+}
+
+.listcategory .info .id {
+    font-weight: bold;
+    color: var(--orange-soda);
+}
+
+.listcategory .buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.listcategory .view-btn {
+    background-color: var(--yellow-green);
+}
+
+.listcategory .update-btn {
+    background-color: var(--orange-soda);
+}
+
+.listcategory .delete-btn {
+    background-color: var(--prussian-blue);
+}
+
+

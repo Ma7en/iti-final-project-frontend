@@ -89,7 +89,7 @@ function CreateCategory() {
             <div className="createcategory">
                 <div className="container">
                     <div className="section-title">
-                        <h1 className="h2">Create New Category</h1>
+                        <h2 className="h2">Create New Category</h2>
                     </div>
 
                     <div className="content">

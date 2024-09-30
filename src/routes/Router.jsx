@@ -36,13 +36,16 @@ import EditProfile from "../pages/user/edit/EditProfile";
 import AboutPage from "../pages/app/aboutpages/AboutPage";
 import Contact from "../ui/contact/Contact";
 
+// ui Category components
+import ListCategory from "../components/categories/listcategory/ListCategory";
+import CreateCategory from "../components/categories/createcategory/CreateCategory";
+import EditCategory from "../components/categories/editcategory/EditCategory";
+
 // ui project components
 import FinishingDetails from "../pages/app/finishingPage/FinishingDetails";
 import ServicePage from "../pages/app/servicePage/ServicePage";
 import WriteDetails from "../pages/app/writeDetails/WriteDetails";
 import ServiceDetails from "../pages/app/serviceDetails/ServiceDetails";
-import CreateCategory from "../components/categories/createcategory/CreateCategory";
-import EditCategory from "../components/categories/editcategory/EditCategory";
 
 function Router() {
     return (
@@ -108,12 +111,29 @@ function Router() {
                             />
 
                             {/* categories */}
+                            {/* list category */}
                             <Route
-                                path={`/${App_Company}/createcategory`}
+                                path={`/${App_Company}/categories`}
+                                element={<ListCategory />}
+                            />
+                            <Route
+                                path={`/${App_Company}/listcategories`}
+                                element={<ListCategory />}
+                            />
+                            <Route
+                                path={`/${App_Company}/categories/list`}
+                                element={<ListCategory />}
+                            />
+
+                            {/* create category */}
+                            <Route
+                                path={`/${App_Company}/category/create`}
                                 element={<CreateCategory />}
                             />
+                            
+                            {/* update category */}
                             {/* <Route
-                                path={`/${App_Company}/editcategory`}
+                                path={`/${App_Company}/updatecategory`}
                                 element={<EditCategory />}
                             /> */}
 

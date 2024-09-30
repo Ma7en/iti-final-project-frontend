@@ -166,7 +166,7 @@ function AppCompany() {
                             <Button
                                 className="btn "
                                 onClick={() => {
-                                    navigate(`/`);
+                                    navigate(`/${App_Company}/categories`);
                                 }}
                             >
                                 <span>view categories</span>
