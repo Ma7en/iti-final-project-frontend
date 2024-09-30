@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-const EditCat = ({ category, index, onSave }) => {
+const EditCategory = ({ category, index, onSave }) => {
     const [name, setName] = useState("");
     const [details, setDetails] = useState("");
     const [error, setError] = useState("");
@@ -74,4 +74,4 @@ const EditCat = ({ category, index, onSave }) => {
     );
 };
 
-export default EditCat;
+export default EditCategory;

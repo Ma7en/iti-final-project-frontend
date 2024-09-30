@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./CreateCategory.css";
 
-const CreateCat = () => {
+function CreateCategory() {
     const [categories, setCategories] = useState([]);
     const [name, setName] = useState("");
     const [details, setDetails] = useState("");
@@ -70,6 +70,6 @@ const CreateCat = () => {
       </ul> */}
         </div>
     );
-};
+}
 
-export default CreateCat;
+export default CreateCategory;
