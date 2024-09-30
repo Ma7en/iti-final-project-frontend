@@ -35,7 +35,7 @@ function ListCategory() {
             <div className="listcategory">
                 <div className="container">
                     <div className="section-title">
-                        <h2 className="h2">Create New Category</h2>
+                        <h2 className="h2">List Categories</h2>
                     </div>
 
                     <div className="content">
