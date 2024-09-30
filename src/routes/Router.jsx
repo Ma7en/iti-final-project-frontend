@@ -161,8 +161,27 @@ function Router() {
                             />
 
                             {/* project */}
+                            {/* create project */}
                             {/* <Route
-                                path={`${App_User}/createproject`}
+                                path={`${App_Company}/createproject`}
+                                element={<CreateProject />}
+                            /> */}
+
+                            {/* update project */}
+                            {/* <Route
+                                path={`${App_Company}/createproject`}
+                                element={<CreateProject />}
+                            /> */}
+
+                            {/* delete project */}
+                            {/* <Route
+                                path={`${App_Company}/createproject`}
+                                element={<CreateProject />}
+                            /> */}
+
+                            {/* details project */}
+                            {/* <Route
+                                path={`${App_Company}/createproject`}
                                 element={<CreateProject />}
                             /> */}
                         </Route>
