@@ -61,3 +61,10 @@
 .listcategory .delete-btn {
     background-color: var(--prussian-blue);
 }
+
+.listcategory .back {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-block: 30px;
+}

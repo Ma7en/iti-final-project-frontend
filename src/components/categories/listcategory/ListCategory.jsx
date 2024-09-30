@@ -12,6 +12,7 @@ import apiInstance from "../../../utils/axios";
 
 // ui components
 import ScrollToTopPages from "../../../ui/scrolltotoppages/ScrollToTopPages";
+import { App_Company } from "../../../utils/constants";
 
 function ListCategory() {
     const [categories, setCategories] = useState([]);
@@ -54,9 +55,7 @@ function ListCategory() {
                                         <Button
                                             className="btn view-btn"
                                             onClick={() =>
-                                                navigate(
-                                                    `/category/details/${cat.id}`
-                                                )
+                                                window.open(`/detailscategory/${cat.id}`, '_blank')
                                             }
                                         >
                                             View
@@ -81,6 +80,18 @@ function ListCategory() {
                                 </li>
                             ))}
                         </ul>
+
+                        <div className="back">
+                            <Button
+                                className="btn update-btn"
+                                onClick={() => {
+                                    // handleEdit(cat)
+                                     navigate(`/${App_Company}/profile`);
+                                }}
+                            >
+                                Back to Profile
+                            </Button>
+                        </div>
                     </div>
                 </div>
             </div>

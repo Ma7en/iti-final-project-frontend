@@ -40,6 +40,7 @@ import Contact from "../ui/contact/Contact";
 import ListCategory from "../components/categories/listcategory/ListCategory";
 import CreateCategory from "../components/categories/createcategory/CreateCategory";
 import EditCategory from "../components/categories/editcategory/EditCategory";
+import DetailsCategory from "../components/categories/detailscategory/DetailsCategory";
 
 // ui project components
 import FinishingDetails from "../pages/app/finishingPage/FinishingDetails";
@@ -145,6 +146,20 @@ function Router() {
                                 element={<EditCategory />}
                             /> */}
 
+                            {/* details category */}
+                            <Route
+                                path={`/${App_Company}/detailscategory/:id`}
+                                element={<DetailsCategory />}
+                            />
+                            <Route
+                                path={`/${App_Company}/categorydetails/:id`}
+                                element={<DetailsCategory />}
+                            />
+                            <Route
+                                path={`/${App_Company}/category/details/:id`}
+                                element={<DetailsCategory />}
+                            />
+
                             {/* project */}
                             {/* <Route
                                 path={`${App_User}/createproject`}
@@ -209,11 +224,34 @@ function Router() {
                             <Route path="/contact" element={<Contact />} />
                             <Route path="/about" element={<AboutPage />} />
 
-                            {/* project */}
+                            {/* category */}
+                            {/* details category or services */}
                             <Route
-                                path="/createcategory"
-                                element={<CreateCategory />}
+                                path={`/detailscategory/:id`}
+                                element={<DetailsCategory />}
                             />
+                            <Route
+                                path={`/categorydetails/:id`}
+                                element={<DetailsCategory />}
+                            />
+                            <Route
+                                path={`/category/details/:id`}
+                                element={<DetailsCategory />}
+                            />
+                            <Route
+                                path={`/servicecategory/:id`}
+                                element={<DetailsCategory />}
+                            />
+                            <Route
+                                path={`/servicedetails/:id`}
+                                element={<DetailsCategory />}
+                            />
+                            <Route
+                                path={`/service/details/:id`}
+                                element={<DetailsCategory />}
+                            />
+
+                            {/* project */}
                             <Route
                                 path="/editCategory"
                                 element={<EditCategory />}
