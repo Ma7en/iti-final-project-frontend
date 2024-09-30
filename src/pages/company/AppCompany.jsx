@@ -6,7 +6,7 @@ import "./AppCompany.css";
 
 // utils
 import api from "../../utils/api";
-import { App_User } from "../../utils/constants";
+import { App_Company, App_User } from "../../utils/constants";
 import apiInstance from "../../utils/axios";
 
 // authorization
@@ -110,6 +110,7 @@ function AppCompany() {
     // console.log("1", profileData);
     if (!profileData) return <Loader />;
     const { full_name, image } = profileData;
+    // console.log(`3333`, profileData);
 
     return (
         <>
@@ -155,7 +156,7 @@ function AppCompany() {
                             <Button
                                 className="btn "
                                 onClick={() => {
-                                    navigate(`/`);
+                                    navigate(`/${App_Company}/createcategory`);
                                 }}
                             >
                                 <span>create category</span>
