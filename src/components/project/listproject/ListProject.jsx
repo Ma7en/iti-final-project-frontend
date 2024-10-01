@@ -1,159 +1,69 @@
-// import React, { useEffect, useState } from "react";
-// import { useNavigate } from "react-router-dom";
-
-// // import style
-// import "./ListProject.css";
-
-// // bootstrap components
-// import { Button } from "react-bootstrap";
-
-// // utils
-// import apiInstance from "../../../utils/axios";
-// import { App_Company } from "../../../utils/constants";
-
-// // project components
-// import ProjectComponents from "../projectcomponents/ProjectComponents";
-// import NotProject from "../notproject/NotProject";
-
-// // ui components
-// import ScrollToTopPages from "../../../ui/scrolltotoppages/ScrollToTopPages";
-// import Loader from "../../../ui/loader/Loader";
-
-// function ListProject() {
-//     const [projects, setProjects] = useState([]);
-//     const navigate = useNavigate();
-
-//     useEffect(() => {
-//         const fetchProjects = async () => {
-//             try {
-//                 const response = await apiInstance.get("project/list/");
-//                 setProjects(response.data);
-//             } catch (error) {
-//                 console.error("Error fetching projects:", error);
-//             }
-//         };
-//         fetchProjects();
-//     }, []);
-
-//     if (!projects) return <Loader />;
-
-//     return (
-//         <>
-//             <ScrollToTopPages />
-//             <div className="listproject">
-//                 <div className="container">
-//                     <div className="section-title">
-//                         <h2 className="h2">List Projects</h2>
-//                     </div>
-
-//                     <div className="content">
-//                         <ul className="list">
-//                             {projects.length > 0 ? (
-//                                 projects.map((project, index) => (
-//                                     <ProjectComponents
-//                                         project={project}
-//                                         key={index}
-//                                     />
-//                                 ))
-//                             ) : (
-//                                 <NotProject />
-//                             )}
-//                         </ul>
-
-//                         <div className="back">
-//                             <Button
-//                                 className="btn update-btn"
-//                                 onClick={() => {
-//                                     // handleEdit(proj)
-//                                     navigate(`/${App_Company}/profile`);
-//                                 }}
-//                             >
-//                                 Back to Profile
-//                             </Button>
-//                         </div>
-//                     </div>
-//                 </div>
-//             </div>
-//         </>
-//     );
-// }
-
-// export default ListProject;
-
-
-
-
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-
-// import style
-import "./ListProject.css";
-
-// bootstrap components
+import "./ListProject.css"; 
+import apiInstance from "../../../utils/axios"; 
+import Toast from "../../../plugin/Toast"; 
+import ScrollToTopPages from "../../../ui/scrolltotoppages/ScrollToTopPages";
 import { Button } from "react-bootstrap";
 
-// utils
-import apiInstance from "../../../utils/axios";
-import { App_Company } from "../../../utils/constants";
-
-// project components
-import ProjectComponents from "../projectcomponents/ProjectComponents";
-
-// ui components
-import ScrollToTopPages from "../../../ui/scrolltotoppages/ScrollToTopPages";
-import Loader from "../../../ui/loader/Loader";
-
 function ListProject() {
-    const [projects, setProjects] = useState([]);
     const navigate = useNavigate();
+    const [projects, setProjects] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const fetchProjects = async () => {
             try {
-                const response = await apiInstance.get("project/list/");
+                const response = await apiInstance.get("project/list/"); 
                 setProjects(response.data);
             } catch (error) {
                 console.error("Error fetching projects:", error);
+                Toast("error", "Failed to fetch project list.");
+            } finally {
+                setLoading(false);
             }
         };
         fetchProjects();
     }, []);
 
-    if (!projects) return <Loader />;
+    if (loading) {
+        return <div>Loading...</div>; 
+    }
 
     return (
         <>
             <ScrollToTopPages />
-            <div className="listproject">
+            <div className="list-project">
                 <div className="container">
                     <div className="section-title">
-                        <h2 className="h2">List Projects</h2>
+                        <h2 className="h2">Project List</h2>
                     </div>
 
                     <div className="content">
-                        <ul className="list">
-                            {projects.length > 0 ? (
-                                projects.map((project, index) => (
-                                    <ProjectComponents
-                                        project={project}
-                                        key={index}
-                                    />
-                                ))
-                            ) : (
-                                <li>No projects available</li> // Placeholder for no projects
-                            )}
-                        </ul>
+                        {projects.length === 0 ? (
+                            <p>No projects found.</p>
+                        ) : (
+                            <ul className="project-list">
+                                {projects.map((project) => (
+                                    <li key={project.id} className="project-item">
+                                        <h3>{project.title}</h3>
+                                        <p>{project.details}</p>
+                                        <Button onClick={() => navigate(`/project/${project.id}`)}>
+                                            View Details
+                                        </Button>
+                                        <Button onClick={() => navigate(`/updateproject/${project.id}`)}>
+                                            Edit
+                                        </Button>
+                                    </li>
+                                ))}
+                            </ul>
+                        )}
+                    </div>
 
-                        <div className="back">
-                            <Button
-                                className="btn update-btn"
-                                onClick={() => {
-                                    navigate(`/${App_Company}/profile`);
-                                }}
-                            >
-                                Back to Profile
-                            </Button>
-                        </div>
+                    <div className="buttons">
+                        <Button onClick={() => navigate("/createproject")}>
+                            Create New Project
+                        </Button>
                     </div>
                 </div>
             </div>

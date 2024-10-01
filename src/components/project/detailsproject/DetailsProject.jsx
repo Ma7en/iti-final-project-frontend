@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import "./DetailsProject.css"; // Add your styles here
-import apiInstance from "../../../utils/axios"; // Assuming you have an axios instance set up for API calls
-import Toast from "../../../plugin/Toast"; // Assuming you have a Toast component for notifications
+import "./DetailsProject.css"; 
+import apiInstance from "../../../utils/axios"; 
+import Toast from "../../../plugin/Toast"; 
 import ScrollToTopPages from "../../../ui/scrolltotoppages/ScrollToTopPages";
 import { Button } from "react-bootstrap";
 
 function DetailsProject() {
-    const { id } = useParams(); // Get the project ID from the URL
+    const { id } = useParams(); 
     const navigate = useNavigate();
     const [project, setProject] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -15,7 +15,7 @@ function DetailsProject() {
     useEffect(() => {
         const fetchProject = async () => {
             try {
-                const response = await apiInstance.get(`project/${id}/`); // Fetch project data
+                const response = await apiInstance.get(`project/${id}/`); 
                 setProject(response.data);
             } catch (error) {
                 console.error("Error fetching project:", error);
@@ -28,11 +28,11 @@ function DetailsProject() {
     }, [id]);
 
     if (loading) {
-        return <div>Loading...</div>; // Show loading state
+        return <div>Loading...</div>; 
     }
 
     if (!project) {
-        return <div>No project found.</div>; // Handle case where no project is found
+        return <div>No project found.</div>; 
     }
 
     return (
