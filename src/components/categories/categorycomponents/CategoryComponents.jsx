@@ -1,13 +1,19 @@
 import React, { useState } from "react";
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 // bootstrap components
 import { Button } from "react-bootstrap";
-import Loader from "../../../ui/loader/Loader";
-import Swal from "sweetalert2";
-import apiInstance from "../../../utils/axios";
+
+// plugin
 import Toast from "../../../plugin/Toast";
-import { useNavigate } from "react-router-dom";
+
+// utils
+import apiInstance from "../../../utils/axios";
 import { App_Company } from "../../../utils/constants";
+
+// ui components
+import Loader from "../../../ui/loader/Loader";
 
 function CategoryComponents({ category: categorycomponents }) {
     const navigate = useNavigate();
@@ -75,6 +81,7 @@ function CategoryComponents({ category: categorycomponents }) {
                         className="btn update-btn"
                         onClick={() => {
                             // handleEdit(cat)
+                            navigate(`/${App_Company}/updatecategory/${id}`);
                         }}
                     >
                         Update

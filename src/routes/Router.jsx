@@ -81,7 +81,7 @@ function Router() {
 
                         {/* company */}
                         <Route
-                            path="/company"
+                            path={`${App_Company}`}
                             element={
                                 <ProtectedRouteCompany>
                                     <AppCompanyLayout />
@@ -97,7 +97,11 @@ function Router() {
                                     />
                                 }
                             />
-                            <Route exact path="/company" component={Router} />
+                            <Route
+                                exact
+                                path={`${App_Company}`}
+                                component={Router}
+                            />
                             <Route
                                 path={`${App_Company}`}
                                 element={<AppCompany />}
@@ -111,7 +115,11 @@ function Router() {
                                 element={<AppCompany />}
                             />
                             <Route
-                                path={`/companyprofile`}
+                                path={`/${App_Company}profile`}
+                                element={<AppCompany />}
+                            />
+                            <Route
+                                path={`/${App_Company}-profile`}
                                 element={<AppCompany />}
                             />
 
@@ -164,15 +172,23 @@ function Router() {
                                 element={<CreateCategory />}
                             />
                             <Route
+                                path={`/${App_Company}/create/category`}
+                                element={<CreateCategory />}
+                            />
+                            <Route
                                 path={`/${App_Company}/createservice`}
                                 element={<CreateCategory />}
                             />
                             <Route
-                                path={`/${App_Company}/categoryservice`}
+                                path={`/${App_Company}/servicecreate`}
                                 element={<CreateCategory />}
                             />
                             <Route
-                                path={`/${App_Company}/category/service`}
+                                path={`/${App_Company}/service/create`}
+                                element={<CreateCategory />}
+                            />
+                            <Route
+                                path={`/${App_Company}/create/service`}
                                 element={<CreateCategory />}
                             />
 
@@ -190,6 +206,10 @@ function Router() {
                                 element={<UpdateCategory />}
                             />
                             <Route
+                                path={`/${App_Company}/update/category/:id`}
+                                element={<UpdateCategory />}
+                            />
+                            <Route
                                 path={`/${App_Company}/updateservice/:id`}
                                 element={<UpdateCategory />}
                             />
@@ -199,6 +219,10 @@ function Router() {
                             />
                             <Route
                                 path={`/${App_Company}/service/update/:id`}
+                                element={<UpdateCategory />}
+                            />
+                            <Route
+                                path={`/${App_Company}/update/service/:id`}
                                 element={<UpdateCategory />}
                             />
 
@@ -216,6 +240,10 @@ function Router() {
                                 element={<DetailsCategory />}
                             />
                             <Route
+                                path={`/${App_Company}/details/category/:id`}
+                                element={<DetailsCategory />}
+                            />
+                            <Route
                                 path={`/${App_Company}/detailsservice/:id`}
                                 element={<DetailsCategory />}
                             />
@@ -225,6 +253,10 @@ function Router() {
                             />
                             <Route
                                 path={`/${App_Company}/service/details/:id`}
+                                element={<DetailsCategory />}
+                            />
+                            <Route
+                                path={`/${App_Company}/details/service/:id`}
                                 element={<DetailsCategory />}
                             />
 
@@ -256,7 +288,7 @@ function Router() {
 
                         {/* user */}
                         <Route
-                            path="/user"
+                            path={`/${App_User}`}
                             element={
                                 <ProtectedRoute>
                                     <AppUserLayout />
@@ -273,14 +305,22 @@ function Router() {
                                 }
                             />
 
-                            <Route exact path="/user" component={Router} />
+                            <Route
+                                exact
+                                path={`/${App_User}`}
+                                component={Router}
+                            />
                             <Route path={`${App_User}`} element={<AppUser />} />
                             <Route
                                 path={`/${App_User}/profile`}
                                 element={<AppUser />}
                             />
                             <Route
-                                path={`/userprofile`}
+                                path={`/${App_User}profile`}
+                                element={<AppUser />}
+                            />
+                            <Route
+                                path={`/${App_User}-profile`}
                                 element={<AppUser />}
                             />
 
@@ -326,6 +366,10 @@ function Router() {
                                 element={<DetailsCategory />}
                             />
                             <Route
+                                path={`/details/category/:id`}
+                                element={<DetailsCategory />}
+                            />
+                            <Route
                                 path={`/servicecategory/:id`}
                                 element={<DetailsCategory />}
                             />
@@ -335,6 +379,10 @@ function Router() {
                             />
                             <Route
                                 path={`/service/details/:id`}
+                                element={<DetailsCategory />}
+                            />
+                            <Route
+                                path={`/details/service/:id`}
                                 element={<DetailsCategory />}
                             />
 
