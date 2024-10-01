@@ -122,6 +122,10 @@ function Router() {
                                 path={`/${App_Company}-profile`}
                                 element={<AppCompany />}
                             />
+                            <Route
+                                path={`/${App_Company}/companyprofile`}
+                                element={<AppCompany />}
+                            />
 
                             {/* categories or services */}
                             {/* list category */}
@@ -266,24 +270,27 @@ function Router() {
                                 path={`/${App_Company}/createproject`}
                                 element={<CreateProject />}
                             />
+                            <Route
+                                path={`/${App_Company}/createproject`}
+                                element={<CreateProject />}
+                            />
 
-                             <Route
+                            {/* update project */}
+                            <Route
+                                path={`/${App_Company}/updateproject`}
+                                element={<UpdateProject />}
+                            />
+
+                            {/* list project */}
+                            <Route
                                 path={`/${App_Company}/listproject`}
                                 element={<ListProject />}
                             />
 
-                          
-                          
-
-                        
-                             {/* details project */}
-                             <Route
+                            {/* details project */}
+                            <Route
                                 path={`/${App_Company}/detailsproject`}
                                 element={<DetailsProject />}
-                            />
-                            <Route
-                                path={`/${App_Company}/updateproject`}
-                                element={<UpdateProject />}
                             />
                         </Route>
 
@@ -326,6 +333,10 @@ function Router() {
                             />
                             <Route
                                 path={`/${App_User}-profile`}
+                                element={<AppUser />}
+                            />
+                            <Route
+                                path={`/${App_User}/userprofile`}
                                 element={<AppUser />}
                             />
 
