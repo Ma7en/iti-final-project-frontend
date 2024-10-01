@@ -1,44 +1,19 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
-// import style
 import "./CreateProject.css";
-
-// plugin
-import useUserData from "../../../plugin/useUserData";
-import Toast from "../../../plugin/Toast";
-
-// utils
-import apiInstance from "../../../utils/axios";
-import { App_Company } from "../../../utils/constants";
-
-// bootstrap components
 import { Button } from "react-bootstrap";
-
-// ui components
 import ScrollToTopPages from "../../../ui/scrolltotoppages/ScrollToTopPages";
 
 function CreateProject() {
     const navigate = useNavigate();
-    const [projects, setProjects] = useState([]);
     const [project, setProject] = useState({
         title: "",
         details: "",
         image: null,
         slug: "",
+        meter: "", 
+        days: "",  
     });
-    const [isEditing, setIsEditing] = useState(false);
-    const [editId, setEditId] = useState(null);
-    const userId = useUserData()?.user_id;
-
-    const fetchProjects = async () => {
-        try {
-            const response = await apiInstance.get("project/list/");
-            setProjects(response.data);
-        } catch (error) {
-            console.error("Error fetching projects:", error);
-        }
-    };
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -46,9 +21,9 @@ function CreateProject() {
             // Auto-generate slug from title
             const generatedSlug = value
                 .toLowerCase()
-                .replace(/ /g, "-") // replace spaces with hyphens
-                .replace(/[^\w-]+/g, ""); // remove non-alphanumeric characters
-            setProject({ ...project, title: value, details: generatedSlug });
+                .replace(/ /g, "-")
+                .replace(/[^\w-]+/g, "");
+            setProject({ ...project, title: value, slug: generatedSlug });
         } else {
             setProject({ ...project, [name]: value });
         }
@@ -59,31 +34,20 @@ function CreateProject() {
         setProject({ ...project, image: file });
     };
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
-        const formData = new FormData();
-        formData.append("title", project.title);
-        formData.append("details", project.details);
-        formData.append("image", project.image);
-        formData.append("slug", project.slug);
-
-        try {
-            await apiInstance.post("project/create/", formData, {
-                headers: {
-                    "Content-Type": "multipart/form-data",
-                },
-            });
-            Toast("success", "Project created successfully!");
-            fetchProjects(); // Refresh projects list after creation
-            navigate(`/${App_Company}/profile`);
-        } catch (error) {
-            console.error(
-                "Error during project submission:",
-                error.response.data
-            );
-            Toast("error", "Error while saving project!");
-            Toast("error", "Project with this slug already exists.");
-        }
+        // Simulated form submission
+        console.log("Form submitted:", project);
+        // Reset form after submission
+        setProject({
+            title: "",
+            details: "",
+            image: null,
+            slug: "",
+            meter: "", 
+            days: "",  
+        });
+        navigate("/projectlist"); 
     };
 
     return (
@@ -96,10 +60,7 @@ function CreateProject() {
                     </div>
 
                     <div className="content">
-                        <form
-                            onSubmit={handleSubmit}
-                            encType="multipart/form-data"
-                        >
+                        <form onSubmit={handleSubmit} encType="multipart/form-data">
                             <div className="mb-3">
                                 <label className="form-label" htmlFor="image">
                                     Image:
@@ -135,26 +96,54 @@ function CreateProject() {
                                     Details:
                                 </label>
                                 <textarea
-                                    type="text"
                                     className="form-control"
                                     name="details"
                                     id="details"
+                                    value={project.details}
                                     onChange={handleInputChange}
                                     required
                                 ></textarea>
                             </div>
 
+                            <div className="mb-3">
+                                <label className="form-label" htmlFor="meter">
+                                    Meter:
+                                </label>
+                                <input
+                                    type="number"
+                                    name="meter"
+                                    className="form-control"
+                                    id="meter"
+                                    value={project.meter}
+                                    onChange={handleInputChange}
+                                    required
+                                />
+                            </div>
+
+                            <div className="mb-3">
+                                <label className="form-label" htmlFor="days">
+                                    Days:
+                                </label>
+                                <input
+                                    type="number"
+                                    name="days"
+                                    className="form-control"
+                                    id="days"
+                                    value={project.days}
+                                    onChange={handleInputChange}
+                                    required
+                                />
+                            </div>
+
                             <div className="buttons">
-                                <Button className="btn " type="submit">
+                                <Button className="btn" type="submit">
                                     Create Project
                                 </Button>
 
                                 <Button
-                                    className="btn "
+                                    className="btn"
                                     type="button"
-                                    onClick={() => {
-                                        navigate(`/${App_Company}/profile`);
-                                    }}
+                                    onClick={() => navigate("/listproject")}
                                 >
                                     Cancel
                                 </Button>
