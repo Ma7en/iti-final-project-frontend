@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 // import style
-// import "./CreateCategory.css";
+import "./CreateProject.css";
 
 // plugin
 import useUserData from "../../../plugin/useUserData";
@@ -74,22 +74,22 @@ function CreateProject() {
                 },
             });
             Toast("success", "Project created successfully!");
-            fetchProjects(); // Refresh categories list after creation
+            fetchProjects(); // Refresh projects list after creation
             navigate(`/${App_Company}/profile`);
         } catch (error) {
             console.error(
-                "Error during category submission:",
+                "Error during project submission:",
                 error.response.data
             );
-            Toast("error", "Error while saving category!");
-            Toast("error", "category with this slug already exists.");
+            Toast("error", "Error while saving project!");
+            Toast("error", "Project with this slug already exists.");
         }
     };
 
     return (
         <>
             <ScrollToTopPages />
-            <div className="createcategory">
+            <div className="createproject">
                 <div className="container">
                     <div className="section-title">
                         <h2 className="h2">Create New Project</h2>
@@ -117,7 +117,7 @@ function CreateProject() {
 
                             <div className="mb-3">
                                 <label className="form-label" htmlFor="title">
-                                    title:
+                                    Title:
                                 </label>
                                 <input
                                     type="text"
@@ -146,17 +146,17 @@ function CreateProject() {
 
                             <div className="buttons">
                                 <Button className="btn " type="submit">
-                                    Create project
+                                    Create Project
                                 </Button>
 
                                 <Button
                                     className="btn "
-                                    type="submit"
+                                    type="button"
                                     onClick={() => {
                                         navigate(`/${App_Company}/profile`);
                                     }}
                                 >
-                                    cancel
+                                    Cancel
                                 </Button>
                             </div>
                         </form>

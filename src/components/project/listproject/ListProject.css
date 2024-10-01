@@ -1,0 +1,70 @@
+.listproject .container {
+    margin-block: 40px;
+    margin-bottom: 100px;
+}
+
+.listproject .list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.listproject .item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 10px;
+    border: 1px solid var(--raisin-black-1);
+    border-radius: 8px;
+    /* background-color: var(--alice-blue); */
+    transition: var(--transition);
+}
+
+@media (max-width: 767px) {
+    .listproject .item {
+        flex-direction: column;
+    }
+}
+
+.listproject .item:hover {
+    background-color: var(--cultured-1);
+}
+
+.listproject .info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    font-size: 25px;
+}
+
+.listproject .info .id {
+    font-weight: bold;
+    color: var(--orange-soda);
+}
+
+.listproject .buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.listproject .view-btn {
+    background-color: var(--yellow-green);
+}
+
+.listproject .update-btn {
+    background-color: var(--orange-soda);
+}
+
+.listproject .delete-btn {
+    background-color: var(--prussian-blue);
+}
+
+.listproject .back {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-block: 30px;
+}
