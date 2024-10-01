@@ -13,6 +13,7 @@ import apiInstance from "../../../utils/axios";
 // ui components
 import ScrollToTopPages from "../../../ui/scrolltotoppages/ScrollToTopPages";
 import { App_Company } from "../../../utils/constants";
+import CategoryComponents from "../categorycomponents/CategoryComponents";
 
 function ListCategory() {
     const [categories, setCategories] = useState([]);
@@ -41,43 +42,11 @@ function ListCategory() {
 
                     <div className="content">
                         <ul className="list">
-                            {categories.map((cat) => (
-                                <li key={cat.id} className="item">
-                                    <div className="info">
-                                        <span className="id">{cat.id})</span>
-
-                                        <span className="title">
-                                            {cat.title}
-                                        </span>
-                                    </div>
-
-                                    <div className="buttons">
-                                        <Button
-                                            className="btn view-btn"
-                                            onClick={() =>
-                                                window.open(`/detailscategory/${cat.id}`, '_blank')
-                                            }
-                                        >
-                                            View
-                                        </Button>
-                                        <Button
-                                            className="btn update-btn"
-                                            onClick={() => {
-                                                // handleEdit(cat)
-                                            }}
-                                        >
-                                            Update
-                                        </Button>
-                                        <Button
-                                            className="btn delete-btn"
-                                            onClick={() => {
-                                                // handleDelete(cat.id);
-                                            }}
-                                        >
-                                            Delete
-                                        </Button>
-                                    </div>
-                                </li>
+                            {categories.map((category, index) => (
+                                <CategoryComponents
+                                    category={category}
+                                    key={index}
+                                />
                             ))}
                         </ul>
 
@@ -86,7 +55,7 @@ function ListCategory() {
                                 className="btn update-btn"
                                 onClick={() => {
                                     // handleEdit(cat)
-                                     navigate(`/${App_Company}/profile`);
+                                    navigate(`/${App_Company}/profile`);
                                 }}
                             >
                                 Back to Profile

@@ -13,6 +13,9 @@ import apiInstance from "../../utils/axios";
 import useUserData from "../../plugin/useUserData";
 import Toast from "../../plugin/Toast";
 
+// store
+import { useAuthStore } from "../../store/auth";
+
 // bootstrap components
 import { Button } from "react-bootstrap";
 
@@ -21,8 +24,8 @@ import Loader from "../../ui/loader/Loader";
 import ScrollToTopPages from "../../ui/scrolltotoppages/ScrollToTopPages";
 
 // assets
-import ProfileImage from "../../assets/images/author/avatar.png";
-import { useAuthStore } from "../../store/auth";
+// import ProfileImage from "../../assets/images/author/avatar.png";
+import ProfileImage from "../../assets/images/logo/logo.png";
 
 function AppCompany() {
     const navigate = useNavigate();
@@ -125,7 +128,7 @@ function AppCompany() {
                         <div className="info">
                             <div className="details">
                                 <p className="h3">
-                                    Full Name:
+                                    Company Name:
                                     <span>{full_name}</span>
                                 </p>
                             </div>
@@ -143,7 +146,7 @@ function AppCompany() {
                         </div>
 
                         <div className="image">
-                            <img src={`${image}`} alt={`${full_name}`} />
+                            <img src={`${ProfileImage}`} alt={`${full_name}`} />
                         </div>
                     </div>
 
@@ -184,7 +187,7 @@ function AppCompany() {
                             <Button
                                 className="btn "
                                 onClick={() => {
-                                    navigate(`/${App_Company}/createproject` );
+                                    navigate(`/${App_Company}/createproject`);
                                 }}
                             >
                                 <span>create project</span>
