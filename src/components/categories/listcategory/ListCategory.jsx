@@ -14,6 +14,8 @@ import apiInstance from "../../../utils/axios";
 import ScrollToTopPages from "../../../ui/scrolltotoppages/ScrollToTopPages";
 import { App_Company } from "../../../utils/constants";
 import CategoryComponents from "../categorycomponents/CategoryComponents";
+import Loader from "../../../ui/loader/Loader";
+import NotCategory from "../notcategory/NotCategory";
 
 function ListCategory() {
     const [categories, setCategories] = useState([]);
@@ -31,6 +33,8 @@ function ListCategory() {
         fetchCategories();
     }, []);
 
+    if (!categories) return <Loader />;
+
     return (
         <>
             <ScrollToTopPages />
@@ -42,12 +46,16 @@ function ListCategory() {
 
                     <div className="content">
                         <ul className="list">
-                            {categories.map((category, index) => (
-                                <CategoryComponents
-                                    category={category}
-                                    key={index}
-                                />
-                            ))}
+                            {categories.length > 0 ? (
+                                categories.map((category, index) => (
+                                    <CategoryComponents
+                                        category={category}
+                                        key={index}
+                                    />
+                                ))
+                            ) : (
+                                <NotCategory />
+                            )}
                         </ul>
 
                         <div className="back">

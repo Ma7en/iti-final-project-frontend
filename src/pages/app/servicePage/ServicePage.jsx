@@ -7,7 +7,7 @@ import service3 from "../../../assets/images/service/service-3.png";
 function ServicePage() {
     return (
         <>
-         <section className="service" id="service">
+            <section className="service" id="service">
                 <div className="container">
                     <p className="section-subtitle">Our Services</p>
                     <h2 className="h2 section-title">Our Main Focus</h2>
@@ -16,7 +16,7 @@ function ServicePage() {
                             <div className="service-card">
                                 <div className="card-icon">
                                     <img
-                                        src={`${service3}`}
+                                        src={`${service1}`}
                                         alt="Service icon"
                                     />
                                 </div>
@@ -31,7 +31,7 @@ function ServicePage() {
                                     atmosphere.
                                 </p>
                                 <a href="/servicedetails" className="card-link">
-                                <span>Details</span>
+                                    <span>Details</span>
                                     <ion-icon name="arrow-forward-outline" />
                                 </a>
                             </div>
@@ -40,7 +40,7 @@ function ServicePage() {
                             <div className="service-card">
                                 <div className="card-icon">
                                     <img
-                                        src={`${service1}`}
+                                        src={`${service2}`}
                                         alt="Service icon"
                                     />
                                 </div>
@@ -54,7 +54,7 @@ function ServicePage() {
                                     seamless flow in your home.
                                 </p>
                                 <a href="/servicedetails" className="card-link">
-                                <span>Details</span>
+                                    <span>Details</span>
                                     <ion-icon name="arrow-forward-outline" />
                                 </a>
                             </div>
@@ -63,7 +63,7 @@ function ServicePage() {
                             <div className="service-card">
                                 <div className="card-icon">
                                     <img
-                                        src={`${service2}`}
+                                        src={`${service3}`}
                                         alt="Service icon"
                                     />
                                 </div>
@@ -86,7 +86,6 @@ function ServicePage() {
                     </ul>
                 </div>
             </section>
-          
         </>
     );
 }

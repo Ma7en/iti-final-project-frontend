@@ -1,16 +1,19 @@
 // import
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 //
 import "./CreateProject.css";
 
 // utils
 import api from "../../../utils/api";
+import { App_Company, App_User } from "../../../utils/constants";
 
 // project components
 import DetailProject from "../detailproject/DetailProject";
-import { useNavigate } from "react-router-dom";
-import { App_Company, App_User } from "../../../utils/constants";
+
+// ui components
+import ScrollToTopPages from "../../../ui/scrolltotoppages/ScrollToTopPages";
 
 function CreateProject() {
     const navigate = useNavigate();
@@ -102,6 +105,7 @@ function CreateProject() {
 
     return (
         <>
+            <ScrollToTopPages />
             <div className="createproject">
                 <div className="container">
                     <div className="section-title">
@@ -196,7 +200,7 @@ function CreateProject() {
                                     navigate(`/${App_Company}/profile`);
                                 }}
                             >
-                                Company Profile
+                                Back to Profile
                             </button>
 
                             <button

@@ -18,7 +18,7 @@ function Service() {
                             <div className="service-card">
                                 <div className="card-icon">
                                     <img
-                                        src={`${service3}`}
+                                        src={`${service1}`}
                                         alt="Service icon"
                                     />
                                 </div>
@@ -42,7 +42,7 @@ function Service() {
                             <div className="service-card">
                                 <div className="card-icon">
                                     <img
-                                        src={`${service1}`}
+                                        src={`${service2}`}
                                         alt="Service icon"
                                     />
                                 </div>
@@ -65,7 +65,7 @@ function Service() {
                             <div className="service-card">
                                 <div className="card-icon">
                                     <img
-                                        src={`${service2}`}
+                                        src={`${service3}`}
                                         alt="Service icon"
                                     />
                                 </div>
