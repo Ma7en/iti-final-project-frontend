@@ -112,6 +112,7 @@ function AppUser() {
     const backup_bio =
         "Success is not measured by what you have achieved, but by the obstacles you have overcome.";
     const backup_phone = `01012312345`;
+    // console.log(`profileData`, profileData);
 
     return (
         <>

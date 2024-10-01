@@ -644,6 +644,10 @@ a {
     gap: 30px;
 }
 
+.service-list > li {
+    width: 100%;
+}
+
 .service-card {
     height: 100%;
     position: relative;
@@ -655,8 +659,14 @@ a {
 
 .service-card .card-icon {
     width: max-content;
+    max-width: 100%;
     margin-inline: auto;
     margin-bottom: 20px;
+}
+
+.service-card .card-icon img {
+    max-width: 100%;
+    max-height: 200px;
 }
 
 .service-card .card-title {
