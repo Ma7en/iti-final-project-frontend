@@ -10,7 +10,7 @@ import api from "../../../utils/api";
 // project components
 import DetailProject from "../detailproject/DetailProject";
 import { useNavigate } from "react-router-dom";
-import { App_User } from "../../../utils/constants";
+import { App_Company, App_User } from "../../../utils/constants";
 
 function CreateProject() {
     const navigate = useNavigate();
@@ -183,7 +183,6 @@ function CreateProject() {
                             onClick={() => {
                                 navigate(`/viewproject`);
                             }}
-                            
                         >
                             Submit
                         </button>
@@ -194,10 +193,10 @@ function CreateProject() {
                             <button
                                 className="btn btn-link "
                                 onClick={() => {
-                                    navigate(`/${App_User}/profile`);
+                                    navigate(`/${App_Company}/profile`);
                                 }}
                             >
-                                Profile
+                                Company Profile
                             </button>
 
                             <button

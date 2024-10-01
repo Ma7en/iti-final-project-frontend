@@ -108,9 +108,10 @@ function AppUser() {
     };
     // console.log("1", profileData);
     if (!profileData) return <Loader />;
-    const { full_name, image, id, bio, facebook } = profileData;
+    const { full_name, image, id, bio, phone, facebook } = profileData;
     const backup_bio =
         "Success is not measured by what you have achieved, but by the obstacles you have overcome.";
+    const backup_phone = `01012312345`;
 
     return (
         <>
@@ -131,12 +132,20 @@ function AppUser() {
 
                                 <p className="h3">
                                     Phone:
-                                    <span>01145645623</span>
+                                    <span>
+                                        {phone !== null && phone !== "null"
+                                            ? phone
+                                            : backup_phone}
+                                    </span>
                                 </p>
 
                                 <p className="h3">
                                     Bio:
-                                    <span>{bio || backup_bio}</span>
+                                    <span>
+                                        {bio !== null && bio !== "null"
+                                            ? bio
+                                            : backup_bio}
+                                    </span>
                                 </p>
                                 {/* <p className="h3">Username: {}</p> */}
                             </div>

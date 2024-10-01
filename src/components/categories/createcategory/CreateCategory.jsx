@@ -101,7 +101,9 @@ function CreateCategory() {
                             encType="multipart/form-data"
                         >
                             <div className="mb-3">
-                                <label className="form-label">Image:</label>
+                                <label className="form-label" htmlFor="image">
+                                    Image:
+                                </label>
                                 <input
                                     type="file"
                                     className="form-control"
@@ -114,7 +116,9 @@ function CreateCategory() {
                             </div>
 
                             <div className="mb-3">
-                                <label className="form-label">title:</label>
+                                <label className="form-label" htmlFor="title">
+                                    title:
+                                </label>
                                 <input
                                     type="text"
                                     name="title"
@@ -127,12 +131,14 @@ function CreateCategory() {
                             </div>
 
                             <div className="mb-3">
-                                <label className="form-label">Details:</label>
+                                <label className="form-label" htmlFor="details">
+                                    Details:
+                                </label>
                                 <textarea
                                     type="text"
                                     className="form-control"
-                                    name="slug"
-                                    id="slug"
+                                    name="details"
+                                    id="details"
                                     onChange={handleInputChange}
                                     required
                                 ></textarea>

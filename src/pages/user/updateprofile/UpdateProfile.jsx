@@ -29,6 +29,7 @@ function UpdateProfile() {
         image: null,
         full_name: "",
         about: "",
+        phone: "",
         bio: "",
         facebook: "",
         twitter: "",
@@ -56,34 +57,147 @@ function UpdateProfile() {
         });
     };
 
+    // const handleFileChange = (event) => {
+    //     const selectedFile = event.target.files[0];
+    //     setProfileData({
+    //         ...profileData,
+    //         [event.target.name]: selectedFile,
+    //     });
+
+    //     const reader = new FileReader();
+    //     reader.onloadend = () => {
+    //         setImagePreview(reader.result);
+    //     };
+    //     if (selectedFile) {
+    //         reader.readAsDataURL(selectedFile);
+    //     }
+    // };
+
+    // const handleFileChange = (event) => {
+    //     const selectedFile = event.target.files[0];
+    //     const validImageTypes = ["image/jpeg", "image/png", "image/jpg"];
+
+    //     if (selectedFile && validImageTypes.includes(selectedFile.type)) {
+    //         setProfileData({
+    //             ...profileData,
+    //             [event.target.name]: selectedFile,
+    //         });
+
+    //         const reader = new FileReader();
+    //         reader.onloadend = () => {
+    //             setImagePreview(reader.result);
+    //         };
+    //         if (selectedFile) {
+    //             reader.readAsDataURL(selectedFile);
+    //         }
+    //     } else {
+    //         // alert("Please upload a valid image file (JPEG or PNG)");
+    //         Toast(
+    //             "error",
+    //             "Please upload a valid image file (JPEG or PNG or JPEG)",
+    //             ""
+    //         );
+    //     }
+    // };
+
     const handleFileChange = (event) => {
         const selectedFile = event.target.files[0];
-        setProfileData({
-            ...profileData,
-            [event.target.name]: selectedFile,
-        });
+        const validImageTypes = ["image/jpeg", "image/png", "image/jpg"];
 
-        const reader = new FileReader();
-        reader.onloadend = () => {
-            setImagePreview(reader.result);
-        };
-        if (selectedFile) {
+        if (selectedFile && validImageTypes.includes(selectedFile.type)) {
+            setProfileData({
+                ...profileData,
+                [event.target.name]: selectedFile,
+            });
+
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                setImagePreview(reader.result);
+            };
             reader.readAsDataURL(selectedFile);
+        } else {
+            setProfileData({
+                ...profileData,
+                [event.target.name]: null,
+            });
+            setImagePreview("");
+            Toast(
+                "error",
+                "Please upload a valid image file (JPEG or PNG or JPEG)",
+                ""
+            );
+            // alert("Please upload a valid image file (JPEG or PNG)");
         }
     };
+
+    // const handleFormSubmit = async (e) => {
+    //     e.preventDefault();
+    //     setLoading(true);
+
+    //     const res = await apiInstance.get(`user/profile/${userId}/`);
+
+    //     const formData = new FormData();
+    //     if (profileData.image && profileData.image !== res.data.image) {
+    //         formData.append("image", profileData.image);
+    //         // console.log(`image`, profileData.image);
+    //     }
+    //     formData.append("full_name", profileData.full_name);
+    //     formData.append("bio", profileData.bio);
+    //     formData.append("phone", profileData.phone);
+    //     formData.append("about", profileData.about);
+    //     formData.append("facebook", profileData.facebook);
+    //     formData.append("twitter", profileData.twitter);
+    //     formData.append("country", profileData.country);
+
+    //     try {
+    //         const res = await apiInstance.patch(
+    //             `user/profile/${userId}/`,
+    //             formData,
+    //             {
+    //                 headers: {
+    //                     "Content-Type": "multipart/form-data",
+    //                 },
+    //             }
+    //         );
+    //         Toast("success", "Profile updated successfully", "");
+    //         setLoading(false);
+    //         navigate(`/${App_User}/profile`);
+    //     } catch (error) {
+    //         console.error("Error updating profile:", error);
+    //         Toast(
+    //             "error",
+    //             `${
+    //                 error.response.data.phone || ""
+    //             } An Error Occured Verify data`,
+    //             ""
+    //         );
+    //     }
+    // };
 
     const handleFormSubmit = async (e) => {
         e.preventDefault();
         setLoading(true);
+
+        if (!profileData.image) {
+            setLoading(false);
+            Toast(
+                "error",
+                "Please upload a valid image file before submitting.",
+                ""
+            );
+            // alert("Please upload a valid image file before submitting.");
+            return;
+        }
 
         const res = await apiInstance.get(`user/profile/${userId}/`);
 
         const formData = new FormData();
         if (profileData.image && profileData.image !== res.data.image) {
             formData.append("image", profileData.image);
-            console.log(`image`, profileData.image);
         }
         formData.append("full_name", profileData.full_name);
+        formData.append("bio", profileData.bio);
+        formData.append("phone", profileData.phone);
         formData.append("about", profileData.about);
         formData.append("facebook", profileData.facebook);
         formData.append("twitter", profileData.twitter);
@@ -104,7 +218,11 @@ function UpdateProfile() {
             navigate(`/${App_User}/profile`);
         } catch (error) {
             console.error("Error updating profile:", error);
-            Toast("error", "An Error Occured", "");
+            Toast(
+                "error",
+                `${error.response.data.phone} An Error Occured Verify data`,
+                ""
+            );
         }
     };
 
@@ -117,7 +235,7 @@ function UpdateProfile() {
             <div className="editprofile">
                 <div className="container">
                     <div className="section-title">
-                        <h1 className="h2">Edit Profile</h1>
+                        <h1 className="h2">Update Profile</h1>
                     </div>
 
                     <div className="content">
@@ -139,9 +257,15 @@ function UpdateProfile() {
                                 </div>
 
                                 <div className="">
-                                    <h4 className="">Your avatar</h4>
+                                    <label
+                                        className="form-label"
+                                        htmlFor="avatar"
+                                    >
+                                        Your Avatar
+                                    </label>
 
                                     <input
+                                        id="avatar"
                                         type="file"
                                         name="image"
                                         className="form-control mt-3"
@@ -163,59 +287,102 @@ function UpdateProfile() {
                                 <div className="">
                                     <label
                                         className="form-label"
-                                        htmlFor="fname"
+                                        htmlFor="fullname"
                                     >
                                         Full Name
                                     </label>
 
                                     <input
                                         type="text"
-                                        id="fname"
+                                        id="fullname"
                                         className="form-control"
-                                        placeholder="First Name"
-                                        required=""
+                                        placeholder="Full Name"
                                         onChange={handleProfileChange}
                                         name="full_name"
-                                        value={profileData?.full_name}
+                                        value={
+                                            profileData?.full_name !== null &&
+                                            profileData?.full_name !== "null" &&
+                                            profileData.full_name !== undefined
+                                                ? profileData?.full_name
+                                                : ""
+                                        }
+                                        required=""
                                     />
                                 </div>
 
                                 {/* About Me */}
-                                <div className="">
+                                {/* <div className="">
                                     <label
                                         className="form-label"
-                                        htmlFor="lname"
+                                        htmlFor="about"
                                     >
                                         About Me
                                     </label>
                                     <textarea
                                         onChange={handleProfileChange}
                                         name="about"
-                                        id=""
+                                        id="about"
                                         cols="30"
+                                        value={
+                                            profileData?.about !== null &&
+                                            profileData?.about !== "null" &&
+                                            profileData?.about !== undefined
+                                                ? profileData?.about
+                                                : ""
+                                        }
                                         // value={profileData?.about}
                                         rows="5"
                                         className="form-control"
+                                        placeholder="About"
                                     ></textarea>
+                                </div> */}
+
+                                {/* phone */}
+                                <div className="">
+                                    <label
+                                        className="form-label"
+                                        htmlFor="phone"
+                                    >
+                                        phone
+                                    </label>
+                                    <input
+                                        type="text"
+                                        id="phone"
+                                        className="form-control"
+                                        placeholder="Phone"
+                                        value={
+                                            profileData?.phone !== null &&
+                                            profileData.phone !== "null" &&
+                                            profileData?.phone !== undefined
+                                                ? profileData?.phone
+                                                : ""
+                                        }
+                                        onChange={handleProfileChange}
+                                        name="phone"
+                                        required=""
+                                    />
                                 </div>
 
                                 {/* Bio */}
                                 <div className="">
-                                    <label
-                                        className="form-label"
-                                        htmlFor="editCountry"
-                                    >
+                                    <label className="form-label" htmlFor="bio">
                                         Bio
                                     </label>
                                     <input
                                         type="text"
                                         id="bio"
                                         className="form-control"
-                                        placeholder="bio"
-                                        required=""
-                                        value={profileData?.bio}
+                                        placeholder="Bio"
+                                        value={
+                                            profileData?.bio !== null &&
+                                            profileData.bio !== "null" &&
+                                            profileData?.bio !== undefined
+                                                ? profileData?.bio
+                                                : ""
+                                        }
                                         onChange={handleProfileChange}
                                         name="bio"
+                                        required=""
                                     />
                                 </div>
 
@@ -223,19 +390,25 @@ function UpdateProfile() {
                                 <div className="">
                                     <label
                                         className="form-label"
-                                        htmlFor="editCountry"
+                                        htmlFor="governorate"
                                     >
-                                        Ggovernorate
+                                        Governorate
                                     </label>
                                     <input
                                         type="text"
-                                        id="country"
+                                        id="governorate"
                                         className="form-control"
+                                        value={
+                                            profileData?.country !== null &&
+                                            profileData?.country !== "null" &&
+                                            profileData?.country !== undefined
+                                                ? profileData?.country
+                                                : ""
+                                        }
                                         placeholder="Governorate"
-                                        required=""
-                                        value={profileData?.country || ""}
                                         onChange={handleProfileChange}
                                         name="country"
+                                        required=""
                                     />
                                 </div>
 
@@ -243,7 +416,7 @@ function UpdateProfile() {
                                 <div className="">
                                     <label
                                         className="form-label"
-                                        htmlFor="editCountry"
+                                        htmlFor="facebook"
                                     >
                                         Facebook
                                     </label>
@@ -253,8 +426,14 @@ function UpdateProfile() {
                                         id="facebook"
                                         className="form-control"
                                         name="facebook"
-                                        placeholder="facebook"
-                                        value={profileData?.facebook}
+                                        placeholder="Facebook"
+                                        value={
+                                            profileData?.facebook !== null &&
+                                            profileData?.facebook !== "null" &&
+                                            profileData?.facebook !== undefined
+                                                ? profileData.facebook
+                                                : ""
+                                        }
                                         onChange={handleProfileChange}
                                         required=""
                                     />
@@ -264,7 +443,7 @@ function UpdateProfile() {
                                 <div className="">
                                     <label
                                         className="form-label"
-                                        htmlFor="editCountry"
+                                        htmlFor="twitter"
                                     >
                                         Twitter
                                     </label>
@@ -272,9 +451,15 @@ function UpdateProfile() {
                                         type="text"
                                         id="twitter"
                                         className="form-control"
-                                        placeholder="twitter"
+                                        placeholder="Twitter"
                                         required=""
-                                        value={profileData?.twitter}
+                                        value={
+                                            profileData?.twitter !== null &&
+                                            profileData?.twitter !== "null" &&
+                                            profileData?.twitter !== undefined
+                                                ? profileData?.twitter
+                                                : ""
+                                        }
                                         onChange={handleProfileChange}
                                         name="twitter"
                                     />
@@ -283,14 +468,14 @@ function UpdateProfile() {
 
                             {/* Button */}
                             <div className="buttons">
-                                <button
+                                <Button
                                     className="btn btn-primary"
                                     type="submit"
                                 >
                                     Update Profile
-                                </button>
+                                </Button>
 
-                                <button
+                                <Button
                                     className="btn btn-primary"
                                     type="submit"
                                     onClick={() => {
@@ -298,7 +483,7 @@ function UpdateProfile() {
                                     }}
                                 >
                                     Cancal
-                                </button>
+                                </Button>
                             </div>
                         </form>
                     </div>
