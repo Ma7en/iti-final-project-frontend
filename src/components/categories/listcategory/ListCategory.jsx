@@ -9,13 +9,15 @@ import { Button } from "react-bootstrap";
 
 // utils
 import apiInstance from "../../../utils/axios";
+import { App_Company } from "../../../utils/constants";
+
+// category components
+import CategoryComponents from "../categorycomponents/CategoryComponents";
+import NotCategory from "../notcategory/NotCategory";
 
 // ui components
 import ScrollToTopPages from "../../../ui/scrolltotoppages/ScrollToTopPages";
-import { App_Company } from "../../../utils/constants";
-import CategoryComponents from "../categorycomponents/CategoryComponents";
 import Loader from "../../../ui/loader/Loader";
-import NotCategory from "../notcategory/NotCategory";
 
 function ListCategory() {
     const [categories, setCategories] = useState([]);

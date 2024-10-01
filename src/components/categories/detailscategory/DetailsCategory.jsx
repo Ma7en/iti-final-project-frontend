@@ -7,21 +7,27 @@ import "./DetailsCategory.css";
 // utils
 import apiInstance from "../../../utils/axios";
 
+// category components
+import DetailsCategoryComponents from "./detailscategorycomponents/DetailsCategoryComponents";
+
 // ui components
 import Property from "../../property/Property";
+import Loader from "../../../ui/loader/Loader";
 
 // assets
 import service3 from "../../../assets/images/service/service-3.png";
 
 function DetailsCategory() {
     const { id } = useParams();
-    console.log("id", id);
+    // console.log("id", id);
     const [category, setCategory] = useState(null);
 
     useEffect(() => {
         const fetchCategoryDetails = async () => {
             try {
-                const response = await apiInstance.get(`category/detail/${id}/`);
+                const response = await apiInstance.get(
+                    `category/detail/${id}/`
+                );
                 setCategory(response.data);
             } catch (error) {
                 console.error("Error fetching category details:", error);
@@ -30,9 +36,8 @@ function DetailsCategory() {
         fetchCategoryDetails();
     }, [id]);
 
-    if (!category) {
-        return <div>Loading...</div>;
-    }
+    if (!category) return <Loader />;
+    // console.log(category);
 
     return (
         <>
@@ -42,27 +47,7 @@ function DetailsCategory() {
                     <h2 className="h2 section-title">Our Main Focus</h2>
 
                     <ul className="service-list">
-                        <li>
-                            <div className="service-card">
-                                <div className="card-icon">
-                                    <img src={service3} alt="Service icon" />
-                                </div>
-                                <h3 className="h3 card-title">
-                                    <a href="#">Traditional Finishing</a>
-                                </h3>
-                                <p className="card-text">
-                                    Traditional finishing brings warmth and
-                                    timeless elegance, featuring classic
-                                    designs, rich colors, and detailed
-                                    craftsmanship that create an inviting
-                                    atmosphere.
-                                </p>
-                                <a href="/contact" className="card-link">
-                                    <span>Contact</span>
-                                    <ion-icon name="arrow-forward-outline" />
-                                </a>
-                            </div>
-                        </li>
+                        <DetailsCategoryComponents category={category} />
                     </ul>
                 </div>
             </div>

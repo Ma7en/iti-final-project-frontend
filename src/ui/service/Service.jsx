@@ -1,5 +1,16 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+
+// utils
+import apiInstance from "../../utils/axios";
+
+// category components
+import ServiceComponents from "./servicecomponents/ServiceComponents";
+import NotCategory from "../../components/categories/notcategory/NotCategory";
+
+// ui components
+import Loader from "../loader/Loader";
 
 // assets
 import service1 from "../../assets/images/service/service-1.png";
@@ -7,14 +18,43 @@ import service2 from "../../assets/images/service/service-2.png";
 import service3 from "../../assets/images/service/service-3.png";
 
 function Service() {
+    const [categories, setCategories] = useState([]);
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        const fetchCategories = async () => {
+            try {
+                const response = await apiInstance.get("category/list/");
+                setCategories(response.data);
+            } catch (error) {
+                console.error("Error fetching categories:", error);
+            }
+        };
+        fetchCategories();
+    }, []);
+
+    if (!categories) return <Loader />;
+
     return (
         <>
             <section className="service" id="service">
                 <div className="container">
                     <p className="section-subtitle">Our Services</p>
                     <h2 className="h2 section-title">Our Main Focus</h2>
+
                     <ul className="service-list">
-                        <li>
+                        {categories.length > 0 ? (
+                            categories.map((category, index) => (
+                                <ServiceComponents
+                                    category={category}
+                                    key={index}
+                                />
+                            ))
+                        ) : (
+                            <NotCategory />
+                        )}
+
+                        {/* <li>
                             <div className="service-card">
                                 <div className="card-icon">
                                     <img
@@ -84,7 +124,7 @@ function Service() {
                                     <ion-icon name="arrow-forward-outline" />
                                 </a>
                             </div>
-                        </li>
+                        </li> */}
                     </ul>
                 </div>
             </section>
