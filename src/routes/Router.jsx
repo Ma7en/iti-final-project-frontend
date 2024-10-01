@@ -126,6 +126,10 @@ function Router() {
                                 path={`/${App_Company}/companyprofile`}
                                 element={<AppCompany />}
                             />
+                            <Route
+                                path={`/${App_Company}/company-profile`}
+                                element={<AppCompany />}
+                            />
 
                             {/* categories or services */}
                             {/* list category */}
@@ -271,13 +275,65 @@ function Router() {
                                 element={<CreateProject />}
                             />
                             <Route
-                                path={`/${App_Company}/createproject`}
+                                path={`/${App_Company}/projectcreate`}
+                                element={<CreateProject />}
+                            />
+                            <Route
+                                path={`/${App_Company}/project/create`}
+                                element={<CreateProject />}
+                            />
+                            <Route
+                                path={`/${App_Company}/create/project`}
+                                element={<CreateProject />}
+                            />
+                            <Route
+                                path={`/${App_Company}/companycreateproject`}
+                                element={<CreateProject />}
+                            />
+                            <Route
+                                path={`/${App_Company}/companyprojectcreate`}
+                                element={<CreateProject />}
+                            />
+                            <Route
+                                path={`/${App_Company}/companycreate/project`}
+                                element={<CreateProject />}
+                            />
+                            <Route
+                                path={`/${App_Company}/companyproject/create`}
                                 element={<CreateProject />}
                             />
 
                             {/* update project */}
                             <Route
-                                path={`/${App_Company}/updateproject`}
+                                path={`/${App_Company}/updateproject/:id`}
+                                element={<UpdateProject />}
+                            />
+                            <Route
+                                path={`/${App_Company}/projectupdate/:id`}
+                                element={<UpdateProject />}
+                            />
+                            <Route
+                                path={`/${App_Company}/update/project/:id`}
+                                element={<UpdateProject />}
+                            />
+                            <Route
+                                path={`/${App_Company}/project/update/:id`}
+                                element={<UpdateProject />}
+                            />
+                            <Route
+                                path={`/${App_Company}/companyproject/update/:id`}
+                                element={<UpdateProject />}
+                            />
+                            <Route
+                                path={`/${App_Company}/projectcompany/update/:id`}
+                                element={<UpdateProject />}
+                            />
+                            <Route
+                                path={`/${App_Company}/projectcompanyupdate/:id`}
+                                element={<UpdateProject />}
+                            />
+                            <Route
+                                path={`/${App_Company}/updateprojectcompany/:id`}
                                 element={<UpdateProject />}
                             />
 
@@ -286,10 +342,38 @@ function Router() {
                                 path={`/${App_Company}/listproject`}
                                 element={<ListProject />}
                             />
+                            <Route
+                                path={`/${App_Company}/list/project`}
+                                element={<ListProject />}
+                            />
+                            <Route
+                                path={`/${App_Company}/projectlist`}
+                                element={<ListProject />}
+                            />
+                            <Route
+                                path={`/${App_Company}/project/list`}
+                                element={<ListProject />}
+                            />
 
                             {/* details project */}
                             <Route
-                                path={`/${App_Company}/detailsproject`}
+                                path={`/${App_Company}/detailsproject/:id`}
+                                element={<DetailsProject />}
+                            />
+                            <Route
+                                path={`/${App_Company}/details/project/:id`}
+                                element={<DetailsProject />}
+                            />
+                            <Route
+                                path={`/${App_Company}/projectdetails/:id`}
+                                element={<DetailsProject />}
+                            />
+                            <Route
+                                path={`/${App_Company}/project/details/:id`}
+                                element={<DetailsProject />}
+                            />
+                            <Route
+                                path={`/${App_Company}/companyproject/details/:id`}
                                 element={<DetailsProject />}
                             />
                         </Route>
