@@ -145,7 +145,9 @@ function AppUser() {
                                 <Button
                                     className="btn "
                                     onClick={() => {
-                                        navigate(`/${App_User}/editprofile`);
+                                        navigate(
+                                            `/${App_User}/updateprofile/${id}`
+                                        );
                                     }}
                                 >
                                     Edit Profile
@@ -163,7 +165,10 @@ function AppUser() {
                         </div>
 
                         <div className="image">
-                            <img src={`${image}`} alt={`${full_name}`} />
+                            <img
+                                src={`${image || ProfileImage}`}
+                                alt={`${full_name}`}
+                            />
                         </div>
                     </div>
                 </div>

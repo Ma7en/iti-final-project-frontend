@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 //
-import "./EditProfile.css";
+import "./UpdateProfile.css";
 
 // authorization
 import useUserData from "../../../plugin/useUserData";
@@ -21,7 +21,7 @@ import Loader from "../../../ui/loader/Loader";
 import ScrollToTopPages from "../../../ui/scrolltotoppages/ScrollToTopPages";
 import { App_User } from "../../../utils/constants";
 
-function EditProfile() {
+function UpdateProfile() {
     const navigate = useNavigate();
 
     // =================================================================
@@ -308,4 +308,4 @@ function EditProfile() {
     );
 }
 
-export default EditProfile;
+export default UpdateProfile;

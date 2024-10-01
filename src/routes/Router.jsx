@@ -30,7 +30,7 @@ import ResetPassword from "../ui/resetpassword/ResetPassword";
 // user components
 import AppUser from "../pages/user/AppUser";
 import AppUserLayout from "../pages/user/AppUserLayout";
-import EditProfile from "../pages/user/edit/EditProfile";
+import UpdateProfile from "../pages/user/updateprofile/UpdateProfile";
 
 // project components
 import AboutPage from "../pages/app/aboutpages/AboutPage";
@@ -39,18 +39,15 @@ import Contact from "../ui/contact/Contact";
 // ui Category components
 import ListCategory from "../components/categories/listcategory/ListCategory";
 import CreateCategory from "../components/categories/createcategory/CreateCategory";
-import EditCategory from "../components/categories/updatecategory/UpdateCategory";
 import DetailsCategory from "../components/categories/detailscategory/DetailsCategory";
+import UpdateCategory from "../components/categories/updatecategory/UpdateCategory";
 
 // ui project components
-
 import CreateProject from "../components/project/createproject/CreateProject";
-
 import FinishingDetails from "../pages/app/finishingPage/FinishingDetails";
 import ServicePage from "../pages/app/servicePage/ServicePage";
 import WriteDetails from "../pages/app/writeDetails/WriteDetails";
 import ServiceDetails from "../pages/app/serviceDetails/ServiceDetails";
-import UpdateCategory from "../components/categories/updatecategory/UpdateCategory";
 
 function Router() {
     return (
@@ -316,6 +313,10 @@ function Router() {
                                 element={<AppUser />}
                             />
                             <Route
+                                path={`/${App_User}/${App_User}/profile`}
+                                element={<AppUser />}
+                            />
+                            <Route
                                 path={`/${App_User}profile`}
                                 element={<AppUser />}
                             />
@@ -324,14 +325,34 @@ function Router() {
                                 element={<AppUser />}
                             />
 
-                            {/* edit profile */}
+                            {/* update profile */}
                             <Route
-                                path={`/${App_User}/editprofile`}
-                                element={<EditProfile />}
+                                path={`/${App_User}/updateprofile/:id`}
+                                element={<UpdateProfile />}
                             />
                             <Route
-                                path={`/${App_User}/profileedit`}
-                                element={<EditProfile />}
+                                path={`/${App_User}/update/profile/:id`}
+                                element={<UpdateProfile />}
+                            />
+                            <Route
+                                path={`/${App_User}/profile/update/:id`}
+                                element={<UpdateProfile />}
+                            />
+                            <Route
+                                path={`/${App_User}/editprofile/:id`}
+                                element={<UpdateProfile />}
+                            />
+                            <Route
+                                path={`/${App_User}/edit/profile/:id`}
+                                element={<UpdateProfile />}
+                            />
+                            <Route
+                                path={`/${App_User}/profileedit/:id`}
+                                element={<UpdateProfile />}
+                            />
+                            <Route
+                                path={`/${App_User}/profile/edit/:id`}
+                                element={<UpdateProfile />}
                             />
                         </Route>
 
@@ -370,7 +391,7 @@ function Router() {
                                 element={<DetailsCategory />}
                             />
                             <Route
-                                path={`/servicecategory/:id`}
+                                path={`/detailsservice/:id`}
                                 element={<DetailsCategory />}
                             />
                             <Route
