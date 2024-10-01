@@ -1,217 +1,165 @@
-// import
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-//
-import "./CreateProject.css";
+// import style
+// import "./CreateCategory.css";
+
+// plugin
+import useUserData from "../../../plugin/useUserData";
+import Toast from "../../../plugin/Toast";
 
 // utils
-import api from "../../../utils/api";
-import { App_Company, App_User } from "../../../utils/constants";
+import apiInstance from "../../../utils/axios";
+import { App_Company } from "../../../utils/constants";
 
-// project components
-import DetailProject from "../detailproject/DetailProject";
+// bootstrap components
+import { Button } from "react-bootstrap";
 
 // ui components
 import ScrollToTopPages from "../../../ui/scrolltotoppages/ScrollToTopPages";
 
 function CreateProject() {
     const navigate = useNavigate();
-
     const [projects, setProjects] = useState([]);
+    const [project, setProject] = useState({
+        title: "",
+        details: "",
+        image: null,
+        slug: "",
+    });
+    const [isEditing, setIsEditing] = useState(false);
+    const [editId, setEditId] = useState(null);
+    const userId = useUserData()?.user_id;
 
-    const [title, setTitle] = useState("");
-    const [details, setDetails] = useState("");
-    const [meter, setMeter] = useState("");
-    const [day, setDay] = useState("");
-
-    const [image, setImage] = useState("");
-
-    //
-    // const accessToken = localStorage.getItem("access");
-    // console.log("Access Token:", accessToken);
-
-    useEffect(() => {
-        // getProjects();
-    }, []);
-
-    // const getProjects = async () => {
-    //     try {
-    //         const response = await api.get("/api/projects/", {
-    //             headers: {
-    //                 Authorization: `Bearer ${localStorage.getItem("access")}`,
-    //             },
-    //         });
-    //         setProjects(response.data);
-    //         console.log(`Data:`, response.data);
-    //     } catch (error) {
-    //         console.log(`Error Get Projects:`, error.message);
-    //         if (error.response && error.response.status === 401) {
-    //             console.log("Unauthorized, attempting to refresh token...");
-    //             // await refreshAccessToken(); // محاولة تجديد التوكن
-    //         }
-    //     }
-    // };
-
-    const deleteProject = (id) => {
-        api.delete(`/api/projects/delete/${id}/`)
-            .then((response) => {
-                if (response.status === 204) {
-                    alert("(Project) deleted!");
-                } else {
-                    alert("Failed to delete (Project).");
-                }
-                // getProjects();
-            })
-            .catch((error) => {
-                // alert(error);
-                console.log(`Error deleting project`, error.message);
-            });
+    const fetchProjects = async () => {
+        try {
+            const response = await apiInstance.get("project/list/");
+            setProjects(response.data);
+        } catch (error) {
+            console.error("Error fetching projects:", error);
+        }
     };
 
-    const createProject = async (e) => {
-        e.preventDefault();
-
-        let formData = new FormData();
-        formData.append("title", title);
-        formData.append("details", details);
-        formData.append("meter", meter);
-        if (image) {
-            formData.append("image", image);
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        if (name === "title") {
+            // Auto-generate slug from title
+            const generatedSlug = value
+                .toLowerCase()
+                .replace(/ /g, "-") // replace spaces with hyphens
+                .replace(/[^\w-]+/g, ""); // remove non-alphanumeric characters
+            setProject({ ...project, title: value, details: generatedSlug });
+        } else {
+            setProject({ ...project, [name]: value });
         }
+    };
+
+    const handleFileChange = (e) => {
+        const file = e.target.files[0];
+        setProject({ ...project, image: file });
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        const formData = new FormData();
+        formData.append("title", project.title);
+        formData.append("details", project.details);
+        formData.append("image", project.image);
+        formData.append("slug", project.slug);
 
         try {
-            const response = await api.post("/api/projects/", formData, {
+            await apiInstance.post("project/create/", formData, {
                 headers: {
                     "Content-Type": "multipart/form-data",
-                    Authorization: `Bearer ${localStorage.getItem("access")}`, // استخدام التوكن
                 },
             });
-            if (response.status === 201) {
-                alert("Project created!");
-                // getProjects(); // جلب المشاريع بعد الإنشاء
-            } else {
-                alert("Failed to create project.");
-            }
+            Toast("success", "Project created successfully!");
+            fetchProjects(); // Refresh categories list after creation
+            navigate(`/${App_Company}/profile`);
         } catch (error) {
-            console.error("Error creating Project:", error.message);
-            if (error.response && error.response.status === 401) {
-                console.log("Unauthorized, attempting to refresh token...");
-                // await refreshAccessToken(); // محاولة تجديد التوكن
-                // بعد التجديد، يمكنك إعادة المحاولة لإنشاء المشروع إذا كنت ترغب في ذلك
-            }
+            console.error(
+                "Error during category submission:",
+                error.response.data
+            );
+            Toast("error", "Error while saving category!");
+            Toast("error", "category with this slug already exists.");
         }
     };
 
     return (
         <>
             <ScrollToTopPages />
-            <div className="createproject">
+            <div className="createcategory">
                 <div className="container">
                     <div className="section-title">
-                        <h1 className="h2">Create project</h1>
+                        <h2 className="h2">Create New Project</h2>
                     </div>
 
-                    <div>
-                        {projects.map((project, index) => (
-                            <DetailProject
-                                project={project}
-                                onDelete={deleteProject}
-                                key={index}
-                            />
-                        ))}
-                    </div>
-
-                    <form onSubmit={createProject}>
-                        <div>
-                            <label htmlFor="title">Title:</label>
-                            <input
-                                type="text"
-                                id="title"
-                                name="title"
-                                required
-                                onChange={(e) => setTitle(e.target.value)}
-                                value={title}
-                            />
-                        </div>
-
-                        <div>
-                            <label htmlFor="details">details:</label>
-                            <textarea
-                                id="details"
-                                name="details"
-                                required
-                                value={details}
-                                onChange={(e) => setDetails(e.target.value)}
-                            ></textarea>
-                            <br />
-                        </div>
-
-                        <div>
-                            <label htmlFor="amount">meter:</label>
-                            <input
-                                type="number"
-                                id="meter"
-                                name="meter"
-                                required
-                                value={meter}
-                                onChange={(e) => setMeter(e.target.value)}
-                            />
-                        </div>
-                        <div>
-                            <label htmlFor="amount">Days:</label>
-                            <input
-                                type="number"
-                                id="meter"
-                                name="meter"
-                                required
-                                value={day}
-                                onChange={(e) => setDay(e.target.value)}
-                            />
-                        </div>
-                        <div>
-                            <label htmlFor="image">Image:</label>
-                            <input
-                                type="file"
-                                id="image"
-                                name="image"
-                                accept="image/*"
-                                onChange={(e) => setImage(e.target.files[0])}
-                            />
-                        </div>
-
-                        <button
-                            // disabled
-                            type="submit"
-                            className="btn btn-primary w-100"
-                            onClick={() => {
-                                navigate(`/viewproject`);
-                            }}
+                    <div className="content">
+                        <form
+                            onSubmit={handleSubmit}
+                            encType="multipart/form-data"
                         >
-                            Submit
-                        </button>
-                    </form>
+                            <div className="mb-3">
+                                <label className="form-label" htmlFor="image">
+                                    Image:
+                                </label>
+                                <input
+                                    type="file"
+                                    className="form-control"
+                                    name="image"
+                                    id="image"
+                                    onChange={handleFileChange}
+                                    accept="image/*"
+                                    required
+                                />
+                            </div>
 
-                    <div className="other">
-                        <div>
-                            <button
-                                className="btn btn-link "
-                                onClick={() => {
-                                    navigate(`/${App_Company}/profile`);
-                                }}
-                            >
-                                Back to Profile
-                            </button>
+                            <div className="mb-3">
+                                <label className="form-label" htmlFor="title">
+                                    title:
+                                </label>
+                                <input
+                                    type="text"
+                                    name="title"
+                                    className="form-control"
+                                    id="title"
+                                    value={project.title}
+                                    onChange={handleInputChange}
+                                    required
+                                />
+                            </div>
 
-                            <button
-                                className="btn btn-link "
-                                onClick={() => {
-                                    navigate(`/`);
-                                }}
-                            >
-                                Home
-                            </button>
-                        </div>
+                            <div className="mb-3">
+                                <label className="form-label" htmlFor="details">
+                                    Details:
+                                </label>
+                                <textarea
+                                    type="text"
+                                    className="form-control"
+                                    name="details"
+                                    id="details"
+                                    onChange={handleInputChange}
+                                    required
+                                ></textarea>
+                            </div>
+
+                            <div className="buttons">
+                                <Button className="btn " type="submit">
+                                    Create project
+                                </Button>
+
+                                <Button
+                                    className="btn "
+                                    type="submit"
+                                    onClick={() => {
+                                        navigate(`/${App_Company}/profile`);
+                                    }}
+                                >
+                                    cancel
+                                </Button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>

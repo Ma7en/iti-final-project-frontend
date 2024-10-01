@@ -1,25 +1,14 @@
 import React from "react";
 
-function DetailProject({ project, onDelete }) {
-    const formattedDate = new Date(project.created_at).toLocaleDateString(
-        "en-US"
-    );
-
+function DetailProject({ project }) {
     return (
-        <>
-            <div>DetailProject</div>
-            <div className="project-container">
-                <p className="project-title">{project.title}</p>
-                {/* <p className="project-content">{project.content}</p> */}
-                <p className="project-date">{formattedDate}</p>
-                <button
-                    className="delete-button"
-                    onClick={() => onDelete(project.id)}
-                >
-                    Delete
-                </button>
-            </div>
-        </>
+        <div className="project-card">
+            <h2>{project.title}</h2>
+            <p>{project.details}</p>
+            <p>Meter: {project.meter}</p>
+            <p>Days: {project.days}</p>
+            {project.image && <img src={project.image} alt={project.title} />}
+        </div>
     );
 }
 
