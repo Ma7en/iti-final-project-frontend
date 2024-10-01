@@ -48,6 +48,7 @@ import FinishingDetails from "../pages/app/finishingPage/FinishingDetails";
 import ServicePage from "../pages/app/servicePage/ServicePage";
 import WriteDetails from "../pages/app/writeDetails/WriteDetails";
 import ServiceDetails from "../pages/app/serviceDetails/ServiceDetails";
+import ViewProject from "../components/project/viewproject/ViewProject";
 
 function Router() {
     return (
@@ -272,8 +273,8 @@ function Router() {
 
                             {/* delete project */}
                             {/* <Route
-                                path={`${App_Company}/createproject`}
-                                element={<CreateProject />}
+                                path={`/viewproject`}
+                                element={<ViewProject />}
                             /> */}
 
                             {/* details project */}
