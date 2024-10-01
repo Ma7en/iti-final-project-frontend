@@ -50,6 +50,7 @@ import WriteDetails from "../pages/app/writeDetails/WriteDetails";
 import ServiceDetails from "../pages/app/serviceDetails/ServiceDetails";
 import ListProject from "../components/project/listproject/ListProject";
 import DetailsProject from "../components/project/detailsproject/DetailsProject";
+import UpdateProject from "../components/project/updateproject/UpdateProject";
 
 function Router() {
     return (
@@ -271,21 +272,18 @@ function Router() {
                                 element={<ListProject />}
                             />
 
-                            {/* delete project */}
-                            <Route
-                                path={`/viewproject`}
-                                element={<ViewProject />}
-                            />
+                          
+                          
 
-                            {/* details project */}
-                            <Route
-                                path={`/${App_Company}/listproject`}
-                                element={<ListProject />}
-                            />
+                        
                              {/* details project */}
                              <Route
                                 path={`/${App_Company}/detailsproject`}
                                 element={<DetailsProject />}
+                            />
+                            <Route
+                                path={`/${App_Company}/updateproject`}
+                                element={<UpdateProject />}
                             />
                         </Route>
 
