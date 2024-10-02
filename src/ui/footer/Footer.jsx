@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 // assets
 import logoLight from "../../assets/images/logo/logo-light.png";
@@ -19,9 +19,12 @@ function Footer() {
                                 />
                             </Link>
                             <p className="section-text">
-                                Lorem Ipsum is simply dummy text of the and
-                                typesetting industry. Lorem Ipsum is dummy text
-                                of the printing.
+                                At Apartment finishing, we're dedicated to
+                                providing inspiration and resources for
+                                apartment finishing and interior design. Our
+                                goal is to help you transform your living space
+                                into a stylish and functional home that reflects
+                                your unique personality.
                             </p>
                             <ul className="contact-list">
                                 <li>
@@ -84,11 +87,11 @@ function Footer() {
                                         About
                                     </Link>
                                 </li>
-                                <li>
+                                {/* <li>
                                     <a href="#" className="footer-link">
                                         Blog
                                     </a>
-                                </li>
+                                </li> */}
                                 <li>
                                     <a href="#" className="footer-link">
                                         All Products
@@ -135,10 +138,7 @@ function Footer() {
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link
-                                        to={`/user/profile`}
-                                        className="footer-link"
-                                    >
+                                    <Link to={`/login`} className="footer-link">
                                         My account
                                     </Link>
                                 </li>
@@ -165,10 +165,7 @@ function Footer() {
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link
-                                        to={`/user/profile`}
-                                        className="footer-link"
-                                    >
+                                    <Link to={`/login`} className="footer-link">
                                         My account
                                     </Link>
                                 </li>

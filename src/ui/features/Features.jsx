@@ -8,7 +8,8 @@ function Features() {
             <section className="features">
                 <div className="container">
                     <p className="section-subtitle">Our Aminities</p>
-                    <h2 className="h2 section-title">Building Aminities</h2>
+                    <h2 className="h2 section-title">Finishing Facilities</h2>
+
                     <ul className="features-list">
                         <li>
                             <Link to={`/about`} className="features-card">

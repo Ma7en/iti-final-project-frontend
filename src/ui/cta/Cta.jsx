@@ -1,6 +1,9 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 function Cta() {
+    const navigate = useNavigate();
+
     return (
         <>
             <section className="cta">
@@ -18,7 +21,12 @@ function Cta() {
                             </p>
                         </div>
 
-                        <button className="btn cta-btn">
+                        <button
+                            className="btn cta-btn"
+                            onClick={() => {
+                                navigate(`/contact`);
+                            }}
+                        >
                             <span>Explore Finishes</span>
                             <ion-icon name="arrow-forward-outline" />
                         </button>
