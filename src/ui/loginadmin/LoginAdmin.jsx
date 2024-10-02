@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Navigate, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 //
@@ -13,6 +13,7 @@ import api from "../../utils/api";
 import {
     ACCESS_TOKEN,
     App_Company,
+    App_User,
     REFRESH_TOKEN,
 } from "../../utils/constants";
 import { login } from "../../utils/auth";
@@ -21,6 +22,8 @@ import { login } from "../../utils/auth";
 import LoadingIndicator from "../loader/LoadingIndicator";
 import ScrollToTopPages from "../scrolltotoppages/ScrollToTopPages";
 import Toast from "../../plugin/Toast";
+import useUserData from "../../plugin/useUserData";
+import apiInstance from "../../utils/axios";
 
 function LoginAdmin() {
     // =================================================================
@@ -109,6 +112,32 @@ function LoginAdmin() {
     //         setError("Login failed. Check your username and password.");
     //     }
     // };
+    // =================================================================
+    const loggedIn = useAuthStore((state) => state.isLoggedIn)();
+
+    // company
+    const [profileData, setProfileData] = useState();
+    const userId = useUserData()?.user_id;
+
+    useEffect(() => {
+        if (userId) fetchProfile();
+    }, [userId]);
+
+    const fetchProfile = async () => {
+        try {
+            apiInstance.get(`user/profile/${userId}/`).then((res) => {
+                setProfileData(res.data);
+            });
+        } catch (error) {
+            // console.error("Error fetching profile", error);
+            Toast("error", `Error fetching profile ${error}`, "");
+        }
+    };
+
+    if (loggedIn && profileData?.user?.is_superuser === false)
+        return <Navigate to={`/${App_User}/profile`} />;
+    if (loggedIn && profileData?.user?.is_superuser === true)
+        return <Navigate to={`/${App_Company}/profile`} />;
 
     return (
         <>

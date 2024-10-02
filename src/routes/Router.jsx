@@ -564,16 +564,26 @@ function Router() {
                             <Route path="/" element={<HomePage />} />
                             <Route path="/home" element={<HomePage />} />
                             <Route path="/homeverse" element={<HomePage />} />
+                            <Route path="/home-verse" element={<HomePage />} />
                             <Route path="/verse" element={<HomePage />} />
                             <Route path="/verseapp" element={<HomePage />} />
+                            <Route path="/verse-app" element={<HomePage />} />
                             <Route
                                 path="/homeverseapp"
+                                element={<HomePage />}
+                            />
+                            <Route
+                                path="/home-verseapp"
                                 element={<HomePage />}
                             />
 
                             {/* pages */}
                             <Route path="/contact" element={<Contact />} />
+                            <Route path="/contactus" element={<Contact />} />
+                            <Route path="/contact-us" element={<Contact />} />
                             <Route path="/about" element={<AboutPage />} />
+                            <Route path="/aboutus" element={<AboutPage />} />
+                            <Route path="/about-us" element={<AboutPage />} />
 
                             {/* categories or services */}
                             {/* details category  */}
@@ -609,6 +619,14 @@ function Router() {
                                 path={`/details/service/:id`}
                                 element={<DetailsCategory />}
                             />
+                            <Route
+                                path={`/service-details/:id`}
+                                element={<DetailsCategory />}
+                            />
+                            <Route
+                                path={`/details-service/:id`}
+                                element={<DetailsCategory />}
+                            />
 
                             {/* project */}
                             <Route
@@ -630,10 +648,35 @@ function Router() {
 
                             {/* Verify admin */}
                             <Route path="/admin" element={<LoginAdmin />} />
+                            <Route
+                                path="/loginadmin"
+                                element={<LoginAdmin />}
+                            />
+                            <Route
+                                path="/login/admin"
+                                element={<LoginAdmin />}
+                            />
+                            <Route
+                                path="/login-admin"
+                                element={<LoginAdmin />}
+                            />
+                            <Route
+                                path="/adminlogin"
+                                element={<LoginAdmin />}
+                            />
+                            <Route
+                                path="/admin/login"
+                                element={<LoginAdmin />}
+                            />
+                            <Route
+                                path="/admin-login"
+                                element={<LoginAdmin />}
+                            />
 
                             {/* Verify user */}
                             <Route path="/login" element={<Login />} />
                             <Route path="/signup" element={<Signup />} />
+                            <Route path="/register" element={<Signup />} />
                             <Route
                                 path="/resetpassword"
                                 element={<ResetPassword />}
