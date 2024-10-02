@@ -44,7 +44,7 @@ import UpdateCategory from "../components/categories/updatecategory/UpdateCatego
 
 // ui project components
 import CreateProject from "../components/project/createproject/CreateProject";
-import FinishingDetails from "../pages/app/finishingPage/FinishingDetails";
+import OurWorks from "../pages/app/ourworks/OurWorks";
 import ServicePage from "../pages/app/servicePage/ServicePage";
 import WriteDetails from "../pages/app/writeDetails/WriteDetails";
 import ServiceDetails from "../pages/app/serviceDetails/ServiceDetails";
@@ -524,8 +524,8 @@ function Router() {
 
                             {/* project */}
                             <Route
-                                path="/finishing"
-                                element={<FinishingDetails />}
+                                path="/ourwork"
+                                element={<OurWorks />}
                             />
                             <Route
                                 path="/servicePage"
