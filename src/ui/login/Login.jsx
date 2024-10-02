@@ -129,7 +129,7 @@ function Login() {
                                     />
                                     {!showPassword ? (
                                         <ion-icon
-                                            name="eye-outline"
+                                            name="eye-off-outline"
                                             className="icon-icon"
                                             onClick={() =>
                                                 setShowPassword((show) => !show)

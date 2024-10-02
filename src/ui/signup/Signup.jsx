@@ -122,9 +122,10 @@ function Signup() {
                                 value={bioData.password}
                                 required
                             />
+                            {/* <ion-icon name="eye-off-outline"></ion-icon> */}
                             {!showPassword ? (
                                 <ion-icon
-                                    name="eye-outline"
+                                    name="eye-off-outline"
                                     className="icon-icon"
                                     onClick={() =>
                                         setShowPassword((show) => !show)
