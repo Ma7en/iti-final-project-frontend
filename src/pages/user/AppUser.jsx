@@ -111,7 +111,7 @@ function AppUser() {
     const { full_name, image, id, bio, phone, facebook } = profileData;
     const backup_bio =
         "Success is not measured by what you have achieved, but by the obstacles you have overcome.";
-    const backup_phone = `01012312345`;
+    const backup_phone = `01001101200`;
     // console.log(`profileData`, profileData);
 
     return (
@@ -134,7 +134,9 @@ function AppUser() {
                                 <p className="h3">
                                     Phone:
                                     <span>
-                                        {phone !== null && phone !== "null"
+                                        {phone !== null &&
+                                        phone !== "null" &&
+                                        phone !== ""
                                             ? phone
                                             : backup_phone}
                                     </span>

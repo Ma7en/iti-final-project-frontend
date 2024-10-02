@@ -130,6 +130,14 @@ function Router() {
                                 path={`/${App_Company}/${App_Company}-profile`}
                                 element={<AppCompany />}
                             />
+                            <Route
+                                path={`/${App_Company}/profile${App_Company}`}
+                                element={<AppCompany />}
+                            />
+                            <Route
+                                path={`/${App_Company}/profile-${App_Company}`}
+                                element={<AppCompany />}
+                            />
 
                             {/* categories or services */}
                             {/* list category */}
@@ -150,6 +158,14 @@ function Router() {
                                 element={<ListCategory />}
                             />
                             <Route
+                                path={`/${App_Company}/categories-list`}
+                                element={<ListCategory />}
+                            />
+                            <Route
+                                path={`/${App_Company}/list-categories`}
+                                element={<ListCategory />}
+                            />
+                            <Route
                                 path={`/${App_Company}/services`}
                                 element={<ListCategory />}
                             />
@@ -163,6 +179,14 @@ function Router() {
                             />
                             <Route
                                 path={`/${App_Company}/list/services`}
+                                element={<ListCategory />}
+                            />
+                            <Route
+                                path={`/${App_Company}/services-list`}
+                                element={<ListCategory />}
+                            />
+                            <Route
+                                path={`/${App_Company}/list-services`}
                                 element={<ListCategory />}
                             />
 
@@ -199,6 +223,14 @@ function Router() {
                                 path={`/${App_Company}/create/service`}
                                 element={<CreateCategory />}
                             />
+                            <Route
+                                path={`/${App_Company}/service-create`}
+                                element={<CreateCategory />}
+                            />
+                            <Route
+                                path={`/${App_Company}/create-service`}
+                                element={<CreateCategory />}
+                            />
 
                             {/* update category */}
                             <Route
@@ -218,6 +250,14 @@ function Router() {
                                 element={<UpdateCategory />}
                             />
                             <Route
+                                path={`/${App_Company}/category-update/:id`}
+                                element={<UpdateCategory />}
+                            />
+                            <Route
+                                path={`/${App_Company}/update-category/:id`}
+                                element={<UpdateCategory />}
+                            />
+                            <Route
                                 path={`/${App_Company}/updateservice/:id`}
                                 element={<UpdateCategory />}
                             />
@@ -231,6 +271,14 @@ function Router() {
                             />
                             <Route
                                 path={`/${App_Company}/update/service/:id`}
+                                element={<UpdateCategory />}
+                            />
+                            <Route
+                                path={`/${App_Company}/service-update/:id`}
+                                element={<UpdateCategory />}
+                            />
+                            <Route
+                                path={`/${App_Company}/update-service/:id`}
                                 element={<UpdateCategory />}
                             />
 
@@ -252,6 +300,14 @@ function Router() {
                                 element={<DetailsCategory />}
                             />
                             <Route
+                                path={`/${App_Company}/category-details/:id`}
+                                element={<DetailsCategory />}
+                            />
+                            <Route
+                                path={`/${App_Company}/details-category/:id`}
+                                element={<DetailsCategory />}
+                            />
+                            <Route
                                 path={`/${App_Company}/detailsservice/:id`}
                                 element={<DetailsCategory />}
                             />
@@ -265,6 +321,14 @@ function Router() {
                             />
                             <Route
                                 path={`/${App_Company}/details/service/:id`}
+                                element={<DetailsCategory />}
+                            />
+                            <Route
+                                path={`/${App_Company}/service-details/:id`}
+                                element={<DetailsCategory />}
+                            />
+                            <Route
+                                path={`/${App_Company}/details-service/:id`}
                                 element={<DetailsCategory />}
                             />
 
@@ -287,6 +351,14 @@ function Router() {
                                 element={<CreateProject />}
                             />
                             <Route
+                                path={`/${App_Company}/project-create`}
+                                element={<CreateProject />}
+                            />
+                            <Route
+                                path={`/${App_Company}/create-project`}
+                                element={<CreateProject />}
+                            />
+                            <Route
                                 path={`/${App_Company}/companycreateproject`}
                                 element={<CreateProject />}
                             />
@@ -295,11 +367,27 @@ function Router() {
                                 element={<CreateProject />}
                             />
                             <Route
+                                path={`/${App_Company}/company-createproject`}
+                                element={<CreateProject />}
+                            />
+                            <Route
+                                path={`/${App_Company}/company-projectcreate`}
+                                element={<CreateProject />}
+                            />
+                            <Route
                                 path={`/${App_Company}/companycreate/project`}
                                 element={<CreateProject />}
                             />
                             <Route
                                 path={`/${App_Company}/companyproject/create`}
+                                element={<CreateProject />}
+                            />
+                            <Route
+                                path={`/${App_Company}/companycreate-project`}
+                                element={<CreateProject />}
+                            />
+                            <Route
+                                path={`/${App_Company}/companyproject-create`}
                                 element={<CreateProject />}
                             />
 
