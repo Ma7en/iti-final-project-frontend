@@ -16,6 +16,7 @@ import { login } from "../../utils/auth";
 // ui components
 import LoadingIndicator from "../loader/LoadingIndicator";
 import ScrollToTopPages from "../scrolltotoppages/ScrollToTopPages";
+import Toast from "../../plugin/Toast";
 
 function Login() {
     // = 2
@@ -47,12 +48,15 @@ function Login() {
     // };
 
     // =================================================================
+    const [showPassword, setShowPassword] = useState(false);
+    const [error, setError] = useState(false);
     const [bioData, setBioData] = useState({ email: "", password: "" });
     const [isLoading, setIsLoading] = useState(false);
     const isLoggedIn = useAuthStore((state) => state.isLoggedIn);
     const navigate = useNavigate();
 
     const handleBioDataChange = (event) => {
+        setError(false);
         setBioData({
             ...bioData,
             [event.target.name]: event.target.value,
@@ -69,10 +73,13 @@ function Login() {
     const handleLogin = async (e) => {
         e.preventDefault();
         setIsLoading(true);
+        setError(false);
 
         const { error } = await login(bioData.email, bioData.password);
         if (error) {
-            alert(JSON.stringify(error));
+            // alert(JSON.stringify(error));
+            Toast("error", `${JSON.stringify(error)}.`, "");
+            setError(`${JSON.stringify(error)}.`);
             resetForm();
         } else {
             navigate(`/${App_User}/profile`);
@@ -110,7 +117,9 @@ function Login() {
                                         Password:
                                     </label>
                                     <input
-                                        type="password"
+                                        type={
+                                            !showPassword ? "password" : "text"
+                                        }
                                         className="form-control"
                                         id="password"
                                         name="password"
@@ -118,14 +127,31 @@ function Login() {
                                         value={bioData.password}
                                         required
                                     />
+                                    {!showPassword ? (
+                                        <ion-icon
+                                            name="eye-outline"
+                                            className="icon-icon"
+                                            onClick={() =>
+                                                setShowPassword((show) => !show)
+                                            }
+                                        />
+                                    ) : (
+                                        <ion-icon
+                                            name="eye-outline"
+                                            className="icon-icon"
+                                            onClick={() =>
+                                                setShowPassword((show) => !show)
+                                            }
+                                        />
+                                    )}
                                 </div>
 
-                                {/* {loading && <LoadingIndicator />}
+                                {isLoading && <LoadingIndicator />}
                                 {error && (
                                     <div className="Error alert alert-danger">
                                         {error}
                                     </div>
-                                )} */}
+                                )}
 
                                 <button
                                     type="submit"

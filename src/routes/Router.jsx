@@ -123,11 +123,11 @@ function Router() {
                                 element={<AppCompany />}
                             />
                             <Route
-                                path={`/${App_Company}/companyprofile`}
+                                path={`/${App_Company}/${App_Company}profile`}
                                 element={<AppCompany />}
                             />
                             <Route
-                                path={`/${App_Company}/company-profile`}
+                                path={`/${App_Company}/${App_Company}-profile`}
                                 element={<AppCompany />}
                             />
 
@@ -420,7 +420,7 @@ function Router() {
                                 element={<AppUser />}
                             />
                             <Route
-                                path={`/${App_User}/userprofile`}
+                                path={`/${App_User}/${App_User}profile`}
                                 element={<AppUser />}
                             />
 
@@ -434,11 +434,23 @@ function Router() {
                                 element={<UpdateProfile />}
                             />
                             <Route
+                                path={`/${App_User}/update-profile/:id`}
+                                element={<UpdateProfile />}
+                            />
+                            <Route
                                 path={`/${App_User}/profile/update/:id`}
                                 element={<UpdateProfile />}
                             />
                             <Route
+                                path={`/${App_User}/profile-update/:id`}
+                                element={<UpdateProfile />}
+                            />
+                            <Route
                                 path={`/${App_User}/editprofile/:id`}
+                                element={<UpdateProfile />}
+                            />
+                            <Route
+                                path={`/${App_User}/edit-profile/:id`}
                                 element={<UpdateProfile />}
                             />
                             <Route
@@ -447,6 +459,10 @@ function Router() {
                             />
                             <Route
                                 path={`/${App_User}/profileedit/:id`}
+                                element={<UpdateProfile />}
+                            />
+                            <Route
+                                path={`/${App_User}/profile-edit/:id`}
                                 element={<UpdateProfile />}
                             />
                             <Route

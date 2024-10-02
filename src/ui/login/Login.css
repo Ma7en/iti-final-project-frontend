@@ -21,6 +21,10 @@
     font-size: 28px;
 }
 
+.login form > div {
+    position: relative;
+}
+
 .login label {
     display: block;
     margin-bottom: 5px;
@@ -43,6 +47,18 @@
 .login input[type="password"]:focus {
     border-color: #007bff;
     outline: none;
+}
+
+.login ion-icon {
+    position: absolute;
+    right: 20px;
+    top: calc(50% - 10px);
+    font-size: 25px;
+    cursor: pointer;
+    pointer-events: visible;
+    z-index: 3;
+    width: 30px;
+    height: 30px;
 }
 
 .login form button {

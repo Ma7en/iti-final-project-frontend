@@ -15,8 +15,12 @@ import { register } from "../../utils/auth";
 // ui component
 import LoadingIndicator from "../loader/LoadingIndicator";
 import ScrollToTopPages from "../scrolltotoppages/ScrollToTopPages";
+import Toast from "../../plugin/Toast";
 
 function Signup() {
+    const navigate = useNavigate();
+    const [showPassword, setShowPassword] = useState(false);
+    const [error, setError] = useState(false);
     const [bioData, setBioData] = useState({
         full_name: "",
         email: "",
@@ -25,9 +29,9 @@ function Signup() {
     });
     const [isLoading, setIsLoading] = useState(false);
     const isLoggedIn = useAuthStore((state) => state.isLoggedIn);
-    const navigate = useNavigate();
 
     const handleBioDataChange = (event) => {
+        setError(false);
         setBioData({
             ...bioData,
             [event.target.name]: event.target.value,
@@ -46,6 +50,7 @@ function Signup() {
     const handleRegister = async (e) => {
         e.preventDefault();
         setIsLoading(true);
+        setError(false);
 
         const { error } = await register(
             bioData.full_name,
@@ -53,8 +58,16 @@ function Signup() {
             bioData.password,
             bioData.password2
         );
-        if (error) {
-            alert(JSON.stringify(error));
+        if (
+            error ||
+            !bioData.full_name ||
+            !bioData.email ||
+            !bioData.password ||
+            !bioData.password2
+        ) {
+            // alert(JSON.stringify(error));
+            Toast("error", `${JSON.stringify(error)}.`, "");
+            setError(`${JSON.stringify(error)}.`);
             resetForm();
         } else {
             navigate(`/login`);
@@ -72,7 +85,6 @@ function Signup() {
                     <h2 className="title">Sign Up</h2>
 
                     <form onSubmit={handleRegister}>
-                    
                         <div className="mb-3">
                             <label className="form-label">Full Name:</label>
                             <input
@@ -85,20 +97,6 @@ function Signup() {
                                 required
                             />
                         </div>
-
-                        {/* <div className="mb-3">
-                            <label className="form-label">Last Name:</label>
-                            <input
-                                type="text"
-                                className="form-control"
-                                value={lastName}
-                                onChange={(e) => {
-                                    setLastName(e.target.value);
-                                    setError(false);
-                                }}
-                                required
-                            />
-                        </div> */}
 
                         <div className="mb-3">
                             <label className="form-label">Email:</label>
@@ -116,7 +114,7 @@ function Signup() {
                         <div className="mb-3">
                             <label className="form-label">Password:</label>
                             <input
-                                type="password"
+                                type={!showPassword ? "password" : "text"}
                                 className="form-control"
                                 id="password"
                                 name="password"
@@ -124,6 +122,23 @@ function Signup() {
                                 value={bioData.password}
                                 required
                             />
+                            {!showPassword ? (
+                                <ion-icon
+                                    name="eye-outline"
+                                    className="icon-icon"
+                                    onClick={() =>
+                                        setShowPassword((show) => !show)
+                                    }
+                                />
+                            ) : (
+                                <ion-icon
+                                    name="eye-outline"
+                                    className="icon-icon"
+                                    onClick={() =>
+                                        setShowPassword((show) => !show)
+                                    }
+                                />
+                            )}
                         </div>
 
                         <div className="mb-3">
@@ -131,7 +146,7 @@ function Signup() {
                                 Confirm Password:
                             </label>
                             <input
-                                type="password"
+                                type={!showPassword ? "password" : "text"}
                                 className="form-control"
                                 name="password2"
                                 id="password"
@@ -141,12 +156,12 @@ function Signup() {
                             />
                         </div>
 
-                        {/* {loading && <LoadingIndicator />}
+                        {isLoading && <LoadingIndicator />}
                         {error && (
                             <div className="Error alert alert-danger">
                                 {error}
                             </div>
-                        )} */}
+                        )}
 
                         <button type="submit" className="btn btn-primary w-100">
                             Sign Up

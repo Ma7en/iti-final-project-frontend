@@ -20,16 +20,19 @@ import { login } from "../../utils/auth";
 // ui components
 import LoadingIndicator from "../loader/LoadingIndicator";
 import ScrollToTopPages from "../scrolltotoppages/ScrollToTopPages";
+import Toast from "../../plugin/Toast";
 
 function LoginAdmin() {
-    const navigate = useNavigate();
-
     // =================================================================
+    const navigate = useNavigate();
+    const [showPassword, setShowPassword] = useState(false);
+    const [error, setError] = useState(false);
     const [bioData, setBioData] = useState({ email: "", password: "" });
     const [isLoading, setIsLoading] = useState(false);
     const isLoggedIn = useAuthStore((state) => state.isLoggedIn);
 
     const handleBioDataChange = (event) => {
+        setError(false);
         setBioData({
             ...bioData,
             [event.target.name]: event.target.value,
@@ -46,10 +49,13 @@ function LoginAdmin() {
     const handleLogin = async (e) => {
         e.preventDefault();
         setIsLoading(true);
+        setError(false);
 
         const { error } = await login(bioData.email, bioData.password);
         if (error) {
-            alert(JSON.stringify(error));
+            // alert(JSON.stringify(error));
+            Toast("error", `${JSON.stringify(error)}.`, "");
+            setError(`${JSON.stringify(error)}.`);
             resetForm();
         } else {
             navigate(`/${App_Company}/profile`);
@@ -132,7 +138,9 @@ function LoginAdmin() {
                                         Password:
                                     </label>
                                     <input
-                                        type="password"
+                                        type={
+                                            !showPassword ? "password" : "text"
+                                        }
                                         className="form-control"
                                         id="password"
                                         name="password"
@@ -140,14 +148,31 @@ function LoginAdmin() {
                                         value={bioData.password}
                                         required
                                     />
+                                    {!showPassword ? (
+                                        <ion-icon
+                                            name="eye-outline"
+                                            className="icon-icon"
+                                            onClick={() =>
+                                                setShowPassword((show) => !show)
+                                            }
+                                        />
+                                    ) : (
+                                        <ion-icon
+                                            name="eye-outline"
+                                            className="icon-icon"
+                                            onClick={() =>
+                                                setShowPassword((show) => !show)
+                                            }
+                                        />
+                                    )}
                                 </div>
 
-                                {/* {loading && <LoadingIndicator />}
+                                {isLoading && <LoadingIndicator />}
                                 {error && (
                                     <div className="Error alert alert-danger">
                                         {error}
                                     </div>
-                                )} */}
+                                )}
 
                                 <button
                                     type="submit"
