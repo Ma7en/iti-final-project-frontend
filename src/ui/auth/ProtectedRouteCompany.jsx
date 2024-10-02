@@ -6,6 +6,9 @@ import { useAuthStore } from "../../store/auth";
 import { useEffect, useState } from "react";
 import useUserData from "../../plugin/useUserData";
 import apiInstance from "../../utils/axios";
+import { App_User } from "../../utils/constants";
+import Loader from "../loader/Loader";
+import Toast from "../../plugin/Toast";
 
 // Define the 'PrivateRoute' component as a functional component that takes 'children' as a prop.
 const ProtectedRouteCompany = ({ children }) => {
@@ -17,21 +20,54 @@ const ProtectedRouteCompany = ({ children }) => {
     const [profileData, setProfileData] = useState();
     const userId = useUserData()?.user_id;
 
-    const fetchProfile = () => {
-        apiInstance.get(`user/profile/${userId}/`).then((res) => {
-            setProfileData(res.data);
-        });
-    };
     useEffect(() => {
-        fetchProfile();
-    }, []);
+        if (userId) fetchProfile();
+    }, [userId]);
+
+    const fetchProfile = async () => {
+        try {
+            apiInstance.get(`user/profile/${userId}/`).then((res) => {
+                setProfileData(res.data);
+            });
+        } catch (error) {
+            // console.error("Error fetching profile", error);
+            Toast("error", `Error fetching profile ${error}`, "");
+        }
+    };
+
+    if (!loggedIn) {
+        return <Navigate to="/login" />;
+    }
+
+    if (!profileData) return <Loader />;
+    // console.log(`99--`, profileData?.user?.is_superuser);
+    // console.log(`99--`, !profileData?.user?.is_superuser);
+    if (profileData?.user?.is_superuser === false)
+        return <Navigate to={`/${App_User}/profile`} />;
+    return <>{children}</>;
+
+    // if (profileData?.user?.is_superuser) {
+    //     console.log(`33`);
+    //     return <>{children}</>;
+    // } else {
+    //     console.log(`555`);
+    //     return <Navigate to={`/${App_User}/profile`} />;
+    // }
+
+    // return <>{children}</>;
+    //     {
+    //     return <>{children}</>;
+    // } else {
+    //     <Navigate to="/admin" />;
+    // }
 
     // console.log(`--->`, profileData?.user?.is_superuser);
-    if (!profileData?.user?.is_superuser) return <Navigate to="/admin" />;
+    // if (!profileData?.user?.is_superuser) return <Navigate to="/admin" />;
+    // console.log(`dddd`);
 
     // Conditionally render the children if the user is authenticated.
     // If the user is not authenticated, redirect them to the login page.
-    return loggedIn ? <>{children}</> : <Navigate to="/admin" />;
+    // return loggedIn ? <>{children}</> : <Navigate to="/admin" />;
 };
 
 // Export the 'ProtectedRouteCompany' component to make it available for use in other parts of the application.

@@ -7,6 +7,8 @@ import { useEffect, useState } from "react";
 import useUserData from "../../plugin/useUserData";
 import apiInstance from "../../utils/axios";
 import { App_Company } from "../../utils/constants";
+import Loader from "../loader/Loader";
+import Toast from "../../plugin/Toast";
 
 // Define the 'PrivateRoute' component as a functional component that takes 'children' as a prop.
 const PrivateRoute = ({ children }) => {
@@ -18,22 +20,42 @@ const PrivateRoute = ({ children }) => {
     const [profileData, setProfileData] = useState();
     const userId = useUserData()?.user_id;
 
-    const fetchProfile = () => {
-        apiInstance.get(`user/profile/${userId}/`).then((res) => {
-            setProfileData(res.data);
-        });
-    };
     useEffect(() => {
-        fetchProfile();
-    }, []);
+        if (userId) fetchProfile();
+    }, [userId]);
+
+    const fetchProfile = async () => {
+        try {
+            apiInstance.get(`user/profile/${userId}/`).then((res) => {
+                setProfileData(res.data);
+            });
+        } catch (error) {
+            // console.error("Error fetching profile", error);
+            Toast("error", `Error fetching profile ${error}`, "");
+        }
+    };
+
+    if (!loggedIn) {
+        return <Navigate to="/login" />;
+    }
+
+    if (!profileData) return <Loader />;
+
+    if (profileData?.user?.is_superuser === false) {
+        return <>{children}</>;
+    } else {
+        return <Navigate to={`/${App_Company}/profile`} />;
+    }
+
+    // return <>{children}</>;
 
     // console.log(`--->`, profileData?.user?.is_superuser);
-    if (profileData?.user?.is_superuser)
-        return <Navigate to={`/${App_Company}/profile`} />;
+    // if (profileData?.user?.is_superuser)
+    //     return <Navigate to={`/${App_Company}/profile`} />;
 
-    // Conditionally render the children if the user is authenticated.
-    // If the user is not authenticated, redirect them to the login page.
-    return loggedIn ? <>{children}</> : <Navigate to="/login" />;
+    // // Conditionally render the children if the user is authenticated.
+    // // If the user is not authenticated, redirect them to the login page.
+    // return loggedIn ? <>{children}</> : <Navigate to="/login" />;
 };
 
 // Export the 'PrivateRoute' component to make it available for use in other parts of the application.
