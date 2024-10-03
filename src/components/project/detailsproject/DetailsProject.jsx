@@ -54,11 +54,11 @@ function DetailsProject() {
     const handleCreateCommentSubmit = async (e) => {
         e.preventDefault();
 
-        if (!post.title || !post.description) {
-            Toast("error", "All Fields Are Required To Create A Post");
-            // setIsLoading(false);
-            return;
-        }
+        // if (!post.title || !post.description) {
+        //     Toast("error", "All Fields Are Required To Create A Post");
+        //     // setIsLoading(false);
+        //     return;
+        // }
 
         const jsonData = {
             post_id: post?.id,
@@ -124,13 +124,25 @@ function DetailsProject() {
                                 {post?.comments?.map((component, index) => (
                                     <div className="component" key={index}>
                                         <p className="h3">
-                                            Title:
+                                            <strong>Title:</strong>
                                             <span>{component?.title}</span>
                                         </p>
-                                        <p className="h3">
-                                            description:
+                                        <p className="h3 description">
+                                            <strong>description:</strong>
                                             <span>
-                                                {component?.description}
+                                                {/* {component?.description} */}
+                                                {component?.description
+                                                    ?.split(".")
+                                                    .map((line, index) => (
+                                                        <span key={index}>
+                                                            {line.trim() && (
+                                                                <>
+                                                                    {line.trim()}
+                                                                    <br />
+                                                                </>
+                                                            )}
+                                                        </span>
+                                                    ))}
                                             </span>
                                         </p>
                                     </div>

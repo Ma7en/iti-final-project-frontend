@@ -133,7 +133,7 @@ function CreateProject() {
                 title: "Package created successfully.",
             });
             Toast("success", "Package created successfully!");
-            navigate(`/${App_Company}/categories`);
+            navigate(`/${App_Company}/listproject`);
         } catch (error) {
             // console.log(error);
             setIsLoading(false);

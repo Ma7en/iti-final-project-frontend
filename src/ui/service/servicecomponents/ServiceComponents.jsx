@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 
 function ServiceComponents({ category }) {
     if (!category) return <Loader />;
-    console.log(`category`, category);
-    const { id, title, details, image } = category;
+    // console.log(`category`, category);
+    const { id, title, details, image, slug } = category;
 
     return (
         <>
@@ -15,7 +15,7 @@ function ServiceComponents({ category }) {
                         <img src={`${image}`} alt={`${title}`} />
                     </div>
                     <h3 className="h3 card-title">
-                        <Link to={`/detailscategory/${id}`}>{title}</Link>
+                        <Link to={`/detailscategory/${slug}`}>{title}</Link>
                     </h3>
                     <p className="card-text">{details}</p>
                     <Link to={`/contact`} className="card-link">

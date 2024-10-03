@@ -49,7 +49,7 @@ import DetailsProjectView from "../components/project/detailsprojectview/Details
 
 import CreateWorks from "../components/ourworks/CreateWorks/CreateWorks";
 import ViewWorks from "../components/ourworks/viewourworks/ViewWorks";
-import EditWorks from "../components/ourworks/editworks/EditWorks"
+import EditWorks from "../components/ourworks/editworks/EditWorks";
 
 // ui project components
 import CreateProject from "../components/project/createproject/CreateProject";
@@ -57,8 +57,6 @@ import OurWorksPage from "../pages/app/ourworks/OurWorksPage";
 import ServicePage from "../pages/app/servicePage/ServicePage";
 import WriteDetails from "../pages/app/writeDetails/WriteDetails";
 import ServiceDetails from "../pages/app/serviceDetails/ServiceDetails";
-
-
 
 function Router() {
     return (
@@ -503,19 +501,15 @@ function Router() {
                             element={<ViewWorks />}
                         />
                         <Route
-                                path={`/${App_Company}/createworks`}
-                                element={<CreateWorks />}
-                            />
-                            <Route
-                                path={'/viewworks'}
-                                element={<ViewWorks />}
-                            />
+                            path={`/${App_Company}/createworks`}
+                            element={<CreateWorks />}
+                        />
+                        <Route path={"/viewworks"} element={<ViewWorks />} />
 
-                     
-                            <Route
-                                path={"editworks/:index"}
-                                element={<EditWorks />}
-                            />
+                        <Route
+                            path={"editworks/:index"}
+                            element={<EditWorks />}
+                        />
                         {/* user */}
                         <Route
                             path={`/${App_User}`}
@@ -639,6 +633,10 @@ function Router() {
 
                             {/* categories or services */}
                             {/* details category  */}
+                            <Route
+                                path={`/detailscategory/:slug/`}
+                                element={<DetailsCategory />}
+                            />
                             <Route
                                 path={`/detailscategory/:id`}
                                 element={<DetailsCategory />}

@@ -18,22 +18,46 @@ import service2 from "../../assets/images/service/service-2.png";
 import service3 from "../../assets/images/service/service-3.png";
 
 function Service() {
-    const [categories, setCategories] = useState([]);
-    const navigate = useNavigate();
+    // const [categories, setCategories] = useState([]);
+    // const navigate = useNavigate();
+
+    // useEffect(() => {
+    //     const fetchCategories = async () => {
+    //         try {
+    //             const response = await apiInstance.get("category/list/");
+    //             setCategories(response.data);
+    //         } catch (error) {
+    //             console.error("Error fetching categories:", error);
+    //         }
+    //     };
+    //     fetchCategories();
+    // }, []);
+    // =================================================================
+    const [posts, setPosts] = useState([]);
+    const [popularPosts, setPopularPosts] = useState([]);
+    const [category, setCategory] = useState([]);
+
+    const fetchPosts = async () => {
+        const response = await apiInstance.get(`post/lists/`);
+        setPosts(response.data);
+    };
+
+    const fetchPopularPost = () => {
+        const sortedPopularPost = posts?.sort((a, b) => b.view - a.view);
+        setPopularPosts(sortedPopularPost);
+    };
+
+    const fetchCategory = async () => {
+        const response = await apiInstance.get(`post/category/list/`);
+        setCategory(response.data);
+    };
 
     useEffect(() => {
-        const fetchCategories = async () => {
-            try {
-                const response = await apiInstance.get("category/list/");
-                setCategories(response.data);
-            } catch (error) {
-                console.error("Error fetching categories:", error);
-            }
-        };
-        fetchCategories();
+        fetchPosts();
+        fetchCategory();
     }, []);
 
-    if (!categories) return <Loader />;
+    if (!category) return <Loader />;
 
     return (
         <>
@@ -43,8 +67,8 @@ function Service() {
                     <h2 className="h2 section-title">Our Main Focus</h2>
 
                     <ul className="service-list">
-                        {categories.length > 0 ? (
-                            categories.map((category, index) => (
+                        {category.length > 0 ? (
+                            category.map((category, index) => (
                                 <ServiceComponents
                                     category={category}
                                     key={index}
