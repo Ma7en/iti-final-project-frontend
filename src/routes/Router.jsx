@@ -663,13 +663,11 @@ function Router() {
                             />
 
                             {/* project */}
-<<<<<<< HEAD
                             <Route
                                 path="/ourworkspage"
                                 element={<OurWorksPage />}
                             />
                             {/* <Route path="/ourwork" element={<OurWorks />} /> */}
-=======
                             {/* project details view */}
                             <Route
                                 path={`/detailspackage/:slug/`}
@@ -721,8 +719,7 @@ function Router() {
                             />
 
                             {/* our work */}
-                            <Route path="/ourwork" element={<OurWorks />} />
->>>>>>> ac43f1e (edit [create - update - delete - view (package)])
+                            {/* <Route path="/ourwork" element={<OurWorks />} /> */}
                             <Route
                                 path="/servicePage"
                                 element={<ServicePage />}
