@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Swal from "sweetalert2";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 // bootstrap components
 import { Button } from "react-bootstrap";
@@ -14,11 +14,13 @@ import { App_Company } from "../../../utils/constants";
 
 // ui components
 import Loader from "../../../ui/loader/Loader";
+import useUserData from "../../../plugin/useUserData";
 
-function ProjectComponents({ category: projectcomponents }) {
+function ProjectComponents({ project: packagecomponents }) {
     const navigate = useNavigate();
-
-    const { id, title } = projectcomponents;
+    const userId = useUserData()?.user_id;
+    const param = useParams();
+    const { id, title } = packagecomponents;
 
     const [projects, setProjects] = useState([]);
     const [project, setProject] = useState({
@@ -48,17 +50,22 @@ function ProjectComponents({ category: projectcomponents }) {
         });
         if (confirm.isConfirmed) {
             try {
-                await apiInstance.delete(`project/delete/${id}/`);
-                Toast("success", "project deleted successfully!");
+                await apiInstance.delete(
+                    `author/dashboard/post-delete/${userId}/${id}/`
+                );
+                Toast("success", "Package deleted successfully!");
                 fetchProjects();
                 navigate(`/${App_Company}/profile`);
             } catch (error) {
-                Toast("error", "Error while deleting project!");
+                Toast("error", `Error while deleting project! ${error}`);
             }
         }
     };
 
-    if (!projectcomponents) return <Loader />;
+    if (!packagecomponents) return <Loader />;
+    // console.log(`233`, packagecomponents);
+    const { slug } = packagecomponents;
+
     return (
         <>
             <li className="item">
@@ -70,9 +77,17 @@ function ProjectComponents({ category: projectcomponents }) {
 
                 <div className="buttons">
                     <Button
+                        className="btn add-btn"
+                        onClick={() => {
+                            navigate(`/${App_Company}/detailsproject/${slug}`);
+                        }}
+                    >
+                        Component
+                    </Button>
+                    <Button
                         className="btn view-btn"
                         onClick={() =>
-                            window.open(`/detailsproject/${id}`, "_blank")
+                            window.open(`/detailsproject/${slug}`, "_blank")
                         }
                     >
                         View
@@ -80,7 +95,6 @@ function ProjectComponents({ category: projectcomponents }) {
                     <Button
                         className="btn update-btn"
                         onClick={() => {
-                        
                             navigate(`/${App_Company}/updateproject/${id}`);
                         }}
                     >

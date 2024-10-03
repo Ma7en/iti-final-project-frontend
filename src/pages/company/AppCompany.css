@@ -72,6 +72,12 @@
     gap: 30px;
 }
 
+@media (max-width: 767px) {
+    .companyprofile .categories .actions {
+        flex-direction: column;
+    }
+}
+
 .companyprofile .categories .actions button {
     flex: 1;
     display: flex;

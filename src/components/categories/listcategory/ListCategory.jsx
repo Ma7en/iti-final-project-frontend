@@ -64,7 +64,6 @@ function ListCategory() {
                             <Button
                                 className="btn update-btn"
                                 onClick={() => {
-                                    // handleEdit(cat)
                                     navigate(`/${App_Company}/profile`);
                                 }}
                             >

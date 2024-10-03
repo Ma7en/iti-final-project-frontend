@@ -12,9 +12,10 @@
 .listproject .item {
     display: flex;
     justify-content: space-between;
+    flex-direction: column;
     align-items: center;
     flex-wrap: wrap;
-    gap: 15px;
+    gap: 20px;
     padding: 10px;
     border: 1px solid var(--raisin-black-1);
     border-radius: 8px;
@@ -48,6 +49,10 @@
 .listproject .buttons {
     display: flex;
     gap: 10px;
+}
+
+.listproject .add-btn {
+    background-color: var(--cadet);
 }
 
 .listproject .view-btn {

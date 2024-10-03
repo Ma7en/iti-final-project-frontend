@@ -12,6 +12,30 @@ import NotPackage from "../notpackage/NotPackage";
 import Loader from "../../../ui/loader/Loader";
 
 function ListProject() {
+    // const navigate = useNavigate();
+    // const [projects, setProjects] = useState([]);
+    // const [loading, setLoading] = useState(true);
+
+    // useEffect(() => {
+    //     const fetchProjects = async () => {
+    //         try {
+    //             const response = await apiInstance.get("project/list/");
+    //             setProjects(response.data);
+    //         } catch (error) {
+    //             console.error("Error fetching projects:", error);
+    //             Toast("error", "Failed to fetch project list.");
+    //         } finally {
+    //             setLoading(false);
+    //         }
+    //     };
+    //     fetchProjects();
+    // }, []);
+
+    // if (loading) {
+    //     return <div>Loading...</div>;
+    // }
+    // =================================================================
+    // 2=
     const navigate = useNavigate();
     const [posts, setPosts] = useState([]);
     const [popularPosts, setPopularPosts] = useState([]);

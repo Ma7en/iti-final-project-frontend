@@ -45,6 +45,7 @@ import UpdateCategory from "../components/categories/updatecategory/UpdateCatego
 import ListProject from "../components/project/listproject/ListProject";
 import DetailsProject from "../components/project/detailsproject/DetailsProject";
 import UpdateProject from "../components/project/updateproject/UpdateProject";
+import DetailsProjectView from "../components/project/detailsprojectview/DetailsProjectView";
 
 import CreateWorks from "../components/ourworks/CreateWorks/CreateWorks";
 import ViewWorks from "../components/ourworks/viewourworks/ViewWorks";
@@ -388,11 +389,19 @@ function Router() {
                                 element={<CreateProject />}
                             />
                             <Route
+                                path={`/${App_Company}/company-project/create`}
+                                element={<CreateProject />}
+                            />
+                            <Route
                                 path={`/${App_Company}/companycreate-project`}
                                 element={<CreateProject />}
                             />
                             <Route
-                                path={`/${App_Company}/companyproject-create`}
+                                path={`/${App_Company}/company-create/project`}
+                                element={<CreateProject />}
+                            />
+                            <Route
+                                path={`/${App_Company}/company/project-create`}
                                 element={<CreateProject />}
                             />
 
@@ -450,6 +459,14 @@ function Router() {
 
                             {/* details project */}
                             <Route
+                                path={`/${App_Company}/detailsproject/:slug/`}
+                                element={<DetailsProject />}
+                            />
+                            <Route
+                                path={`/${App_Company}/detailsproject/:slug`}
+                                element={<DetailsProject />}
+                            />
+                            <Route
                                 path={`/${App_Company}/detailsproject/:id`}
                                 element={<DetailsProject />}
                             />
@@ -469,6 +486,7 @@ function Router() {
                                 path={`/${App_Company}/companyproject/details/:id`}
                                 element={<DetailsProject />}
                             />
+                            {/* components */}
                         </Route>
 
                         {/* our works */}
@@ -645,11 +663,66 @@ function Router() {
                             />
 
                             {/* project */}
+<<<<<<< HEAD
                             <Route
                                 path="/ourworkspage"
                                 element={<OurWorksPage />}
                             />
                             {/* <Route path="/ourwork" element={<OurWorks />} /> */}
+=======
+                            {/* project details view */}
+                            <Route
+                                path={`/detailspackage/:slug/`}
+                                element={<DetailsProjectView />}
+                            />
+                            <Route
+                                path={`/details/package/:slug/`}
+                                element={<DetailsProjectView />}
+                            />
+                            <Route
+                                path={`/details-package/:slug/`}
+                                element={<DetailsProjectView />}
+                            />
+                            <Route
+                                path={`/packagedetails/:slug/`}
+                                element={<DetailsProjectView />}
+                            />
+                            <Route
+                                path={`/package/details/:slug/`}
+                                element={<DetailsProjectView />}
+                            />
+                            <Route
+                                path={`/package-details/:slug/`}
+                                element={<DetailsProjectView />}
+                            />
+                            <Route
+                                path={`/projectdetails/:slug/`}
+                                element={<DetailsProjectView />}
+                            />
+                            <Route
+                                path={`/project/details/:slug/`}
+                                element={<DetailsProjectView />}
+                            />
+                            <Route
+                                path={`/project-details/:slug/`}
+                                element={<DetailsProjectView />}
+                            />
+                            <Route
+                                path={`/detailsproject/:slug/`}
+                                element={<DetailsProjectView />}
+                            />
+                            <Route
+                                path={`/details/project/:slug/`}
+                                element={<DetailsProjectView />}
+                            />
+                            <Route
+                                path={`/details-project/:slug/`}
+                                element={<DetailsProjectView />}
+                            />
+
+                            {/* our work */}
+                            <Route path="/ourwork" element={<OurWorks />} />
+>>>>>>> ac43f1e (edit [create - update - delete - view (package)])
                             <Route
                                 path="/servicePage"
                                 element={<ServicePage />}

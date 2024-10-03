@@ -1,0 +1,105 @@
+.updateproject .container {
+    margin-block: 40px;
+    margin-bottom: 100px;
+}
+
+.updateproject .content {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.updateproject .title {
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+    font-weight: bold;
+    font-size: 28px;
+}
+
+.updateproject form .image {
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 40px;
+    border-radius: 50%;
+}
+
+.updateproject form .image img {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+}
+
+.updateproject form .hidden {
+    display: none;
+}
+
+.updateproject .content .top .image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.updateproject .content hr {
+    margin-block: 20px;
+}
+
+.updateproject .content .error {
+    color: rgb(201, 22, 22);
+}
+
+.updateproject .content .info {
+    margin-block: 30px;
+}
+
+.updateproject label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+.updateproject textarea,
+.updateproject input,
+.updateproject select {
+    width: 100%;
+    padding: 16px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: border-color 0.3s;
+    font-size: 18px;
+}
+
+.updateproject textarea:focus,
+.updateproject input:focus,
+.updateproject select:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.updateproject textarea {
+    resize: none;
+    min-height: 300px;
+    width: 100%;
+    resize: none;
+}
+
+.updateproject form button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+}
+
+.updateproject .buttons {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    flex-wrap: wrap;
+    gap: 20px;
+}

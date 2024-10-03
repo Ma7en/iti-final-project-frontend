@@ -9,6 +9,34 @@ import { App_Company } from "../../../utils/constants";
 import Loader from "../../../ui/loader/Loader";
 
 function DetailsProject() {
+    // const { id } = useParams();
+    // const navigate = useNavigate();
+    // const [project, setProject] = useState(null);
+    // const [loading, setLoading] = useState(true);
+
+    // useEffect(() => {
+    //     const fetchProject = async () => {
+    //         try {
+    //             const response = await apiInstance.get(`project/${id}/`);
+    //             setProject(response.data);
+    //         } catch (error) {
+    //             console.error("Error fetching project:", error);
+    //             Toast("error", "Failed to fetch project details.");
+    //         } finally {
+    //             setLoading(false);
+    //         }
+    //     };
+    //     fetchProject();
+    // }, [id]);
+
+    // if (loading) {
+    //     return <div>Loading...</div>;
+    // }
+
+    // if (!project) {
+    //     return <div>No project found.</div>;
+    // =================================================================
+    // =2
     const navigate = useNavigate();
     const [post, setPost] = useState([]);
     const [tags, setTags] = useState([]);
@@ -49,6 +77,13 @@ function DetailsProject() {
             // setIsLoading(false);
             return;
         }
+
+        // console.log(post.id);
+        // console.log(createComment.full_name);
+        // console.log(createComment.title);
+        // console.log(createComment.description);
+        // console.log(createComment.email);
+        // console.log(createComment.comment);
 
         const jsonData = {
             post_id: post?.id,
