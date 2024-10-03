@@ -41,16 +41,17 @@ import ListCategory from "../components/categories/listcategory/ListCategory";
 import CreateCategory from "../components/categories/createcategory/CreateCategory";
 import DetailsCategory from "../components/categories/detailscategory/DetailsCategory";
 import UpdateCategory from "../components/categories/updatecategory/UpdateCategory";
-
-// ui project components
-import CreateProject from "../components/project/createproject/CreateProject";
-import OurWorks from "../pages/app/ourworks/OurWorks";
-import ServicePage from "../pages/app/servicePage/ServicePage";
-import WriteDetails from "../pages/app/writeDetails/WriteDetails";
-import ServiceDetails from "../pages/app/serviceDetails/ServiceDetails";
+import CreateWorks from "../components/ourworks/CreateWorks/CreateWorks";
 import ListProject from "../components/project/listproject/ListProject";
 import DetailsProject from "../components/project/detailsproject/DetailsProject";
 import UpdateProject from "../components/project/updateproject/UpdateProject";
+// ui project components
+import CreateProject from "../components/project/createproject/CreateProject";
+import OurWorksPage from "../pages/app/ourworks/OurWorksPage"
+import ServicePage from "../pages/app/servicePage/ServicePage";
+import WriteDetails from "../pages/app/writeDetails/WriteDetails";
+import ServiceDetails from "../pages/app/serviceDetails/ServiceDetails";
+
 
 function Router() {
     return (
@@ -466,6 +467,12 @@ function Router() {
                             />
                         </Route>
 
+                        {/* our works */}
+                        <Route
+                                path={`/${App_Company}/createworks`}
+                                element={<CreateWorks />}
+                            />
+
                         {/* user */}
                         <Route
                             path={`/${App_User}`}
@@ -630,8 +637,8 @@ function Router() {
 
                             {/* project */}
                             <Route
-                                path="/ourwork"
-                                element={<OurWorks />}
+                                path="/ourworkspage"
+                                element={<OurWorksPage />}
                             />
                             <Route
                                 path="/servicePage"

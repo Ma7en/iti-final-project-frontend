@@ -6,7 +6,7 @@ import ScrollToTopPages from "../../../ui/scrolltotoppages/ScrollToTopPages";
 
 function CreateWorks() {
     const navigate = useNavigate();
-    const [project, setWork] = useState({
+    const [work, setWork] = useState({
         title: "",
         details: "",
         image: null,
@@ -47,7 +47,7 @@ function CreateWorks() {
             meter: "", 
             days: "",  
         });
-        navigate("/ourwork"); 
+        navigate("/ourworkspage"); 
     };
 
     return (
@@ -136,14 +136,16 @@ function CreateWorks() {
                             </div>
 
                             <div className="buttons">
-                                <Button className="btn" type="submit">
+                                <Button className="btn" type="submit"
+                                 onClick={() => navigate("/ourworkspage")}
+                                >
                                     Create Work
                                 </Button>
 
                                 <Button
                                     className="btn"
                                     type="button"
-                                    onClick={() => navigate("/ourwork")}
+                                    onClick={() => navigate("/ourworkspage")}
                                 >
                                     Cancel
                                 </Button>

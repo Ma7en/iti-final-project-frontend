@@ -199,7 +199,7 @@ function Header() {
                                     </li>
                                     <li>
                                         <Link
-                                            to="/ourwork"
+                                            to="/ourworkspage"
                                             className="navbar-link"
                                             title="Property"
                                         >
