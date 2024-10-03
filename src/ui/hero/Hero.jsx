@@ -18,8 +18,13 @@ function Hero() {
                         </p>
                         <h2 className="h1 hero-title">Finishing Touch</h2>
                         <p className="hero-text">
-                            "Connecting you to the best finishing companies for
-                            all your needs."
+                            "Every project tells a story, and it's the attention
+                            to the smallest details that truly defines its
+                            elegance. At Homeverse, we believe that beauty lies
+                            in the perfect blend of precision and creativity.
+                            Our commitment to excellence ensures that each
+                            detail is a masterpiece, leaving a lasting
+                            impression.
                         </p>
                         <LinkScroll
                             to="about"
