@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import ScrollToTopPages from "../../../ui/scrolltotoppages/ScrollToTopPages";
 import { Button } from "react-bootstrap";
-import './ViewWorks.css'; 
+import './ViewWorks.css';
 
 function ViewWorks() {
     const navigate = useNavigate();
@@ -13,6 +13,17 @@ function ViewWorks() {
         const storedWorks = JSON.parse(localStorage.getItem('works')) || [];
         setWorks(storedWorks);
     }, []);
+
+    const handleDelete = (index) => {
+        const updatedWorks = works.filter((_, i) => i !== index);
+        setWorks(updatedWorks);
+        localStorage.setItem('works', JSON.stringify(updatedWorks));
+    };
+
+    const handleEdit = (index) => {
+     
+        navigate(`/editworks/${index}`);
+    };
 
     return (
         <>
@@ -31,13 +42,16 @@ function ViewWorks() {
                                 {works.map((work, index) => (
                                     <div className="project-card" key={index}>
                                         <h3>{work.title}</h3>
-                                         {work.image && (
+                                        {work.image && (
                                             <img src={work.image} alt={work.title} className="project-image" />
                                         )}
-                                        
                                         <p>{work.details}</p>
                                         <p>Meter: {work.meter}</p>
                                         <p>Days: {work.days}</p>
+<<<<<<< HEAD
+=======
+                                       
+>>>>>>> 967dce0 (edit our works added)
                                         <div className="button-group">
                                             <Button variant="primary" onClick={() => handleEdit(index)}>Edit</Button>
                                             <Button variant="danger" onClick={() => handleDelete(index)}>Delete</Button>
