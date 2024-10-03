@@ -225,8 +225,8 @@ function AppCompany() {
                             <Button
                                 className="btn "
                                 onClick={() => {
-                                    // navigate(`/${App_Company}/ourworkspage`);
-                                    navigate(`/ourworkspage`);
+                                    navigate(`/${App_Company}/viewworks`);
+                                 
 
                                 }}
                             >

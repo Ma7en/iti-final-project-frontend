@@ -41,10 +41,15 @@ import ListCategory from "../components/categories/listcategory/ListCategory";
 import CreateCategory from "../components/categories/createcategory/CreateCategory";
 import DetailsCategory from "../components/categories/detailscategory/DetailsCategory";
 import UpdateCategory from "../components/categories/updatecategory/UpdateCategory";
-import CreateWorks from "../components/ourworks/CreateWorks/CreateWorks";
+
 import ListProject from "../components/project/listproject/ListProject";
 import DetailsProject from "../components/project/detailsproject/DetailsProject";
 import UpdateProject from "../components/project/updateproject/UpdateProject";
+
+import CreateWorks from "../components/ourworks/CreateWorks/CreateWorks";
+import ViewWorks from "../components/ourworks/viewourworks/ViewWorks";
+
+
 // ui project components
 import CreateProject from "../components/project/createproject/CreateProject";
 import OurWorksPage from "../pages/app/ourworks/OurWorksPage"
@@ -471,6 +476,11 @@ function Router() {
                         <Route
                                 path={`/${App_Company}/createworks`}
                                 element={<CreateWorks />}
+                            />
+
+                            <Route
+                                path={`/${App_Company}/viewworks`}
+                                element={<ViewWorks />}
                             />
 
                         {/* user */}
