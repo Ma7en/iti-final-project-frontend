@@ -17,11 +17,11 @@ function EditWorks() {
 
     useEffect(() => {
         const storedWorks = JSON.parse(localStorage.getItem('works')) || [];
-<<<<<<<< HEAD:src/components/ourworks/editworks/updateworks.jsx
+
         setWork(storedWorks[index]);
-========
+
         setWork(storedWorks[Number(index)]);
->>>>>>>> 967dce0 (edit our works added):src/components/ourworks/editworks/EditWorks.jsx
+
     }, [index]);
 
     const handleInputChange = (e) => {
@@ -45,14 +45,14 @@ function EditWorks() {
     const handleSubmit = (e) => {
         e.preventDefault();
         const existingWorks = JSON.parse(localStorage.getItem('works')) || [];
-<<<<<<<< HEAD:src/components/ourworks/editworks/updateworks.jsx
+
         existingWorks[index] = { ...work, image: work.image ? URL.createObjectURL(work.image) : existingWorks[index].image };
-========
+
         existingWorks[Number(index)] = {
             ...work,
             image: work.image ? URL.createObjectURL(work.image) : existingWorks[Number(index)].image,
         };
->>>>>>>> 967dce0 (edit our works added):src/components/ourworks/editworks/EditWorks.jsx
+
         localStorage.setItem('works', JSON.stringify(existingWorks));
         navigate("/viewworks");
     };

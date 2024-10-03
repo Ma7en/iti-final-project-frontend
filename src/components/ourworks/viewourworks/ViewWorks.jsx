@@ -48,10 +48,7 @@ function ViewWorks() {
                                         <p>{work.details}</p>
                                         <p>Meter: {work.meter}</p>
                                         <p>Days: {work.days}</p>
-<<<<<<< HEAD
-=======
                                        
->>>>>>> 967dce0 (edit our works added)
                                         <div className="button-group">
                                             <Button variant="primary" onClick={() => handleEdit(index)}>Edit</Button>
                                             <Button variant="danger" onClick={() => handleDelete(index)}>Delete</Button>

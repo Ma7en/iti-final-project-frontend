@@ -49,10 +49,7 @@ import DetailsProjectView from "../components/project/detailsprojectview/Details
 
 import CreateWorks from "../components/ourworks/CreateWorks/CreateWorks";
 import ViewWorks from "../components/ourworks/viewourworks/ViewWorks";
-<<<<<<< HEAD
-=======
 import EditWorks from "../components/ourworks/editworks/EditWorks"
->>>>>>> 967dce0 (edit our works added)
 
 // ui project components
 import CreateProject from "../components/project/createproject/CreateProject";
@@ -61,11 +58,8 @@ import ServicePage from "../pages/app/servicePage/ServicePage";
 import WriteDetails from "../pages/app/writeDetails/WriteDetails";
 import ServiceDetails from "../pages/app/serviceDetails/ServiceDetails";
 
-<<<<<<< HEAD
-=======
 
 
->>>>>>> 967dce0 (edit our works added)
 function Router() {
     return (
         <>
@@ -517,14 +511,11 @@ function Router() {
                                 element={<ViewWorks />}
                             />
 
-<<<<<<< HEAD
-                        {/* ============================================================ */}
-=======
+                     
                             <Route
                                 path={"editworks/:index"}
                                 element={<EditWorks />}
                             />
->>>>>>> 967dce0 (edit our works added)
                         {/* user */}
                         <Route
                             path={`/${App_User}`}
