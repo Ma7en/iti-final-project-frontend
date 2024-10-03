@@ -1,13 +1,23 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { Button } from "react-bootstrap";
-import ScrollToTopPages from "../../../ui/scrolltotoppages/ScrollToTopPages";
-import apiInstance from "../../../utils/axios";
-import Toast from "../../../plugin/Toast";
-import { App_Company } from "../../../utils/constants";
-import useUserData from "../../../plugin/useUserData";
 import Swal from "sweetalert2";
+
+// import Style
 import "./UpdateProject.css";
+
+// ui bootstrap components
+import { Button } from "react-bootstrap";
+
+// plugin
+import Toast from "../../../plugin/Toast";
+import useUserData from "../../../plugin/useUserData";
+
+// utils
+import apiInstance from "../../../utils/axios";
+import { App_Company } from "../../../utils/constants";
+
+// ui components
+import ScrollToTopPages from "../../../ui/scrolltotoppages/ScrollToTopPages";
 
 function UpdateProject() {
     const [post, setEditPost] = useState({

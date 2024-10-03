@@ -1,8 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import apiInstance from "../../../utils/axios";
-import ScrollToTopPages from "../../../ui/scrolltotoppages/ScrollToTopPages";
+
+// import style
 import "./DetailsProjectView.css";
+
+// utils
+import apiInstance from "../../../utils/axios";
+
+// ui components
+import ScrollToTopPages from "../../../ui/scrolltotoppages/ScrollToTopPages";
 
 function DetailsProjectView() {
     const navigate = useNavigate();

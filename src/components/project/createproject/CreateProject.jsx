@@ -1,15 +1,24 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import "./CreateProject.css";
-import { Button } from "react-bootstrap";
-import ScrollToTopPages from "../../../ui/scrolltotoppages/ScrollToTopPages";
-import useUserData from "../../../plugin/useUserData";
-import apiInstance from "../../../utils/axios";
-import Toast from "../../../plugin/Toast";
 import Swal from "sweetalert2";
+
+// import style
+import "./CreateProject.css";
+
+// pluginx
+import useUserData from "../../../plugin/useUserData";
+import Toast from "../../../plugin/Toast";
+
+// utils
+import apiInstance from "../../../utils/axios";
 import { App_Company } from "../../../utils/constants";
+
+// ui bootstrap components
+import { Button } from "react-bootstrap";
+
+// ui components
+import ScrollToTopPages from "../../../ui/scrolltotoppages/ScrollToTopPages";
 import Loader from "../../../ui/loader/Loader";
-import Cookies from "js-cookie"; // Import the 'js-cookie' library for managing cookies
 
 function CreateProject() {
     const [post, setCreatePost] = useState({

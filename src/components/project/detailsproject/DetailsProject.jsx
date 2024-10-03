@@ -1,12 +1,22 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+
+// import style
 import "./DetailsProject.css";
-import apiInstance from "../../../utils/axios";
-import Toast from "../../../plugin/Toast";
-import ScrollToTopPages from "../../../ui/scrolltotoppages/ScrollToTopPages";
+
+// ui bootstrap components
 import { Button } from "react-bootstrap";
+
+// plugin
+import Toast from "../../../plugin/Toast";
+
+// utils
+import apiInstance from "../../../utils/axios";
 import { App_Company } from "../../../utils/constants";
+
+// ui component
 import Loader from "../../../ui/loader/Loader";
+import ScrollToTopPages from "../../../ui/scrolltotoppages/ScrollToTopPages";
 
 function DetailsProject() {
     const navigate = useNavigate();
