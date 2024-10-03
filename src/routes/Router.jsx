@@ -499,6 +499,14 @@ function Router() {
                             path={`/${App_Company}/viewworks`}
                             element={<ViewWorks />}
                         />
+                        <Route
+                                path={`/${App_Company}/createworks`}
+                                element={<CreateWorks />}
+                            />
+                            <Route
+                                path={'/viewworks'}
+                                element={<ViewWorks />}
+                            />
 
                         {/* ============================================================ */}
                         {/* user */}

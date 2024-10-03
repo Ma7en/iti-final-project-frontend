@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
 import { Button } from "react-bootstrap";
 import ScrollToTopPages from "../../../ui/scrolltotoppages/ScrollToTopPages";
 
@@ -36,8 +35,19 @@ function CreateWorks() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // Simulated form submission
-        console.log("Form submitted:", work);
+
+        // Create a temporary URL for the image
+        const imageURL = work.image ? URL.createObjectURL(work.image) : "";
+
+        // Get the existing works from local storage
+        const existingWorks = JSON.parse(localStorage.getItem('works')) || [];
+        
+        // Add the new work to the existing works
+        existingWorks.push({ ...work, image: imageURL });
+        
+        // Save the updated works back to local storage
+        localStorage.setItem('works', JSON.stringify(existingWorks));
+
         // Reset form after submission
         setWork({
             title: "",
@@ -47,7 +57,9 @@ function CreateWorks() {
             meter: "", 
             days: "",  
         });
-        navigate("/ourworkspage"); 
+
+        // Navigate to the view works page
+        navigate("/viewworks");
     };
 
     return (
@@ -136,16 +148,14 @@ function CreateWorks() {
                             </div>
 
                             <div className="buttons">
-                                <Button className="btn" type="submit"
-                                 onClick={() => navigate("/ourworkspage")}
-                                >
+                                <Button className="btn" type="submit">
                                     Create Work
                                 </Button>
 
                                 <Button
                                     className="btn"
                                     type="button"
-                                    onClick={() => navigate("/ourworkspage")}
+                                    onClick={() => navigate("/viewworks")}
                                 >
                                     Cancel
                                 </Button>

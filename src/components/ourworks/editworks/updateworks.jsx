@@ -1,39 +1,28 @@
-import React, { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import ScrollToTopPages from "../../../ui/scrolltotoppages/ScrollToTopPages";
-import apiInstance from "../../../utils/axios"; 
-import Toast from "../../../plugin/Toast"; 
 
-function UpdateWorks() {
+function EditWorks() {
+    const { index } = useParams();
     const navigate = useNavigate();
-    const { id } = useParams(); // Get the project ID from the URL
     const [work, setWork] = useState({
         title: "",
         details: "",
         image: null,
         slug: "",
-        meter: "",
-        days: "",
+        meter: "", 
+        days: "",  
     });
 
     useEffect(() => {
-        const fetchWork = async () => {
-            try {
-                const response = await apiInstance.get(`work/${id}/`); // Fetch work data
-                setWork(response.data);
-            } catch (error) {
-                console.error("Error fetching work:", error);
-                Toast("error", "Failed to fetch work data.");
-            }
-        };
-        fetchWork();
-    }, [id]);
+        const storedWorks = JSON.parse(localStorage.getItem('works')) || [];
+        setWork(storedWorks[index]);
+    }, [index]);
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
         if (name === "title") {
-            // Auto-generate slug from title
             const generatedSlug = value
                 .toLowerCase()
                 .replace(/ /g, "-")
@@ -49,28 +38,12 @@ function UpdateWorks() {
         setWork({ ...work, image: file });
     };
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
-        const formData = new FormData();
-        formData.append("title", work.title);
-        formData.append("details", work.details);
-        formData.append("image", work.image);
-        formData.append("slug", work.slug);
-        formData.append("meter", work.meter);
-        formData.append("days", work.days);
-
-        try {
-            await apiInstance.put(`work/update/${id}/`, formData, {
-                headers: {
-                    "Content-Type": "multipart/form-data",
-                },
-            });
-            Toast("success", "work updated successfully!");
-            navigate("/worklist");
-        } catch (error) {
-            console.error("Error during work update:", error.response.data);
-            Toast("error", "Error while updating work!");
-        }
+        const existingWorks = JSON.parse(localStorage.getItem('works')) || [];
+        existingWorks[index] = { ...work, image: work.image ? URL.createObjectURL(work.image) : existingWorks[index].image };
+        localStorage.setItem('works', JSON.stringify(existingWorks));
+        navigate("/viewworks");
     };
 
     return (
@@ -79,7 +52,7 @@ function UpdateWorks() {
             <div className="createproject">
                 <div className="container">
                     <div className="section-title">
-                        <h2 className="h2">Update work</h2>
+                        <h2 className="h2">Edit Work</h2>
                     </div>
 
                     <div className="content">
@@ -159,13 +132,12 @@ function UpdateWorks() {
 
                             <div className="buttons">
                                 <Button className="btn" type="submit">
-                                    Update work
+                                    Save Changes
                                 </Button>
-
                                 <Button
                                     className="btn"
                                     type="button"
-                                    onClick={() => navigate("/ourworks")}
+                                    onClick={() => navigate("/viewworks")}
                                 >
                                     Cancel
                                 </Button>
@@ -178,4 +150,4 @@ function UpdateWorks() {
     );
 }
 
-export default UpdateWorks;
+export default EditWorks;
