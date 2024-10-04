@@ -113,7 +113,7 @@ function AppUser() {
     const backup_bio =
         "Success is not measured by what you have achieved, but by the obstacles you have overcome.";
     const backup_phone = `01001101200`;
-    console.log(`profileData`, profileData);
+    // console.log(`profileData`, profileData);
 
     return (
         <>
@@ -216,19 +216,21 @@ function AppUser() {
 
                     <div className="categories">
                         <div className="section-title">
-                            <h3 className="h3">Order</h3>
+                            <h3 className="h3">Orders</h3>
                         </div>
 
                         <div className="actions">
-                            {/* <Button
+                            <Button
                                 className="btn "
                                 onClick={() => {
-                                    navigate(`/${App_User}/createproject`);
+                                    navigate(
+                                        `/${App_User}/createregisterorder`
+                                    );
                                 }}
                             >
                                 <span>create project</span>
                                 <ion-icon name="add-outline" />
-                            </Button> */}
+                            </Button>
 
                             <Button
                                 className="btn "

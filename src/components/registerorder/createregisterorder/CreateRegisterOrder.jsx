@@ -83,11 +83,11 @@ function CreateRegisterOrder() {
     const handleCreatePost = async (e) => {
         setIsLoading(true);
         e.preventDefault();
-        if (!post.full_name) {
-            Toast("error", "All Fields Are Required To Create A Package", "");
-            setIsLoading(false);
-            return;
-        }
+        // if (!post.full_name) {
+        //     Toast("error", "All Fields Are Required To Create A Package", "");
+        //     setIsLoading(false);
+        //     return;
+        // }
 
         console.log(post.category);
 

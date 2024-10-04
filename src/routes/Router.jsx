@@ -60,6 +60,7 @@ import ServiceDetails from "../pages/app/serviceDetails/ServiceDetails";
 import CreateRegisterOrder from "../components/registerorder/createregisterorder/CreateRegisterOrder";
 import ListOrders from "../components/registerorder/listorders/ListOrders";
 import DetailsOrder from "../components/registerorder/detailsorder/DetailsOrder";
+import ListOrdersCompany from "../components/registerorder/listorderscompany/ListOrdersCompany";
 
 function Router() {
     return (
@@ -491,6 +492,19 @@ function Router() {
                                 element={<DetailsProject />}
                             />
                             {/* components */}
+
+                            {/* orders */}
+                            {/* list orders */}
+                            <Route
+                                path={`/${App_Company}/listorders`}
+                                element={<ListOrdersCompany />}
+                            />
+
+                            {/* details order */}
+                            <Route
+                                path={`/${App_Company}/detailsorder/:slug/`}
+                                element={<DetailsOrder />}
+                            />
                         </Route>
 
                         {/* our works */}

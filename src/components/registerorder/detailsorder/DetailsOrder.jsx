@@ -17,20 +17,27 @@ import { App_Company, App_User } from "../../../utils/constants";
 // ui component
 import Loader from "../../../ui/loader/Loader";
 import ScrollToTopPages from "../../../ui/scrolltotoppages/ScrollToTopPages";
+import Cookies from "js-cookie"; // Import the 'js-cookie' library for managing cookies
 
 function DetailsOrder() {
     const navigate = useNavigate();
     const [post, setPost] = useState([]);
     const [tags, setTags] = useState([]);
+    const accessToken = Cookies.get("access_token");
 
     const param = useParams();
-    console.log(param);
+    // console.log(param);
 
     const fetchPost = async () => {
         try {
             const response = await apiInstance.get(
                 // `registerorder/detail/${param.slug}/`
-                `registerorder/detail/${param.slug}/`
+                `registerorder/detail/${param.slug}/`,
+                {
+                    headers: {
+                        Authorization: `Bearer ${accessToken}`, // استبدل 'token' برمز المصادقة الخاص بك
+                    },
+                }
             );
             setPost(response.data);
 
@@ -47,7 +54,7 @@ function DetailsOrder() {
     }, []);
 
     if (!post) return <Loader />;
-    console.log(`333`, post);
+    // console.log(`333`, post);
 
     return (
         <>
@@ -136,7 +143,7 @@ function DetailsOrder() {
                         <Button
                             className="btn update-btn"
                             onClick={() => {
-                                navigate(`/${App_User}/listorders`);
+                                navigate(`/${App_Company}/listorders`);
                             }}
                         >
                             Back to List

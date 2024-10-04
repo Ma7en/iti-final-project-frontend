@@ -226,11 +226,37 @@ function AppCompany() {
                                 className="btn "
                                 onClick={() => {
                                     navigate(`/${App_Company}/viewworks`);
-                                 
-
                                 }}
                             >
                                 <span>view Our Works</span>
+                                <ion-icon name="eye-outline"></ion-icon>
+                            </Button>
+                        </div>
+                    </div>
+
+                    <div className="categories">
+                        <div className="section-title">
+                            <h3 className="h3">Order</h3>
+                        </div>
+
+                        <div className="actions">
+                            {/* <Button
+                                className="btn "
+                                onClick={() => {
+                                    navigate(`/${App_User}/createproject`);
+                                }}
+                            >
+                                <span>create project</span>
+                                <ion-icon name="add-outline" />
+                            </Button> */}
+
+                            <Button
+                                className="btn "
+                                onClick={() => {
+                                    navigate(`/${App_Company}/listorders`);
+                                }}
+                            >
+                                <span>view orders</span>
                                 <ion-icon name="eye-outline"></ion-icon>
                             </Button>
                         </div>

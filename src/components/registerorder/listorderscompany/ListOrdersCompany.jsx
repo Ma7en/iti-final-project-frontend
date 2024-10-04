@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 // import styles
-import "./ListOrders.css";
+import "./ListOrdersCompany.css";
 
 // ui bootstrap components
 import { Button } from "react-bootstrap";
@@ -22,23 +22,20 @@ import ScrollToTopPages from "../../../ui/scrolltotoppages/ScrollToTopPages";
 import Loader from "../../../ui/loader/Loader";
 import NotComponent from "../../../ui/error/NotComponent";
 import OrderComponents from "../ordercomponents/OrderComponents";
-import Cookies from "js-cookie"; // Import the 'js-cookie' library for managing cookies
+import OrderComponentsCompany from "../ordercomponentscompany/OrderComponentsCompany";
 
-function ListOrders() {
+function ListOrdersCompany() {
     const navigate = useNavigate();
     const [posts, setPosts] = useState([]);
     const [popularPosts, setPopularPosts] = useState([]);
     const [category, setCategory] = useState([]);
     const userId = useUserData()?.user_id;
-    const accessToken = Cookies.get("access_token");
 
     const fetchPosts = async () => {
         try {
-            const response = await apiInstance.get(`registerorder/lists/`, {
-                headers: {
-                    Authorization: `Bearer ${accessToken}`, // استبدل 'accessToken' برمز المصادقة الخاص بك
-                },
-            });
+            const response = await apiInstance.get(
+                `registerorder/admin/lists/`
+            );
             setPosts(response.data);
             // console.log(`response.data>-`, response.data);
         } catch (error) {
@@ -67,7 +64,7 @@ function ListOrders() {
     return (
         <>
             <ScrollToTopPages />
-            <div className="listorders">
+            <div className="listorderscompany">
                 <div className="container">
                     <div className="section-title">
                         <h2 className="h2">Orders List</h2>
@@ -77,7 +74,7 @@ function ListOrders() {
                         <ul className="list">
                             {posts.length > 0 ? (
                                 posts.map((project, index) => (
-                                    <OrderComponents
+                                    <OrderComponentsCompany
                                         project={project}
                                         key={index}
                                     />
@@ -104,4 +101,4 @@ function ListOrders() {
     );
 }
 
-export default ListOrders;
+export default ListOrdersCompany;
