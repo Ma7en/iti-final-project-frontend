@@ -6,6 +6,7 @@ function ServiceComponents({ category }) {
     if (!category) return <Loader />;
     // console.log(`category`, category);
     const { id, title, details, image, slug } = category;
+    //
 
     return (
         <>

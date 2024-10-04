@@ -686,6 +686,30 @@ function Router() {
                             <Route path="/aboutus" element={<AboutPage />} />
                             <Route path="/about-us" element={<AboutPage />} />
 
+                            {/* our work */}
+                            <Route
+                                path="/ourworkspage"
+                                element={<OurWorksPage />}
+                            />
+
+                            {/* categories or services page */}
+                            <Route
+                                path="/servicepage"
+                                element={<ServicePage />}
+                            />
+                            <Route
+                                path="/service/page"
+                                element={<ServicePage />}
+                            />
+                            <Route
+                                path="/services/page"
+                                element={<ServicePage />}
+                            />
+                            <Route
+                                path="/services-page"
+                                element={<ServicePage />}
+                            />
+
                             {/* categories or services */}
                             {/* details category  */}
                             <Route
@@ -734,11 +758,6 @@ function Router() {
                             />
 
                             {/* project */}
-                            <Route
-                                path="/ourworkspage"
-                                element={<OurWorksPage />}
-                            />
-                            {/* <Route path="/ourwork" element={<OurWorks />} /> */}
                             {/* project details view */}
                             <Route
                                 path={`/detailspackage/:slug/`}
@@ -791,10 +810,7 @@ function Router() {
 
                             {/* our work */}
                             {/* <Route path="/ourwork" element={<OurWorks />} /> */}
-                            <Route
-                                path="/servicePage"
-                                element={<ServicePage />}
-                            />
+
                             <Route
                                 path="/writeDetails"
                                 element={<WriteDetails />}

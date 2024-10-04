@@ -189,7 +189,7 @@ function Header() {
                                     </li>
                                     <li>
                                         <Link
-                                            to="/servicePage"
+                                            to="/servicepage"
                                             // href="#service"
                                             className="navbar-link"
                                             title="Service"

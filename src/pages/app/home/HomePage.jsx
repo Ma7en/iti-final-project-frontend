@@ -14,6 +14,7 @@ import About from "../../../ui/about/About";
 import Service from "../../../ui/service/Service";
 import Property from "../../../components/property/Property";
 import Features from "../../../ui/features/Features";
+import ScrollToTopPages from "../../../ui/scrolltotoppages/ScrollToTopPages";
 
 // import components
 
@@ -27,6 +28,7 @@ function HomePage() {
 
     return (
         <>
+            <ScrollToTopPages />
             <main>
                 <article>
                     <Hero />
