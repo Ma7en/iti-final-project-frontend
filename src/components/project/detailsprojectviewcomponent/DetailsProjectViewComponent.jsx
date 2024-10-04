@@ -66,7 +66,9 @@ function DetailsProjectViewComponent({ project }) {
                             <Button
                                 className="btn update-btn"
                                 onClick={() => {
-                                    navigate(`/${App_User}/registerorder`);
+                                    navigate(
+                                        `/${App_User}/createregisterorder`
+                                    );
                                 }}
                             >
                                 Book the package

@@ -57,6 +57,9 @@ import OurWorksPage from "../pages/app/ourworks/OurWorksPage";
 import ServicePage from "../pages/app/servicePage/ServicePage";
 import WriteDetails from "../pages/app/writeDetails/WriteDetails";
 import ServiceDetails from "../pages/app/serviceDetails/ServiceDetails";
+import CreateRegisterOrder from "../components/registerorder/createregisterorder/CreateRegisterOrder";
+import ListOrders from "../components/registerorder/listorders/ListOrders";
+import DetailsOrder from "../components/registerorder/detailsorder/DetailsOrder";
 
 function Router() {
     return (
@@ -510,6 +513,7 @@ function Router() {
                             path={"editworks/:index"}
                             element={<EditWorks />}
                         />
+
                         {/* user */}
                         <Route
                             path={`/${App_User}`}
@@ -603,9 +607,54 @@ function Router() {
                             />
 
                             {/* register order */}
+                            {/* create order */}
                             <Route
-                                path={`/${App_User}/registerorder`}
-                                element={<UpdateProfile />}
+                                path={`/${App_User}/createregisterorder`}
+                                element={<CreateRegisterOrder />}
+                            />
+                            <Route
+                                path={`/${App_User}/create/registerorder`}
+                                element={<CreateRegisterOrder />}
+                            />
+                            <Route
+                                path={`/${App_User}/createregister/order`}
+                                element={<CreateRegisterOrder />}
+                            />
+                            <Route
+                                path={`/${App_User}/create/register/order`}
+                                element={<CreateRegisterOrder />}
+                            />
+                            <Route
+                                path={`/${App_User}/create-registerorder`}
+                                element={<CreateRegisterOrder />}
+                            />
+                            <Route
+                                path={`/${App_User}/createregister-order`}
+                                element={<CreateRegisterOrder />}
+                            />
+                            <Route
+                                path={`/${App_User}/create-register-order`}
+                                element={<CreateRegisterOrder />}
+                            />
+                            <Route
+                                path={`/${App_User}/create/register-order`}
+                                element={<CreateRegisterOrder />}
+                            />
+                            <Route
+                                path={`/${App_User}/create-register/order`}
+                                element={<CreateRegisterOrder />}
+                            />
+
+                            {/* list order */}
+                            <Route
+                                path={`/${App_User}/listorders`}
+                                element={<ListOrders />}
+                            />
+
+                            {/* details order */}
+                            <Route
+                                path={`/${App_User}/detailsorder/:slug/`}
+                                element={<DetailsOrder />}
                             />
                         </Route>
 
