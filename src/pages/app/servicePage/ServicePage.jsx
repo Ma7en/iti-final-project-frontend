@@ -1,5 +1,5 @@
 import React from "react";
-import { useEffect,useState,useNavigate } from "react";
+import { useEffect,useState} from "react";
 import apiInstance from "../../../utils/axios";
 
 
@@ -9,7 +9,7 @@ import NotService from "../servicePage/notservice/NotService";
 import Loader from "../../../ui/loader/Loader";
 function ServicePage() {
     const [categories, setCategories] = useState([]);
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
 
     useEffect(() => {
         const fetchCategories = async () => {
