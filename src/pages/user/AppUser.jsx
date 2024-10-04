@@ -150,6 +150,10 @@ function AppUser() {
                                             : backup_bio}
                                     </span>
                                 </p>
+                                <div className="social">
+                                    <ion-icon name="logo-facebook"></ion-icon>
+                                    <ion-icon name="logo-facebook"></ion-icon>
+                                </div>
                                 {/* <p className="h3">Username: {}</p> */}
                             </div>
 

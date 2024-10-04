@@ -38,6 +38,12 @@
     font-weight: normal;
 }
 
+.detailsprojectview .info .components .description {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
 .detailsprojectview .image {
     max-width: 100%;
     display: flex;

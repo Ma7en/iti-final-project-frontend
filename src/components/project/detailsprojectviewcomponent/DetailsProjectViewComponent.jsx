@@ -1,8 +1,15 @@
 import React from "react";
+
+// ui bootstrap components
+import { Button } from "react-bootstrap";
+
 import Loader from "../../../ui/loader/Loader";
+import { useNavigate } from "react-router-dom";
+import { App_User } from "../../../utils/constants";
 
 function DetailsProjectViewComponent({ project }) {
-    console.log(`333`, project);
+    const navigate = useNavigate();
+    // console.log(`333`, project);
     if (!project) return <Loader />;
 
     // const {image,} = project;
@@ -54,6 +61,17 @@ function DetailsProjectViewComponent({ project }) {
                                 </p>
                             </div>
                         ))}
+
+                        <div className="buttons">
+                            <Button
+                                className="btn update-btn"
+                                onClick={() => {
+                                    navigate(`/${App_User}/registerorder`);
+                                }}
+                            >
+                                Book the package
+                            </Button>
+                        </div>
                     </div>
                 </div>
             </div>

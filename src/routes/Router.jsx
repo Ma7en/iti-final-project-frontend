@@ -601,6 +601,12 @@ function Router() {
                                 path={`/${App_User}/profile/edit/:id`}
                                 element={<UpdateProfile />}
                             />
+
+                            {/* register order */}
+                            <Route
+                                path={`/${App_User}/registerorder`}
+                                element={<UpdateProfile />}
+                            />
                         </Route>
 
                         {/* ============================================================ */}

@@ -77,10 +77,22 @@ function DetailsProjectView() {
                                             Title:
                                             <span>{component?.title}</span>
                                         </p>
-                                        <p className="h3">
-                                            description:
+                                        <p className="h3 description">
+                                            <strong>description:</strong>
                                             <span>
-                                                {component?.description}
+                                                {/* {component?.description} */}
+                                                {component?.description
+                                                    ?.split(".")
+                                                    .map((line, index) => (
+                                                        <span key={index}>
+                                                            {line.trim() && (
+                                                                <>
+                                                                    {line.trim()}
+                                                                    <br />
+                                                                </>
+                                                            )}
+                                                        </span>
+                                                    ))}
                                             </span>
                                         </p>
                                     </div>

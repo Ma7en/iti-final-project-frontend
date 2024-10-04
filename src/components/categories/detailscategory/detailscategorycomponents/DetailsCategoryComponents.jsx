@@ -25,10 +25,18 @@ function DetailsCategoryComponents({ category }) {
                     <p className="card-text">
                        {details}
                     </p>
-                    <Link to={`/contact`} className="card-link">
-                        <span>Contact</span>
-                        <ion-icon name="arrow-forward-outline" />
-                    </Link>
+                    <div className="links">
+                        <Link to={`/`} className="card-link">
+                            <ion-icon name="arrow-back-outline" />
+                            <span>Back</span>
+                            {/* <ion-icon name="arrow-forward-outline" /> */}
+                        </Link>
+
+                        <Link to={`/contact`} className="card-link">
+                            <span>Contact</span>
+                            <ion-icon name="arrow-forward-outline" />
+                        </Link>
+                    </div>
                 </div>
             </li>
         </>
