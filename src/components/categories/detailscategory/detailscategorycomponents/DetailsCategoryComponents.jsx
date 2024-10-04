@@ -20,13 +20,10 @@ function DetailsCategoryComponents({ category }) {
                         <img src={image} alt={`${title}`} />
                     </div>
                     <h3 className="h3 card-title">
-                        <a>Traditional Finishing</a>
+                        <a>{title}</a>
                     </h3>
                     <p className="card-text">
-                        Traditional finishing brings warmth and timeless
-                        elegance, featuring classic designs, rich colors, and
-                        detailed craftsmanship that create an inviting
-                        atmosphere.
+                       {details}
                     </p>
                     <Link to={`/contact`} className="card-link">
                         <span>Contact</span>
