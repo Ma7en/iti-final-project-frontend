@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -108,11 +109,11 @@ function AppUser() {
     };
     // console.log("1", profileData);
     if (!profileData) return <Loader />;
-    const { full_name, image, id, bio, phone, facebook } = profileData;
+    const { full_name, image, id, bio, phone, facebook, twitter } = profileData;
     const backup_bio =
         "Success is not measured by what you have achieved, but by the obstacles you have overcome.";
     const backup_phone = `01001101200`;
-    // console.log(`profileData`, profileData);
+    console.log(`profileData`, profileData);
 
     return (
         <>
@@ -151,8 +152,33 @@ function AppUser() {
                                     </span>
                                 </p>
                                 <div className="social">
-                                    <ion-icon name="logo-facebook"></ion-icon>
-                                    <ion-icon name="logo-facebook"></ion-icon>
+                                    <button
+                                        className="header-bottom-actions-btn"
+                                        aria-label="Cart"
+                                        title="Cart"
+                                    >
+                                        <a
+                                            href={`${facebook}`}
+                                            target="_blank"
+                                            rel="noreferrer"
+                                        >
+                                            <ion-icon name="logo-facebook" />
+                                        </a>
+                                    </button>
+
+                                    <button
+                                        className="header-bottom-actions-btn"
+                                        aria-label="Cart"
+                                        title="Cart"
+                                    >
+                                        <a
+                                            href={`${twitter}`}
+                                            target="_blank"
+                                            rel="noreferrer"
+                                        >
+                                            <ion-icon name="logo-twitter" />
+                                        </a>
+                                    </button>
                                 </div>
                                 {/* <p className="h3">Username: {}</p> */}
                             </div>

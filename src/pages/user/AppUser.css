@@ -38,6 +38,28 @@
     gap: 20px;
 }
 
+.userprofile .content .details .social {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.userprofile .content .details .social button {
+    background: var(--white);
+    width: 50px;
+    height: 50px;
+    box-shadow: var(--shadow-2);
+}
+
+.userprofile .content .details .social button ion-icon {
+    color: hsl(0, 0%, 10%);
+    font-size: 30px;
+    margin-inline: auto;
+    margin-bottom: 5px;
+    --ionicon-stroke-width: 40px;
+    transition: var(--transition);
+}
+
 .userprofile .content .image img {
     border-top-left-radius: 20px;
     border-bottom-right-radius: 20px;
