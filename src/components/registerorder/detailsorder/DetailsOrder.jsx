@@ -35,7 +35,7 @@ function DetailsOrder() {
                 `registerorder/detail/${param.slug}/`,
                 {
                     headers: {
-                        Authorization: `Bearer ${accessToken}`, // استبدل 'token' برمز المصادقة الخاص بك
+                        Authorization: `Bearer ${accessToken}`, 
                     },
                 }
             );
@@ -66,78 +66,73 @@ function DetailsOrder() {
                     </div>
 
                     <div className="content">
-                        <div className="info">
-                            <div className="details">
-                                {/* <table>
-                                    <thead>
-                                        <tr>
-                                            <th>info</th>
-                                            <th>Content</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>t</td>
-                                            <td>t</td>
-                                        </tr>
-                                    </tbody>
-                                </table> */}
-
-                                <p className="h3">
-                                    <strong>Full Name:</strong>
-                                    <span>{post?.full_name}</span>
-                                </p>
-                                <p className="h3">
-                                    <strong>phone:</strong>
-                                    <span>{post?.phone}</span>
-                                </p>
-                                <p className="h3">
-                                    <strong>Governorate:</strong>
-                                    <span>{post?.governorate}</span>
-                                </p>
-                                <p className="h3">
-                                    <strong>City:</strong>
-                                    <span>{post?.city}</span>
-                                </p>
-                                <p className="h3">
-                                    <strong>The area:</strong>
-                                    <span>{post?.area}</span>
-                                </p>
-                                <p className="h3">
-                                    <strong>Type of Residential Unit:</strong>
-                                    <span>{post?.typeunit}</span>
-                                </p>
-                                <p className="h3">
-                                    <strong>Required Works:</strong>
-                                    <span>{post?.requiredworks}</span>
-                                </p>
-                                <p className="h3">
-                                    <strong>Skills:</strong>
-                                    <span>{post?.skills}</span>
-                                </p>
-                                <p className="h3">
-                                    <strong>Condition of the Unit:</strong>
-                                    <span>{post?.conditionoftheunit}</span>
-                                </p>
-                                <p className="h3">
-                                    <strong>Space:</strong>
-                                    <span>{post?.space}</span>
-                                </p>
-                                <p className="h3">
-                                    <strong>Number of rooms:</strong>
-                                    <span>{post?.numberroom}</span>
-                                </p>
-                                <p className="h3">
-                                    <strong>Number of bathrooms:</strong>
-                                    <span>{post?.numberbathroom}</span>
-                                </p>
-                                <p className="h3">
-                                    <strong>Note:</strong>
-                                    <span>{post?.description}</span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+    <div className="info">
+        <div className="details">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Info</th>
+                        <th>Content</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Full Name</td>
+                        <td>{post?.full_name}</td>
+                    </tr>
+                    <tr>
+                        <td>Phone</td>
+                        <td>{post?.phone}</td>
+                    </tr>
+                    <tr>
+                        <td>Governorate</td>
+                        <td>{post?.governorate}</td>
+                    </tr>
+                    <tr>
+                        <td>City</td>
+                        <td>{post?.city}</td>
+                    </tr>
+                    <tr>
+                        <td>The Area</td>
+                        <td>{post?.area}</td>
+                    </tr>
+                    <tr>
+                        <td>Type of Residential Unit</td>
+                        <td>{post?.typeunit}</td>
+                    </tr>
+                    <tr>
+                        <td>Required Works</td>
+                        <td>{post?.requiredworks}</td>
+                    </tr>
+                    <tr>
+                        <td>Skills</td>
+                        <td>{post?.skills}</td>
+                    </tr>
+                    <tr>
+                        <td>Condition of the Unit</td>
+                        <td>{post?.conditionoftheunit}</td>
+                    </tr>
+                    <tr>
+                        <td>Space</td>
+                        <td>{post?.space}</td>
+                    </tr>
+                    <tr>
+                        <td>Number of Rooms</td>
+                        <td>{post?.numberroom}</td>
+                    </tr>
+                    <tr>
+                        <td>Number of Bathrooms</td>
+                        <td>{post?.numberbathroom}</td>
+                    </tr>
+                    <tr>
+                        <td>Note</td>
+                        <td>{post?.description}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 
                     <div className="back">
                         <Button
