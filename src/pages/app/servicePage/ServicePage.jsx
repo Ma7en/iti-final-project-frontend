@@ -1,9 +1,12 @@
 import React from "react";
-// import Service from "../../../ui/service/Service";
-import service1 from "../../../assets/images/service/service-1.png";
-import service2 from "../../../assets/images/service/service-2.png";
-import service3 from "../../../assets/images/service/service-3.png";
-import ServiceComponents from "../../app/servicePage/servicecomponent/ServiceComponents"
+import { useEffect,useState,useNavigate } from "react";
+import apiInstance from "../../../utils/axios";
+
+
+
+import ServiceComponents from "../servicePage/servicecomponent/ServiceComponents";
+import NotService from "../servicePage/notservice/NotService";
+import Loader from "../../../ui/loader/Loader";
 function ServicePage() {
     const [categories, setCategories] = useState([]);
     const navigate = useNavigate();
@@ -101,13 +104,13 @@ function ServicePage() {
                         </li> */}
                         {categories.length > 0 ? (
                                 categories.map((category, index) => (
-                                    <ServiceComponentsnts
+                                    <ServiceComponents
                                         category={category}
                                         key={index}
                                     />
                                 ))
                             ) : (
-                                <NotCategory />
+                                <NotService />
                             )}
                     </ul>
                 </div>

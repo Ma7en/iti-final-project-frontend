@@ -1,9 +1,22 @@
-import React from 'react'
+
+import React, { useState } from "react";
+
+import Loader from "../../../../ui/loader/Loader";
+
+import apiInstance from '../../../../utils/axios';
+
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
+import Toast from "../../../../plugin/Toast";
+
+import { App_Company } from "../../../../utils/constants";
+
+
 
 function ServiceComponents({ category: categorycomponents }) {
     const navigate = useNavigate();
 
-    const { id, title } = categorycomponents;
+    const { id, title ,details, image} = categorycomponents;
 
     const [categories, setCategories] = useState([]);
     const [category, setCategory] = useState({
@@ -33,10 +46,10 @@ function ServiceComponents({ category: categorycomponents }) {
         });
         if (confirm.isConfirmed) {
             try {
-                await apiInstance.delete(category/delete/${id}/);
+                await apiInstance.delete(`category/delete/${id}/`);
                 Toast("success", "Category deleted successfully!");
                 fetchCategories();
-                navigate(/${App_Company}/profile);
+                navigate(`/${App_Company}/profile`);
             } catch (error) {
                 Toast("error", "Error while deleting category!");
             }
