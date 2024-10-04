@@ -482,7 +482,7 @@ function UpdateProfile() {
                                         navigate(`/${App_User}/profile`);
                                     }}
                                 >
-                                    Cancal
+                                    Cancel
                                 </Button>
                             </div>
                         </form>

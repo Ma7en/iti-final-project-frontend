@@ -1,8 +1,10 @@
 import React from "react";
 import Loader from "../../loader/Loader";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function ServiceComponents({ category }) {
+    const navigate = useNavigate();
+
     if (!category) return <Loader />;
     // console.log(`category`, category);
     const { id, title, details, image, slug } = category;
@@ -10,7 +12,11 @@ function ServiceComponents({ category }) {
 
     return (
         <>
-            <li>
+            <li
+                onClick={() => {
+                    navigate(`/detailscategory/${slug}`);
+                }}
+            >
                 <div className="service-card">
                     <div className="card-icon">
                         <img src={`${image}`} alt={`${title}`} />

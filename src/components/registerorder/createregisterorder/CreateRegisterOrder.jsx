@@ -486,7 +486,7 @@ function CreateRegisterOrder() {
 
                             <div className="buttons">
                                 <Button className="btn" type="submit">
-                                    Add New Package
+                                    Add New Order
                                 </Button>
 
                                 <Button

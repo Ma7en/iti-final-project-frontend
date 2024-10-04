@@ -277,6 +277,9 @@ function Header() {
                                 className="header-bottom-actions-btn"
                                 aria-label="Cart"
                                 title="Cart"
+                                onClick={() => {
+                                    navigate(`${App_User}/createregisterorder`);
+                                }}
                             >
                                 <ion-icon name="cart-outline" />
                                 <span>Cart</span>
