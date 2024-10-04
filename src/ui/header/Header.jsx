@@ -278,7 +278,9 @@ function Header() {
                                 aria-label="Cart"
                                 title="Cart"
                                 onClick={() => {
-                                    navigate(`${App_User}/createregisterorder`);
+                                    navigate(
+                                        `/${App_User}/createregisterorder`
+                                    );
                                 }}
                             >
                                 <ion-icon name="cart-outline" />

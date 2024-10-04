@@ -2,26 +2,25 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import ScrollToTopPages from "../../../ui/scrolltotoppages/ScrollToTopPages";
 import { Button } from "react-bootstrap";
-import './ViewWorks.css';
+import "./DetailsOurWork.css";
 
-function ViewWorks() {
+function DetailsOurWork() {
     const navigate = useNavigate();
     const [works, setWorks] = useState([]);
 
     useEffect(() => {
         // Retrieve the works from local storage
-        const storedWorks = JSON.parse(localStorage.getItem('works')) || [];
+        const storedWorks = JSON.parse(localStorage.getItem("works")) || [];
         setWorks(storedWorks);
     }, []);
 
     const handleDelete = (index) => {
         const updatedWorks = works.filter((_, i) => i !== index);
         setWorks(updatedWorks);
-        localStorage.setItem('works', JSON.stringify(updatedWorks));
+        localStorage.setItem("works", JSON.stringify(updatedWorks));
     };
 
     const handleEdit = (index) => {
-     
         navigate(`/editworks/${index}`);
     };
 
@@ -43,15 +42,33 @@ function ViewWorks() {
                                     <div className="project-card" key={index}>
                                         <h3>{work.title}</h3>
                                         {work.image && (
-                                            <img src={work.image} alt={work.title} className="project-image" />
+                                            <img
+                                                src={work.image}
+                                                alt={work.title}
+                                                className="project-image"
+                                            />
                                         )}
                                         <p>{work.details}</p>
                                         <p>Meter: {work.meter}</p>
                                         <p>Days: {work.days}</p>
-                                       
+
                                         <div className="button-group">
-                                            <Button variant="primary" onClick={() => handleEdit(index)}>Edit</Button>
-                                            <Button variant="danger" onClick={() => handleDelete(index)}>Delete</Button>
+                                            <Button
+                                                variant="primary"
+                                                onClick={() =>
+                                                    handleEdit(index)
+                                                }
+                                            >
+                                                Edit
+                                            </Button>
+                                            <Button
+                                                variant="danger"
+                                                onClick={() =>
+                                                    handleDelete(index)
+                                                }
+                                            >
+                                                Delete
+                                            </Button>
                                         </div>
                                     </div>
                                 ))}
@@ -70,4 +87,4 @@ function ViewWorks() {
     );
 }
 
-export default ViewWorks;
+export default DetailsOurWork;

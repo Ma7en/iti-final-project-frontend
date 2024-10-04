@@ -1,18 +1,27 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import ScrollToTopPages from "../../../ui/scrolltotoppages/ScrollToTopPages";
 
-function CreateWorks() {
+function UpdateOurWork() {
+    const { index } = useParams();
     const navigate = useNavigate();
     const [work, setWork] = useState({
         title: "",
         details: "",
         image: null,
         slug: "",
-        meter: "", 
-        days: "",  
+        meter: "",
+        days: "",
     });
+
+    useEffect(() => {
+        const storedWorks = JSON.parse(localStorage.getItem("works")) || [];
+
+        setWork(storedWorks[index]);
+
+        setWork(storedWorks[Number(index)]);
+    }, [index]);
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -34,27 +43,23 @@ function CreateWorks() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        const existingWorks = JSON.parse(localStorage.getItem("works")) || [];
 
-  
-        const imageURL = work.image ? URL.createObjectURL(work.image) : "";
+        existingWorks[index] = {
+            ...work,
+            image: work.image
+                ? URL.createObjectURL(work.image)
+                : existingWorks[index].image,
+        };
 
-        const existingWorks = JSON.parse(localStorage.getItem('works')) || [];
-      
-        existingWorks.push({ ...work, image: imageURL });
-        
-        localStorage.setItem('works', JSON.stringify(existingWorks));
+        existingWorks[Number(index)] = {
+            ...work,
+            image: work.image
+                ? URL.createObjectURL(work.image)
+                : existingWorks[Number(index)].image,
+        };
 
-        // Reset form after submission
-        setWork({
-            title: "",
-            details: "",
-            image: null,
-            slug: "",
-            meter: "", 
-            days: "",  
-        });
-
-        // Navigate to the view works page
+        localStorage.setItem("works", JSON.stringify(existingWorks));
         navigate("/viewworks");
     };
 
@@ -64,11 +69,21 @@ function CreateWorks() {
             <div className="createproject">
                 <div className="container">
                     <div className="section-title">
-                        <h2 className="h2">Create New Work</h2>
+                        <h2 className="h2">Edit Work</h2>
                     </div>
 
                     <div className="content">
-                        <form onSubmit={handleSubmit} encType="multipart/form-data">
+                        <form
+                            onSubmit={handleSubmit}
+                            encType="multipart/form-data"
+                        >
+                            {work.image && (
+                                <img
+                                    src={work.image}
+                                    alt={work.title}
+                                    className="existing-image"
+                                />
+                            )}
                             <div className="mb-3">
                                 <label className="form-label" htmlFor="image">
                                     Image:
@@ -80,7 +95,6 @@ function CreateWorks() {
                                     id="image"
                                     onChange={handleFileChange}
                                     accept="image/*"
-                                    required
                                 />
                             </div>
 
@@ -145,9 +159,8 @@ function CreateWorks() {
 
                             <div className="buttons">
                                 <Button className="btn" type="submit">
-                                    Create Work
+                                    Save Changes
                                 </Button>
-
                                 <Button
                                     className="btn"
                                     type="button"
@@ -164,4 +177,4 @@ function CreateWorks() {
     );
 }
 
-export default CreateWorks;
+export default UpdateOurWork;

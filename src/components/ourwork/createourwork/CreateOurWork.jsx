@@ -1,61 +1,64 @@
-import React, { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import ScrollToTopPages from "../../../ui/scrolltotoppages/ScrollToTopPages";
+import { App_Company } from "../../../utils/constants";
 
-function EditWorks() {
-    const { index } = useParams();
+function CreateOurWork() {
     const navigate = useNavigate();
-    const [work, setWork] = useState({
-        title: "",
-        details: "",
-        image: null,
-        slug: "",
-        meter: "", 
-        days: "",  
-    });
+    // const [work, setWork] = useState({
+    //     title: "",
+    //     details: "",
+    //     image: null,
+    //     slug: "",
+    //     meter: "",
+    //     days: "",
+    // });
 
-    useEffect(() => {
-        const storedWorks = JSON.parse(localStorage.getItem('works')) || [];
+    // const handleInputChange = (e) => {
+    //     const { name, value } = e.target;
+    //     if (name === "title") {
+    //         const generatedSlug = value
+    //             .toLowerCase()
+    //             .replace(/ /g, "-")
+    //             .replace(/[^\w-]+/g, "");
+    //         setWork({ ...work, title: value, slug: generatedSlug });
+    //     } else {
+    //         setWork({ ...work, [name]: value });
+    //     }
+    // };
 
-        setWork(storedWorks[index]);
+    // const handleFileChange = (e) => {
+    //     const file = e.target.files[0];
+    //     setWork({ ...work, image: file });
+    // };
 
-        setWork(storedWorks[Number(index)]);
+    // const handleSubmit = (e) => {
+    //     e.preventDefault();
 
-    }, [index]);
+    //     const imageURL = work.image ? URL.createObjectURL(work.image) : "";
 
-    const handleInputChange = (e) => {
-        const { name, value } = e.target;
-        if (name === "title") {
-            const generatedSlug = value
-                .toLowerCase()
-                .replace(/ /g, "-")
-                .replace(/[^\w-]+/g, "");
-            setWork({ ...work, title: value, slug: generatedSlug });
-        } else {
-            setWork({ ...work, [name]: value });
-        }
-    };
+    //     const existingWorks = JSON.parse(localStorage.getItem("works")) || [];
 
-    const handleFileChange = (e) => {
-        const file = e.target.files[0];
-        setWork({ ...work, image: file });
-    };
+    //     existingWorks.push({ ...work, image: imageURL });
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        const existingWorks = JSON.parse(localStorage.getItem('works')) || [];
+    //     localStorage.setItem("works", JSON.stringify(existingWorks));
 
-        existingWorks[index] = { ...work, image: work.image ? URL.createObjectURL(work.image) : existingWorks[index].image };
+    //     // Reset form after submission
+    //     setWork({
+    //         title: "",
+    //         details: "",
+    //         image: null,
+    //         slug: "",
+    //         meter: "",
+    //         days: "",
+    //     });
 
-        existingWorks[Number(index)] = {
-            ...work,
-            image: work.image ? URL.createObjectURL(work.image) : existingWorks[Number(index)].image,
-        };
-
-        localStorage.setItem('works', JSON.stringify(existingWorks));
-        navigate("/viewworks");
-    };
+    //     // Navigate to the view works page
+    //     navigate("/viewworks");
+    // };
+    // =================================================================
+    // =2
 
     return (
         <>
@@ -63,12 +66,14 @@ function EditWorks() {
             <div className="createproject">
                 <div className="container">
                     <div className="section-title">
-                        <h2 className="h2">Edit Work</h2>
+                        <h2 className="h2">Create New Work</h2>
                     </div>
 
                     <div className="content">
-                        <form onSubmit={handleSubmit} encType="multipart/form-data">
-                            {work.image && <img src={work.image} alt={work.title} className="existing-image" />}
+                        <form
+                            // onSubmit={handleSubmit}
+                            encType="multipart/form-data"
+                        >
                             <div className="mb-3">
                                 <label className="form-label" htmlFor="image">
                                     Image:
@@ -78,8 +83,9 @@ function EditWorks() {
                                     className="form-control"
                                     name="image"
                                     id="image"
-                                    onChange={handleFileChange}
+                                    // onChange={handleFileChange}
                                     accept="image/*"
+                                    required
                                 />
                             </div>
 
@@ -92,8 +98,8 @@ function EditWorks() {
                                     name="title"
                                     className="form-control"
                                     id="title"
-                                    value={work.title}
-                                    onChange={handleInputChange}
+                                    // value={work.title}
+                                    // onChange={handleInputChange}
                                     required
                                 />
                             </div>
@@ -106,8 +112,8 @@ function EditWorks() {
                                     className="form-control"
                                     name="details"
                                     id="details"
-                                    value={work.details}
-                                    onChange={handleInputChange}
+                                    // value={work.details}
+                                    // onChange={handleInputChange}
                                     required
                                 ></textarea>
                             </div>
@@ -121,8 +127,8 @@ function EditWorks() {
                                     name="meter"
                                     className="form-control"
                                     id="meter"
-                                    value={work.meter}
-                                    onChange={handleInputChange}
+                                    // value={work.meter}
+                                    // onChange={handleInputChange}
                                     required
                                 />
                             </div>
@@ -136,20 +142,23 @@ function EditWorks() {
                                     name="days"
                                     className="form-control"
                                     id="days"
-                                    value={work.days}
-                                    onChange={handleInputChange}
+                                    // value={work.days}
+                                    // onChange={handleInputChange}
                                     required
                                 />
                             </div>
 
                             <div className="buttons">
                                 <Button className="btn" type="submit">
-                                    Save Changes
+                                    Create Work
                                 </Button>
+
                                 <Button
                                     className="btn"
                                     type="button"
-                                    onClick={() => navigate("/viewworks")}
+                                    onClick={() => {
+                                        navigate(`/${App_Company}/profile`);
+                                    }}
                                 >
                                     Cancel
                                 </Button>
@@ -162,4 +171,4 @@ function EditWorks() {
     );
 }
 
-export default EditWorks;
+export default CreateOurWork;

@@ -150,6 +150,7 @@ function AppCompany() {
                         </div>
                     </div>
 
+                    {/* categories */}
                     <div className="categories">
                         <div className="section-title">
                             <h3 className="h3">categories</h3>
@@ -178,9 +179,10 @@ function AppCompany() {
                         </div>
                     </div>
 
+                    {/* packages */}
                     <div className="categories">
                         <div className="section-title">
-                            <h3 className="h3">projects</h3>
+                            <h3 className="h3">Packages</h3>
                         </div>
 
                         <div className="actions">
@@ -206,6 +208,7 @@ function AppCompany() {
                         </div>
                     </div>
 
+                    {/* our work */}
                     <div className="categories">
                         <div className="section-title">
                             <h3 className="h3">Our Works</h3>
@@ -215,7 +218,7 @@ function AppCompany() {
                             <Button
                                 className="btn "
                                 onClick={() => {
-                                    navigate(`/${App_Company}/createworks`);
+                                    navigate(`/${App_Company}/createourwork`);
                                 }}
                             >
                                 <span>create our works</span>
@@ -225,7 +228,7 @@ function AppCompany() {
                             <Button
                                 className="btn "
                                 onClick={() => {
-                                    navigate(`/${App_Company}/viewworks`);
+                                    navigate(`/${App_Company}/listourwork`);
                                 }}
                             >
                                 <span>view Our Works</span>
@@ -234,6 +237,7 @@ function AppCompany() {
                         </div>
                     </div>
 
+                    {/* orders */}
                     <div className="categories">
                         <div className="section-title">
                             <h3 className="h3">Order</h3>

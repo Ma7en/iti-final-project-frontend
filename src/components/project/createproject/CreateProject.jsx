@@ -240,7 +240,7 @@ function CreateProject() {
                                     className="btn"
                                     type="button"
                                     onClick={() => {
-                                        navigate(`/${App_Company}/projectlist`);
+                                        navigate(`/${App_Company}/profile`);
                                     }}
                                 >
                                     Cancel

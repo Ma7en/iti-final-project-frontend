@@ -47,10 +47,6 @@ import DetailsProject from "../components/project/detailsproject/DetailsProject"
 import UpdateProject from "../components/project/updateproject/UpdateProject";
 import DetailsProjectView from "../components/project/detailsprojectview/DetailsProjectView";
 
-import CreateWorks from "../components/ourworks/CreateWorks/CreateWorks";
-import ViewWorks from "../components/ourworks/viewourworks/ViewWorks";
-import EditWorks from "../components/ourworks/editworks/EditWorks";
-
 // ui project components
 import CreateProject from "../components/project/createproject/CreateProject";
 import OurWorksPage from "../pages/app/ourworks/OurWorksPage";
@@ -61,6 +57,10 @@ import CreateRegisterOrder from "../components/registerorder/createregisterorder
 import ListOrders from "../components/registerorder/listorders/ListOrders";
 import DetailsOrder from "../components/registerorder/detailsorder/DetailsOrder";
 import ListOrdersCompany from "../components/registerorder/listorderscompany/ListOrdersCompany";
+import CreateOurWork from "../components/ourwork/createourwork/CreateOurWork";
+import UpdateOurWork from "../components/ourwork/updateourwork/UpdateOurWork";
+import DetailsOurWorks from "../components/ourwork/detailsourwork/DetailsOurWork";
+import ListOurWork from "../components/ourwork/listourwork/ListOurWork";
 
 function Router() {
     return (
@@ -149,6 +149,7 @@ function Router() {
                                 element={<AppCompany />}
                             />
 
+                            {/* ================================================= */}
                             {/* categories or services */}
                             {/* list category */}
                             <Route
@@ -493,6 +494,51 @@ function Router() {
                             />
                             {/* components */}
 
+                            {/* ================================================= */}
+                            {/* our works */}
+                            {/* create our works */}
+                            <Route
+                                path={`/${App_Company}/createourwork`}
+                                element={<CreateOurWork />}
+                            />
+                            <Route
+                                path={`/${App_Company}/create/ourwork`}
+                                element={<CreateOurWork />}
+                            />
+                            <Route
+                                path={`/${App_Company}/create-ourwork`}
+                                element={<CreateOurWork />}
+                            />
+
+                            {/* update our work */}
+                            <Route
+                                path={`/${App_Company}/updateourwork/:slug/`}
+                                element={<UpdateOurWork />}
+                            />
+
+                            {/* list our work */}
+                            <Route
+                                path={`/${App_Company}/listourwork`}
+                                element={<ListOurWork />}
+                            />
+
+                            {/* details our works */}
+                            <Route
+                                path={`/${App_Company}/detailsourwork/:slug/`}
+                                element={<DetailsOurWorks />}
+                            />
+
+                            {/*  */}
+                            {/* <Route
+                                path={"/viewworks"}
+                                element={<ViewWorks />}
+                            /> */}
+                            {/* <Route
+                                path={"editworks/:index"}
+                                element={<EditWorks />}
+                            />  */}
+
+                            {/* ================================================= */}
                             {/* orders */}
                             {/* list orders */}
                             <Route
@@ -506,27 +552,6 @@ function Router() {
                                 element={<DetailsOrder />}
                             />
                         </Route>
-
-                        {/* our works */}
-                        <Route
-                            path={`/${App_Company}/createworks`}
-                            element={<CreateWorks />}
-                        />
-
-                        <Route
-                            path={`/${App_Company}/viewworks`}
-                            element={<ViewWorks />}
-                        />
-                        <Route
-                            path={`/${App_Company}/createworks`}
-                            element={<CreateWorks />}
-                        />
-                        <Route path={"/viewworks"} element={<ViewWorks />} />
-
-                        <Route
-                            path={"editworks/:index"}
-                            element={<EditWorks />}
-                        />
 
                         {/* user */}
                         <Route
