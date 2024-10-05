@@ -413,7 +413,7 @@ function CreateRegisterOrder() {
 
                             <div className="mb-3">
                                 <label className="form-label" htmlFor="space">
-                                    Space:
+                                    Residential Unit Area:
                                 </label>
                                 <input
                                     type="number"

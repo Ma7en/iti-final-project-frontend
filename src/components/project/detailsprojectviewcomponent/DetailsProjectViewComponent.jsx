@@ -74,7 +74,7 @@ function DetailsProjectViewComponent({ project }) {
                                     );
                                 }}
                             >
-                                Book the package
+                                Book package
                             </Button>
                         </div>
                     </div>

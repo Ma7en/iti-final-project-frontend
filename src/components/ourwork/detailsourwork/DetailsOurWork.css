@@ -2,6 +2,11 @@
     margin-bottom: 100px;
 }
 
+.detailsourwork .property-card .card-banner {
+    max-height: 400px;
+    width: 100%;
+}
+
 .detailsourwork .card-content .images {
     display: flex;
     align-items: center;
