@@ -3,8 +3,10 @@ import React, { useState } from "react";
 //
 import "./Contact.css";
 
-// ui component
+// components
 import Footer from "../footer/Footer";
+
+// ui component
 import ScrollToTopPages from "../scrolltotoppages/ScrollToTopPages";
 
 function Contact() {

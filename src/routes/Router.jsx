@@ -20,47 +20,51 @@ import AppCompanyLayout from "../pages/company/AppCompanyLayout";
 import LoginAdmin from "../ui/loginadmin/LoginAdmin";
 import AppCompany from "../pages/company/AppCompany";
 
-// ui components
+// ui user components
 import ProtectedRoute from "../ui/auth/ProtectedRoute";
+import AppUser from "../pages/user/AppUser";
+import AppUserLayout from "../pages/user/AppUserLayout";
+import UpdateProfile from "../pages/user/updateprofile/UpdateProfile";
+
+// ui auth components
 import Login from "../ui/login/Login";
 import Logout from "../ui/logout/Logout";
 import Signup from "../ui/signup/Signup";
 import ResetPassword from "../ui/resetpassword/ResetPassword";
 
-// user components
-import AppUser from "../pages/user/AppUser";
-import AppUserLayout from "../pages/user/AppUserLayout";
-import UpdateProfile from "../pages/user/updateprofile/UpdateProfile";
-
-// project components
+// page components
 import AboutPage from "../pages/app/aboutpages/AboutPage";
 import Contact from "../ui/contact/Contact";
+import OurWorksPage from "../pages/app/ourworks/OurWorksPage";
+import ServicePage from "../pages/app/servicePage/ServicePage";
 
 // ui Category components
 import ListCategory from "../components/categories/listcategory/ListCategory";
 import CreateCategory from "../components/categories/createcategory/CreateCategory";
 import DetailsCategory from "../components/categories/detailscategory/DetailsCategory";
 import UpdateCategory from "../components/categories/updatecategory/UpdateCategory";
+import ServiceDetails from "../pages/app/serviceDetails/ServiceDetails";
 
+// ui package or project components
+import CreateProject from "../components/project/createproject/CreateProject";
 import ListProject from "../components/project/listproject/ListProject";
 import DetailsProject from "../components/project/detailsproject/DetailsProject";
 import UpdateProject from "../components/project/updateproject/UpdateProject";
 import DetailsProjectView from "../components/project/detailsprojectview/DetailsProjectView";
 
-// ui project components
-import CreateProject from "../components/project/createproject/CreateProject";
-import OurWorksPage from "../pages/app/ourworks/OurWorksPage";
-import ServicePage from "../pages/app/servicePage/ServicePage";
 import WriteDetails from "../pages/app/writeDetails/WriteDetails";
-import ServiceDetails from "../pages/app/serviceDetails/ServiceDetails";
-import CreateRegisterOrder from "../components/registerorder/createregisterorder/CreateRegisterOrder";
-import ListOrders from "../components/registerorder/listorders/ListOrders";
-import DetailsOrder from "../components/registerorder/detailsorder/DetailsOrder";
-import ListOrdersCompany from "../components/registerorder/listorderscompany/ListOrdersCompany";
+
+// ui our work components
 import CreateOurWork from "../components/ourwork/createourwork/CreateOurWork";
 import UpdateOurWork from "../components/ourwork/updateourwork/UpdateOurWork";
 import ListOurWork from "../components/ourwork/listourwork/ListOurWork";
 import DetailsOurWork from "../components/ourwork/detailsourwork/DetailsOurWork";
+
+// ui order components
+import CreateRegisterOrder from "../components/registerorder/createregisterorder/CreateRegisterOrder";
+import ListOrders from "../components/registerorder/listorders/ListOrders";
+import DetailsOrder from "../components/registerorder/detailsorder/DetailsOrder";
+import ListOrdersCompany from "../components/registerorder/listorderscompany/ListOrdersCompany";
 
 function Router() {
     return (

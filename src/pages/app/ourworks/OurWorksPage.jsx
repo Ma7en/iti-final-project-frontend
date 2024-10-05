@@ -1,22 +1,18 @@
 import React from "react";
 
+// components
+import Property from "../../../components/property/Property";
+
 // assets
-// property
-// import property1 from "../../../assets/images/property/bathroom.jpg";
-// import property2 from "../../../assets/images/property/ceil.jpg";
-// import property3 from "../../../assets/images/property/floor.jpg";
-// import property4 from "../../../assets/images/property/resturant.jpg";
-// import property5 from "../../../assets/images/property/wall.jpg";
 
 // author
 import author from "../../../assets/images/author/author.jpg";
 
 // company
-import company1 from "../../../assets/images/company/company1.png";
-import company2 from "../../../assets/images/company/company2.png";
-import company3 from "../../../assets/images/company/company3.png";
-import company4 from "../../../assets/images/company/company4.png";
-import Property from "../../../components/property/Property";
+// import company1 from "../../../assets/images/company/company1.png";
+// import company2 from "../../../assets/images/company/company2.png";
+// import company4 from "../../../assets/images/company/company4.png";
+// import company3 from "../../../assets/images/company/company3.png";
 
 function OurWorks() {
     return (

@@ -1,14 +1,21 @@
 // Import the 'Navigate' component from the 'react-router-dom' library.
 import { Navigate, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 // Import the 'useAuthStore' function from a custom 'auth' store.
+// store
 import { useAuthStore } from "../../store/auth";
-import { useEffect, useState } from "react";
+
+// plugin
 import useUserData from "../../plugin/useUserData";
+import Toast from "../../plugin/Toast";
+
+// utils
 import apiInstance from "../../utils/axios";
 import { App_User } from "../../utils/constants";
+
+// ui components
 import Loader from "../loader/Loader";
-import Toast from "../../plugin/Toast";
 
 // Define the 'PrivateRoute' component as a functional component that takes 'children' as a prop.
 const ProtectedRouteCompany = ({ children }) => {

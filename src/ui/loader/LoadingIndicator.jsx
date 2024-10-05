@@ -1,3 +1,4 @@
+// import style
 import "./LoadingIndicator.css";
 
 const LoadingIndicator = () => {

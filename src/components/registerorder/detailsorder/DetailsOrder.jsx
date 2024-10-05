@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import Cookies from "js-cookie"; // Import the 'js-cookie' library for managing cookies
 
 // import style
 import "./DetailsOrder.css";
@@ -17,7 +18,6 @@ import { App_Company, App_User } from "../../../utils/constants";
 // ui component
 import Loader from "../../../ui/loader/Loader";
 import ScrollToTopPages from "../../../ui/scrolltotoppages/ScrollToTopPages";
-import Cookies from "js-cookie"; // Import the 'js-cookie' library for managing cookies
 
 function DetailsOrder() {
     const navigate = useNavigate();

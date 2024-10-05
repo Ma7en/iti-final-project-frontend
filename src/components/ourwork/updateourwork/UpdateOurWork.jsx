@@ -1,13 +1,21 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { Button } from "react-bootstrap";
-import ScrollToTopPages from "../../../ui/scrolltotoppages/ScrollToTopPages";
-import useUserData from "../../../plugin/useUserData";
-import apiInstance from "../../../utils/axios";
-import Toast from "../../../plugin/Toast";
 import Swal from "sweetalert2";
-import { App_Company } from "../../../utils/constants";
 import Cookies from "js-cookie"; // Import the 'js-cookie' library for managing cookies
+
+// ui bootstrap components
+import { Button } from "react-bootstrap";
+
+// plugin
+import useUserData from "../../../plugin/useUserData";
+import Toast from "../../../plugin/Toast";
+
+// utils
+import apiInstance from "../../../utils/axios";
+import { App_Company } from "../../../utils/constants";
+
+// ui components
+import ScrollToTopPages from "../../../ui/scrolltotoppages/ScrollToTopPages";
 
 function UpdateOurWork() {
     const [post, setEditPost] = useState({

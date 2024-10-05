@@ -16,13 +16,13 @@ import apiInstance from "../../../utils/axios";
 import { App_Company, App_User } from "../../../utils/constants";
 
 // package components
+import OrderComponents from "../ordercomponents/OrderComponents";
+import OrderComponentsCompany from "../ordercomponentscompany/OrderComponentsCompany";
 
 // ui components
 import ScrollToTopPages from "../../../ui/scrolltotoppages/ScrollToTopPages";
 import Loader from "../../../ui/loader/Loader";
 import NotComponent from "../../../ui/error/NotComponent";
-import OrderComponents from "../ordercomponents/OrderComponents";
-import OrderComponentsCompany from "../ordercomponentscompany/OrderComponentsCompany";
 
 function ListOrdersCompany() {
     const navigate = useNavigate();

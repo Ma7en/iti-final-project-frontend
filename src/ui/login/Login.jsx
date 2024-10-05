@@ -8,6 +8,10 @@ import "./Login.css";
 // store
 import { useAuthStore } from "../../store/auth";
 
+// plugin
+import Toast from "../../plugin/Toast";
+import useUserData from "../../plugin/useUserData";
+
 // utils
 import api from "../../utils/api";
 import {
@@ -17,13 +21,11 @@ import {
     REFRESH_TOKEN,
 } from "../../utils/constants";
 import { login } from "../../utils/auth";
+import apiInstance from "../../utils/axios";
 
 // ui components
 import LoadingIndicator from "../loader/LoadingIndicator";
 import ScrollToTopPages from "../scrolltotoppages/ScrollToTopPages";
-import Toast from "../../plugin/Toast";
-import useUserData from "../../plugin/useUserData";
-import apiInstance from "../../utils/axios";
 import Loader from "../loader/Loader";
 
 function Login() {

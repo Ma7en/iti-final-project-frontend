@@ -1,22 +1,21 @@
-
 import React, { useState } from "react";
-
-import Loader from "../../../../ui/loader/Loader";
-
-import apiInstance from '../../../../utils/axios';
-
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
+
+// plugin
 import Toast from "../../../../plugin/Toast";
 
+// utils
+import apiInstance from "../../../../utils/axios";
 import { App_Company } from "../../../../utils/constants";
 
-
+// ui components
+import Loader from "../../../../ui/loader/Loader";
 
 function ServiceComponents({ category: categorycomponents }) {
     const navigate = useNavigate();
 
-    const { id, title ,details, image} = categorycomponents;
+    const { id, title, details, image } = categorycomponents;
 
     const [categories, setCategories] = useState([]);
     const [category, setCategory] = useState({
@@ -57,30 +56,25 @@ function ServiceComponents({ category: categorycomponents }) {
     };
 
     if (!categorycomponents) return <Loader />;
-  return (
-   <>
-   <li>
-                            <div className="service-card">
-                                <div className="card-icon">
-                                <img
-                                        src={`${image}`}
-                                        alt="Service icon"
-                                    />
-                                </div>
-                                <h3 className="h3 card-title">
-                                    <a href="#">{title} </a>
-                                </h3>
-                                <p className="card-text">
-                                   {details}
-                                </p>
-                                <a href="/servicedetails" className="card-link">
-                                    <span>Details</span>
-                                    <ion-icon name="arrow-forward-outline" />
-                                </a>
-                            </div>
-                        </li>
-   </>
-  )
+    return (
+        <>
+            <li>
+                <div className="service-card">
+                    <div className="card-icon">
+                        <img src={`${image}`} alt="Service icon" />
+                    </div>
+                    <h3 className="h3 card-title">
+                        <a href="#">{title} </a>
+                    </h3>
+                    <p className="card-text">{details}</p>
+                    <a href="/servicedetails" className="card-link">
+                        <span>Details</span>
+                        <ion-icon name="arrow-forward-outline" />
+                    </a>
+                </div>
+            </li>
+        </>
+    );
 }
 
-export default ServiceComponents
+export default ServiceComponents;

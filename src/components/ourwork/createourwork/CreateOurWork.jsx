@@ -1,69 +1,26 @@
+import Swal from "sweetalert2";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Button } from "react-bootstrap";
-import ScrollToTopPages from "../../../ui/scrolltotoppages/ScrollToTopPages";
-import { App_Company } from "../../../utils/constants";
+
+// import Style
 import "./CreateOurWork.css";
+
+// ui bootstrap components
+import { Button } from "react-bootstrap";
+
+// plugin
 import useUserData from "../../../plugin/useUserData";
-import apiInstance from "../../../utils/axios";
 import Toast from "../../../plugin/Toast";
-import Swal from "sweetalert2";
+
+// utils
+import { App_Company } from "../../../utils/constants";
+import apiInstance from "../../../utils/axios";
+
+// ui components
+import ScrollToTopPages from "../../../ui/scrolltotoppages/ScrollToTopPages";
 
 function CreateOurWork() {
     const navigate = useNavigate();
-    // const [work, setWork] = useState({
-    //     title: "",
-    //     details: "",
-    //     image: null,
-    //     slug: "",
-    //     meter: "",
-    //     days: "",
-    // });
-
-    // const handleInputChange = (e) => {
-    //     const { name, value } = e.target;
-    //     if (name === "title") {
-    //         const generatedSlug = value
-    //             .toLowerCase()
-    //             .replace(/ /g, "-")
-    //             .replace(/[^\w-]+/g, "");
-    //         setWork({ ...work, title: value, slug: generatedSlug });
-    //     } else {
-    //         setWork({ ...work, [name]: value });
-    //     }
-    // };
-
-    // const handleFileChange = (e) => {
-    //     const file = e.target.files[0];
-    //     setWork({ ...work, image: file });
-    // };
-
-    // const handleSubmit = (e) => {
-    //     e.preventDefault();
-
-    //     const imageURL = work.image ? URL.createObjectURL(work.image) : "";
-
-    //     const existingWorks = JSON.parse(localStorage.getItem("works")) || [];
-
-    //     existingWorks.push({ ...work, image: imageURL });
-
-    //     localStorage.setItem("works", JSON.stringify(existingWorks));
-
-    //     // Reset form after submission
-    //     setWork({
-    //         title: "",
-    //         details: "",
-    //         image: null,
-    //         slug: "",
-    //         meter: "",
-    //         days: "",
-    //     });
-
-    //     // Navigate to the view works page
-    //     navigate("/viewworks");
-    // };
-    // =================================================================
-    // =2
     const [post, setCreatePost] = useState({
         title: "",
         description: "",

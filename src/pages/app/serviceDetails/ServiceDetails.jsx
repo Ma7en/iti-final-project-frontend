@@ -1,6 +1,10 @@
 import React from "react";
-import service3 from "../../../assets/images/service/service-3.png";
+
+// ui component
 import Property from "../../../components/property/Property";
+
+// assets
+import service3 from "../../../assets/images/service/service-3.png";
 
 function ServiceDetails() {
     return (
@@ -12,20 +16,16 @@ function ServiceDetails() {
                     <li>
                         <div className="service-card">
                             <div className="card-icon">
-                                <img
-                                    src={service3}
-                                    alt="Service icon"
-                                />
+                                <img src={service3} alt="Service icon" />
                             </div>
                             <h3 className="h3 card-title">
                                 <a href="#">Traditional Finishing</a>
                             </h3>
                             <p className="card-text">
-                                Traditional finishing brings warmth and
-                                timeless elegance, featuring classic
-                                designs, rich colors, and detailed
-                                craftsmanship that create an inviting
-                                atmosphere.
+                                Traditional finishing brings warmth and timeless
+                                elegance, featuring classic designs, rich
+                                colors, and detailed craftsmanship that create
+                                an inviting atmosphere.
                             </p>
                             <a href="/contact" className="card-link">
                                 <span>Contact</span>

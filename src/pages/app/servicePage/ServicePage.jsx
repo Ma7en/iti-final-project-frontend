@@ -1,10 +1,16 @@
 import React from "react";
 import { useEffect, useState } from "react";
+
+// utils
 import apiInstance from "../../../utils/axios";
 
-import NotService from "../servicePage/notservice/NotService";
-import Loader from "../../../ui/loader/Loader";
+// components
 import ServiceComponents from "../../../ui/service/servicecomponents/ServiceComponents";
+
+// ui components
+import Loader from "../../../ui/loader/Loader";
+import NotService from "../servicePage/notservice/NotService";
+
 function ServicePage() {
     const [categories, setCategories] = useState([]);
     // const navigate = useNavigate();

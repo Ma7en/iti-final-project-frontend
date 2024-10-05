@@ -1,13 +1,23 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import ScrollToTopPages from "../../../ui/scrolltotoppages/ScrollToTopPages";
-import { Button } from "react-bootstrap";
+
+// import style
 import "./DetailsOurWork.css";
+
+// ui bootstrap component
+import { Button } from "react-bootstrap";
+
+// utils
 import apiInstance from "../../../utils/axios";
-import company1 from "../../../assets/images/company/company1.png";
-import Loader from "../../../ui/loader/Loader";
 import { App_User } from "../../../utils/constants";
+
+// ui components
+import ScrollToTopPages from "../../../ui/scrolltotoppages/ScrollToTopPages";
+import Loader from "../../../ui/loader/Loader";
+
+// assets
+import company1 from "../../../assets/images/company/company1.png";
 
 function DetailsOurWork() {
     const navigate = useNavigate();

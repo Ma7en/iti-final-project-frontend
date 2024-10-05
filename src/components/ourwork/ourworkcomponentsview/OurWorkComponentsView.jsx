@@ -1,13 +1,14 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from "react";
-import Swal from "sweetalert2";
 import { useNavigate, useParams } from "react-router-dom";
+import Swal from "sweetalert2";
 
 // bootstrap components
 import { Button } from "react-bootstrap";
 
 // plugin
 import Toast from "../../../plugin/Toast";
+import useUserData from "../../../plugin/useUserData";
 
 // utils
 import apiInstance from "../../../utils/axios";
@@ -15,7 +16,8 @@ import { App_Company, App_User } from "../../../utils/constants";
 
 // ui components
 import Loader from "../../../ui/loader/Loader";
-import useUserData from "../../../plugin/useUserData";
+
+// assets
 import company1 from "../../../assets/images/company/company1.png";
 
 function OurWorkComponentsView({ ourwork: packagecomponents }) {

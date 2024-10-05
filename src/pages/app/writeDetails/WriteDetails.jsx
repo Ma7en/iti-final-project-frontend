@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+
+// import style
 import "./WriteDetails.css";
 
 const WriteDetails = () => {

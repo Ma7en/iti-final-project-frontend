@@ -5,17 +5,20 @@ import { useNavigate } from "react-router-dom";
 //
 import "./AppUser.css";
 
+// bootstrap components
+import { Button } from "react-bootstrap";
+
+// store
+import { useAuthStore } from "../../store/auth";
+
+//  plugin
+import useUserData from "../../plugin/useUserData";
+import Toast from "../../plugin/Toast";
+
 // utils
 import api from "../../utils/api";
 import { App_User } from "../../utils/constants";
 import apiInstance from "../../utils/axios";
-
-// authorization
-import useUserData from "../../plugin/useUserData";
-import Toast from "../../plugin/Toast";
-
-// bootstrap components
-import { Button } from "react-bootstrap";
 
 // ui components
 import Loader from "../../ui/loader/Loader";
@@ -23,7 +26,6 @@ import ScrollToTopPages from "../../ui/scrolltotoppages/ScrollToTopPages";
 
 // assets
 import ProfileImage from "../../assets/images/author/avatar.png";
-import { useAuthStore } from "../../store/auth";
 
 function AppUser() {
     const navigate = useNavigate();

@@ -1,26 +1,34 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+
+// plugin
+import useUserData from "../../plugin/useUserData";
+
+// utils
+import apiInstance from "../../utils/axios";
+
+// our work components
+import OurWorkComponentsView from "../ourwork/ourworkcomponentsview/OurWorkComponentsView";
+
+// ui components
+import Loader from "../../ui/loader/Loader";
+import NotComponent from "../../ui/error/NotComponent";
 
 // assets
 // property
-import property1 from "../../assets/images/property/property-1.jpg";
-import property2 from "../../assets/images/property/property-2.jpg";
-import property3 from "../../assets/images/property/property-3.jpg";
-import property4 from "../../assets/images/property/property-4.png";
+// import property1 from "../../assets/images/property/property-1.jpg";
+// import property2 from "../../assets/images/property/property-2.jpg";
+// import property3 from "../../assets/images/property/property-3.jpg";
+// import property4 from "../../assets/images/property/property-4.png";
 
 // author
-import author from "../../assets/images/author/author.jpg";
+// import author from "../../assets/images/author/author.jpg";
 
 // company
 import company1 from "../../assets/images/company/company1.png";
 import company2 from "../../assets/images/company/company2.png";
 import company3 from "../../assets/images/company/company3.png";
 import company4 from "../../assets/images/company/company4.png";
-import Loader from "../../ui/loader/Loader";
-import { useNavigate } from "react-router-dom";
-import useUserData from "../../plugin/useUserData";
-import apiInstance from "../../utils/axios";
-import NotComponent from "../../ui/error/NotComponent";
-import OurWorkComponentsView from "../ourwork/ourworkcomponentsview/OurWorkComponentsView";
 
 function Property() {
     const navigate = useNavigate();

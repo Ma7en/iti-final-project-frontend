@@ -4,6 +4,9 @@ import { useNavigate } from "react-router-dom";
 //
 import "./AppCompany.css";
 
+// bootstrap components
+import { Button } from "react-bootstrap";
+
 // utils
 import api from "../../utils/api";
 import { App_Company, App_User } from "../../utils/constants";
@@ -15,9 +18,6 @@ import Toast from "../../plugin/Toast";
 
 // store
 import { useAuthStore } from "../../store/auth";
-
-// bootstrap components
-import { Button } from "react-bootstrap";
 
 // ui components
 import Loader from "../../ui/loader/Loader";

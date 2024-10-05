@@ -1,12 +1,12 @@
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 
+// bootstrap
+import { Button } from "react-bootstrap";
+
 // context
 import themeContext from "../../../contexts/themeContext";
 import languageContext from "../../../contexts/languageContext";
-
-// bootstrap
-import { Button } from "react-bootstrap";
 
 function NotFound() {
     const navigate = useNavigate();

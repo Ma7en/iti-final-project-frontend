@@ -1,6 +1,6 @@
 import React from "react";
 
-// import
+// import style
 import "./Testimonials.css";
 
 function Testimonials() {

@@ -5,6 +5,9 @@ import Swal from "sweetalert2";
 // import style
 import "./CreateProject.css";
 
+// ui bootstrap components
+import { Button } from "react-bootstrap";
+
 // pluginx
 import useUserData from "../../../plugin/useUserData";
 import Toast from "../../../plugin/Toast";
@@ -12,9 +15,6 @@ import Toast from "../../../plugin/Toast";
 // utils
 import apiInstance from "../../../utils/axios";
 import { App_Company } from "../../../utils/constants";
-
-// ui bootstrap components
-import { Button } from "react-bootstrap";
 
 // ui components
 import ScrollToTopPages from "../../../ui/scrolltotoppages/ScrollToTopPages";

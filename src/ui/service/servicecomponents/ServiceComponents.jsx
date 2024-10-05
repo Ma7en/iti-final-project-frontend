@@ -1,6 +1,8 @@
 import React from "react";
-import Loader from "../../loader/Loader";
 import { Link, useNavigate } from "react-router-dom";
+
+// import ui components
+import Loader from "../../loader/Loader";
 
 function ServiceComponents({ category }) {
     const navigate = useNavigate();

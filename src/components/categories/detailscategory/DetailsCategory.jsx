@@ -10,14 +10,16 @@ import apiInstance from "../../../utils/axios";
 // category components
 import DetailsCategoryComponents from "./detailscategorycomponents/DetailsCategoryComponents";
 
+// package components
+import DetailsProjectViewComponent from "../../project/detailsprojectviewcomponent/DetailsProjectViewComponent";
+
 // ui components
-import Property from "../../property/Property";
+// import Property from "../../property/Property";
 import Loader from "../../../ui/loader/Loader";
+import NotComponent from "../../../ui/error/NotComponent";
 
 // assets
 import service3 from "../../../assets/images/service/service-3.png";
-import DetailsProjectViewComponent from "../../project/detailsprojectviewcomponent/DetailsProjectViewComponent";
-import NotComponent from "../../../ui/error/NotComponent";
 
 function DetailsCategory() {
     const { slug } = useParams();

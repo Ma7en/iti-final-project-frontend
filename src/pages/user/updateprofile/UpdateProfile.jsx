@@ -12,14 +12,14 @@ import Toast from "../../../plugin/Toast";
 
 // utils
 import apiInstance from "../../../utils/axios";
+import ScrollToTopPages from "../../../ui/scrolltotoppages/ScrollToTopPages";
+import { App_User } from "../../../utils/constants";
 
 // ui bootstrap
 import { Button } from "react-bootstrap";
 
 // ui components
 import Loader from "../../../ui/loader/Loader";
-import ScrollToTopPages from "../../../ui/scrolltotoppages/ScrollToTopPages";
-import { App_User } from "../../../utils/constants";
 
 function UpdateProfile() {
     const navigate = useNavigate();

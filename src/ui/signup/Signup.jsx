@@ -8,17 +8,19 @@ import "./Signup.css";
 // store
 import { useAuthStore } from "../../store/auth";
 
+// plugin
+import Toast from "../../plugin/Toast";
+import useUserData from "../../plugin/useUserData";
+
 // utils
 import api from "../../utils/api";
 import { register } from "../../utils/auth";
+import apiInstance from "../../utils/axios";
+import { App_Company, App_User } from "../../utils/constants";
 
 // ui component
 import LoadingIndicator from "../loader/LoadingIndicator";
 import ScrollToTopPages from "../scrolltotoppages/ScrollToTopPages";
-import Toast from "../../plugin/Toast";
-import useUserData from "../../plugin/useUserData";
-import apiInstance from "../../utils/axios";
-import { App_Company, App_User } from "../../utils/constants";
 
 function Signup() {
     const navigate = useNavigate();

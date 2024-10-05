@@ -1,11 +1,14 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 // ui bootstrap components
 import { Button } from "react-bootstrap";
 
-import Loader from "../../../ui/loader/Loader";
-import { useNavigate } from "react-router-dom";
+// utils
 import { App_User } from "../../../utils/constants";
+
+// ui components
+import Loader from "../../../ui/loader/Loader";
 
 function DetailsProjectViewComponent({ project }) {
     const navigate = useNavigate();

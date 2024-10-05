@@ -3,10 +3,12 @@ import React from "react";
 // import
 import "./AboutPage.css";
 
-// ui component
+// pages components
 import Testimonials from "../../../ui/testimonials/Testimonials";
 import Cta from "../../../ui/cta/Cta";
 import Footer from "../../../ui/footer/Footer";
+
+// ui components
 import ScrollToTopPages from "../../../ui/scrolltotoppages/ScrollToTopPages";
 
 function AboutPage() {
