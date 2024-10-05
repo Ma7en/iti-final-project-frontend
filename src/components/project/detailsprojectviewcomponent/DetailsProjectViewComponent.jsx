@@ -36,6 +36,7 @@ function DetailsProjectViewComponent({ project }) {
                         <p className="h3 price">
                             price:
                             <span>{project?.price_per_unit}</span>
+                            <span>EGP</span>
                         </p>
                     </div>
 

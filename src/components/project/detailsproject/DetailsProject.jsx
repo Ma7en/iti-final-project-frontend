@@ -117,6 +117,7 @@ function DetailsProject() {
                                 <p className="h3">
                                     price:
                                     <span>{post?.price_per_unit}</span>
+                                    <span>EGP</span>
                                 </p>
                             </div>
 
