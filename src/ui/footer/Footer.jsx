@@ -93,20 +93,26 @@ function Footer() {
                                     </a>
                                 </li> */}
                                 <li>
-                                    <a href="#" className="footer-link">
+                                    <Link
+                                        to={`/ourworkspage`}
+                                        className="footer-link"
+                                    >
                                         All Products
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li>
-                                    <a href="#" className="footer-link">
-                                        Locations Map
-                                    </a>
+                                    <Link
+                                        to={`/servicepage`}
+                                        className="footer-link"
+                                    >
+                                        Service
+                                    </Link>
                                 </li>
-                                <li>
+                                {/* <li>
                                     <a href="#" className="footer-link">
                                         FAQ
                                     </a>
-                                </li>
+                                </li> */}
                                 <li>
                                     <Link
                                         to={`/contact`}
@@ -123,14 +129,20 @@ function Footer() {
                                     </p>
                                 </li>
                                 <li>
-                                    <a href="#" className="footer-link">
-                                        Order tracking
-                                    </a>
+                                    <Link
+                                        to={`/contact`}
+                                        className="footer-link"
+                                    >
+                                        Order
+                                    </Link>
                                 </li>
                                 <li>
-                                    <a href="#" className="footer-link">
-                                        Wish List
-                                    </a>
+                                    <Link
+                                        to={`/servicepage`}
+                                        className="footer-link"
+                                    >
+                                        Service
+                                    </Link>
                                 </li>
                                 <li>
                                     <Link to={`/login`} className="footer-link">
@@ -142,16 +154,16 @@ function Footer() {
                                         My account
                                     </Link>
                                 </li>
-                                <li>
+                                {/* <li>
                                     <a href="#" className="footer-link">
                                         Terms &amp; Conditions
                                     </a>
-                                </li>
-                                <li>
+                                </li> */}
+                                {/* <li>
                                     <a href="#" className="footer-link">
                                         Promotional Offers
                                     </a>
-                                </li>
+                                </li> */}
                             </ul>
                             <ul className="footer-list">
                                 <li>
@@ -170,20 +182,26 @@ function Footer() {
                                     </Link>
                                 </li>
                                 <li>
-                                    <a href="#" className="footer-link">
+                                    <Link
+                                        to={`/ourworkspage`}
+                                        className="footer-link"
+                                    >
                                         Wish List
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li>
-                                    <a href="#" className="footer-link">
-                                        Order tracking
-                                    </a>
+                                    <Link
+                                        to={`/contact`}
+                                        className="footer-link"
+                                    >
+                                        Order
+                                    </Link>
                                 </li>
-                                <li>
+                                {/* <li>
                                     <a href="#" className="footer-link">
                                         FAQ
                                     </a>
-                                </li>
+                                </li> */}
                                 <li>
                                     <Link
                                         to={`/contact`}

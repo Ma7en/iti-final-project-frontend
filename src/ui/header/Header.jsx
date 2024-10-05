@@ -32,6 +32,7 @@ import { App_User } from "../../utils/constants";
 
 // assets
 import logo from "../../assets/images/logo/logo.png";
+import Information from "../information/Information";
 
 function Header() {
     const { darkMode, setDarkMode } = useContext(themeContext);
@@ -61,75 +62,7 @@ function Header() {
                     data-overlay
                 ></div>
 
-                <div className="header-top">
-                    <div className="container">
-                        <ul className="header-top-list">
-                            <li>
-                                <a
-                                    href="mailto:info@homeverse.com"
-                                    className="header-top-link"
-                                >
-                                    <ion-icon name="mail-outline" />
-                                    <span>info@homeverse.com</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a
-                                    href="#"
-                                    className="header-top-link"
-                                    target="_blank"
-                                >
-                                    <ion-icon name="location-outline" />
-                                    <address>15/A, Nest Tower, NYC</address>
-                                </a>
-                            </li>
-                        </ul>
-
-                        <div className="wrapper">
-                            <ul className="header-top-social-list">
-                                <li>
-                                    <a
-                                        href="#"
-                                        className="header-top-social-link"
-                                        target="_blank"
-                                    >
-                                        <ion-icon name="logo-facebook" />
-                                    </a>
-                                </li>
-                                <li>
-                                    <a
-                                        href="#"
-                                        className="header-top-social-link"
-                                        target="_blank"
-                                    >
-                                        <ion-icon name="logo-twitter" />
-                                    </a>
-                                </li>
-                                <li>
-                                    <a
-                                        href="#"
-                                        className="header-top-social-link"
-                                        target="_blank"
-                                    >
-                                        <ion-icon name="logo-instagram" />
-                                    </a>
-                                </li>
-                                <li>
-                                    <a
-                                        href="#"
-                                        className="header-top-social-link"
-                                        target="_blank"
-                                    >
-                                        <ion-icon name="logo-pinterest" />
-                                    </a>
-                                </li>
-                            </ul>
-                            <button className="header-top-btn">
-                                Add Listing
-                            </button>
-                        </div>
-                    </div>
-                </div>
+                <Information />
 
                 <div className="header-bottom">
                     <div className="container">
@@ -173,6 +106,9 @@ function Header() {
                                             className="navbar-link"
                                             data-nav-link
                                             title="homeverse"
+                                            onClick={() => {
+                                                setNavbar(false);
+                                            }}
                                         >
                                             Home
                                         </Link>
@@ -183,6 +119,9 @@ function Header() {
                                             className="navbar-link"
                                             data-nav-link
                                             title="About"
+                                            onClick={() => {
+                                                setNavbar(false);
+                                            }}
                                         >
                                             About
                                         </Link>
@@ -193,6 +132,9 @@ function Header() {
                                             // href="#service"
                                             className="navbar-link"
                                             title="Service"
+                                            onClick={() => {
+                                                setNavbar(false);
+                                            }}
                                         >
                                             Service
                                         </Link>
@@ -202,6 +144,9 @@ function Header() {
                                             to="/ourworkspage"
                                             className="navbar-link"
                                             title="Property"
+                                            onClick={() => {
+                                                setNavbar(false);
+                                            }}
                                         >
                                             Our Works
                                         </Link>
@@ -211,6 +156,9 @@ function Header() {
                                             to={`/contact`}
                                             className="navbar-link"
                                             data-nav-link
+                                            onClick={() => {
+                                                setNavbar(false);
+                                            }}
                                         >
                                             Contact
                                         </Link>
@@ -283,8 +231,8 @@ function Header() {
                                     );
                                 }}
                             >
-                                <ion-icon name="cart-outline" />
-                                <span>Cart</span>
+                                <ion-icon name="add-outline" />
+                                <span>Order</span>
                             </button>
 
                             <button
