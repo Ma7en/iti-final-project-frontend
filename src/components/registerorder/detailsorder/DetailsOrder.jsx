@@ -62,7 +62,7 @@ function DetailsOrder() {
             <div className="detailsorder">
                 <div className="container">
                     <div className="section-title">
-                        <h2 className="h2">Package Component</h2>
+                        <h2 className="h2">Order</h2>
                     </div>
 
                     <div className="content">
