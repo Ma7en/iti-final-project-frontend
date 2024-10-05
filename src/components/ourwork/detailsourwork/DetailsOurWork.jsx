@@ -1,85 +1,239 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import ScrollToTopPages from "../../../ui/scrolltotoppages/ScrollToTopPages";
 import { Button } from "react-bootstrap";
 import "./DetailsOurWork.css";
+import apiInstance from "../../../utils/axios";
+import company1 from "../../../assets/images/company/company1.png";
+import Loader from "../../../ui/loader/Loader";
+import { App_User } from "../../../utils/constants";
 
 function DetailsOurWork() {
     const navigate = useNavigate();
-    const [works, setWorks] = useState([]);
+    const [post, setPost] = useState([]);
+    const [tags, setTags] = useState([]);
 
-    useEffect(() => {
-        // Retrieve the works from local storage
-        const storedWorks = JSON.parse(localStorage.getItem("works")) || [];
-        setWorks(storedWorks);
-    }, []);
+    const param = useParams();
 
-    const handleDelete = (index) => {
-        const updatedWorks = works.filter((_, i) => i !== index);
-        setWorks(updatedWorks);
-        localStorage.setItem("works", JSON.stringify(updatedWorks));
+    const fetchPost = async () => {
+        const response = await apiInstance.get(`ourwork/detail/${param.slug}/`);
+        setPost(response.data);
+
+        const tagArray = response.data?.tags?.split(",");
+        setTags(tagArray);
     };
 
-    const handleEdit = (index) => {
-        navigate(`/editworks/${index}`);
+    useEffect(() => {
+        fetchPost();
+    }, []);
+
+    console.log(`3333`, post);
+    if (!post) return <Loader />;
+    const {
+        id,
+        title,
+        description,
+        thumbnail,
+        image1,
+        image2,
+        image3,
+        image4,
+        date,
+    } = post;
+
+    // console.log(`---->`, image1, `---->`, image2, `---->`, image3);
+
+    const formatDate = (date) => {
+        // Convert ISO date string (from variable 'date') to a Date object
+        const formattedDate = new Date(date);
+
+        // Get individual parts of the date
+        const options = {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+            hour: "2-digit",
+            minute: "2-digit",
+            second: "2-digit",
+            hour12: true, // For 12-hour format with AM/PM
+        };
+
+        // Format the date using toLocaleString
+        return formattedDate.toLocaleString("en-US", options);
     };
 
     return (
         <>
             <ScrollToTopPages />
-            <div className="list-project">
+            <div className="detailsourwork">
                 <div className="container">
                     <div className="section-title">
-                        <h2 className="h2">Works List</h2>
+                        <h2 className="h2">Work ({title})</h2>
                     </div>
 
                     <div className="content">
-                        {works.length === 0 ? (
-                            <p>No Works found.</p>
-                        ) : (
-                            <div className="project-grid">
-                                {works.map((work, index) => (
-                                    <div className="project-card" key={index}>
-                                        <h3>{work.title}</h3>
-                                        {work.image && (
+                        <ul className="property-list ">
+                            <li>
+                                <div className="property-card">
+                                    <figure className="card-banner">
+                                        <a>
                                             <img
-                                                src={work.image}
-                                                alt={work.title}
-                                                className="project-image"
+                                                src={`${thumbnail}`}
+                                                alt="New Apartment Nice View"
+                                                className="w-100"
                                             />
-                                        )}
-                                        <p>{work.details}</p>
-                                        <p>Meter: {work.meter}</p>
-                                        <p>Days: {work.days}</p>
+                                        </a>
+                                        {/* <div className="card-badge green">
+                                        For Rent
+                                    </div> */}
+                                        <div className="banner-actions">
+                                            {/* <button className="banner-actions-btn">
+                                                <ion-icon name="location" />
+                                                <address>
+                                                    Belmont Gardens, Chicago
+                                                </address>
+                                            </button> */}
+                                            <button className="banner-actions-btn">
+                                                <ion-icon name="camera" />
+                                                <span>4</span>
+                                            </button>
+                                            {/* <button className="banner-actions-btn">
+                                                <ion-icon name="film" />
+                                                <span>2</span>
+                                            </button> */}
+                                        </div>
+                                    </figure>
 
-                                        <div className="button-group">
-                                            <Button
-                                                variant="primary"
-                                                onClick={() =>
-                                                    handleEdit(index)
-                                                }
+                                    <div className="card-content">
+                                        <div className="images">
+                                            <figure className="card-banner">
+                                                <a>
+                                                    <img
+                                                        src={`${
+                                                            image1 || thumbnail
+                                                        }`}
+                                                        alt="New Apartment Nice View"
+                                                        className="w-100"
+                                                    />
+                                                </a>
+                                            </figure>
+
+                                            <figure className="card-banner">
+                                                <a>
+                                                    <img
+                                                        src={`${
+                                                            image2 || thumbnail
+                                                        }`}
+                                                        alt="New Apartment Nice View"
+                                                        className="w-100"
+                                                    />
+                                                </a>
+                                            </figure>
+                                            <figure className="card-banner">
+                                                <a>
+                                                    <img
+                                                        src={`${
+                                                            image3 || thumbnail
+                                                        }`}
+                                                        alt="New Apartment Nice View"
+                                                        className="w-100"
+                                                    />
+                                                </a>
+                                            </figure>
+                                            <figure className="card-banner">
+                                                <a>
+                                                    <img
+                                                        src={`${
+                                                            image4 || thumbnail
+                                                        }`}
+                                                        alt="New Apartment Nice View"
+                                                        className="w-100"
+                                                    />
+                                                </a>
+                                            </figure>
+                                        </div>
+                                        {/* <div className="card-price">
+                                        <strong>$34,900</strong>/Month
+                                    </div> */}
+                                        <h3 className="h3 card-title">
+                                            <a>{title}</a>
+                                        </h3>
+                                        <p className="card-text">
+                                            {description}
+                                        </p>
+                                        <ul className="card-list">
+                                            {/* <li className="card-item">
+                                                <strong>3000</strong>
+                                                <ion-icon name="cash-outline" />
+                                                <span>money</span>
+                                            </li> */}
+                                            <li className="card-item">
+                                                <strong>
+                                                    {formatDate(date)}
+                                                </strong>
+                                                <ion-icon name="calendar-outline" />
+                                                {/* <span>Days</span> */}
+                                            </li>
+                                            {/* <li className="card-item">
+                                                <strong>350</strong>
+                                                <ion-icon name="square-outline" />
+                                                <span>Square Ft</span>
+                                            </li> */}
+                                        </ul>
+                                    </div>
+
+                                    <div className="card-footer">
+                                        <div className="card-author">
+                                            <figure className="author-avatar">
+                                                <img
+                                                    src={`${company1}`}
+                                                    alt="William Seklo"
+                                                    className="w-100"
+                                                />
+                                            </figure>
+                                            <div>
+                                                <p className="author-name">
+                                                    <a href="#">Homeverse</a>
+                                                </p>
+                                                <p className="author-title">
+                                                    {post?.user?.full_name}
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div className="card-footer-actions">
+                                            {/* <button className="card-footer-actions-btn">
+                                                <ion-icon name="resize-outline" />
+                                            </button> */}
+                                            <button className="card-footer-actions-btn">
+                                                <ion-icon name="heart-outline" />
+                                            </button>
+                                            <button
+                                                className="card-footer-actions-btn"
+                                                onClick={() => {
+                                                    navigate(
+                                                        `/${App_User}/createregisterorder`
+                                                    );
+                                                }}
                                             >
-                                                Edit
-                                            </Button>
-                                            <Button
-                                                variant="danger"
-                                                onClick={() =>
-                                                    handleDelete(index)
-                                                }
-                                            >
-                                                Delete
-                                            </Button>
+                                                <ion-icon name="add-circle-outline" />
+                                            </button>
                                         </div>
                                     </div>
-                                ))}
-                            </div>
-                        )}
-                    </div>
+                                </div>
+                            </li>
+                        </ul>
 
-                    <div className="buttons">
-                        <Button onClick={() => navigate("/createworks")}>
-                            Create New Works
-                        </Button>
+                        <div className="back">
+                            <Button
+                                className="btn update-btn"
+                                onClick={() => {
+                                    navigate(`/`);
+                                }}
+                            >
+                                Back to Home
+                            </Button>
+                        </div>
                     </div>
                 </div>
             </div>

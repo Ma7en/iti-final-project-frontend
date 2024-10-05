@@ -59,8 +59,8 @@ import DetailsOrder from "../components/registerorder/detailsorder/DetailsOrder"
 import ListOrdersCompany from "../components/registerorder/listorderscompany/ListOrdersCompany";
 import CreateOurWork from "../components/ourwork/createourwork/CreateOurWork";
 import UpdateOurWork from "../components/ourwork/updateourwork/UpdateOurWork";
-import DetailsOurWorks from "../components/ourwork/detailsourwork/DetailsOurWork";
 import ListOurWork from "../components/ourwork/listourwork/ListOurWork";
+import DetailsOurWork from "../components/ourwork/detailsourwork/DetailsOurWork";
 
 function Router() {
     return (
@@ -525,18 +525,8 @@ function Router() {
                             {/* details our works */}
                             <Route
                                 path={`/${App_Company}/detailsourwork/:slug/`}
-                                element={<DetailsOurWorks />}
+                                element={<DetailsOurWork />}
                             />
-
-                            {/*  */}
-                            {/* <Route
-                                path={"/viewworks"}
-                                element={<ViewWorks />}
-                            /> */}
-                            {/* <Route
-                                path={"editworks/:index"}
-                                element={<EditWorks />}
-                            />  */}
 
                             {/* ================================================= */}
                             {/* orders */}
@@ -725,7 +715,7 @@ function Router() {
                             <Route path="/aboutus" element={<AboutPage />} />
                             <Route path="/about-us" element={<AboutPage />} />
 
-                            {/* our work */}
+                            {/* our work page */}
                             <Route
                                 path="/ourworkspage"
                                 element={<OurWorksPage />}
@@ -749,6 +739,7 @@ function Router() {
                                 element={<ServicePage />}
                             />
 
+                            {/* ========================================================== */}
                             {/* categories or services */}
                             {/* details category  */}
                             <Route
@@ -796,6 +787,7 @@ function Router() {
                                 element={<DetailsCategory />}
                             />
 
+                            {/* ========================================================== */}
                             {/* project */}
                             {/* project details view */}
                             <Route
@@ -847,9 +839,23 @@ function Router() {
                                 element={<DetailsProjectView />}
                             />
 
+                            {/* ========================================================== */}
                             {/* our work */}
-                            {/* <Route path="/ourwork" element={<OurWorks />} /> */}
+                            {/* details our work */}
+                            <Route
+                                path={`/detailsourwork/:slug/`}
+                                element={<DetailsOurWork />}
+                            />
+                            <Route
+                                path={`/details/ourwork/:slug/`}
+                                element={<DetailsOurWork />}
+                            />
+                            <Route
+                                path={`/details-ourwork/:slug/`}
+                                element={<DetailsOurWork />}
+                            />
 
+                            {/* ========================================================== */}
                             <Route
                                 path="/writeDetails"
                                 element={<WriteDetails />}
