@@ -233,7 +233,7 @@ function CreateProject() {
 
                             <div className="buttons">
                                 <Button className="btn" type="submit">
-                                    Create Project
+                                    Create Package
                                 </Button>
 
                                 <Button
