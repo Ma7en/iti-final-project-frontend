@@ -228,6 +228,10 @@ homeverse@@1
 
 ---
 
+<p align="left"><img src="https://profile-counter.glitch.me/iti-final-project-babackend/count.svg" alt="desphixs" /></p>
+
+---
+
 ## 🧐 Features :
 
 <ul>
