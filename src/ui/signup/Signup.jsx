@@ -75,7 +75,12 @@ function Signup() {
             setError(`${JSON.stringify(error)}.`);
             resetForm();
         } else {
-            navigate(`/login`);
+            Toast(
+                "success",
+                "Registration successful! Please check your email to confirm your account.",
+                ""
+            );
+            navigate(`/confirmemail`);
         }
 
         // Reset isLoading to false when the operation is complete
@@ -118,7 +123,9 @@ function Signup() {
 
                     <form onSubmit={handleRegister}>
                         <div className="mb-3">
-                            <label className="form-label">Full Name:</label>
+                            <label className="form-label" htmlFor="full_name">
+                                Full Name:
+                            </label>
                             <input
                                 type="text"
                                 className="form-control"
@@ -131,7 +138,9 @@ function Signup() {
                         </div>
 
                         <div className="mb-3">
-                            <label className="form-label">Email:</label>
+                            <label className="form-label" htmlFor="email">
+                                Email:
+                            </label>
                             <input
                                 type="email"
                                 className="form-control"
@@ -144,7 +153,9 @@ function Signup() {
                         </div>
 
                         <div className="mb-3">
-                            <label className="form-label">Password:</label>
+                            <label className="form-label" htmlFor="password">
+                                Password:
+                            </label>
                             <input
                                 type={!showPassword ? "password" : "text"}
                                 className="form-control"
@@ -175,14 +186,14 @@ function Signup() {
                         </div>
 
                         <div className="mb-3">
-                            <label className="form-label">
+                            <label className="form-label" htmlFor="password2">
                                 Confirm Password:
                             </label>
                             <input
                                 type={!showPassword ? "password" : "text"}
                                 className="form-control"
                                 name="password2"
-                                id="password"
+                                id="password2"
                                 onChange={handleBioDataChange}
                                 value={bioData.password2}
                                 required

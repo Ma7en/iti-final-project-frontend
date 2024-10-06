@@ -1,8 +1,43 @@
 .userprofile {
+    user-select: none;
 }
 
 .userprofile .container {
     margin-bottom: 100px;
+}
+
+.userprofile .confirm {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+    margin-block: 50px;
+
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.userprofile .confirm .info {
+    width: 100%;
+}
+
+.userprofile .confirm .info .image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.userprofile .confirm .info .image img {
+    width: 100px;
+    height: 100px;
+}
+
+.userprofile .confirm .details p {
+    text-align: center;
 }
 
 .userprofile .content {
@@ -61,7 +96,14 @@
     transition: var(--transition);
 }
 
+.userprofile .content .image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .userprofile .content .image img {
+    width: 100%;
     border-top-left-radius: 20px;
     border-bottom-right-radius: 20px;
 }
@@ -116,4 +158,23 @@
     place-items: center;
     font-size: 18px;
     border-radius: 50%;
+}
+
+/* disable */
+.userprofile .content.disable,
+.userprofile .categories.disable {
+    position: relative;
+}
+
+.userprofile .content.disable::before,
+.userprofile .categories.disable::before {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background-color: rgba(17, 5, 5, 0.404);
+    z-index: 100;
+    border-radius: 8px;
 }

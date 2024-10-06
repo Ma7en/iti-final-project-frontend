@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 // import style
 import "./DetailsOurWork.css";
@@ -204,10 +204,12 @@ function DetailsOurWork() {
                                             </figure>
                                             <div>
                                                 <p className="author-name">
-                                                    <a href="#">Homeverse</a>
+                                                    <Link to={`/`}>
+                                                        Homeverse
+                                                    </Link>
                                                 </p>
                                                 <p className="author-title">
-                                                    {post?.user?.full_name}
+                                                    {/* {post?.user?.full_name} */}
                                                 </p>
                                             </div>
                                         </div>

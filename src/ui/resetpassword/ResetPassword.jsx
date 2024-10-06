@@ -6,6 +6,9 @@ import Swal from "sweetalert2";
 // import styles
 import "./ResetPassword.css";
 
+// bootstrap components
+import { Button } from "react-bootstrap";
+
 // utils
 import apiInstance from "../../utils/axios";
 
@@ -43,9 +46,15 @@ const ResetPassword = () => {
     const [email, setEmail] = useState("");
     const [isLoading, setIsLoading] = useState(false);
 
-    const handleEmailSubmit = async () => {
+    const handleEmailSubmit = async (e) => {
+        e.preventDefault();
+        setIsLoading(true);
+        if (!email) {
+            setIsLoading(false);
+            return;
+        }
+
         try {
-            setIsLoading(true);
             await apiInstance
                 .get(`user/password-reset/${email}/`)
                 .then((res) => {
@@ -55,6 +64,7 @@ const ResetPassword = () => {
                         title: "Password Reset Email Sent!",
                     });
                 });
+            setIsLoading(false);
         } catch (error) {
             console.log();
             setIsLoading(false);
@@ -71,30 +81,33 @@ const ResetPassword = () => {
                         <div className="alert alert-success">{message}</div>
                     )} */}
 
-                    <form onSubmit={handleEmailSubmit}>
-                        <div className="mb-3">
-                            <label className="form-label">Email:</label>
-                            <input
-                                type="email"
-                                className="form-control"
-                                id="email"
-                                name="email"
-                                onChange={(e) => setEmail(e.target.value)}
-                                value={email}
-                                required
-                            />
-                        </div>
+                    {/* <form onSubmit={handleEmailSubmit}> */}
+                    <div className="mb-3">
+                        <label className="form-label" htmlFor="email">
+                            Email:
+                        </label>
+                        <input
+                            type="email"
+                            className="form-control"
+                            id="email"
+                            name="email"
+                            onChange={(e) => setEmail(e.target.value)}
+                            value={email}
+                            required
+                        />
+                    </div>
 
-                        {/* {loading && <LoadingIndicator />} */}
+                    {isLoading && <LoadingIndicator />}
 
-                        <button
-                            type="submit"
-                            disabled
-                            className="btn btn-primary w-100"
-                        >
-                            Send Reset Link
-                        </button>
-                    </form>
+                    <Button
+                        type="submit"
+                        onClick={handleEmailSubmit}
+                        className="btn btn-primary w-100"
+                    >
+                        Send Reset Link
+                    </Button>
+
+                    {/* </form> */}
 
                     <div className="other">
                         <p className="mt-3 text-center ">

@@ -11,7 +11,7 @@ function Features() {
 
                     <ul className="features-list">
                         <li>
-                            <Link to={`/about`} className="features-card">
+                            <Link to={`/contact`} className="features-card">
                                 <div className="card-icon">
                                     <ion-icon name="home-outline" />
                                 </div>
@@ -22,7 +22,7 @@ function Features() {
                             </Link>
                         </li>
                         <li>
-                            <Link to={`/about`} className="features-card">
+                            <Link to={`/contact`} className="features-card">
                                 <div className="card-icon">
                                     <ion-icon name="fitness-outline" />
                                 </div>
@@ -33,7 +33,7 @@ function Features() {
                             </Link>
                         </li>
                         <li>
-                            <Link to={`/about`} className="features-card">
+                            <Link to={`/contact`} className="features-card">
                                 <div className="card-icon">
                                     <ion-icon name="shield-checkmark-outline" />
                                 </div>
@@ -44,7 +44,7 @@ function Features() {
                             </Link>
                         </li>
                         <li>
-                            <Link to={`/about`} className="features-card">
+                            <Link to={`/contact`} className="features-card">
                                 <div className="card-icon">
                                     <ion-icon name="briefcase-outline" />
                                 </div>
@@ -55,7 +55,7 @@ function Features() {
                             </Link>
                         </li>
                         <li>
-                            <Link to={`/about`} className="features-card">
+                            <Link to={`/contact`} className="features-card">
                                 <div className="card-icon">
                                     <ion-icon name="medkit-outline" />
                                 </div>
@@ -66,7 +66,7 @@ function Features() {
                             </Link>
                         </li>
                         <li>
-                            <Link to={`/about`} className="features-card">
+                            <Link to={`/contact`} className="features-card">
                                 <div className="card-icon">
                                     <ion-icon name="construct-outline" />
                                 </div>
@@ -77,7 +77,7 @@ function Features() {
                             </Link>
                         </li>
                         <li>
-                            <Link to={`/about`} className="features-card">
+                            <Link to={`/contact`} className="features-card">
                                 <div className="card-icon">
                                     <ion-icon name="storefront-outline" />
                                 </div>
@@ -88,7 +88,7 @@ function Features() {
                             </Link>
                         </li>
                         <li>
-                            <Link to={`/about`} className="features-card">
+                            <Link to={`/contact`} className="features-card">
                                 <div className="card-icon">
                                     <ion-icon name="restaurant-outline" />
                                 </div>
@@ -100,7 +100,7 @@ function Features() {
                         </li>
 
                         <li>
-                            <Link to={`/about`} className="features-card">
+                            <Link to={`/contact`} className="features-card">
                                 <div className="card-icon">
                                     <ion-icon name="cafe-outline" />
                                 </div>

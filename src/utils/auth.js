@@ -48,7 +48,10 @@ export const login = async (email, password) => {
         // Handling errors and returning data and error information
         return {
             data: null,
-            error: error.response.data?.detail || "Something went wrong",
+            error:
+                error.response.data?.detail ||
+                "Invalid Data" ||
+                "Something went wrong",
         };
     }
 };

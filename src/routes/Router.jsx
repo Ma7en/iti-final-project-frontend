@@ -65,6 +65,8 @@ import CreateRegisterOrder from "../components/registerorder/createregisterorder
 import ListOrders from "../components/registerorder/listorders/ListOrders";
 import DetailsOrder from "../components/registerorder/detailsorder/DetailsOrder";
 import ListOrdersCompany from "../components/registerorder/listorderscompany/ListOrdersCompany";
+import ConfirmEmail from "../ui/confirmemail/ConfirmEmail";
+import ChangePassword from "../ui/changepassword/ChangePassword";
 
 function Router() {
     return (
@@ -966,8 +968,16 @@ function Router() {
                             <Route path="/signup" element={<Signup />} />
                             <Route path="/register" element={<Signup />} />
                             <Route
+                                path="/confirmemail"
+                                element={<ConfirmEmail />}
+                            />
+                            <Route
                                 path="/resetpassword"
                                 element={<ResetPassword />}
+                            />
+                            <Route
+                                path="/changepassword"
+                                element={<ChangePassword />}
                             />
                             <Route path="/logout" element={<Logout />} />
                         </Route>

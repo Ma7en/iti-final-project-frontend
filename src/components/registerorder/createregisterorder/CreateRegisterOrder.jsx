@@ -493,7 +493,7 @@ function CreateRegisterOrder() {
                                     className="btn"
                                     type="button"
                                     onClick={() => {
-                                        navigate(`/`);
+                                        navigate(`/${App_User}/profile`);
                                     }}
                                 >
                                     Cancel

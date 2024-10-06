@@ -1,6 +1,6 @@
 // import
 import React, { useEffect, useState } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
+import { Navigate, useLocation, useNavigate } from "react-router-dom";
 
 //
 import "./Login.css";
@@ -120,10 +120,48 @@ function Login() {
         }
     };
 
-    if (loggedIn && profileData?.user?.is_superuser === false)
-        return <Navigate to={`/${App_User}/profile`} />;
+    // const location = useLocation();
+    // const queryParams = new URLSearchParams(location.search);
+    // const isActivated = queryParams.get("activated");
+
+    // console.log(`dd`, activeA);
+
+    // console.log(
+    //     `location:`,
+    //     location,
+    //     `query `,
+    //     queryParams,
+    //     `isActivated: `,
+    //     isActivated
+    // );
+    // console.log(`33`, isActivated);
+
     if (loggedIn && profileData?.user?.is_superuser === true)
         return <Navigate to={`/${App_Company}/profile`} />;
+
+    // if ((loggedIn && activeA === null) || activeA === "null") {
+    //     console.log(`333`);
+    //     return <Navigate to={`/confirmemail`} />;
+    // }
+
+    // const activeA = localStorage.getItem("active");
+    // if (isActivated === true || isActivated === "true") {
+    //     console.log(`eee`);
+    //     localStorage.setItem("active", true);
+    //     localStorage.setItem("active1", true);
+    // } else {
+    //     // console.log(444);
+    //     localStorage.setItem("active", false);
+    //     localStorage.setItem("active1", false);
+    // }
+    // if (activeA !== "true") {
+    //     console.log(`ccc`);
+    //     return <Navigate to={`/confirmemail`} />;
+    // }
+
+    if (loggedIn && profileData?.user?.is_superuser === false) {
+        return <Navigate to={`/${App_User}/profile`} />;
+    }
 
     return (
         <>
@@ -136,7 +174,12 @@ function Login() {
 
                             <form onSubmit={handleLogin}>
                                 <div className="mb-3">
-                                    <label className="form-label">Email:</label>
+                                    <label
+                                        className="form-label"
+                                        htmlFor="email"
+                                    >
+                                        Email:
+                                    </label>
                                     <input
                                         type="text"
                                         className="form-control"
@@ -149,7 +192,10 @@ function Login() {
                                 </div>
 
                                 <div className="mb-3">
-                                    <label className="form-label">
+                                    <label
+                                        className="form-label"
+                                        htmlFor="password"
+                                    >
                                         Password:
                                     </label>
                                     <input

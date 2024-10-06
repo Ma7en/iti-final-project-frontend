@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 //
 import "./AppUser.css";
@@ -26,6 +26,7 @@ import ScrollToTopPages from "../../ui/scrolltotoppages/ScrollToTopPages";
 
 // assets
 import ProfileImage from "../../assets/images/author/avatar.png";
+import ErrorRegister from "../../assets/images/user/error-register.png";
 
 function AppUser() {
     const navigate = useNavigate();
@@ -109,13 +110,49 @@ function AppUser() {
             Toast("error", "An Error Occured", "");
         }
     };
+
+    // const location = useLocation();
+    // const queryParams = new URLSearchParams(location.search);
+    // const isActivated = queryParams.get("activated");
+    // const activeA = localStorage.getItem("active");
+    // const activeA1 = localStorage.getItem("active1");
+    // console.log(`location`, location);
+    // console.log(`quer`, queryParams);
+    // console.log(`isActived`, isActivated);
+    // console.log(`activeA`, activeA);
+    // if (activeA === false) {
+    //     console.log(444);
+    // }
+    // if (activeA === "false") {
+    //     console.log(88);
+    // }
+    // if (isActivated === true || isActivated === "true") {
+    //     console.log(`eee`);
+    //     localStorage.setItem("active", true);
+    // }
+
+    // if ((loggedIn && activeA === null) || activeA === "null") {
+    //     console.log(`333`);
+    //     return <Navigate to={`/confirmemail`} />;
+    // }
+
+    // const activeA = localStorage.getItem("active");
+    // if (isActivated === true || isActivated === "true") {
+    //     console.log(`eee`);
+    //     localStorage.setItem("active", true);
+    // }
+    // if (activeA !== "true") {
+    //     console.log(`ccc`);
+    //     return <Navigate to={`/confirmemail`} />;
+    // }
+
     // console.log("1", profileData);
     if (!profileData) return <Loader />;
     const { full_name, image, id, bio, phone, facebook, twitter } = profileData;
     const backup_bio =
         "Success is not measured by what you have achieved, but by the obstacles you have overcome.";
-    const backup_phone = `01001101200`;
-    // console.log(`profileData`, profileData);
+    const backup_phone = `01000000000`;
+    console.log(`profileData`, profileData);
 
     return (
         <>
@@ -126,7 +163,35 @@ function AppUser() {
                         <h1 className="h2">User Profile</h1>
                     </div>
 
-                    <div className="content">
+                    {/* {activeA === "false" && activeA1 === "false" ? (
+                        <div className="confirm">
+                            <div className="info">
+                                <div className="image">
+                                    <img
+                                        src={`${ErrorRegister}`}
+                                        alt={`Registration`}
+                                    />
+                                </div>
+                                <div className="details">
+                                    <p className="h3">
+                                        Please check your email to confirm your
+                                        account.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    ) : (
+                        ""
+                    )} */}
+
+                    <div
+                        // className={`content ${
+                        //     activeA === "false" && activeA1 === "false"
+                        //         ? "disable"
+                        //         : ""
+                        // }`}
+                        className={`content `}
+                    >
                         <div className="info">
                             <div className="details">
                                 <p className="h3">
@@ -211,12 +276,13 @@ function AppUser() {
                         <div className="image">
                             <img
                                 src={`${image || ProfileImage}`}
+                                // src={`${image}`}
                                 alt={`${full_name}`}
                             />
                         </div>
                     </div>
 
-                    <div className="categories">
+                    <div className={`categories `}>
                         <div className="section-title">
                             <h3 className="h3">Orders</h3>
                         </div>

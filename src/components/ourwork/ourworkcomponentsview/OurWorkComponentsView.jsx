@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 
 // bootstrap components
@@ -147,9 +147,11 @@ function OurWorkComponentsView({ ourwork: packagecomponents }) {
                             </figure>
                             <div>
                                 <p className="author-name">
-                                    <a href="#">William Seklo</a>
+                                    <Link to={`/`}>Homeverse</Link>
                                 </p>
-                                <p className="author-title">Estate Agents</p>
+                                <p className="author-title">
+                                    {/* Estate Agents */}
+                                </p>
                             </div>
                         </div>
                         <div className="card-footer-actions">

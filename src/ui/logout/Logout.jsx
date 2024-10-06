@@ -10,6 +10,7 @@ function Logout() {
     useEffect(() => {
         logout();
     }, []);
+    // localStorage.setItem("active", false);
     return <Navigate to={`/login`} />;
 }
 

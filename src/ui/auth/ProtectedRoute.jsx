@@ -48,6 +48,12 @@ const PrivateRoute = ({ children }) => {
 
     if (!profileData) return <Loader />;
 
+    const activeA = localStorage.getItem("active");
+    if (activeA === "null") {
+        console.log(`333`);
+        return <Navigate to={`/confirmemail`} />;
+    }
+
     if (profileData?.user?.is_superuser === false) {
         return <>{children}</>;
     } else {
