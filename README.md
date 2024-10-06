@@ -219,11 +219,11 @@ npm start
 `Step 3`: Info admin
 
 ```
-django_proj@gmail.com
+homeverse_proj@gmail.com
 ```
 
 ```
-django@@1
+homeverse@@1
 ```
 
 ---

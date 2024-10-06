@@ -11,6 +11,7 @@ import { Button } from "react-bootstrap";
 // utils
 import apiInstance from "../../../utils/axios";
 import { App_User } from "../../../utils/constants";
+import { formatDate } from "../../../utils/helpers";
 
 // ui components
 import ScrollToTopPages from "../../../ui/scrolltotoppages/ScrollToTopPages";
@@ -38,7 +39,7 @@ function DetailsOurWork() {
         fetchPost();
     }, []);
 
-    console.log(`3333`, post);
+    // console.log(`3333`, post);
     if (!post) return <Loader />;
     const {
         id,
@@ -51,25 +52,6 @@ function DetailsOurWork() {
         image4,
         date,
     } = post;
-
-    const formatDate = (date) => {
-        // Convert ISO date string (from variable 'date') to a Date object
-        const formattedDate = new Date(date);
-
-        // Get individual parts of the date
-        const options = {
-            year: "numeric",
-            month: "long",
-            day: "numeric",
-            hour: "2-digit",
-            minute: "2-digit",
-            second: "2-digit",
-            hour12: true, // For 12-hour format with AM/PM
-        };
-
-        // Format the date using toLocaleString
-        return formattedDate.toLocaleString("en-US", options);
-    };
 
     return (
         <>
