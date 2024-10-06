@@ -52,8 +52,6 @@ function DetailsOurWork() {
         date,
     } = post;
 
-    // console.log(`---->`, image1, `---->`, image2, `---->`, image3);
-
     const formatDate = (date) => {
         // Convert ISO date string (from variable 'date') to a Date object
         const formattedDate = new Date(date);

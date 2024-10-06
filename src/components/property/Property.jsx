@@ -15,11 +15,6 @@ import Loader from "../../ui/loader/Loader";
 import NotComponent from "../../ui/error/NotComponent";
 
 // assets
-// property
-// import property1 from "../../assets/images/property/property-1.jpg";
-// import property2 from "../../assets/images/property/property-2.jpg";
-// import property3 from "../../assets/images/property/property-3.jpg";
-// import property4 from "../../assets/images/property/property-4.png";
 
 // author
 // import author from "../../assets/images/author/author.jpg";

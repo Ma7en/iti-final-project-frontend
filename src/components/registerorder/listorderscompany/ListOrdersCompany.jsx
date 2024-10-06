@@ -16,7 +16,7 @@ import apiInstance from "../../../utils/axios";
 import { App_Company, App_User } from "../../../utils/constants";
 
 // package components
-import OrderComponents from "../ordercomponents/OrderComponents";
+// import OrderComponents from "../ordercomponents/OrderComponents";
 import OrderComponentsCompany from "../ordercomponentscompany/OrderComponentsCompany";
 
 // ui components

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import Swal from "sweetalert2";
 import { useNavigate, useParams } from "react-router-dom";
+import Swal from "sweetalert2";
 
 // bootstrap components
 import { Button } from "react-bootstrap";
@@ -21,7 +21,6 @@ function OurWorkComponents({ ourwork: packagecomponents }) {
     const userId = useUserData()?.user_id;
     const param = useParams();
     const { id, title, full_name, typeunit } = packagecomponents;
-    // console.log(`-->`, packagecomponents);
 
     const [projects, setProjects] = useState([]);
     const [project, setProject] = useState({
@@ -62,7 +61,6 @@ function OurWorkComponents({ ourwork: packagecomponents }) {
     };
 
     if (!packagecomponents) return <Loader />;
-    // console.log(`233`, packagecomponents);
     const { slug } = packagecomponents;
 
     return (

@@ -14,7 +14,6 @@ import DetailsCategoryComponents from "./detailscategorycomponents/DetailsCatego
 import DetailsProjectViewComponent from "../../project/detailsprojectviewcomponent/DetailsProjectViewComponent";
 
 // ui components
-// import Property from "../../property/Property";
 import Loader from "../../../ui/loader/Loader";
 import NotComponent from "../../../ui/error/NotComponent";
 
@@ -40,55 +39,7 @@ function DetailsCategory() {
     useEffect(() => {
         fetchCategoryDetails();
     }, [slug]);
-    // console.log(`333`, category);
 
-    // if (!category) return <Loader />;
-    // console.log(category);
-
-    // =================================================================
-    // =2
-    // const [posts, setPosts] = useState([]);
-    // const [popularPosts, setPopularPosts] = useState([]);
-    // const [category, setCategory] = useState([]);
-
-    // const fetchPosts = async () => {
-    //     const response = await apiInstance.get(`post/lists/`);
-    //     setPosts(response.data);
-    // };
-
-    // const fetchPopularPost = () => {
-    //     const sortedPopularPost = posts?.sort((a, b) => b.view - a.view);
-    //     setPopularPosts(sortedPopularPost);
-    // };
-
-    // const fetchCategory = async () => {
-    //     const response = await apiInstance.get(`post/category/list/`);
-    //     setCategory(response.data);
-    // };
-
-    // useEffect(() => {
-    //     fetchPosts();
-    //     fetchCategory();
-    // }, []);
-
-    // useEffect(() => {
-    //     fetchPopularPost();
-    // }, [posts]);
-
-    // // Pagination
-    // const itemsPerPage = 4;
-    // const [currentPage, setCurrentPage] = useState(1);
-    // const indexOfLastItem = currentPage * itemsPerPage;
-    // const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-    // const postItems = posts.slice(indexOfFirstItem, indexOfLastItem);
-    // const totalPages = Math.ceil(posts.length / itemsPerPage);
-    // const pageNumbers = Array.from(
-    //     { length: totalPages },
-    //     (_, index) => index + 1
-    // );
-    // // console.log(`333`, category);
-    // if (!posts || !postItems) return <Loader />;
-    // console.log(`3333---->`, postItems);
     // =================================================================
     const [posts, setPosts] = useState([]);
     const param = useParams();

@@ -168,14 +168,14 @@ function Header() {
                         </nav>
 
                         <div className="header-bottom-actions">
-                            <button
+                            {/* <button
                                 className="header-bottom-actions-btn"
                                 aria-label="Search"
                                 title="Search"
                             >
                                 <ion-icon name="search-outline" />
                                 <span>Search</span>
-                            </button>
+                            </button> */}
 
                             {isLoggedIn() && (
                                 <button

@@ -68,33 +68,6 @@ function ListProject() {
         (_, index) => index + 1
     );
 
-    const handleLikePost = async (postId) => {
-        const jsonData = {
-            user_id: userId,
-            post_id: postId,
-        };
-        const response = await apiInstance.post(`post/like-post/`, jsonData);
-        console.log(response.data);
-        fetchPosts();
-
-        Toast("success", response.data.message, "");
-    };
-
-    const handleBookmarkPost = async (postId) => {
-        const jsonData = {
-            user_id: userId,
-            post_id: postId,
-        };
-        const response = await apiInstance.post(
-            `post/bookmark-post/`,
-            jsonData
-        );
-        // console.log(response.data);
-        fetchPosts();
-
-        Toast("success", response.data.message, "");
-    };
-
     if (!posts) return <Loader />;
 
     return (

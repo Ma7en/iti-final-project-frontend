@@ -31,6 +31,8 @@ import Login from "../ui/login/Login";
 import Logout from "../ui/logout/Logout";
 import Signup from "../ui/signup/Signup";
 import ResetPassword from "../ui/resetpassword/ResetPassword";
+import ConfirmEmail from "../ui/confirmemail/ConfirmEmail";
+import ChangePassword from "../ui/changepassword/ChangePassword";
 
 // page components
 import AboutPage from "../pages/app/aboutpages/AboutPage";
@@ -65,8 +67,6 @@ import CreateRegisterOrder from "../components/registerorder/createregisterorder
 import ListOrders from "../components/registerorder/listorders/ListOrders";
 import DetailsOrder from "../components/registerorder/detailsorder/DetailsOrder";
 import ListOrdersCompany from "../components/registerorder/listorderscompany/ListOrdersCompany";
-import ConfirmEmail from "../ui/confirmemail/ConfirmEmail";
-import ChangePassword from "../ui/changepassword/ChangePassword";
 
 function Router() {
     return (

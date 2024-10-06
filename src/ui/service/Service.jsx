@@ -18,20 +18,6 @@ import service2 from "../../assets/images/service/service-2.png";
 import service3 from "../../assets/images/service/service-3.png";
 
 function Service() {
-    // const [categories, setCategories] = useState([]);
-    // const navigate = useNavigate();
-
-    // useEffect(() => {
-    //     const fetchCategories = async () => {
-    //         try {
-    //             const response = await apiInstance.get("category/list/");
-    //             setCategories(response.data);
-    //         } catch (error) {
-    //             console.error("Error fetching categories:", error);
-    //         }
-    //     };
-    //     fetchCategories();
-    // }, []);
     // =================================================================
     const [posts, setPosts] = useState([]);
     const [popularPosts, setPopularPosts] = useState([]);

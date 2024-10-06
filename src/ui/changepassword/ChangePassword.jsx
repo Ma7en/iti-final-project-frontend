@@ -1,11 +1,18 @@
 import React, { useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 
-import apiInstance from "../../utils/axios";
+// import style
 import "./ChangePassword.css";
+
+// plugin
+import Toast from "../../plugin/Toast";
+
+// utils
+import apiInstance from "../../utils/axios";
+
+// ui components
 import ScrollToTopPages from "../scrolltotoppages/ScrollToTopPages";
 import LoadingIndicator from "../loader/LoadingIndicator";
-import Toast from "../../plugin/Toast";
 
 function ChangePassword() {
     const [showPassword, setShowPassword] = useState(false);

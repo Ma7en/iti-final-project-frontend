@@ -24,8 +24,6 @@ function OurWorkComponentsView({ ourwork: packagecomponents }) {
     const navigate = useNavigate();
     const userId = useUserData()?.user_id;
     const param = useParams();
-    // const { id, title, full_name, typeunit } = packagecomponents;
-    // console.log(`-->`, packagecomponents);
 
     const [projects, setProjects] = useState([]);
     const [project, setProject] = useState({
@@ -46,7 +44,6 @@ function OurWorkComponentsView({ ourwork: packagecomponents }) {
     };
 
     if (!packagecomponents) return <Loader />;
-    // console.log(`233`, packagecomponents);
     const {
         id,
         date,

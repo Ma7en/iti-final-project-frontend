@@ -12,10 +12,9 @@ import Loader from "../../../ui/loader/Loader";
 
 function DetailsProjectViewComponent({ project }) {
     const navigate = useNavigate();
-    // console.log(`333`, project);
+
     if (!project) return <Loader />;
 
-    // const {image,} = project;
     return (
         <>
             <div className="content">

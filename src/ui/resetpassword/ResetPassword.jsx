@@ -17,31 +17,6 @@ import LoadingIndicator from "../loader/LoadingIndicator";
 
 const ResetPassword = () => {
     const navigate = useNavigate();
-    // const [email, setEmail] = useState("");
-    // const [message, setMessage] = useState("");
-    // const [loading, setLoading] = useState("");
-    // const [error, setError] = useState("");
-
-    // const handleReset = (e) => {
-    //     e.preventDefault();
-    //     // setError("");
-    //     // setMessage("");
-
-    //     // if (!email) {
-    //     //     setError("Please enter your email");
-    //     //     return;
-    //     // }
-
-    //     // const isValidEmail = email === "shroukeltokhy2000@gmail.com";
-
-    //     // if (isValidEmail) {
-    //     //     console.log("Password reset link sent to:", email);
-    //     //     setMessage("Password reset link has been sent to your email.");
-    //     //     setTimeout(() => navigate("/"), 2000); // Redirect to login after 2 seconds
-    //     // } else {
-    //     //     setError("Email not found");
-    //     // }
-    // };
     // =================================================================
     const [email, setEmail] = useState("");
     const [isLoading, setIsLoading] = useState(false);
