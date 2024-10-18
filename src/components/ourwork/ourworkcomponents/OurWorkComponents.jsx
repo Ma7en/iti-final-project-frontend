@@ -44,7 +44,7 @@ function OurWorkComponents({ ourwork: packagecomponents }) {
     const handleDelete = async (id) => {
         const confirm = await Swal.fire({
             title: "Are you sure?",
-            text: "This will permanently delete the order!",
+            text: "This will permanently delete the Work!",
             icon: "warning",
             showCancelButton: true,
         });

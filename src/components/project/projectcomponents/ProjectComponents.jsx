@@ -44,7 +44,7 @@ function ProjectComponents({ project: packagecomponents }) {
     const handleDelete = async (id) => {
         const confirm = await Swal.fire({
             title: "Are you sure?",
-            text: "This will permanently delete the project!",
+            text: "This will permanently delete the package!",
             icon: "warning",
             showCancelButton: true,
         });

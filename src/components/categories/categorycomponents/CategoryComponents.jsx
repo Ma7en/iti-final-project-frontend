@@ -18,7 +18,7 @@ import Loader from "../../../ui/loader/Loader";
 function CategoryComponents({ category: categorycomponents }) {
     const navigate = useNavigate();
 
-    const { id, title } = categorycomponents;
+    const { id, title, slug } = categorycomponents;
 
     const [categories, setCategories] = useState([]);
     const [category, setCategory] = useState({
@@ -72,7 +72,7 @@ function CategoryComponents({ category: categorycomponents }) {
                     <Button
                         className="btn view-btn"
                         onClick={() =>
-                            window.open(`/detailscategory/${id}`, "_blank")
+                            window.open(`/detailscategory/${slug}`, "_blank")
                         }
                     >
                         View

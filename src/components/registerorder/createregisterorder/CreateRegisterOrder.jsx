@@ -164,7 +164,7 @@ function CreateRegisterOrder() {
             <div className="createregisterorder">
                 <div className="container">
                     <div className="section-title">
-                        <h2 className="h2">Book New Package</h2>
+                        <h2 className="h2">Order</h2>
                     </div>
 
                     <div className="content">
