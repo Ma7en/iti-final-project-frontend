@@ -6,7 +6,8 @@ const apiInstance = axios.create({
     // Set the base URL for this instance. All requests made using this instance will have this URL as their starting point.
     // "edit here"
     // baseURL: "http://127.0.0.1:8000/api/v1/",
-    baseURL: "https://m9ee9m2.pythonanywhere.com/api/v1/",
+    // baseURL: "https://m9ee9m2.pythonanywhere.com/api/v1/",
+    baseURL: "https://m9ee9m4.pythonanywhere.com/api/v1/",
 
     // Set a timeout for requests made using this instance. If a request takes longer than 5 seconds to complete, it will be canceled.
     timeout: 50000, // timeout after 5 seconds
