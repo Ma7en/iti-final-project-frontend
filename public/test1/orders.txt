@@ -1,0 +1,341 @@
+==================================================================================
+==================================================================================
+==================================================================================
+
+
+Full Name: Mohamed Ali
+Phone: 01001234567
+Governorate: Cairo
+City: Nasr City
+The Area: Madinaty
+Type of Residential Unit: Apartment
+Required Works: Execution and Design
+Skills: Quick execution
+Condition of the Unit: Semi-finished
+Residential Unit Area: 120
+Number of Rooms: 3
+Number of Bathrooms: 2
+Package: (سيتم تحديده تلقائياً)
+Note: Need to finish quickly, the deadline is close.
+
+
+
+
+==================================================================================
+==================================================================================
+
+
+Mohamed Ali
+
+01001234567
+
+Cairo
+
+Nasr City
+
+Madinaty
+
+Apartment
+
+Execution and Design
+
+Quick execution
+
+Semi-finished
+
+120
+
+3
+
+2
+
+Package: 
+
+Need to finish quickly, the deadline is close.
+
+
+
+==================================================================================
+
+عميل 1:
+
+
+Ahmed Mahmoud
+
+01112345678
+
+Giza
+
+6th of October
+
+El Sheikh Zayed
+
+Villa
+
+Execution only
+
+Innovative designs
+
+Unfinished
+
+250
+
+5
+
+4
+
+Package: 
+
+High-end finishing required.
+
+
+
+==================================================================================
+
+عميل 2:
+
+
+Sara Hossam
+
+01222334455
+
+Alexandria
+
+Sidi Gaber
+
+Al Mandara
+
+Full House
+
+Execution and Design
+
+Material provision
+
+Semi-finished
+
+180
+
+4
+
+3
+
+Package: 
+
+Need extra storage space in the design.
+
+
+==================================================================================
+
+عميل 3:
+
+
+Mostafa Fathy
+
+01098765432
+
+Cairo
+
+Heliopolis
+
+El Merghany
+
+Apartment
+
+Supervision
+
+Quick execution
+
+3/4 finished
+
+140
+
+3
+
+2
+
+Package: 
+
+Urgent work required before moving in.
+
+
+==================================================================================
+
+عميل 4:
+
+Yasmine Khaled
+
+01011223344
+
+Assiut
+
+El-Minia
+
+Central District
+
+Roof
+
+Execution only
+
+Innovative designs
+
+Unfinished
+
+90
+
+2
+
+1
+
+Package: 
+
+Needs creative outdoor space design.
+
+
+==================================================================================
+
+عميل 5:
+
+
+Amr Saeed
+
+01199887766
+
+Luxor
+
+Luxor City
+
+Karnak
+
+Administrative
+
+Execution and Design
+
+Quick execution
+
+Semi-finished
+
+300
+
+10
+
+6
+
+Package: 
+
+Office space with minimal design.
+
+
+
+==================================================================================
+
+عميل 6:
+
+
+Khaled Mohamed
+
+01200987654
+
+Port Said
+
+Al Zohour
+
+El-Arab
+
+Commercial Shop
+
+Execution and Design
+
+Material provision
+
+Unfinished
+
+60
+
+1
+
+1
+
+Package: 
+
+Need efficient space planning for a retail store.
+
+
+==================================================================================
+
+عميل 7:
+
+Rana Mostafa
+
+01055667788
+
+Red Sea
+
+Hurghada
+
+New Hurghada
+
+Villa
+
+Execution and Design
+
+Innovative designs
+
+Semi-finished
+
+400
+
+6
+
+5
+
+Package: 
+
+Seaside villa, modern and luxurious design required.
+
+
+
+==================================================================================
+
+عميل 8:
+
+
+
+Hany Ebrahim
+
+01233445566
+
+Qalyubia
+
+Banha
+
+Al Obour
+
+Apartment
+
+Supervision
+
+Quick execution
+
+3/4 finished
+
+160
+
+4
+
+3
+
+Package: 
+
+Need supervision for finishing touches.
+
+
+
+
+
+
+
+
+
+==================================================================================
+==================================================================================
+==================================================================================
