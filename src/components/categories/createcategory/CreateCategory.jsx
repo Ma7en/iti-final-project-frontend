@@ -17,8 +17,12 @@ import { Button } from "react-bootstrap";
 
 // ui components
 import ScrollToTopPages from "../../../ui/scrolltotoppages/ScrollToTopPages";
+import LoadingIndicator from "../../../ui/loader/LoadingIndicator";
 
 function CreateCategory() {
+    const [error, setError] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
+
     const navigate = useNavigate();
     const [categories, setCategories] = useState([]);
     const [category, setCategory] = useState({
@@ -41,6 +45,8 @@ function CreateCategory() {
     };
 
     const handleInputChange = (e) => {
+        setError(false);
+        setIsLoading(false);
         const { name, value } = e.target;
         if (name === "title") {
             // Auto-generate slug from title
@@ -55,12 +61,32 @@ function CreateCategory() {
     };
 
     const handleFileChange = (e) => {
+        setError(false);
         const file = e.target.files[0];
         setCategory({ ...category, image: file });
     };
 
+    const resetForm = () => {
+        setCategory({
+            title: "",
+            details: "",
+            image: null,
+            slug: "",
+        });
+    };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setIsLoading(true);
+
+        if (!category.details || !category.title || !category.image) {
+            // console.log(`error`);
+            // resetForm();
+            setIsLoading(false);
+
+            return setError(`Please enter the data`);
+        }
+
         const formData = new FormData();
         formData.append("title", category.title);
         formData.append("details", category.details);
@@ -73,6 +99,7 @@ function CreateCategory() {
                     "Content-Type": "multipart/form-data",
                 },
             });
+            setIsLoading(false);
             Toast("success", "Category created successfully!");
             fetchCategories(); // Refresh categories list after creation
             navigate(`/${App_Company}/profile`);
@@ -81,6 +108,8 @@ function CreateCategory() {
                 "Error during category submission:",
                 error.response.data
             );
+            // setError(error.response.data);
+            setError(`category with this slug already exists.`);
             Toast("error", "Error while saving category!");
             Toast("error", "category with this slug already exists.");
         }
@@ -143,6 +172,13 @@ function CreateCategory() {
                                     required
                                 ></textarea>
                             </div>
+
+                            {isLoading && <LoadingIndicator />}
+                            {error && (
+                                <div className="Error alert alert-danger">
+                                    {error}
+                                </div>
+                            )}
 
                             <div className="buttons">
                                 <Button className="btn " type="submit">

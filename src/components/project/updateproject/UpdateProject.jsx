@@ -18,8 +18,12 @@ import { App_Company } from "../../../utils/constants";
 
 // ui components
 import ScrollToTopPages from "../../../ui/scrolltotoppages/ScrollToTopPages";
+import LoadingIndicator from "../../../ui/loader/LoadingIndicator";
 
 function UpdateProject() {
+    const [isLoading, setIsLoading] = useState(false);
+    const [error, setError] = useState(false);
+
     const [post, setEditPost] = useState({
         image: "",
         title: "",
@@ -31,7 +35,6 @@ function UpdateProject() {
     });
     const [imagePreview, setImagePreview] = useState("");
     const [categoryList, setCategoryList] = useState([]);
-    const [isLoading, setIsLoading] = useState(false);
     const userId = useUserData()?.user_id;
     const navigate = useNavigate();
     const param = useParams();
@@ -61,6 +64,9 @@ function UpdateProject() {
     }, []);
 
     const handleCreatePostChange = (event) => {
+        setIsLoading(false);
+        setError(false);
+
         setEditPost({
             ...post,
             [event.target.name]: event.target.value,
@@ -68,6 +74,9 @@ function UpdateProject() {
     };
 
     const handleFileChange = (event) => {
+        setIsLoading(false);
+        setError(false);
+
         const selectedFile = event.target.files[0];
         const reader = new FileReader();
 
@@ -90,7 +99,8 @@ function UpdateProject() {
         setIsLoading(true);
         e.preventDefault();
         if (!post.title || !post.image || !post.price_per_unit) {
-            Toast("error", "All Fields Are Required To Create A Post");
+            Toast("error", "All Fields Are Required To Create A Package");
+            setError(`All Fields Are Required To Create A Package`);
             setIsLoading(false);
             return;
         }
@@ -146,7 +156,7 @@ function UpdateProject() {
             <div className="updateproject">
                 <div className="container">
                     <div className="section-title">
-                        <h2 className="h2">Update Project</h2>
+                        <h2 className="h2">Update Package</h2>
                     </div>
 
                     <div className="content">
@@ -237,9 +247,16 @@ function UpdateProject() {
                                 </select>
                             </div>
 
+                            {isLoading && <LoadingIndicator />}
+                            {error && (
+                                <div className="Error alert alert-danger">
+                                    {error}
+                                </div>
+                            )}
+
                             <div className="buttons">
                                 <Button className="btn" type="submit">
-                                    Update Project
+                                    Update Package
                                 </Button>
 
                                 <Button

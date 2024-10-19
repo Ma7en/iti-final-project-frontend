@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 
 // ui bootstrap components
 import { Button } from "react-bootstrap";
+
+// contexts
+import vars from "../../../contexts/vars";
 
 // utils
 import { App_User } from "../../../utils/constants";
@@ -11,8 +14,11 @@ import { App_User } from "../../../utils/constants";
 import Loader from "../../../ui/loader/Loader";
 
 function DetailsProjectViewComponent({ project }) {
+    const { packageA, setPackageA } = useContext(vars);
+
     const navigate = useNavigate();
     if (!project) return <Loader />;
+    console.log(project);
 
     return (
         <>
@@ -24,11 +30,11 @@ function DetailsProjectViewComponent({ project }) {
 
                     <div className="details">
                         <p className="h3">
-                            Service:
+                            Category Name:
                             <span>{project?.category?.title}</span>
                         </p>
                         <p className="h3">
-                            Title:
+                            Package Name:
                             <span>{project?.title}</span>
                         </p>
                         <p className="h3 price">
@@ -68,6 +74,8 @@ function DetailsProjectViewComponent({ project }) {
                             <Button
                                 className="btn update-btn"
                                 onClick={() => {
+                                    setPackageA("");
+                                    setPackageA(project?.title);
                                     navigate(
                                         `/${App_User}/createregisterorder`
                                     );

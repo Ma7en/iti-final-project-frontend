@@ -77,6 +77,14 @@
     user-select: none;
 }
 
+.createregisterorder .Error {
+    font-size: 16px;
+    margin-block: 16px;
+    text-align: center;
+    font-weight: bold;
+    color: rgb(213, 20, 20);
+}
+
 .createregisterorder .buttons {
     margin-top: 30px;
     display: flex;

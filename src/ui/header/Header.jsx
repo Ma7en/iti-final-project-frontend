@@ -221,7 +221,7 @@ function Header() {
                                 )}
                             </button>
 
-                            <button
+                            {/* <button
                                 className="header-bottom-actions-btn"
                                 aria-label="Cart"
                                 title="Cart"
@@ -233,7 +233,7 @@ function Header() {
                             >
                                 <ion-icon name="add-outline" />
                                 <span>Order</span>
-                            </button>
+                            </button> */}
 
                             <button
                                 className="header-bottom-actions-btn"

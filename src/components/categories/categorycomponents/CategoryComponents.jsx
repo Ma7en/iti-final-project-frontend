@@ -72,7 +72,7 @@ function CategoryComponents({ category: categorycomponents }) {
                     <Button
                         className="btn view-btn"
                         onClick={() =>
-                            window.open(`/detailscategory/${slug}`, "_blank")
+                            window.open(`/detailscategory/${id}`, "_blank")
                         }
                     >
                         View

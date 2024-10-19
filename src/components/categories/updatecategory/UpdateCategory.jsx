@@ -18,8 +18,12 @@ import { Button } from "react-bootstrap";
 
 // ui components
 import ScrollToTopPages from "../../../ui/scrolltotoppages/ScrollToTopPages";
+import LoadingIndicator from "../../../ui/loader/LoadingIndicator";
 
 function UpdateCategory() {
+    const [error, setError] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
+
     const [categories, setCategories] = useState([]);
     const [category, setCategory] = useState({
         title: "",
@@ -32,6 +36,7 @@ function UpdateCategory() {
     const navigate = useNavigate();
     const { id } = useParams();
     const userId = useUserData()?.user_id;
+    // console.log(`33`, useParams());
 
     // Fetch categories from the API
     const fetchCategories = async () => {
@@ -61,12 +66,16 @@ function UpdateCategory() {
 
     // Handle input changes
     const handleInputChange = (e) => {
+        setIsLoading(false);
+        setError(false);
         const { name, value } = e.target;
         setCategory({ ...category, [name]: value });
     };
 
     // Handle file changes for category image
     const handleFileChange = (e) => {
+        setIsLoading(false);
+        setError(false);
         const file = e.target.files[0];
         setCategory({ ...category, image: file });
     };
@@ -74,6 +83,13 @@ function UpdateCategory() {
     // Handle form submission for updating the category
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setIsLoading(true);
+
+        if (!category.details || !category.title) {
+            setIsLoading(false);
+            return setError(`Please enter the data`);
+        }
+
         const formData = new FormData();
 
         formData.append("title", category.title);
@@ -90,6 +106,7 @@ function UpdateCategory() {
                     "Content-Type": "multipart/form-data",
                 },
             });
+            setIsLoading(false);
             Toast("success", "Category updated successfully!");
             fetchCategories();
             navigate(`/${App_Company}/categories`);
@@ -183,6 +200,13 @@ function UpdateCategory() {
                                     required
                                 ></textarea>
                             </div>
+
+                            {isLoading && <LoadingIndicator />}
+                            {error && (
+                                <div className="Error alert alert-danger">
+                                    {error}
+                                </div>
+                            )}
 
                             <div className="buttons">
                                 <Button className="btn" type="submit">

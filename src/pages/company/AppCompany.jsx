@@ -192,7 +192,7 @@ function AppCompany() {
                                     navigate(`/${App_Company}/createproject`);
                                 }}
                             >
-                                <span>create project</span>
+                                <span>create package</span>
                                 <ion-icon name="add-outline" />
                             </Button>
 
@@ -202,7 +202,7 @@ function AppCompany() {
                                     navigate(`/${App_Company}/listproject`);
                                 }}
                             >
-                                <span>view projects</span>
+                                <span>view packages</span>
                                 <ion-icon name="eye-outline"></ion-icon>
                             </Button>
                         </div>
@@ -221,7 +221,7 @@ function AppCompany() {
                                     navigate(`/${App_Company}/createourwork`);
                                 }}
                             >
-                                <span>create our works</span>
+                                <span>create work</span>
                                 <ion-icon name="add-outline" />
                             </Button>
 

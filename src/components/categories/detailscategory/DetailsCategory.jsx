@@ -21,14 +21,15 @@ import NotComponent from "../../../ui/error/NotComponent";
 import service3 from "../../../assets/images/service/service-3.png";
 
 function DetailsCategory() {
-    const { slug } = useParams();
-    // console.log(`eee`, slug);
+    const [loading, setLoading] = useState(true);
+    const { id } = useParams();
+    console.log(`eee`, useParams());
     // console.log("id", id);
     const [category, setCategory] = useState(null);
 
     const fetchCategoryDetails = async () => {
         try {
-            const response = await apiInstance.get(`category/detail/${slug}/`);
+            const response = await apiInstance.get(`category/detail/${id}/`);
             setCategory(response.data);
             // console.log(`ddd`, response.data);
         } catch (error) {
@@ -38,17 +39,19 @@ function DetailsCategory() {
 
     useEffect(() => {
         fetchCategoryDetails();
-    }, [slug]);
+    }, [id]);
 
     // =================================================================
     const [posts, setPosts] = useState([]);
     const param = useParams();
-    const [loading, setLoading] = useState(true);
+    // console.log(`3333---`, param);
+    // console.log(`eee`, category?.slug);
 
     const fetchPosts = async () => {
         try {
             const response = await apiInstance.get(
-                `post/category/posts/${param.slug}/`
+                // `post/category/posts/${param.slug}/`
+                `post/category/posts/${category?.slug}/`
             );
             setPosts(response.data);
             setLoading(false);
@@ -58,7 +61,7 @@ function DetailsCategory() {
     };
     useEffect(() => {
         fetchPosts();
-    }, []);
+    }, [id, category]);
 
     // Pagination
     const itemsPerPage = 4;

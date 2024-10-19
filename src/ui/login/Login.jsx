@@ -1,5 +1,5 @@
 // import
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Navigate, useLocation, useNavigate } from "react-router-dom";
 
 //
@@ -27,6 +27,7 @@ import apiInstance from "../../utils/axios";
 import LoadingIndicator from "../loader/LoadingIndicator";
 import ScrollToTopPages from "../scrolltotoppages/ScrollToTopPages";
 import Loader from "../loader/Loader";
+import vars from "../../contexts/vars";
 
 function Login() {
     // = 2
@@ -58,12 +59,35 @@ function Login() {
     // };
 
     // =================================================================
+    const { loginLog, setLoginLog } = useContext(vars);
     const [showPassword, setShowPassword] = useState(false);
+    const location = useLocation();
+    const queryParams = new URLSearchParams(location.search);
+    const isActivated = queryParams.get("activated");
+
+    console.log(`loginlog`, loginLog);
+    console.log(`isActivated`, isActivated);
+    // =
+    // console.log(`3`, isActivated);
+    // if (isActivated === "true") {
+    //     console.log(`111`);
+    // }
+
+    // if (loginLog === false) {
+    //     console.log(`-->`, loginLog); // false
+    // }
+
     const [error, setError] = useState(false);
     const [bioData, setBioData] = useState({ email: "", password: "" });
     const [isLoading, setIsLoading] = useState(false);
     const isLoggedIn = useAuthStore((state) => state.isLoggedIn);
     const navigate = useNavigate();
+
+    useEffect(() => {
+        if (isActivated === "true") {
+            setLoginLog(true);
+        }
+    }, [isActivated, setLoginLog]);
 
     const handleBioDataChange = (event) => {
         setError(false);
@@ -84,6 +108,7 @@ function Login() {
         e.preventDefault();
         setIsLoading(true);
         setError(false);
+        console.log(`---`, bioData.email);
 
         const { error } = await login(bioData.email, bioData.password);
         if (error) {
@@ -91,7 +116,15 @@ function Login() {
             Toast("error", `${JSON.stringify(error)}.`, "");
             setError(`${JSON.stringify(error)}.`);
             resetForm();
+        } else if (
+            loginLog === false &&
+            bioData.email !== "homeverse_proj@gmail.com"
+        ) {
+            Toast("error", `Active Account.`, "");
+            setIsLoading(false);
+            return navigate(`/confirmemail`);
         } else {
+            // console.log(`222--login`);
             navigate(`/${App_User}/profile`);
         }
 
@@ -159,7 +192,11 @@ function Login() {
     //     return <Navigate to={`/confirmemail`} />;
     // }
 
-    if (loggedIn && profileData?.user?.is_superuser === false) {
+    if (
+        loggedIn &&
+        profileData?.user?.is_superuser === false &&
+        loginLog === true
+    ) {
         return <Navigate to={`/${App_User}/profile`} />;
     }
 

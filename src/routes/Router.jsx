@@ -358,8 +358,8 @@ function Router() {
                             />
 
                             {/* =================================================== */}
-                            {/* project */}
-                            {/* create project */}
+                            {/* package */}
+                            {/* create package */}
                             <Route
                                 path={`/${App_Company}/createproject`}
                                 element={<CreateProject />}
@@ -586,16 +586,76 @@ function Router() {
                                 path={`/${App_Company}/updateourwork/:slug/`}
                                 element={<UpdateOurWork />}
                             />
+                            <Route
+                                path={`/${App_Company}/update/ourwork/:slug/`}
+                                element={<UpdateOurWork />}
+                            />
+                            <Route
+                                path={`/${App_Company}/update-ourwork/:slug/`}
+                                element={<UpdateOurWork />}
+                            />
+                            <Route
+                                path={`/${App_Company}/ourwork/update/:slug/`}
+                                element={<UpdateOurWork />}
+                            />
+                            <Route
+                                path={`/${App_Company}/ourwork-update/:slug/`}
+                                element={<UpdateOurWork />}
+                            />
 
                             {/* list our work */}
                             <Route
                                 path={`/${App_Company}/listourwork`}
                                 element={<ListOurWork />}
                             />
+                            <Route
+                                path={`/${App_Company}/list/ourwork`}
+                                element={<ListOurWork />}
+                            />
+                            <Route
+                                path={`/${App_Company}/list-ourwork`}
+                                element={<ListOurWork />}
+                            />
+                            <Route
+                                path={`/${App_Company}/list/works`}
+                                element={<ListOurWork />}
+                            />
+                            <Route
+                                path={`/${App_Company}/list-works`}
+                                element={<ListOurWork />}
+                            />
+                            <Route
+                                path={`/${App_Company}/works/list`}
+                                element={<ListOurWork />}
+                            />
+                            <Route
+                                path={`/${App_Company}/works-list`}
+                                element={<ListOurWork />}
+                            />
 
                             {/* details our works */}
                             <Route
                                 path={`/${App_Company}/detailsourwork/:slug/`}
+                                element={<DetailsOurWork />}
+                            />
+                            <Route
+                                path={`/${App_Company}/details/ourwork/:slug/`}
+                                element={<DetailsOurWork />}
+                            />
+                            <Route
+                                path={`/${App_Company}/details/our/work/:slug/`}
+                                element={<DetailsOurWork />}
+                            />
+                            <Route
+                                path={`/${App_Company}/details-our/work/:slug/`}
+                                element={<DetailsOurWork />}
+                            />
+                            <Route
+                                path={`/${App_Company}/details/our-work/:slug/`}
+                                element={<DetailsOurWork />}
+                            />
+                            <Route
+                                path={`/${App_Company}/details-our-work/:slug/`}
                                 element={<DetailsOurWork />}
                             />
 
@@ -606,10 +666,46 @@ function Router() {
                                 path={`/${App_Company}/listorders`}
                                 element={<ListOrdersCompany />}
                             />
+                            <Route
+                                path={`/${App_Company}/list/orders`}
+                                element={<ListOrdersCompany />}
+                            />
+                            <Route
+                                path={`/${App_Company}/list-orders`}
+                                element={<ListOrdersCompany />}
+                            />
+                            <Route
+                                path={`/${App_Company}/orderslist`}
+                                element={<ListOrdersCompany />}
+                            />
+                            <Route
+                                path={`/${App_Company}/orders/list`}
+                                element={<ListOrdersCompany />}
+                            />
+                            <Route
+                                path={`/${App_Company}/orders-list`}
+                                element={<ListOrdersCompany />}
+                            />
 
                             {/* details order */}
                             <Route
                                 path={`/${App_Company}/detailsorder/:slug/`}
+                                element={<DetailsOrder />}
+                            />
+                            <Route
+                                path={`/${App_Company}/details/order/:slug/`}
+                                element={<DetailsOrder />}
+                            />
+                            <Route
+                                path={`/${App_Company}/details-order/:slug/`}
+                                element={<DetailsOrder />}
+                            />
+                            <Route
+                                path={`/${App_Company}/order/details/:slug/`}
+                                element={<DetailsOrder />}
+                            />
+                            <Route
+                                path={`/${App_Company}/order-details/:slug/`}
                                 element={<DetailsOrder />}
                             />
                         </Route>
@@ -750,10 +846,42 @@ function Router() {
                                 path={`/${App_User}/listorders`}
                                 element={<ListOrders />}
                             />
+                            <Route
+                                path={`/${App_User}/list/orders`}
+                                element={<ListOrders />}
+                            />
+                            <Route
+                                path={`/${App_User}/list-orders`}
+                                element={<ListOrders />}
+                            />
+                            <Route
+                                path={`/${App_User}/orders/list`}
+                                element={<ListOrders />}
+                            />
+                            <Route
+                                path={`/${App_User}/orders-list`}
+                                element={<ListOrders />}
+                            />
 
                             {/* details order */}
                             <Route
                                 path={`/${App_User}/detailsorder/:slug/`}
+                                element={<DetailsOrder />}
+                            />
+                            <Route
+                                path={`/${App_User}/details/order/:slug/`}
+                                element={<DetailsOrder />}
+                            />
+                            <Route
+                                path={`/${App_User}/details-order/:slug/`}
+                                element={<DetailsOrder />}
+                            />
+                            <Route
+                                path={`/${App_User}/order/details/:slug/`}
+                                element={<DetailsOrder />}
+                            />
+                            <Route
+                                path={`/${App_User}/order-details/:slug/`}
                                 element={<DetailsOrder />}
                             />
                         </Route>
@@ -814,7 +942,7 @@ function Router() {
                             {/* categories or services */}
                             {/* details category  */}
                             <Route
-                                path={`/detailscategory/:slug/`}
+                                path={`/detailscategory/:id/`}
                                 element={<DetailsCategory />}
                             />
                             <Route

@@ -96,6 +96,14 @@
     user-select: none;
 }
 
+.updateproject .Error {
+    font-size: 16px;
+    margin-block: 16px;
+    text-align: center;
+    font-weight: bold;
+    color: rgb(213, 20, 20);
+}
+
 .updateproject .buttons {
     display: flex;
     align-items: center;

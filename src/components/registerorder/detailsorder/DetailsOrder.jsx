@@ -54,7 +54,7 @@ function DetailsOrder() {
     }, []);
 
     if (!post) return <Loader />;
-    // console.log(`333`, post);
+    console.log(`333`, post);
 
     return (
         <>
@@ -125,6 +125,10 @@ function DetailsOrder() {
                                             <td>{post?.numberbathroom}</td>
                                         </tr>
                                         <tr>
+                                            <td>Package</td>
+                                            <td>{post?.package}</td>
+                                        </tr>
+                                        <tr>
                                             <td>Note</td>
                                             <td>{post?.description}</td>
                                         </tr>
@@ -138,7 +142,7 @@ function DetailsOrder() {
                         <Button
                             className="btn update-btn"
                             onClick={() => {
-                                navigate(`/${App_Company}/listorders`);
+                                navigate(`/${App_User}/listorders`);
                             }}
                         >
                             Back to List

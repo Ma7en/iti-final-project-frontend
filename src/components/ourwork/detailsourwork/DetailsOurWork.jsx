@@ -19,8 +19,10 @@ import Loader from "../../../ui/loader/Loader";
 
 // assets
 import company1 from "../../../assets/images/company/company1.png";
+import { error } from "ajv/dist/vocabularies/applicator/dependencies";
 
 function DetailsOurWork() {
+    const errorimage = "http://127.0.0.1:8000/media/undefined";
     const navigate = useNavigate();
     const [post, setPost] = useState([]);
     const [tags, setTags] = useState([]);
@@ -52,6 +54,9 @@ function DetailsOurWork() {
         image4,
         date,
     } = post;
+    console.log(`image1`, image1);
+    // if (image1 === "http://127.0.0.1:8000/media/undefined")
+    //     return console.log(`image1 error`, image1);
 
     return (
         <>
@@ -97,51 +102,73 @@ function DetailsOurWork() {
 
                                     <div className="card-content">
                                         <div className="images">
-                                            <figure className="card-banner">
-                                                <a>
-                                                    <img
-                                                        src={`${
-                                                            image1 || thumbnail
-                                                        }`}
-                                                        alt="New Apartment Nice View"
-                                                        className="w-100"
-                                                    />
-                                                </a>
-                                            </figure>
+                                            {image1 === errorimage ? (
+                                                ""
+                                            ) : (
+                                                <figure className="card-banner">
+                                                    <a>
+                                                        <img
+                                                            src={`${
+                                                                image1 ||
+                                                                thumbnail
+                                                            }`}
+                                                            alt="New Apartment Nice View"
+                                                            className="w-100"
+                                                        />
+                                                    </a>
+                                                </figure>
+                                            )}
 
-                                            <figure className="card-banner">
-                                                <a>
-                                                    <img
-                                                        src={`${
-                                                            image2 || thumbnail
-                                                        }`}
-                                                        alt="New Apartment Nice View"
-                                                        className="w-100"
-                                                    />
-                                                </a>
-                                            </figure>
-                                            <figure className="card-banner">
-                                                <a>
-                                                    <img
-                                                        src={`${
-                                                            image3 || thumbnail
-                                                        }`}
-                                                        alt="New Apartment Nice View"
-                                                        className="w-100"
-                                                    />
-                                                </a>
-                                            </figure>
-                                            <figure className="card-banner">
-                                                <a>
-                                                    <img
-                                                        src={`${
-                                                            image4 || thumbnail
-                                                        }`}
-                                                        alt="New Apartment Nice View"
-                                                        className="w-100"
-                                                    />
-                                                </a>
-                                            </figure>
+                                            {image2 === errorimage ? (
+                                                ""
+                                            ) : (
+                                                <figure className="card-banner">
+                                                    <a>
+                                                        <img
+                                                            src={`${
+                                                                image2 ||
+                                                                thumbnail
+                                                            }`}
+                                                            alt="New Apartment Nice View"
+                                                            className="w-100"
+                                                        />
+                                                    </a>
+                                                </figure>
+                                            )}
+
+                                            {image3 === errorimage ? (
+                                                ""
+                                            ) : (
+                                                <figure className="card-banner">
+                                                    <a>
+                                                        <img
+                                                            src={`${
+                                                                image3 ||
+                                                                thumbnail
+                                                            }`}
+                                                            alt="New Apartment Nice View"
+                                                            className="w-100"
+                                                        />
+                                                    </a>
+                                                </figure>
+                                            )}
+
+                                            {image4 === errorimage ? (
+                                                ""
+                                            ) : (
+                                                <figure className="card-banner">
+                                                    <a>
+                                                        <img
+                                                            src={`${
+                                                                image4 ||
+                                                                thumbnail
+                                                            }`}
+                                                            alt="New Apartment Nice View"
+                                                            className="w-100"
+                                                        />
+                                                    </a>
+                                                </figure>
+                                            )}
                                         </div>
                                         {/* <div className="card-price">
                                         <strong>$34,900</strong>/Month

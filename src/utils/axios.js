@@ -4,7 +4,8 @@ import axios from "axios";
 // Create an instance of Axios and store it in the 'apiInstance' variable. This instance will have specific configuration options.
 const apiInstance = axios.create({
     // Set the base URL for this instance. All requests made using this instance will have this URL as their starting point.
-    // baseURL: 'http://127.0.0.1:8000/api/v1/',
+    // "edit here"
+    // baseURL: "http://127.0.0.1:8000/api/v1/",
     baseURL: "https://m9ee9m2.pythonanywhere.com/api/v1/",
 
     // Set a timeout for requests made using this instance. If a request takes longer than 5 seconds to complete, it will be canceled.

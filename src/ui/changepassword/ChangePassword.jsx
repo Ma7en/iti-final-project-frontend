@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 
 // import style
@@ -6,6 +6,9 @@ import "./ChangePassword.css";
 
 // plugin
 import Toast from "../../plugin/Toast";
+
+// context
+import vars from "../../contexts/vars";
 
 // utils
 import apiInstance from "../../utils/axios";
@@ -15,6 +18,7 @@ import ScrollToTopPages from "../scrolltotoppages/ScrollToTopPages";
 import LoadingIndicator from "../loader/LoadingIndicator";
 
 function ChangePassword() {
+    const { loginLog, setLoginLog } = useContext(vars);
     const [showPassword, setShowPassword] = useState(false);
     const [error, setError] = useState(false);
 
@@ -28,6 +32,13 @@ function ChangePassword() {
     const otp = searchParams.get("otp");
     const uidb64 = searchParams.get("uidb64");
     const reset_token = searchParams.get("reset_token");
+
+    // console.log(`333`, otp);
+    useEffect(() => {
+        if (otp) {
+            setLoginLog(true);
+        }
+    }, [otp, setLoginLog]);
 
     const handlePasswordSubmit = (e) => {
         e.preventDefault();

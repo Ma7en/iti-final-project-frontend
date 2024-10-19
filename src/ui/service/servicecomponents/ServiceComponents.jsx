@@ -14,7 +14,7 @@ function ServiceComponents({ category }) {
         <>
             <li
                 onClick={() => {
-                    navigate(`/detailscategory/${slug}`);
+                    navigate(`/detailscategory/${id}`);
                 }}
             >
                 <div className="service-card">
@@ -22,7 +22,7 @@ function ServiceComponents({ category }) {
                         <img src={`${image}`} alt={`${title}`} />
                     </div>
                     <h3 className="h3 card-title">
-                        <Link to={`/detailscategory/${slug}`}>{title}</Link>
+                        <Link to={`/detailscategory/${id}`}>{title}</Link>
                     </h3>
                     <p className="card-text">{details}</p>
                     <Link to={`/contact`} className="card-link">

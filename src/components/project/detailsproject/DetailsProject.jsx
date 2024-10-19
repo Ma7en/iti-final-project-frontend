@@ -18,7 +18,14 @@ import { App_Company } from "../../../utils/constants";
 import Loader from "../../../ui/loader/Loader";
 import ScrollToTopPages from "../../../ui/scrolltotoppages/ScrollToTopPages";
 
+// assests
+import imagecomponents from "../../../assets/images/package/package1.png";
+import LoadingIndicator from "../../../ui/loader/LoadingIndicator";
+
 function DetailsProject() {
+    const [error, setError] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
+
     const navigate = useNavigate();
     const [post, setPost] = useState([]);
     const [tags, setTags] = useState([]);
@@ -45,6 +52,9 @@ function DetailsProject() {
     }, []);
 
     const handleCreateCommentChange = (event) => {
+        setIsLoading(false);
+        setError(false);
+
         setCreateComment({
             ...createComment,
             [event.target.name]: event.target.value,
@@ -53,12 +63,13 @@ function DetailsProject() {
 
     const handleCreateCommentSubmit = async (e) => {
         e.preventDefault();
+        setIsLoading(true);
 
-        // if (!post.title || !post.description) {
-        //     Toast("error", "All Fields Are Required To Create A Post");
-        //     // setIsLoading(false);
-        //     return;
-        // }
+        if (!createComment.title || !createComment.description) {
+            Toast("error", "All Fields Are Required To Create A Component");
+            // setIsLoading(false);
+            return;
+        }
 
         const jsonData = {
             post_id: post?.id,
@@ -69,18 +80,26 @@ function DetailsProject() {
             comment: createComment.comment,
         };
 
-        const response = await apiInstance.post(`post/comment-post/`, jsonData);
-        console.log(response);
-        fetchPost();
-        Toast("success", "Components Posted.", "");
-        navigate(`/${App_Company}/listproject`);
-        setCreateComment({
-            full_name: "",
-            email: "",
-            title: "",
-            description: "",
-            comment: "",
-        });
+        try {
+            const response = await apiInstance.post(
+                `post/comment-post/`,
+                jsonData
+            );
+            console.log(response);
+            fetchPost();
+            setIsLoading(false);
+            Toast("success", "Components Posted.", "");
+            navigate(`/${App_Company}/listproject`);
+            setCreateComment({
+                full_name: "",
+                email: "",
+                title: "",
+                description: "",
+                comment: "",
+            });
+        } catch (error) {
+            console.log(`Error: ${error}`);
+        }
     };
 
     if (!post) return <Loader />;
@@ -100,7 +119,7 @@ function DetailsProject() {
                             <div className="image ">
                                 <img
                                     className="mb-4"
-                                    src={post?.image}
+                                    src={post?.image || imagecomponents}
                                     alt=""
                                 />
                             </div>
@@ -188,6 +207,13 @@ function DetailsProject() {
                                         required
                                     />
                                 </div>
+
+                                {isLoading && <LoadingIndicator />}
+                                {error && (
+                                    <div className="Error alert alert-danger">
+                                        {error}
+                                    </div>
+                                )}
 
                                 <div className="buttons">
                                     <Button

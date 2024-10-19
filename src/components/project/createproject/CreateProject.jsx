@@ -19,8 +19,12 @@ import { App_Company } from "../../../utils/constants";
 // ui components
 import ScrollToTopPages from "../../../ui/scrolltotoppages/ScrollToTopPages";
 import Loader from "../../../ui/loader/Loader";
+import LoadingIndicator from "../../../ui/loader/LoadingIndicator";
 
 function CreateProject() {
+    const [error, setError] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
+
     const [post, setCreatePost] = useState({
         image: "",
         price_per_unit: "",
@@ -32,7 +36,6 @@ function CreateProject() {
     });
     const [imagePreview, setImagePreview] = useState("");
     const [categoryList, setCategoryList] = useState([]);
-    const [isLoading, setIsLoading] = useState(false);
     const userId = useUserData()?.user_id;
     const navigate = useNavigate();
 
@@ -81,8 +84,8 @@ function CreateProject() {
         setIsLoading(true);
         e.preventDefault();
         if (
-            !post.title ||
             !post.image ||
+            !post.title ||
             !post.title ||
             !post.price_per_unit ||
             !post.category
@@ -230,6 +233,13 @@ function CreateProject() {
                                     ))}
                                 </select>
                             </div>
+
+                            {isLoading && <LoadingIndicator />}
+                            {error && (
+                                <div className="Error alert alert-danger">
+                                    {error}
+                                </div>
+                            )}
 
                             <div className="buttons">
                                 <Button className="btn" type="submit">

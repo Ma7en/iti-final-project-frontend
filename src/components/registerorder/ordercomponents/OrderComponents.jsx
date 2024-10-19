@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Swal from "sweetalert2";
 import { useNavigate, useParams } from "react-router-dom";
+import Cookies from "js-cookie"; // Import the 'js-cookie' library for managing cookies
 
 // bootstrap components
 import { Button } from "react-bootstrap";
@@ -17,6 +18,7 @@ import { App_Company, App_User } from "../../../utils/constants";
 import Loader from "../../../ui/loader/Loader";
 
 function OrderComponents({ project: packagecomponents }) {
+    const accessToken = Cookies.get("access_token");
     const navigate = useNavigate();
     const userId = useUserData()?.user_id;
     const param = useParams();
@@ -52,7 +54,12 @@ function OrderComponents({ project: packagecomponents }) {
         if (confirm.isConfirmed) {
             try {
                 await apiInstance.delete(
-                    `registerorder/delete/${userId}/${id}/`
+                    `registerorder/delete/${userId}/${id}/`,
+                    {
+                        headers: {
+                            Authorization: `Bearer ${accessToken}`,
+                        },
+                    }
                 );
                 Toast("success", "Order deleted successfully!");
                 fetchProjects();

@@ -18,8 +18,12 @@ import apiInstance from "../../../utils/axios";
 
 // ui components
 import ScrollToTopPages from "../../../ui/scrolltotoppages/ScrollToTopPages";
+import LoadingIndicator from "../../../ui/loader/LoadingIndicator";
 
 function CreateOurWork() {
+    const [isLoading, setIsLoading] = useState(false);
+    const [error, setError] = useState(false);
+
     const navigate = useNavigate();
     const [post, setCreatePost] = useState({
         title: "",
@@ -34,10 +38,12 @@ function CreateOurWork() {
     });
     const [imagePreview, setImagePreview] = useState("");
     const [categoryList, setCategoryList] = useState([]);
-    const [isLoading, setIsLoading] = useState(false);
     const userId = useUserData()?.user_id;
 
     const handleCreatePostChange = (event) => {
+        setIsLoading(false);
+        setError(false);
+
         setCreatePost({
             ...post,
             [event.target.name]: event.target.value,
@@ -45,6 +51,9 @@ function CreateOurWork() {
     };
 
     const handleFileChangeThumbnail = (event) => {
+        setIsLoading(false);
+        setError(false);
+
         const selectedFile = event.target.files[0];
         const reader = new FileReader();
 
@@ -64,6 +73,9 @@ function CreateOurWork() {
     };
 
     const handleFileChangeImage1 = (event) => {
+        setIsLoading(false);
+        setError(false);
+
         const selectedFile = event.target.files[0];
         const reader = new FileReader();
 
@@ -82,6 +94,9 @@ function CreateOurWork() {
         }
     };
     const handleFileChangeImage2 = (event) => {
+        setIsLoading(false);
+        setError(false);
+
         const selectedFile = event.target.files[0];
         const reader = new FileReader();
 
@@ -100,6 +115,9 @@ function CreateOurWork() {
         }
     };
     const handleFileChangeImage3 = (event) => {
+        setIsLoading(false);
+        setError(false);
+
         const selectedFile = event.target.files[0];
         const reader = new FileReader();
 
@@ -118,6 +136,9 @@ function CreateOurWork() {
         }
     };
     const handleFileChangeImage4 = (event) => {
+        setIsLoading(false);
+        setError(false);
+
         const selectedFile = event.target.files[0];
         const reader = new FileReader();
 
@@ -140,9 +161,11 @@ function CreateOurWork() {
 
     const handleCreatePost = async (e) => {
         setIsLoading(true);
+
         e.preventDefault();
         if (!post.title || !post.description || !post.thumbnail) {
             Toast("error", "All Fields Are Required To Create A Package", "");
+            setError(`All Fields Are Required To Create A Package`);
             setIsLoading(false);
             return;
         }
@@ -192,6 +215,8 @@ function CreateOurWork() {
             // console.log(response.data);
             // console.log("Post Create");
             setIsLoading(false);
+            setError(false);
+
             Swal.fire({
                 icon: "success",
                 title: "Our Work created successfully.",
@@ -325,6 +350,13 @@ function CreateOurWork() {
                                     required
                                 ></textarea>
                             </div>
+
+                            {isLoading && <LoadingIndicator />}
+                            {error && (
+                                <div className="Error alert alert-danger">
+                                    {error}
+                                </div>
+                            )}
 
                             <div className="buttons">
                                 <Button className="btn" type="submit">

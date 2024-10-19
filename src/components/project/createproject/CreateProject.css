@@ -77,6 +77,14 @@
     user-select: none;
 }
 
+.createproject .Error {
+    font-size: 16px;
+    margin-block: 16px;
+    text-align: center;
+    font-weight: bold;
+    color: rgb(213, 20, 20);
+}
+
 .createproject .buttons {
     display: flex;
     align-items: center;

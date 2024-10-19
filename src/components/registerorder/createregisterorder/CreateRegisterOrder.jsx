@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
@@ -12,6 +12,9 @@ import { Button } from "react-bootstrap";
 import useUserData from "../../../plugin/useUserData";
 import Toast from "../../../plugin/Toast";
 
+// contexts
+import vars from "../../../contexts/vars";
+
 // utils
 import apiInstance from "../../../utils/axios";
 import { App_Company, App_User } from "../../../utils/constants";
@@ -19,8 +22,15 @@ import { App_Company, App_User } from "../../../utils/constants";
 // ui components
 import ScrollToTopPages from "../../../ui/scrolltotoppages/ScrollToTopPages";
 import Loader from "../../../ui/loader/Loader";
+import LoadingIndicator from "../../../ui/loader/LoadingIndicator";
 
 function CreateRegisterOrder() {
+    const { packageA, setPackageA } = useContext(vars);
+    const [error, setError] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
+
+    // console.log(packageA);
+
     const [post, setCreatePost] = useState({
         full_name: "",
         phone: "",
@@ -39,6 +49,7 @@ function CreateRegisterOrder() {
         numberbathroom: "",
 
         description: "",
+        package: `${packageA}`,
 
         // title: "",
         // image: "",
@@ -48,11 +59,13 @@ function CreateRegisterOrder() {
     });
     const [imagePreview, setImagePreview] = useState("");
     const [categoryList, setCategoryList] = useState([]);
-    const [isLoading, setIsLoading] = useState(false);
     const userId = useUserData()?.user_id;
     const navigate = useNavigate();
 
     const handleCreatePostChange = (event) => {
+        setIsLoading(false);
+        setError(false);
+
         setCreatePost({
             ...post,
             [event.target.name]: event.target.value,
@@ -82,12 +95,54 @@ function CreateRegisterOrder() {
 
     const handleCreatePost = async (e) => {
         setIsLoading(true);
+
         e.preventDefault();
-        // if (!post.full_name) {
-        //     Toast("error", "All Fields Are Required To Create A Package", "");
-        //     setIsLoading(false);
-        //     return;
-        // }
+        // console.log(
+        //     !post.full_name,
+        //     `--->`,
+        //     !post.phone,
+        //     `--->`,
+        //     !post.governorate,
+        //     `--->`,
+        //     !post.city,
+        //     `--->`,
+
+        //     `--->`,
+        //     !post.area,
+        //     `--->`,
+        //     !post.typeunit,
+        //     `--->`,
+        //     !post.requiredworks,
+        //     `--->`,
+        //     !post.skills,
+        //     `--->`,
+        //     !post.conditionoftheunit,
+        //     `--->`,
+        //     !post.space,
+        //     `--->`,
+        //     !post.numberroom,
+        //     `--->`,
+        //     !post.numberbathroom
+        // );
+
+        if (
+            !post.full_name ||
+            !post.phone ||
+            !post.governorate ||
+            !post.city ||
+            !post.area ||
+            !post.typeunit ||
+            !post.requiredworks ||
+            !post.skills ||
+            !post.conditionoftheunit ||
+            !post.space ||
+            !post.numberroom ||
+            !post.numberbathroom
+        ) {
+            Toast("error", "All Fields Are Required To Create A Package", "");
+            setIsLoading(false);
+            return;
+        }
 
         console.log(post.category);
 
@@ -122,6 +177,7 @@ function CreateRegisterOrder() {
         formdata.append("numberbathroom", post.numberbathroom);
 
         formdata.append("description", post.description);
+        formdata.append("package", post.package);
 
         // formdata.append("title", post.title);
         // formdata.append("price_per_unit", post.price_per_unit);
@@ -143,7 +199,7 @@ function CreateRegisterOrder() {
             setIsLoading(false);
             Swal.fire({
                 icon: "success",
-                title: "Package created successfully.",
+                title: "Order created successfully.",
             });
             Toast("success", "Order Created successfully!");
             navigate(`/${App_User}/profile`);
@@ -193,7 +249,7 @@ function CreateRegisterOrder() {
                                     //         ? profileData?.full_name
                                     //         : ""
                                     // }
-                                    required=""
+                                    required
                                 />
                             </div>
 
@@ -215,7 +271,7 @@ function CreateRegisterOrder() {
                                     //         ? profileData?.phone
                                     //         : ""
                                     // }
-                                    required=""
+                                    required
                                 />
                             </div>
 
@@ -286,7 +342,7 @@ function CreateRegisterOrder() {
                                 >
                                     <option value="">Select a type</option>
                                     <option value="Apartment">Apartment</option>
-                                    <option value="FullHouse">
+                                    <option value="Full House">
                                         Full House
                                     </option>
                                     <option value="Villa">Villa</option>
@@ -294,7 +350,7 @@ function CreateRegisterOrder() {
                                     <option value="Administrative">
                                         Administrative
                                     </option>
-                                    <option value="CommercialShop">
+                                    <option value="Commercial Shop">
                                         Commercial Shop
                                     </option>
 
@@ -324,10 +380,10 @@ function CreateRegisterOrder() {
                                     required
                                 >
                                     <option value="">Select a required</option>
-                                    <option value="Executiononly">
+                                    <option value="Execution only">
                                         Execution only
                                     </option>
-                                    <option value="ExecutionandDesign">
+                                    <option value="Execution and Design">
                                         Executionand Design
                                     </option>
                                     <option value="Supervision">
@@ -359,10 +415,10 @@ function CreateRegisterOrder() {
                                     <option value="Quickexecution">
                                         Quick execution
                                     </option>
-                                    <option value="Materialprovision">
+                                    <option value="Material provision">
                                         Material provision
                                     </option>
-                                    <option value="Innovativedesigns">
+                                    <option value="Innovative designs">
                                         Innovative designs
                                     </option>
                                     {/* {categoryList?.map((category, index) => (
@@ -466,6 +522,22 @@ function CreateRegisterOrder() {
                             </div>
 
                             <div className="mb-3">
+                                <label className="form-label" htmlFor="package">
+                                    Package:
+                                </label>
+                                <input
+                                    type="text"
+                                    name="package"
+                                    className="form-control"
+                                    id="package"
+                                    value={post.package}
+                                    onChange={handleCreatePostChange}
+                                    placeholder={`${packageA}`}
+                                    disabled
+                                />
+                            </div>
+
+                            <div className="mb-3">
                                 <label
                                     className="form-label"
                                     htmlFor="description"
@@ -484,6 +556,13 @@ function CreateRegisterOrder() {
                                 />
                             </div>
 
+                            {isLoading && <LoadingIndicator />}
+                            {error && (
+                                <div className="Error alert alert-danger">
+                                    {error}
+                                </div>
+                            )}
+
                             <div className="buttons">
                                 <Button className="btn" type="submit">
                                     Add New Order
@@ -493,7 +572,7 @@ function CreateRegisterOrder() {
                                     className="btn"
                                     type="button"
                                     onClick={() => {
-                                        navigate(`/${App_User}/profile`);
+                                        navigate(`/`);
                                     }}
                                 >
                                     Cancel

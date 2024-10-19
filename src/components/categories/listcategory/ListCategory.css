@@ -25,6 +25,7 @@
 @media (max-width: 767px) {
     .listcategory .item {
         flex-direction: column;
+        justify-content: center;
     }
 }
 
